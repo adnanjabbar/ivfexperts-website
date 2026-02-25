@@ -2,7 +2,7 @@
 <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
 <div>
 <h3 class="font-bold mb-4">IVF Experts</h3>
-<p>Advanced fertility & IVF care serving patients across Pakistan and overseas Pakistanis.</p>
+<p>Advanced fertility & IVF care serving Pakistan and overseas Pakistanis.</p>
 </div>
 <div>
 <h3 class="font-bold mb-4">Quick Links</h3>
