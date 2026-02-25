@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $stmt = $conn->prepare("INSERT INTO semen_reports
     (hospital_id, report_number, patient_name, patient_age, abstinence_days,
-     volume, ph, sperm_count, progressive, non_progressive, immotile,
+     volume, ph, concentration, progressive, non_progressive, immotile,
      morphology, total_count, total_motility,
      vitality, round_cells, wbc, rbc,
      abstinence, collection_method, appearance,
@@ -111,57 +111,122 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <hr>
 
-<h2 class="font-semibold text-lg">Macroscopic Examination</h2>
+<h2 class="font-semibold text-lg mt-6">Macroscopic Examination</h2>
 
-<div class="grid grid-cols-3 gap-6">
+<div class="grid grid-cols-3 gap-4 text-sm font-semibold border-b pb-2">
+    <div>Parameter</div>
+    <div>Result</div>
+    <div>WHO 6 Reference</div>
+</div>
 
-<input id="volume" type="number" step="0.01" name="volume" placeholder="Volume (mL)" class="border p-3 rounded">
-<input id="ph" type="number" step="0.01" name="ph" placeholder="pH" class="border p-3 rounded">
+<div class="grid grid-cols-3 gap-4 items-center mt-2">
+    <div>Volume (mL)</div>
+    <input id="volume" type="number" step="0.01" name="volume" class="border p-2 rounded">
+    <div>≥ 1.4 mL</div>
+</div>
 
-<input type="text" name="appearance" placeholder="Appearance" class="border p-3 rounded">
-<input type="text" name="liquefaction" placeholder="Liquefaction Time" class="border p-3 rounded">
-<input type="text" name="viscosity" placeholder="Viscosity" class="border p-3 rounded">
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>pH</div>
+    <input id="ph" type="number" step="0.01" name="ph" class="border p-2 rounded">
+    <div>≥ 7.2</div>
+</div>
 
-<input type="text" name="collection_method" placeholder="Collection Method" class="border p-3 rounded">
-<input type="text" name="abstinence" placeholder="Abstinence Period (text)" class="border p-3 rounded">
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>Liquefaction Time</div>
+    <input type="text" name="liquefaction" class="border p-2 rounded">
+    <div>Complete within 60 min</div>
+</div>
 
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>Appearance</div>
+    <input type="text" name="appearance" class="border p-2 rounded">
+    <div>Gray opalescent</div>
+</div>
+
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>Viscosity</div>
+    <input type="text" name="viscosity" class="border p-2 rounded">
+    <div>Normal</div>
 </div>
 
 <hr>
 
-<h2 class="font-semibold text-lg">Sperm Concentration & Motility</h2>
+<h2 class="font-semibold text-lg mt-8">Sperm Concentration & Motility</h2>
 
-<div class="grid grid-cols-3 gap-6">
+<div class="grid grid-cols-3 gap-4 text-sm font-semibold border-b pb-2">
+    <div>Parameter</div>
+    <div>Result</div>
+    <div>WHO 6 Reference</div>
+</div>
 
-<input id="concentration" type="number" step="0.01" name="concentration" placeholder="Concentration (M/mL)" class="border p-3 rounded">
+<div class="grid grid-cols-3 gap-4 items-center mt-2">
+    <div>Sperm Concentration (M/mL)</div>
+    <input id="concentration" type="number" step="0.01" name="concentration" class="border p-2 rounded">
+    <div>≥ 16 M/mL</div>
+</div>
 
-<input id="total_count" type="number" step="0.01" name="total_count" placeholder="Total Count (Auto)" readonly class="border p-3 rounded bg-gray-100">
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>Total Sperm Count (Million)</div>
+    <input id="total_count" type="number" step="0.01" name="total_count" readonly class="border p-2 rounded bg-gray-100">
+    <div>≥ 39 Million/ejaculate</div>
+</div>
 
-<input id="progressive" type="number" step="0.01" name="progressive" placeholder="Progressive (%)" class="border p-3 rounded">
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>Progressive Motility (%)</div>
+    <input id="progressive" type="number" step="0.01" name="progressive" class="border p-2 rounded">
+    <div>≥ 30%</div>
+</div>
 
-<input id="non_progressive" type="number" step="0.01" name="non_progressive" placeholder="Non-Progressive (%)" class="border p-3 rounded">
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>Non-Progressive (%)</div>
+    <input id="non_progressive" type="number" step="0.01" name="non_progressive" class="border p-2 rounded">
+    <div>-</div>
+</div>
 
-<input id="immotile" type="number" step="0.01" name="immotile" placeholder="Immotile (%)" readonly class="border p-3 rounded bg-gray-100">
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>Immotile (%)</div>
+    <input id="immotile" type="number" step="0.01" name="immotile" readonly class="border p-2 rounded bg-gray-100">
+    <div>-</div>
+</div>
 
-<input id="total_motility" type="number" step="0.01" name="total_motility" placeholder="Total Motility (%)" readonly class="border p-3 rounded bg-gray-100">
-
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>Total Motility (PR + NP)</div>
+    <input id="total_motility" type="number" step="0.01" name="total_motility" readonly class="border p-2 rounded bg-gray-100">
+    <div>≥ 42%</div>
 </div>
 
 <hr>
 
-<h2 class="font-semibold text-lg">Morphology & Other Cells</h2>
+<h2 class="font-semibold text-lg mt-8">Morphology & Other Cells</h2>
 
-<div class="grid grid-cols-3 gap-6">
+<div class="grid grid-cols-3 gap-4 text-sm font-semibold border-b pb-2">
+    <div>Parameter</div>
+    <div>Result</div>
+    <div>WHO 6 Reference</div>
+</div>
 
-<input id="morphology" type="number" step="0.01" name="morphology" placeholder="Morphology (%)" class="border p-3 rounded">
+<div class="grid grid-cols-3 gap-4 items-center mt-2">
+    <div>Normal Forms (%)</div>
+    <input id="morphology" type="number" step="0.01" name="morphology" class="border p-2 rounded">
+    <div>≥ 4%</div>
+</div>
 
-<input type="number" step="0.01" name="vitality" placeholder="Vitality (%)" class="border p-3 rounded">
-<input type="number" step="0.01" name="round_cells" placeholder="Round Cells (M/mL)" class="border p-3 rounded">
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>Vitality (%)</div>
+    <input type="number" step="0.01" name="vitality" class="border p-2 rounded">
+    <div>≥ 54%</div>
+</div>
 
-<input type="number" step="0.01" name="wbc" placeholder="WBC (M/mL)" class="border p-3 rounded">
-<input type="number" step="0.01" name="rbc" placeholder="RBC (M/mL)" class="border p-3 rounded">
-<input type="text" name="agglutination" placeholder="Agglutination" class="border p-3 rounded">
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>Round Cells (M/mL)</div>
+    <input type="number" step="0.01" name="round_cells" class="border p-2 rounded">
+    <div>&lt; 5 M/mL</div>
+</div>
 
+<div class="grid grid-cols-3 gap-4 items-center">
+    <div>WBC (M/mL)</div>
+    <input type="number" step="0.01" name="wbc" class="border p-2 rounded">
+    <div>&lt; 1 M/mL</div>
 </div>
 
 <button class="bg-teal-600 text-white px-6 py-3 rounded-lg">
