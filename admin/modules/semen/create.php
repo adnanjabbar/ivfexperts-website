@@ -1,8 +1,12 @@
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 <?php
-require("../../../config/db.php");
-require("../../includes/auth.php");
-require("../../includes/functions.php");
-require("../../includes/report_helpers.php");
+require_once __DIR__ . "/../../../config/db.php";
+require_once __DIR__ . "/../../includes/auth.php";
+require_once __DIR__ . "/../../includes/functions.php";
+require_once __DIR__ . "/../../includes/report_helpers.php";
+
 include("../../includes/header.php");
 
 $hospitals = $conn->query("SELECT * FROM hospitals WHERE active=1");
