@@ -67,5 +67,17 @@ items[index].classList.remove('hidden');
 }, 4000);
 </script>
 
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "MedicalBusiness",
+"name": "IVF Experts",
+"url": "https://ivfexperts.pk",
+"telephone": "+923111101483",
+"areaServed": "Pakistan",
+"medicalSpecialty": "Reproductive Medicine"
+}
+</script>
+
 </body>
 </html>

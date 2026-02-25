@@ -191,35 +191,52 @@ Combining laboratory precision with personalized treatment planning, every ferti
 </div>
 </section>
 <!-- ================= SUCCESS JOURNEY TIMELINE ================= -->
- <section class="py-24 bg-white">
-<div class="max-w-6xl mx-auto px-6">
-<h2 class="text-3xl font-bold text-center mb-16">Your Fertility Journey With Us</h2>
+<section class="py-28 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-4xl font-bold text-center mb-20">
+Your Fertility Journey With IVF Experts
+</h2>
 
-<div class="grid md:grid-cols-5 gap-6 text-center">
+<div class="grid md:grid-cols-5 gap-8">
 
-<div>
-<p class="text-xl font-bold text-teal-700">1</p>
-<p class="mt-2 text-gray-600">Detailed Consultation</p>
+<div class="bg-gradient-to-br from-teal-50 to-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300">
+<div class="w-12 h-12 bg-teal-600 text-white flex items-center justify-center rounded-full font-bold mb-6">1</div>
+<h3 class="font-semibold text-lg mb-3">Comprehensive Consultation</h3>
+<p class="text-gray-600 text-sm">
+Detailed medical history review, infertility assessment and goal-oriented treatment discussion.
+</p>
 </div>
 
-<div>
-<p class="text-xl font-bold text-teal-700">2</p>
-<p class="mt-2 text-gray-600">Comprehensive Testing</p>
+<div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300">
+<div class="w-12 h-12 bg-blue-600 text-white flex items-center justify-center rounded-full font-bold mb-6">2</div>
+<h3 class="font-semibold text-lg mb-3">Advanced Diagnostics</h3>
+<p class="text-gray-600 text-sm">
+Hormonal testing, semen analysis, ultrasound, genetic screening and reproductive profiling.
+</p>
 </div>
 
-<div>
-<p class="text-xl font-bold text-teal-700">3</p>
-<p class="mt-2 text-gray-600">Personalized Treatment Plan</p>
+<div class="bg-gradient-to-br from-indigo-50 to-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300">
+<div class="w-12 h-12 bg-indigo-600 text-white flex items-center justify-center rounded-full font-bold mb-6">3</div>
+<h3 class="font-semibold text-lg mb-3">Personalized Treatment Plan</h3>
+<p class="text-gray-600 text-sm">
+Customized IVF, ICSI or IUI protocols tailored to age, diagnosis and reproductive goals.
+</p>
 </div>
 
-<div>
-<p class="text-xl font-bold text-teal-700">4</p>
-<p class="mt-2 text-gray-600">IVF / ICSI Procedure</p>
+<div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300">
+<div class="w-12 h-12 bg-purple-600 text-white flex items-center justify-center rounded-full font-bold mb-6">4</div>
+<h3 class="font-semibold text-lg mb-3">Precision Procedure</h3>
+<p class="text-gray-600 text-sm">
+Embryology lab excellence, controlled stimulation, embryo culture and monitored transfer.
+</p>
 </div>
 
-<div>
-<p class="text-xl font-bold text-teal-700">5</p>
-<p class="mt-2 text-gray-600">Ongoing Support & Monitoring</p>
+<div class="bg-gradient-to-br from-emerald-50 to-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300">
+<div class="w-12 h-12 bg-emerald-600 text-white flex items-center justify-center rounded-full font-bold mb-6">5</div>
+<h3 class="font-semibold text-lg mb-3">Ongoing Support</h3>
+<p class="text-gray-600 text-sm">
+Continuous monitoring, counseling and follow-up for emotional and medical reassurance.
+</p>
 </div>
 
 </div>
