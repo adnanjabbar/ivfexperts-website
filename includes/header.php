@@ -59,19 +59,26 @@ box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-<header class="absolute w-full z-50">
-<div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center text-white">
-<a href="/" class="text-2xl font-bold tracking-tight">IVF Experts</a>
-<nav class="hidden md:flex space-x-8 text-sm font-medium">
-<a href="/" class="hover:text-teal-300">Home</a>
-<a href="/male-infertility/" class="hover:text-teal-300">Male Infertility</a>
-<a href="/female-infertility/" class="hover:text-teal-300">Female Infertility</a>
-<a href="/art-procedures/" class="hover:text-teal-300">ART Procedures</a>
-<a href="/contact/" class="hover:text-teal-300">Contact</a>
+<header class="w-full bg-white shadow-sm fixed top-0 left-0 z-50">
+<div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+<a href="/" class="text-2xl font-bold text-teal-700 tracking-tight">
+IVF Experts
+</a>
+
+<nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-700">
+<a href="/" class="hover:text-teal-600 transition">Home</a>
+<a href="/male-infertility/" class="hover:text-teal-600 transition">Male Infertility</a>
+<a href="/female-infertility/" class="hover:text-teal-600 transition">Female Infertility</a>
+<a href="/art-procedures/" class="hover:text-teal-600 transition">ART Procedures</a>
+<a href="/contact/" class="hover:text-teal-600 transition">Contact</a>
 </nav>
+
 <a href="https://wa.me/923111101483" target="_blank"
-class="bg-green-500 text-white px-5 py-2 rounded-lg text-sm font-semibold shadow-lg hover:scale-105 transition">
+class="bg-green-500 text-white px-5 py-2 rounded-lg text-sm font-semibold shadow hover:scale-105 transition">
 WhatsApp
 </a>
 </div>
+</header>
+
+<div class="h-24"></div>
 </header>

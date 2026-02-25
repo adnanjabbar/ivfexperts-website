@@ -3,34 +3,44 @@ $pageTitle = "Male Infertility Treatment in Pakistan | IVF Experts";
 $metaDescription = "Expert male infertility treatment in Pakistan including low sperm count, azoospermia, DNA fragmentation and advanced ICSI procedures at IVF Experts.";
 include("../includes/header.php");
 ?>
+<!-- ================= HERO WITH BREADCRUMB ================= -->
 
-<!-- ================= BREADCRUMB ================= -->
+<section class="relative overflow-hidden text-white py-28">
 
-<div class="max-w-6xl mx-auto px-6 mt-32 mb-10">
-<nav class="text-sm text-gray-500">
-<a href="/" class="hover:text-teal-600 transition">Home</a>
-<span class="mx-2">›</span>
-<span class="text-gray-700 font-medium">Male Infertility</span>
-</nav>
+<div class="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#0e7490] to-[#1e3a8a]"></div>
+
+<div class="absolute -top-32 -left-32 w-96 h-96 bg-teal-500 rounded-full blur-3xl opacity-30"></div>
+<div class="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-600 rounded-full blur-3xl opacity-30"></div>
+
+<div class="absolute inset-0 opacity-10"
+style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 22px 22px;">
 </div>
 
-<!-- ================= HERO ================= -->
+<div class="relative max-w-6xl mx-auto px-6 text-center">
 
-<section class="bg-gradient-to-br from-teal-700 to-blue-800 text-white py-20">
-<div class="max-w-6xl mx-auto px-6 text-center">
-<h1 class="text-4xl md:text-5xl font-bold mb-6">
+<nav class="text-sm text-white/80 mb-6">
+<a href="/" class="hover:text-white transition">Home</a>
+<span class="mx-2">›</span>
+<span class="font-medium text-white">Male Infertility</span>
+</nav>
+
+<h1 class="text-4xl md:text-5xl font-extrabold mb-6">
 Male Infertility Treatment in Pakistan
 </h1>
-<p class="text-lg max-w-3xl mx-auto">
-Comprehensive diagnosis and advanced treatment options for male infertility including low sperm count, azoospermia, hormonal imbalance and DNA fragmentation.
+
+<p class="text-lg max-w-3xl mx-auto text-gray-200">
+Comprehensive diagnosis and advanced treatment for low sperm count, azoospermia, hormonal imbalance and DNA fragmentation with modern IVF & ICSI solutions.
 </p>
+
 </div>
 </section>
 
 <!-- ================= CONTENT ================= -->
 
-<section class="py-20 bg-white">
-<div class="max-w-5xl mx-auto px-6">
+<section class="py-24 bg-gray-50">
+<div class="max-w-5xl mx-auto px-6 space-y-12">
+
+<div class="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
 
 <h2 class="text-2xl font-bold text-teal-700 mb-4">What is Male Infertility?</h2>
 <p class="mb-8 text-gray-700 leading-relaxed">
