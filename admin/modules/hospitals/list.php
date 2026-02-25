@@ -1,7 +1,8 @@
 <?php
-require("../../../config/db.php");
-require("../../includes/auth.php");
-include("../../includes/header.php");
+require_once $_SERVER['DOCUMENT_ROOT']."/config/db.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/admin/includes/auth.php";
+
+include $_SERVER['DOCUMENT_ROOT']."/admin/includes/header.php";
 
 $result = $conn->query("SELECT * FROM hospitals");
 ?>

@@ -1,6 +1,8 @@
 <?php
-require("../config/db.php");
-include("includes/header.php");
+require_once $_SERVER['DOCUMENT_ROOT']."/config/db.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/admin/includes/auth.php";
+
+include $_SERVER['DOCUMENT_ROOT']."/admin/includes/header.php";
 
 $totalPatients = $conn->query("SELECT COUNT(*) as c FROM patients")->fetch_assoc()['c'] ?? 0;
 $totalReports = $conn->query("SELECT COUNT(*) as c FROM semen_reports")->fetch_assoc()['c'] ?? 0;

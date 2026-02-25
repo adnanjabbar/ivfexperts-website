@@ -1,5 +1,5 @@
 <?php
-require_once("../../config/db.php");
+require_once $_SERVER['DOCUMENT_ROOT'] . "/config/db.php";
 
 /* ==============================
    MR NUMBER GENERATOR
