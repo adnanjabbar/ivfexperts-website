@@ -47,69 +47,78 @@ function abnormal_style($value,$threshold,$type='min'){
 
 /* ---------- TABLE ---------- */
 $html = '
-<table border="1" cellpadding="6">
-<tr style="background-color:#f2f2f2;">
-<th width="40%">Parameter</th>
-<th width="30%">Result</th>
-<th width="30%">WHO 6 Ref</th>
-</tr>
+<style>
+.section-title{
+    font-size:13px;
+    font-weight:bold;
+    border-bottom:1px solid #000;
+    padding-bottom:4px;
+    margin-top:10px;
+}
+.table-clean td{
+    padding:5px 0;
+}
+.abnormal{
+    color:red;
+    font-weight:bold;
+}
+</style>
 
-<tr>
-<td>Volume</td>
-<td style="'.abnormal_style($row['volume'],1.4).'">'.$row['volume'].' mL</td>
-<td>≥ 1.4 mL</td>
-</tr>
-
-<tr>
-<td>Concentration</td>
-<td style="'.abnormal_style($row['concentration'],16).'">'.$row['concentration'].' M/mL</td>
-<td>≥ 16 M/mL</td>
-</tr>
-
-<tr>
-<td>Progressive Motility</td>
-<td style="'.abnormal_style($row['progressive'],30).'">'.$row['progressive'].'%</td>
-<td>≥ 30%</td>
-</tr>
-
-<tr>
-<td>Total Motility</td>
-<td style="'.abnormal_style($row['total_motility'],42).'">'.$row['total_motility'].'%</td>
-<td>≥ 42%</td>
-</tr>
-
-<tr>
-<td>Morphology (Normal Forms)</td>
-<td style="'.abnormal_style($row['morphology'],4).'">'.$row['morphology'].'%</td>
-<td>≥ 4%</td>
-</tr>
-
-<tr>
-<td>Vitality</td>
-<td style="'.abnormal_style($row['vitality'],54).'">'.$row['vitality'].'%</td>
-<td>≥ 54%</td>
-</tr>
-
-<tr>
-<td>WBC</td>
-<td style="'.abnormal_style($row['wbc'],1,"max").'">'.$row['wbc'].' M/mL</td>
-<td>&lt; 1 M/mL</td>
-</tr>
-
-</table>
-
-<br><br>
-
-<b>INTERPRETATION:</b><br>
-<div style="font-size:13px; padding:8px; background-color:#f5f5f5;">
-'.$row['interpretation'].'
+<div style="text-align:center; font-size:16px; font-weight:bold;">
+SEMEN ANALYSIS REPORT
 </div>
 
-<br><br>
+<br>
 
-<b>Doctor:</b> '.$row['doctor_name'].'<br>
-'.$row['designation'].'<br>
-License #: '.$row['license_number'].'
+Hospital: '.$row['hospital_name'].'<br>
+Patient: '.$row['patient_name'].' &nbsp;&nbsp; Age: '.$row['patient_age'].'<br>
+Report #: '.$row['report_number'].'<br><br>
+
+<div class="section-title">MACROSCOPIC EXAMINATION</div>
+<table width="100%" class="table-clean">
+<tr>
+<td width="40%">Volume</td>
+<td width="30%" '.($row['volume']<1.4?'class="abnormal"':'').'>'.$row['volume'].' mL</td>
+<td width="30%">≥ 1.4 mL</td>
+</tr>
+<tr>
+<td>pH</td>
+<td>'.$row['ph'].'</td>
+<td>≥ 7.2</td>
+</tr>
+<tr>
+<td>Liquefaction</td>
+<td>'.$row['liquefaction'].'</td>
+<td>≤ 60 min</td>
+</tr>
+</table>
+
+<div class="section-title">SPERM CONCENTRATION & MOTILITY</div>
+<table width="100%" class="table-clean">
+<tr>
+<td width="40%">Concentration</td>
+<td width="30%" '.($row['concentration']<16?'class="abnormal"':'').'>'.$row['concentration'].' M/mL</td>
+<td width="30%">≥ 16</td>
+</tr>
+<tr>
+<td>Progressive</td>
+<td '.($row['progressive']<30?'class="abnormal"':'').'>'.$row['progressive'].'%</td>
+<td>≥ 30%</td>
+</tr>
+<tr>
+<td>Total Motility</td>
+<td '.($row['total_motility']<42?'class="abnormal"':'').'>'.$row['total_motility'].'%</td>
+<td>≥ 42%</td>
+</tr>
+</table>
+
+<br>
+<b>INTERPRETATION:</b><br>
+'.$row['interpretation'].'
+
+<br><br>
+Doctor: '.$row['doctor_name'].'<br>
+'.$row['designation'].'
 ';
 
 $pdf->writeHTML($html);

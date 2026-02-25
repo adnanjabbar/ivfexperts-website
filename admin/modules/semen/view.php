@@ -22,72 +22,106 @@ if(!$row){
 }
 ?>
 
-<div class="bg-white p-8 rounded-xl shadow">
+<div class="max-w-5xl mx-auto bg-white shadow-xl rounded-2xl p-10">
 
-    <div class="flex justify-between mb-6">
-        <div>
-            <h1 class="text-2xl font-bold">Semen Analysis Report</h1>
-            <p class="text-sm text-gray-500"><?= $row['hospital_name'] ?></p>
-        </div>
-        <div class="text-right">
-            <p><strong>Report #:</strong> <?= $row['report_number'] ?></p>
-            <p><strong>Date:</strong> <?= date("d M Y", strtotime($row['created_at'])) ?></p>
-        </div>
+<!-- HEADER -->
+<div class="border-b pb-6 mb-6">
+    <h1 class="text-2xl font-bold text-center tracking-wide">
+        SEMEN ANALYSIS REPORT
+    </h1>
+
+    <div class="mt-4 text-sm text-gray-700">
+        <p><strong>Hospital:</strong> <?= $row['hospital_name'] ?></p>
+        <p>
+            <strong>Patient:</strong> <?= $row['patient_name'] ?>
+            <span class="ml-8"><strong>Age:</strong> <?= $row['patient_age'] ?></span>
+        </p>
+        <p><strong>Report #:</strong> <?= $row['report_number'] ?></p>
     </div>
+</div>
 
-    <div class="grid grid-cols-2 gap-6 mb-6">
-        <div><strong>Patient:</strong> <?= htmlspecialchars($row['patient_name']) ?></div>
-        <div><strong>Age:</strong> <?= $row['patient_age'] ?></div>
-    </div>
+<!-- MACROSCOPIC -->
+<h2 class="text-lg font-semibold border-b pb-2 mb-3">
+MACROSCOPIC EXAMINATION
+</h2>
 
-    <table class="w-full border text-sm">
-        <thead class="bg-gray-100">
-            <tr>
-                <th class="p-2 border">Parameter</th>
-                <th class="p-2 border">Result</th>
-                <th class="p-2 border">WHO 6 Ref</th>
-            </tr>
-        </thead>
-        <tbody>
-<tr><td>Volume</td><td><?= $row['volume'] ?> mL</td><td>>= 1.4</td></tr>
-<tr><td>pH</td><td><?= $row['ph'] ?></td><td>>= 7.2</td></tr>
-<tr><td>Liquefaction</td><td><?= $row['liquefaction'] ?></td><td><= 60 min</td></tr>
+<table class="w-full text-sm mb-8">
+<tr class="font-semibold border-b">
+<td class="py-2">Parameter</td>
+<td>Result</td>
+<td>WHO 6 Ref</td>
+</tr>
+
+<tr><td>Volume</td><td><?= $row['volume'] ?> mL</td><td>≥ 1.4 mL</td></tr>
+<tr><td>pH</td><td><?= $row['ph'] ?></td><td>≥ 7.2</td></tr>
+<tr><td>Liquefaction</td><td><?= $row['liquefaction'] ?></td><td>≤ 60 min</td></tr>
 <tr><td>Appearance</td><td><?= $row['appearance'] ?></td><td>Gray opalescent</td></tr>
 <tr><td>Viscosity</td><td><?= $row['viscosity'] ?></td><td>Normal</td></tr>
+</table>
 
-<tr><td>Concentration</td><td><?= $row['concentration'] ?> M/mL</td><td>>= 16</td></tr>
-<tr><td>Total Count</td><td><?= $row['total_count'] ?> Million</td><td>>= 39</td></tr>
-<tr><td>Progressive</td><td><?= $row['progressive'] ?>%</td><td>>= 30%</td></tr>
+<!-- CONCENTRATION -->
+<h2 class="text-lg font-semibold border-b pb-2 mb-3">
+SPERM CONCENTRATION & MOTILITY
+</h2>
+
+<table class="w-full text-sm mb-8">
+<tr class="font-semibold border-b">
+<td>Parameter</td>
+<td>Result</td>
+<td>WHO 6th Edition Reference</td>
+</tr>
+
+<tr><td>Concentration</td><td><?= $row['concentration'] ?> M/mL</td><td>≥ 16</td></tr>
+<tr><td>Total Count</td><td><?= $row['total_count'] ?> Million</td><td>≥ 39</td></tr>
+<tr><td>Progressive</td><td><?= $row['progressive'] ?>%</td><td>≥ 30%</td></tr>
 <tr><td>Non Progressive</td><td><?= $row['non_progressive'] ?>%</td><td>-</td></tr>
 <tr><td>Immotile</td><td><?= $row['immotile'] ?>%</td><td>-</td></tr>
-<tr><td>Total Motility</td><td><?= $row['total_motility'] ?>%</td><td>>= 42%</td></tr>
+<tr><td>Total Motility</td><td><?= $row['total_motility'] ?>%</td><td>≥ 42%</td></tr>
+</table>
 
-<tr><td>Morphology</td><td><?= $row['morphology'] ?>%</td><td>>= 4%</td></tr>
-<tr><td>Vitality</td><td><?= $row['vitality'] ?>%</td><td>>= 54%</td></tr>
-<tr><td>Round Cells</td><td><?= $row['round_cells'] ?> M/mL</td><td>< 5</td></tr>
-<tr><td>WBC</td><td><?= $row['wbc'] ?> M/mL</td><td>< 1</td></tr>
+<!-- MORPHOLOGY -->
+<h2 class="text-lg font-semibold border-b pb-2 mb-3">
+MORPHOLOGY & OTHER CELLS
+</h2>
+
+<table class="w-full text-sm mb-8">
+<tr class="font-semibold border-b">
+<td>Parameter</td>
+<td>Result</td>
+<td>WHO 6th Edition Reference</td>
+</tr>
+
+<tr><td>Normal Forms</td><td><?= $row['morphology'] ?>%</td><td>≥ 4%</td></tr>
+<tr><td>Vitality</td><td><?= $row['vitality'] ?>%</td><td>≥ 54%</td></tr>
+<tr><td>Round Cells</td><td><?= $row['round_cells'] ?> M/mL</td><td>&lt; 5</td></tr>
+<tr><td>WBC</td><td><?= $row['wbc'] ?> M/mL</td><td>&lt; 1</td></tr>
 <tr><td>RBC</td><td><?= $row['rbc'] ?></td><td>-</td></tr>
-</tbody>
-    </table>
+</table>
 
-    <div class="mt-6 p-4 bg-gray-100 rounded">
-        <strong>Interpretation:</strong>
-        <div class="mt-2 text-lg font-semibold">
-            <?= $row['interpretation'] ?>
-        </div>
-    </div>
+<!-- INTERPRETATION -->
+<div class="bg-gray-100 p-6 rounded-xl">
+    <h3 class="font-semibold mb-2">INTERPRETATION</h3>
+    <p class="text-lg font-medium"><?= $row['interpretation'] ?></p>
+</div>
 
-    <div class="mt-6 flex gap-4">
-        <a href="pdf.php?id=<?= $row['id'] ?>" 
-           class="bg-green-600 text-white px-4 py-2 rounded">
-           Download PDF
-        </a>
+<!-- DOCTOR -->
+<div class="mt-8 text-sm">
+    <strong>Doctor:</strong> <?= $row['doctor_name'] ?><br>
+    <?= $row['designation'] ?><br>
+    License #: <?= $row['license_number'] ?>
+</div>
 
-        <a href="list.php" 
-           class="bg-gray-500 text-white px-4 py-2 rounded">
-           Back
-        </a>
-    </div>
+<div class="mt-8 flex gap-4">
+    <a href="pdf.php?id=<?= $row['id'] ?>" 
+       class="bg-green-600 text-white px-5 py-2 rounded-lg">
+        Download PDF
+    </a>
+
+    <a href="edit.php?id=<?= $row['id'] ?>" 
+       class="bg-blue-600 text-white px-5 py-2 rounded-lg">
+        Edit Report
+    </a>
+</div>
 
 </div>
 
