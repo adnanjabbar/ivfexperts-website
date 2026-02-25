@@ -1,11 +1,31 @@
 <?php
 session_start();
+require("../config/db.php");
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($_POST['username'] === "admin" && $_POST['password'] === "admin123") {
-        $_SESSION['admin'] = true;
-        header("Location: dashboard.php");
-        exit();
+$error = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $username = trim($_POST["username"]);
+    $password = trim($_POST["password"]);
+
+    $stmt = $conn->prepare("SELECT * FROM admins WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $admin = $result->fetch_assoc();
+
+        if (password_verify($password, $admin["password"])) {
+            $_SESSION["admin"] = $admin["id"];
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            $error = "Invalid password.";
+        }
+    } else {
+        $error = "Invalid username.";
     }
 }
 ?>
@@ -14,32 +34,66 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>IVF Experts Admin Login</title>
+<title>IVF Experts Clinical Login</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gradient-to-br from-slate-900 via-teal-900 to-slate-800 min-h-screen flex items-center justify-center">
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-teal-900 to-blue-900">
 
-<div class="bg-white/10 backdrop-blur-xl p-10 rounded-3xl shadow-2xl w-96 border border-white/20">
+<div class="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden flex">
 
-<h2 class="text-2xl font-bold text-white mb-8 text-center">
-IVF Experts Admin
+<!-- LEFT PANEL -->
+<div class="w-1/2 bg-gradient-to-br from-teal-700 to-blue-800 text-white p-12 flex flex-col justify-center">
+
+<h2 class="text-3xl font-bold mb-6">
+IVF Experts Clinical System
 </h2>
 
-<form method="post" class="space-y-6">
+<p class="text-lg mb-8">
+Secure fertility reporting & patient management platform.
+</p>
 
-<input type="text" name="username" placeholder="Username"
-class="w-full p-3 rounded-xl bg-white/20 text-white placeholder-white/70 border border-white/30 focus:outline-none">
+<ul class="space-y-3 text-sm opacity-90">
+<li>• WHO 6 Semen Analysis Engine</li>
+<li>• Secure Patient Records</li>
+<li>• Automated PDF Reports</li>
+<li>• Digital Signature Integration</li>
+</ul>
 
-<input type="password" name="password" placeholder="Password"
-class="w-full p-3 rounded-xl bg-white/20 text-white placeholder-white/70 border border-white/30 focus:outline-none">
+</div>
 
-<button class="w-full bg-teal-500 hover:bg-teal-600 text-white py-3 rounded-xl font-semibold transition">
-Login
+<!-- RIGHT PANEL -->
+<div class="w-1/2 p-12">
+
+<h2 class="text-2xl font-bold mb-6">Welcome Back</h2>
+
+<?php if($error): ?>
+<div class="bg-red-100 text-red-600 p-3 rounded mb-4">
+<?= $error ?>
+</div>
+<?php endif; ?>
+
+<form method="POST" class="space-y-6">
+
+<div>
+<label class="block text-sm mb-2">Username</label>
+<input type="text" name="username" required
+class="w-full border p-3 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none">
+</div>
+
+<div>
+<label class="block text-sm mb-2">Password</label>
+<input type="password" name="password" required
+class="w-full border p-3 rounded-xl focus:ring-2 focus:ring-teal-500 outline-none">
+</div>
+
+<button class="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-xl font-semibold transition">
+Sign In
 </button>
 
 </form>
 
+</div>
 </div>
 
 </body>
