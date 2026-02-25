@@ -49,27 +49,25 @@ if(!$row){
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="p-2 border">Volume</td>
-                <td class="p-2 border"><?= $row['volume'] ?> mL</td>
-                <td class="p-2 border">≥ 1.4</td>
-            </tr>
-            <tr>
-                <td class="p-2 border">Concentration</td>
-                <td class="p-2 border"><?= $row['concentration'] ?> M/mL</td>
-                <td class="p-2 border">≥ 16</td>
-            </tr>
-            <tr>
-                <td class="p-2 border">Progressive</td>
-                <td class="p-2 border"><?= $row['progressive'] ?> %</td>
-                <td class="p-2 border">≥ 30%</td>
-            </tr>
-            <tr>
-                <td class="p-2 border">Morphology</td>
-                <td class="p-2 border"><?= $row['morphology'] ?> %</td>
-                <td class="p-2 border">≥ 4%</td>
-            </tr>
-        </tbody>
+<tr><td>Volume</td><td><?= $row['volume'] ?> mL</td><td>>= 1.4</td></tr>
+<tr><td>pH</td><td><?= $row['ph'] ?></td><td>>= 7.2</td></tr>
+<tr><td>Liquefaction</td><td><?= $row['liquefaction'] ?></td><td><= 60 min</td></tr>
+<tr><td>Appearance</td><td><?= $row['appearance'] ?></td><td>Gray opalescent</td></tr>
+<tr><td>Viscosity</td><td><?= $row['viscosity'] ?></td><td>Normal</td></tr>
+
+<tr><td>Concentration</td><td><?= $row['concentration'] ?> M/mL</td><td>>= 16</td></tr>
+<tr><td>Total Count</td><td><?= $row['total_count'] ?> Million</td><td>>= 39</td></tr>
+<tr><td>Progressive</td><td><?= $row['progressive'] ?>%</td><td>>= 30%</td></tr>
+<tr><td>Non Progressive</td><td><?= $row['non_progressive'] ?>%</td><td>-</td></tr>
+<tr><td>Immotile</td><td><?= $row['immotile'] ?>%</td><td>-</td></tr>
+<tr><td>Total Motility</td><td><?= $row['total_motility'] ?>%</td><td>>= 42%</td></tr>
+
+<tr><td>Morphology</td><td><?= $row['morphology'] ?>%</td><td>>= 4%</td></tr>
+<tr><td>Vitality</td><td><?= $row['vitality'] ?>%</td><td>>= 54%</td></tr>
+<tr><td>Round Cells</td><td><?= $row['round_cells'] ?> M/mL</td><td>< 5</td></tr>
+<tr><td>WBC</td><td><?= $row['wbc'] ?> M/mL</td><td>< 1</td></tr>
+<tr><td>RBC</td><td><?= $row['rbc'] ?></td><td>-</td></tr>
+</tbody>
     </table>
 
     <div class="mt-6 p-4 bg-gray-100 rounded">
