@@ -109,7 +109,24 @@ function abnormal($value, $threshold, $type = "min"){
 
     return false;
 }
+/* ======================================================
+   WHO 6 SEVERITY SCORING SYSTEM (MILD, MODERATE, SEVERE)
+====================================================== */
 
+function severity_score($data){
+
+    $score = 0;
+
+    if($data['volume'] < 1.4) $score += 1;
+    if($data['concentration'] < 16) $score += 2;
+    if($data['progressive'] < 30) $score += 2;
+    if($data['morphology'] < 4) $score += 1;
+    if($data['vitality'] < 54) $score += 1;
+
+    if($score <=2) return "Mild";
+    if($score <=4) return "Moderate";
+    return "Severe";
+}
 
 /* ======================================================
    WHO 6 REFERENCE LIMITS (CENTRALIZED)
