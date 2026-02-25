@@ -14,7 +14,8 @@ if (!isset($metaDescription)) {
 <title><?= $pageTitle ?></title>
 <meta name="description" content="<?= $metaDescription ?>">
 <link rel="canonical" href="https://ivfexperts.pk<?= $_SERVER['REQUEST_URI']; ?>">
-
+<link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/app.js" defer></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 

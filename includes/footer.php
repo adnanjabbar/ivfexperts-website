@@ -79,5 +79,7 @@ items[index].classList.remove('hidden');
 }
 </script>
 
+<?php include("physician-schema.php"); ?>
+<?php include(__DIR__ . "/physician-schema.php"); ?>
 </body>
 </html>

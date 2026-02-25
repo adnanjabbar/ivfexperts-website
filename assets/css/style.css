@@ -1,0 +1,41 @@
+/* GLOBAL TYPOGRAPHY */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+}
+
+/* HERO GRADIENT */
+.hero-gradient {
+  background: linear-gradient(135deg, #0f172a, #0e7490, #1e3a8a);
+}
+
+/* CARD SYSTEM */
+.card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* BUTTON */
+.btn-primary {
+  background-color: #0e7490;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+}
+.btn-primary:hover {
+  background-color: #155e75;
+}
+
+/* SECTION SPACING */
+.section {
+  padding: 6rem 1rem;
+}
