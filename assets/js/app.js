@@ -8,50 +8,119 @@ document.addEventListener("DOMContentLoaded", function(){
         });
     });
 
-    /* ================= SEMEN INTELLIGENT ENGINE ================= */
+    /* ================= SEMEN WHO6 INTELLIGENT ENGINE ================= */
 
-    function updateMotility() {
+function updateWHOEngine() {
 
-        let progressive = parseFloat(document.getElementById("progressive")?.value) || 0;
-        let nonprog = parseFloat(document.getElementById("non_progressive")?.value) || 0;
+    let volume = parseFloat(document.getElementById("volume")?.value) || 0;
+    let concentration = parseFloat(document.getElementById("concentration")?.value) || 0;
+    let progressive = parseFloat(document.getElementById("progressive")?.value) || 0;
+    let nonprog = parseFloat(document.getElementById("non_progressive")?.value) || 0;
+    let morphology = parseFloat(document.getElementById("morphology")?.value) || 0;
 
-        let immotile = 100 - (progressive + nonprog);
-        if (immotile < 0) immotile = 0;
+    /* ================= CALCULATIONS ================= */
 
-        let immField = document.getElementById("immotile");
-        let totalField = document.getElementById("total_motility");
+    let totalCount = volume * concentration;
+    let totalMotility = progressive + nonprog;
+    let immotile = 100 - totalMotility;
 
-        if (immField) immField.value = immotile.toFixed(2);
-        if (totalField) totalField.value = (progressive + nonprog).toFixed(2);
+    if (immotile < 0) immotile = 0;
 
-        colorField("progressive", progressive, 30);
-        colorField("concentration", parseFloat(document.getElementById("concentration")?.value), 16);
-        colorField("morphology", parseFloat(document.getElementById("morphology")?.value), 4);
-        colorField("volume", parseFloat(document.getElementById("volume")?.value), 1.4);
+    if (document.getElementById("total_count"))
+        document.getElementById("total_count").value = totalCount.toFixed(2);
+
+    if (document.getElementById("total_motility"))
+        document.getElementById("total_motility").value = totalMotility.toFixed(2);
+
+    if (document.getElementById("immotile"))
+        document.getElementById("immotile").value = immotile.toFixed(2);
+
+    /* ================= COLOR VALIDATION ================= */
+
+    colorField("volume", volume, 1.4);
+    colorField("concentration", concentration, 16);
+    colorField("progressive", progressive, 30);
+    colorField("morphology", morphology, 4);
+
+    /* ================= LIVE DIAGNOSIS ================= */
+
+    generateLiveDiagnosis(volume, concentration, progressive, morphology);
+}
+
+/* ================= COLOR ENGINE ================= */
+
+function colorField(id, value, threshold) {
+    let field = document.getElementById(id);
+    if (!field || isNaN(value)) return;
+
+    field.classList.remove("border-red-500","border-green-500","text-red-600","font-semibold");
+
+    if (value < threshold) {
+        field.classList.add("border-red-500","text-red-600","font-semibold");
+    } else {
+        field.classList.add("border-green-500");
     }
+}
 
-    function updateTotalCount() {
-        let conc = parseFloat(document.getElementById("concentration")?.value) || 0;
-        let vol = parseFloat(document.getElementById("volume")?.value) || 0;
+/* ================= LIVE DIAGNOSIS ENGINE ================= */
 
-        let total = conc * vol;
+function generateLiveDiagnosis(volume, concentration, progressive, morphology){
 
-        let totalField = document.getElementById("total_count");
-        if (totalField) totalField.value = total.toFixed(2);
+    let diagnosis = "Normozoospermia";
+
+    if(concentration <= 0){
+        diagnosis = "Azoospermia";
     }
+    else {
 
-    function colorField(id, value, threshold) {
-        let field = document.getElementById(id);
-        if (!field || isNaN(value)) return;
+        let flags = [];
 
-        field.classList.remove("border-red-500","border-green-500","text-red-600","font-semibold");
+        if(volume < 1.4){
+            flags.push("Hypospermia");
+        }
 
-        if (value < threshold) {
-            field.classList.add("border-red-500","text-red-600","font-semibold");
+        if(concentration < 16){
+            if(concentration < 5){
+                flags.push("Severe Oligozoospermia");
+            }
+            else if(concentration < 10){
+                flags.push("Moderate Oligozoospermia");
+            }
+            else{
+                flags.push("Mild Oligozoospermia");
+            }
+        }
+
+        if(progressive < 30){
+            flags.push("Asthenozoospermia");
+        }
+
+        if(morphology < 4){
+            flags.push("Teratozoospermia");
+        }
+
+        if(flags.length === 0){
+            diagnosis = "Normozoospermia";
         } else {
-            field.classList.add("border-green-500");
+            diagnosis = flags.join(", ");
         }
     }
+
+    let box = document.getElementById("diagnosisText");
+    if(box){
+        box.innerHTML = diagnosis;
+    }
+}
+
+/* ================= EVENT BINDING ================= */
+
+["volume","concentration","progressive","non_progressive","morphology"]
+.forEach(id=>{
+    let el = document.getElementById(id);
+    if(el){
+        el.addEventListener("input", updateWHOEngine);
+    }
+});
 
     // Attach listeners only if semen fields exist
     ["progressive","non_progressive","volume","concentration","morphology"].forEach(id => {

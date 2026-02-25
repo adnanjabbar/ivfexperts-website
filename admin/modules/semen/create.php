@@ -21,26 +21,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $patient_age = $_POST['patient_age'] ?? 0;
     $abstinence_days = $_POST['abstinence_days'] ?? 0;
 
-    $volume = $_POST['volume'] ?? 0;
+    $volume = floatval($_POST['volume']);
     $ph = $_POST['ph'] ?? 0;
-    $concentration = $_POST['concentration'] ?? 0; // sperm_count
-    $progressive = $_POST['progressive'] ?? 0;
-    $non_progressive = $_POST['non_progressive'] ?? 0;
-    $immotile = $_POST['immotile'] ?? 0;
-    $morphology = $_POST['morphology'] ?? 0;
-    $total_count = $_POST['total_count'] ?? 0;
-    $total_motility = $_POST['total_motility'] ?? 0;
+    $concentration = floatval($_POST['concentration']);
+    $progressive = floatval($_POST['progressive']);
+    $non_progressive = floatval($_POST['non_progressive']);
+    $immotile = 100 - $total_motility;
+    if($immotile < 0) $immotile = 0;
+    $morphology = floatval($_POST['morphology']);
+    $total_count = $volume * $concentration;
+    $total_motility = $progressive + $non_progressive;
     $vitality = $_POST['vitality'] ?? 0;
     $round_cells = $_POST['round_cells'] ?? 0;
     $wbc = $_POST['wbc'] ?? 0;
     $rbc = $_POST['rbc'] ?? 0;
 
     $interpretation = classify_who6([
-        'volume' => $volume,
-        'concentration' => $concentration,
-        'progressive' => $progressive,
-        'morphology' => $morphology
-    ]);
+    'volume' => $volume,
+    'concentration' => $concentration,
+    'progressive' => $progressive,
+    'total_motility' => $total_motility,
+    'morphology' => $morphology
+]);
 
     $stmt = $conn->prepare("INSERT INTO semen_reports
     (hospital_id, report_number, patient_name, patient_age, abstinence_days,
@@ -229,7 +231,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div>&lt; 1 M/mL</div>
 </div>
 
-<button class="bg-teal-600 text-white px-6 py-3 rounded-lg">
+<!-- ================= LIVE DIAGNOSIS ================= -->
+
+<div id="diagnosisBox" class="mt-6 p-4 rounded-xl bg-gray-100 border">
+    <strong>Live WHO6 Diagnosis:</strong>
+    <div id="diagnosisText" class="mt-2 text-lg font-semibold text-gray-700">
+        Awaiting values...
+    </div>
+</div>
+
+<button class="bg-teal-600 text-white px-6 py-3 rounded-lg mt-4">
 Generate Report
 </button>
 
