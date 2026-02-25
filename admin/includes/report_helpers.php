@@ -1,37 +1,6 @@
 <?php
 
 /* ======================================================
-   REPORT NUMBER GENERATOR
-====================================================== */
-
-function generate_report_number($type){
-
-    $year = date("Y");
-
-    if($type === "semen"){
-        $prefix = "IVF-S-";
-    } elseif($type === "usg"){
-        $prefix = "IVF-USG-";
-    } else {
-        $prefix = "IVF-";
-    }
-
-    global $conn;
-
-    $result = $conn->query("
-        SELECT COUNT(*) as total 
-        FROM semen_reports 
-        WHERE YEAR(created_at) = '$year'
-    ");
-
-    $row = $result->fetch_assoc();
-    $next = str_pad($row['total'] + 1, 4, "0", STR_PAD_LEFT);
-
-    return $prefix.$year."-".$next;
-}
-
-
-/* ======================================================
    WHO 6 CLASSIFICATION ENGINE (CLINICAL GRADE)
 ====================================================== */
 
