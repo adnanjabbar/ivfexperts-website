@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>IVF Experts Clinical System</title>
+<script src="/assets/js/app.js" defer></script>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
