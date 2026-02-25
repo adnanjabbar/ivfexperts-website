@@ -2,13 +2,44 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?= $pageTitle ?? "IVF Experts" ?></title>
-<meta name="description" content="<?= $metaDescription ?? "" ?>">
+
+<title><?= $pageTitle ?? "IVF Experts | Advanced Fertility Treatment in Pakistan" ?></title>
+<meta name="description" content="<?= $metaDescription ?? "IVF Experts provides advanced IVF, ICSI and infertility treatment services across Pakistan and for overseas Pakistanis." ?>">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="Dr. Adnan Jabbar">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://ivfexperts.pk<?= $_SERVER['REQUEST_URI']; ?>">
+
+<!-- Open Graph (WhatsApp / Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="<?= $pageTitle ?? "IVF Experts" ?>">
+<meta property="og:description" content="<?= $metaDescription ?? "" ?>">
+<meta property="og:url" content="https://ivfexperts.pk<?= $_SERVER['REQUEST_URI']; ?>">
+<meta property="og:site_name" content="IVF Experts">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= $pageTitle ?? "IVF Experts" ?>">
+<meta name="twitter:description" content="<?= $metaDescription ?? "" ?>">
+
+<!-- Performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Styles -->
 <link rel="stylesheet" href="/assets/css/style.css">
 <script src="/assets/js/app.js" defer></script>
+
+<!-- Tailwind (Temporary – will remove later for performance optimization) -->
 <script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
