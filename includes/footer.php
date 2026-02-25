@@ -17,5 +17,40 @@
 </div>
 <p class="text-center mt-10 text-gray-400">© 2026 IVF Experts</p>
 </footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalBusiness",
+      "@id": "https://ivfexperts.pk/#organization",
+      "name": "IVF Experts",
+      "url": "https://ivfexperts.pk",
+      "telephone": "+923111101483",
+      "medicalSpecialty": "Reproductive Medicine"
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://ivfexperts.pk/#physician",
+      "name": "Dr. Adnan Jabbar",
+      "jobTitle": "Fertility Specialist & Clinical Embryologist",
+      "medicalSpecialty": "Reproductive Medicine",
+      "worksFor": {
+        "@id": "https://ivfexperts.pk/#organization"
+      },
+      "areaServed": "Pakistan",
+      "knowsAbout": [
+        "IVF",
+        "ICSI",
+        "IUI",
+        "Male Infertility",
+        "Female Infertility",
+        "PGT",
+        "Embryology"
+      ]
+    }
+  ]
+}
+</script>
 </body>
 </html>
