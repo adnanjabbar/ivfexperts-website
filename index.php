@@ -80,31 +80,37 @@ Explore Treatments
 
 </div>
 </section>
-<section class="py-24 bg-white">
-<div class="max-w-6xl mx-auto px-6 text-center">
-<h2 class="text-3xl font-bold mb-12">Complete Infertility Solutions Under One Roof</h2>
+<section class="py-28 bg-gradient-to-br from-teal-700 to-blue-800 text-white text-center">
+<div class="max-w-4xl mx-auto px-6">
+<h2 class="text-4xl font-bold mb-8">
+Every Child Begins With Hope
+</h2>
 
-<div class="grid md:grid-cols-3 gap-10">
+<p class="text-lg mb-10">
+If you have been trying to conceive without success, you are not alone. Let IVF Experts help you understand the cause, explore the right treatment options, and take confident steps toward parenthood.
+</p>
 
-<div class="bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100">
-<h3 class="text-xl font-semibold mb-4">Male Infertility</h3>
-<p>Low sperm count, azoospermia, DNA fragmentation, hormonal imbalance and advanced ICSI solutions.</p>
-</div>
-
-<div class="bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100">
-<h3 class="text-xl font-semibold mb-4">Female Infertility</h3>
-<p>PCOS, endometriosis, blocked tubes, diminished ovarian reserve and age-related fertility decline.</p>
-</div>
-
-<div class="bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100">
-<h3 class="text-xl font-semibold mb-4">Assisted Reproductive Technology</h3>
-<p>IVF, ICSI, IUI, embryo culture, blastocyst transfer and genetic screening.</p>
-</div>
-
-</div>
+<a href="https://wa.me/923111101483" target="_blank"
+class="bg-white text-teal-700 px-10 py-5 rounded-xl font-semibold shadow-2xl hover:scale-105 transition">
+Start Your Fertility Consultation
+</a>
 </div>
 </section>
+<section class="py-24 bg-white">
+<div class="max-w-5xl mx-auto px-6 text-center">
+<h2 class="text-4xl font-bold mb-8">
+Your Journey to Parenthood Matters
+</h2>
 
+<p class="text-lg text-gray-700 leading-relaxed mb-6">
+Infertility is more than a medical condition — it is an emotional journey filled with uncertainty, questions, and silent struggles. Whether you are facing male infertility, female infertility, or unexplained infertility, you deserve clarity, compassion, and expert guidance.
+</p>
+
+<p class="text-lg text-gray-700 leading-relaxed">
+At IVF Experts, we understand that behind every consultation is a couple dreaming of holding their child. Our mission is not only to treat infertility — but to support you every step of the way toward becoming parents.
+</p>
+</div>
+</section>
 <section class="py-24 bg-gray-50">
 <div class="max-w-6xl mx-auto px-6">
 <h2 class="text-3xl font-bold text-center mb-16">
@@ -136,7 +142,21 @@ Why Couples Choose IVF Experts
 </div>
 </div>
 </section>
+<section class="py-24 bg-white">
+<div class="max-w-5xl mx-auto px-6 text-center">
+<h2 class="text-3xl font-bold mb-8">
+Fertility Care for Overseas Pakistanis
+</h2>
 
+<p class="text-lg text-gray-700 leading-relaxed mb-6">
+Many couples living abroad choose to pursue fertility treatment in Pakistan due to personalized care, transparent communication, and coordinated treatment planning.
+</p>
+
+<p class="text-lg text-gray-700 leading-relaxed">
+We provide structured cycle planning, remote consultations, and timeline coordination to support patients traveling from the UK, Middle East, North America, and beyond.
+</p>
+</div>
+</section>
 <section class="bg-teal-700 text-white py-24 text-center">
 <h2 class="text-3xl font-bold mb-6">
 Start Your Journey Toward Parenthood Today
@@ -149,5 +169,72 @@ class="bg-white text-teal-700 px-8 py-4 rounded-lg font-semibold shadow-lg hover
 Chat on WhatsApp
 </a>
 </section>
+<section class="py-24 bg-gray-50">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-16">
+Comprehensive Infertility Diagnosis & Treatment in Pakistan
+</h2>
 
+<div class="grid md:grid-cols-3 gap-10">
+
+<div class="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
+<h3 class="text-xl font-semibold mb-4">Male Infertility Treatment</h3>
+<ul class="space-y-2 text-gray-600 text-sm">
+<li>Low sperm count (Oligospermia)</li>
+<li>Azoospermia evaluation</li>
+<li>DNA fragmentation testing</li>
+<li>Hormonal imbalance correction</li>
+<li>Advanced ICSI procedures</li>
+</ul>
+</div>
+
+<div class="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
+<h3 class="text-xl font-semibold mb-4">Female Infertility Care</h3>
+<ul class="space-y-2 text-gray-600 text-sm">
+<li>PCOS management</li>
+<li>Endometriosis treatment</li>
+<li>Blocked fallopian tubes</li>
+<li>Diminished ovarian reserve</li>
+<li>Age-related infertility</li>
+</ul>
+</div>
+
+<div class="bg-white p-10 rounded-3xl shadow-lg border border-gray-100">
+<h3 class="text-xl font-semibold mb-4">Advanced ART Procedures</h3>
+<ul class="space-y-2 text-gray-600 text-sm">
+<li>IVF (In Vitro Fertilization)</li>
+<li>ICSI (Intracytoplasmic Sperm Injection)</li>
+<li>IUI (Intrauterine Insemination)</li>
+<li>Embryo culture & blastocyst transfer</li>
+<li>Preimplantation genetic testing (PGT)</li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+<section class="py-24 bg-white">
+<div class="max-w-6xl mx-auto px-6 text-center">
+<h2 class="text-3xl font-bold mb-12">Complete Infertility Solutions Under One Roof</h2>
+
+<div class="grid md:grid-cols-3 gap-10">
+
+<div class="bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100">
+<h3 class="text-xl font-semibold mb-4">Male Infertility</h3>
+<p>Low sperm count, azoospermia, DNA fragmentation, hormonal imbalance and advanced ICSI solutions.</p>
+</div>
+
+<div class="bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100">
+<h3 class="text-xl font-semibold mb-4">Female Infertility</h3>
+<p>PCOS, endometriosis, blocked tubes, diminished ovarian reserve and age-related fertility decline.</p>
+</div>
+
+<div class="bg-white p-10 rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-100">
+<h3 class="text-xl font-semibold mb-4">Assisted Reproductive Technology</h3>
+<p>IVF, ICSI, IUI, embryo culture, blastocyst transfer and genetic screening.</p>
+</div>
+
+</div>
+</div>
+</section>
 <?php include("includes/footer.php"); ?>
