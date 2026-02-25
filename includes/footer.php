@@ -27,5 +27,45 @@
 </div>
 </footer>
 
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "MedicalBusiness",
+"name": "IVF Experts",
+"url": "https://ivfexperts.pk",
+"medicalSpecialty": "Reproductive Medicine",
+"areaServed": "Pakistan",
+"telephone": "+923111101483",
+"sameAs": []
+}
+</script>
+<script>
+/* Counter Animation */
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+const updateCount = () => {
+const target = +counter.getAttribute('data-target');
+const count = +counter.innerText;
+const increment = target / 200;
+if(count < target){
+counter.innerText = Math.ceil(count + increment);
+setTimeout(updateCount, 10);
+} else {
+counter.innerText = target;
+}
+};
+updateCount();
+});
+
+/* Testimonial Slider */
+let index = 0;
+const items = document.querySelectorAll('.testimonial-item');
+setInterval(() => {
+items[index].classList.add('hidden');
+index = (index + 1) % items.length;
+items[index].classList.remove('hidden');
+}, 4000);
+</script>
+
 </body>
 </html>

@@ -98,8 +98,133 @@ At IVF Experts, we combine clinical precision with compassionate care. Our goal 
 </p>
 </div>
 </section>
+<!-- ================= DOCTOR CREDIBILITY BLOCK ================= -->
+<section class="py-24 bg-gray-50">
+<div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
+<div>
+<h2 class="text-3xl font-bold mb-6">Led by Clinical Expertise</h2>
+<p class="text-gray-700 mb-4">
+IVF Experts is led by Dr. Adnan Jabbar, Fertility Specialist and Clinical Embryologist with extensive experience in IVF, ICSI, male infertility, and advanced reproductive medicine protocols.
+</p>
+<p class="text-gray-700">
+Combining laboratory precision with personalized treatment planning, every fertility program is tailored to maximize outcomes while maintaining ethical and transparent care.
+</p>
+</div>
 
+<div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
+<h3 class="text-xl font-semibold mb-6">Core Expertise</h3>
+<ul class="space-y-3 text-gray-600">
+<li>✔ Advanced IVF & ICSI Protocol Design</li>
+<li>✔ Male Factor Infertility Management</li>
+<li>✔ Embryo Culture & Blastocyst Optimization</li>
+<li>✔ Genetic Screening Integration (PGT)</li>
+<li>✔ Personalized Ovarian Stimulation Strategies</li>
+</ul>
+</div>
+
+</div>
+</section>
+<!-- ================= ANIMATION BLOCK ================= -->
+ <section class="py-24 bg-white text-center">
+<div class="max-w-6xl mx-auto px-6">
+<h2 class="text-3xl font-bold mb-16">Trusted Across Pakistan & Beyond</h2>
+
+<div class="grid md:grid-cols-4 gap-10">
+
+<div>
+<p class="text-4xl font-extrabold text-teal-700 counter" data-target="1000">0</p>
+<p class="mt-2 text-gray-600">Fertility Consultations</p>
+</div>
+
+<div>
+<p class="text-4xl font-extrabold text-teal-700 counter" data-target="500">0</p>
+<p class="mt-2 text-gray-600">IVF Cycles Planned</p>
+</div>
+
+<div>
+<p class="text-4xl font-extrabold text-teal-700 counter" data-target="20">0</p>
+<p class="mt-2 text-gray-600">Cities Served</p>
+</div>
+
+<div>
+<p class="text-4xl font-extrabold text-teal-700 counter" data-target="15">0</p>
+<p class="mt-2 text-gray-600">Countries Reached</p>
+</div>
+
+</div>
+</div>
+</section>
+<!-- ================= TESTIMONIAL SLIDER================= -->
+<section class="py-24 bg-gray-50">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<h2 class="text-3xl font-bold mb-16">Patient Experiences</h2>
+
+<div class="relative overflow-hidden">
+
+<div id="testimonial-slider" class="transition-all duration-500">
+
+<div class="testimonial-item">
+<p class="text-lg text-gray-700 italic">
+“After years of trying, we finally understood the cause of our infertility. The personalized approach and detailed explanation gave us hope again.”
+</p>
+<p class="mt-6 font-semibold text-teal-700">– Couple from Lahore</p>
+</div>
+
+<div class="testimonial-item hidden">
+<p class="text-lg text-gray-700 italic">
+“Being overseas Pakistanis, we were worried about coordination. The planning was smooth and professional.”
+</p>
+<p class="mt-6 font-semibold text-teal-700">– Family from UK</p>
+</div>
+
+<div class="testimonial-item hidden">
+<p class="text-lg text-gray-700 italic">
+“The clarity in diagnosis and advanced IVF planning made all the difference in our journey.”
+</p>
+<p class="mt-6 font-semibold text-teal-700">– Couple from Karachi</p>
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+<!-- ================= SUCCESS JOURNEY TIMELINE ================= -->
+ <section class="py-24 bg-white">
+<div class="max-w-6xl mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-16">Your Fertility Journey With Us</h2>
+
+<div class="grid md:grid-cols-5 gap-6 text-center">
+
+<div>
+<p class="text-xl font-bold text-teal-700">1</p>
+<p class="mt-2 text-gray-600">Detailed Consultation</p>
+</div>
+
+<div>
+<p class="text-xl font-bold text-teal-700">2</p>
+<p class="mt-2 text-gray-600">Comprehensive Testing</p>
+</div>
+
+<div>
+<p class="text-xl font-bold text-teal-700">3</p>
+<p class="mt-2 text-gray-600">Personalized Treatment Plan</p>
+</div>
+
+<div>
+<p class="text-xl font-bold text-teal-700">4</p>
+<p class="mt-2 text-gray-600">IVF / ICSI Procedure</p>
+</div>
+
+<div>
+<p class="text-xl font-bold text-teal-700">5</p>
+<p class="mt-2 text-gray-600">Ongoing Support & Monitoring</p>
+</div>
+
+</div>
+</div>
+</section>
 <!-- ================= FULL INFERTILITY COVERAGE ================= -->
 
 <section class="py-24 bg-gray-50">
@@ -201,6 +326,37 @@ Clear communication and personalized planning make international fertility treat
 </div>
 </section>
 
+<!-- ================= FAQ SECTION ================= -->
+ <section class="py-24 bg-gray-50">
+<div class="max-w-4xl mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+
+<div class="space-y-6">
+
+<div>
+<h3 class="font-semibold">What is the success rate of IVF in Pakistan?</h3>
+<p class="text-gray-600 mt-2">
+Success rates vary based on age, diagnosis, and embryo quality. Individualized treatment planning improves outcomes.
+</p>
+</div>
+
+<div>
+<h3 class="font-semibold">When should we see a fertility specialist?</h3>
+<p class="text-gray-600 mt-2">
+Couples under 35 should seek help after 12 months of trying. Over 35, evaluation is recommended after 6 months.
+</p>
+</div>
+
+<div>
+<h3 class="font-semibold">Is male infertility treatable?</h3>
+<p class="text-gray-600 mt-2">
+Yes. Many male factor conditions can be managed with medical therapy, surgical intervention, or advanced ICSI procedures.
+</p>
+</div>
+
+</div>
+</div>
+</section>
 
 <!-- ================= FINAL CTA ================= -->
 
