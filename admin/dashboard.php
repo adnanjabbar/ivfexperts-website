@@ -1,40 +1,23 @@
 <?php
 require("../config/db.php");
-require("auth.php");
-require("who6.php");
+include("includes/header.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $name = $_POST['patient_name'];
-    $age = $_POST['patient_age'];
-    $abstinence = $_POST['abstinence_days'];
-    $volume = $_POST['volume'];
-    $count = $_POST['sperm_count'];
-    $motility = $_POST['motility'];
-    $morphology = $_POST['morphology'];
-    $remarks = $_POST['remarks'];
-
-    $interpretation = classify_semen($count, $motility, $morphology);
-
-    $stmt = $conn->prepare("INSERT INTO semen_reports (patient_name, patient_age, abstinence_days, volume, sperm_count, motility, morphology, interpretation, remarks) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("siiidddss", $name, $age, $abstinence, $volume, $count, $motility, $morphology, $interpretation, $remarks);
-    $stmt->execute();
-
-    header("Location: generate_pdf.php?id=" . $stmt->insert_id);
-    exit();
-}
+$totalPatients = $conn->query("SELECT COUNT(*) as c FROM patients")->fetch_assoc()['c'] ?? 0;
+$totalReports = $conn->query("SELECT COUNT(*) as c FROM semen_reports")->fetch_assoc()['c'] ?? 0;
 ?>
 
-<h2>Create Semen Analysis Report</h2>
+<h1 class="text-3xl font-bold mb-8">Dashboard</h1>
 
-<form method="post">
-<input type="text" name="patient_name" placeholder="Patient Name" required><br>
-<input type="number" name="patient_age" placeholder="Age"><br>
-<input type="number" name="abstinence_days" placeholder="Abstinence Days"><br>
-<input type="number" step="0.1" name="volume" placeholder="Volume (ml)"><br>
-<input type="number" step="0.1" name="sperm_count" placeholder="Sperm Count (million/ml)"><br>
-<input type="number" step="0.1" name="motility" placeholder="Total Motility (%)"><br>
-<input type="number" step="0.1" name="morphology" placeholder="Normal Morphology (%)"><br>
-<textarea name="remarks" placeholder="Doctor Remarks"></textarea><br>
-<button type="submit">Generate Report</button>
-</form>
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-white p-6 rounded-xl shadow">
+<h2 class="text-xl font-semibold">Total Patients</h2>
+<p class="text-3xl mt-2"><?= $totalPatients ?></p>
+</div>
+
+<div class="bg-white p-6 rounded-xl shadow">
+<h2 class="text-xl font-semibold">Total Semen Reports</h2>
+<p class="text-3xl mt-2"><?= $totalReports ?></p>
+</div>
+</div>
+
+<?php include("includes/footer.php"); ?>
