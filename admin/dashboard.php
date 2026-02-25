@@ -6,18 +6,18 @@ $totalPatients = $conn->query("SELECT COUNT(*) as c FROM patients")->fetch_assoc
 $totalReports = $conn->query("SELECT COUNT(*) as c FROM semen_reports")->fetch_assoc()['c'] ?? 0;
 ?>
 
-<h1 class="text-3xl font-bold mb-8">Dashboard</h1>
+<div class="grid grid-cols-2 gap-8">
 
-<div class="grid grid-cols-2 gap-6">
-<div class="bg-white p-6 rounded-xl shadow">
-<h2 class="text-xl font-semibold">Total Patients</h2>
-<p class="text-3xl mt-2"><?= $totalPatients ?></p>
+<div class="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition">
+<h3 class="text-gray-500 text-sm">Total Patients</h3>
+<p class="text-4xl font-bold text-teal-600 mt-3"><?= $totalPatients ?></p>
 </div>
 
-<div class="bg-white p-6 rounded-xl shadow">
-<h2 class="text-xl font-semibold">Total Semen Reports</h2>
-<p class="text-3xl mt-2"><?= $totalReports ?></p>
+<div class="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition">
+<h3 class="text-gray-500 text-sm">Total Semen Reports</h3>
+<p class="text-4xl font-bold text-teal-600 mt-3"><?= $totalReports ?></p>
 </div>
+
 </div>
 
 <?php include("includes/footer.php"); ?>
