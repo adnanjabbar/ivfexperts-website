@@ -11,43 +11,7 @@
 
 <div class="flex min-h-screen">
 
-<!-- SIDEBAR -->
-<aside class="w-72 bg-slate-900 text-white flex flex-col shadow-xl">
-
-<div class="p-6 border-b border-slate-700">
-<h2 class="text-2xl font-bold">IVF Experts</h2>
-<p class="text-sm text-slate-400">Clinical Dashboard</p>
-</div>
-
-<nav class="flex-1 p-6 space-y-3 text-sm">
-
-<a href="dashboard.php" class="block px-4 py-3 rounded-lg hover:bg-slate-700 transition">
-📊 Dashboard
-</a>
-
-<a href="patients.php" class="block px-4 py-3 rounded-lg hover:bg-slate-700 transition">
-👤 Patients
-</a>
-
-<a href="create_semen_report.php" class="block px-4 py-3 rounded-lg hover:bg-slate-700 transition">
-🧪 Semen Reports
-</a>
-
-<a href="settings.php" class="block px-4 py-3 rounded-lg hover:bg-slate-700 transition">
-⚙ Settings
-</a>
-
-<a href="logout.php" class="block px-4 py-3 rounded-lg hover:bg-red-600 transition">
-🚪 Logout
-</a>
-
-</nav>
-
-<div class="p-6 border-t border-slate-700 text-xs text-slate-400">
-© <?= date("Y") ?> IVF Experts
-</div>
-
-</aside>
+<?php include("sidebar.php"); ?>
 
 <!-- MAIN AREA -->
 <div class="flex-1">
