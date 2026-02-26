@@ -110,8 +110,8 @@ include("includes/header.php");
                     </div>
                 </div>
             </div>
-
-            <!-- Shared CTAs (always visible, no jump) -->
+        </div>
+<!-- Shared CTAs (always visible, no jump) -->
             <div class="flex flex-wrap gap-5 mt-8 relative z-20">
                 <a href="/contact/" class="btn-primary px-8 py-4 text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition">Book Consultation</a>
                 <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I%20would%20like%20to%20discuss%20my%20options" 
@@ -122,8 +122,6 @@ include("includes/header.php");
                     Chat on WhatsApp
                 </a>
             </div>
-        </div>
-
         <!-- Right: Static services card -->
         <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-xl p-8 rounded-2xl lg:self-start">
             <h3 class="text-2xl font-bold text-teal-700 mb-6">Core Services</h3>
