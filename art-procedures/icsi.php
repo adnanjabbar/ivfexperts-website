@@ -4,19 +4,30 @@ $metaDescription = "ICSI treatment in Lahore for severe male factor infertility,
 include("../includes/header.php");
 ?>
 
-<section class="section-lg bg-white fade-in">
+<section class="page-hero section-md bg-white border-b border-gray-100">
 <div class="max-w-5xl mx-auto px-6">
 
-<h1 class="text-4xl md:text-5xl font-extrabold mb-8">
-Intracytoplasmic Sperm Injection (ICSI) in Lahore
+<h1 class="mb-6">
+ICSI Treatment in Lahore
 </h1>
 
-<p class="text-lg text-gray-700 leading-relaxed mb-6">
-Intracytoplasmic Sperm Injection (ICSI) is an advanced assisted reproductive technique in which a single sperm is directly injected into the oocyte to facilitate fertilization.
+<p class="text-gray-600 text-lg max-w-3xl">
+Intracytoplasmic Sperm Injection (ICSI) is recommended in severe male factor infertility and fertilization failure.
 </p>
 
-<p class="text-lg text-gray-700 leading-relaxed">
-ICSI is primarily indicated in severe male factor infertility and cases of previous fertilization failure.
+</div>
+</section>
+<section class="section-lg bg-white">
+<div class="content max-w-4xl mx-auto px-6">
+
+<h2>What Is ICSI?</h2>
+<p>
+ICSI is a laboratory technique where a single sperm is injected directly into the oocyte...
+</p>
+
+<h2>When Is ICSI Recommended?</h2>
+<p>
+ICSI is considered in cases of severe oligospermia, azoospermia with retrieval...
 </p>
 
 </div>
