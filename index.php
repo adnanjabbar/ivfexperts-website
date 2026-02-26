@@ -1,6 +1,13 @@
 <?php
-$pageTitle = "Fertility Specialist in Lahore | IVF, ICSI & Infertility Treatment Pakistan";
-$metaDescription = "Expert Fertility Consultant & Clinical Embryologist in Lahore offering IVF, ICSI, IUI, and compassionate care for male/female infertility – serving Pakistan and international patients.";
+// Required variables for header.php — define them here!
+$pageTitle       = "Best Fertility Clinic in Lahore | IVF, ICSI, IUI & PGT – Dr. Adnan Jabbar";
+$metaDescription = "Leading fertility specialist in Lahore offering IVF, ICSI, IUI, PGT, male & female infertility treatment. Personalized, evidence-based care for Pakistan & international patients.";
+$currentUrl      = "https://ivfexperts.pk" . $_SERVER['REQUEST_URI'];
+$breadcrumbs     = [ // optional – can be empty
+    ['name' => 'Home', 'url' => '/']
+];
+
+// Now include header
 include("includes/header.php");
 ?>
 
