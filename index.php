@@ -4,116 +4,122 @@ $metaDescription = "Expert Fertility Consultant & Clinical Embryologist in Lahor
 include("includes/header.php");
 ?>
 
-<!-- HERO with Fixed Rotating Slides (Improved Fade Carousel) -->
+<!-- HERO with Stable Rotating Slides (Fixed Layout + No Overlap) -->
 <section class="relative min-h-[80vh] flex items-center overflow-hidden bg-gradient-to-br from-teal-50 via-white to-emerald-50/30">
 
     <!-- Soft shared background accents -->
     <div class="absolute inset-0 bg-gradient-to-br from-teal-100/20 to-transparent pointer-events-none"></div>
     <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200/25 rounded-full blur-3xl pointer-events-none"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center w-full">
+    <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
 
-        <!-- Left: Rotating content area -->
-        <div class="relative space-y-8 min-h-[400px] lg:min-h-[500px]">
+        <!-- Left column: Rotating content + fixed CTAs below -->
+        <div class="flex flex-col justify-between h-full min-h-[420px] lg:min-h-[520px]">
 
-            <!-- Slide 1: General Expertise -->
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10 pointer-events-auto">
-                <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                    Hope. Clarity.<br>Parenthood.
-                </h1>
-                <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mt-6 max-w-3xl">
-                    Dual-trained in medicine and embryology — offering precise, ethical fertility care in Lahore with genuine support.
-                </p>
-                <div class="mt-6 inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl shadow-md border border-teal-100">
-                    <svg class="w-10 h-10 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <div>
-                        <p class="text-base font-semibold text-gray-900">Unique Dual Expertise</p>
-                        <p class="text-sm text-gray-600">Clinician + Embryologist</p>
+            <!-- Rotating slides container -->
+            <div class="relative flex-grow space-y-6 lg:space-y-8">
+
+                <!-- Slide 1 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10 pointer-events-auto">
+                    <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
+                        Hope. Clarity.<br>Parenthood.
+                    </h1>
+                    <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mt-6 max-w-3xl">
+                        Dual-trained in medicine and embryology — offering precise, ethical fertility care in Lahore with genuine support.
+                    </p>
+                    <div class="mt-6 inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl shadow-md border border-teal-100">
+                        <svg class="w-10 h-10 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div>
+                            <p class="text-base font-semibold text-gray-900">Unique Dual Expertise</p>
+                            <p class="text-sm text-gray-600">Clinician + Embryologist</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0 pointer-events-none">
+                    <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
+                        Male Infertility?<br>We Understand.
+                    </h1>
+                    <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mt-6 max-w-3xl">
+                        Specialized assessment and treatments for low count, azoospermia, DNA issues — restoring possibilities with care.
+                    </p>
+                    <div class="mt-6 inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl shadow-md border border-teal-100">
+                        <svg class="w-10 h-10 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        <div>
+                            <p class="text-base font-semibold text-gray-900">Male-Focused Solutions</p>
+                            <p class="text-sm text-gray-600">ICSI, retrieval & testing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0 pointer-events-none">
+                    <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
+                        Female Fertility<br>Support in Lahore
+                    </h1>
+                    <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mt-6 max-w-3xl">
+                        Personalized protocols for PCOS, low reserve, endometriosis — gentle, effective paths forward.
+                    </p>
+                    <div class="mt-6 inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl shadow-md border border-teal-100">
+                        <svg class="w-10 h-10 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <div>
+                            <p class="text-base font-semibold text-gray-900">Female-Centered Care</p>
+                            <p class="text-sm text-gray-600">Ovulation & reserve focus</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0 pointer-events-none">
+                    <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
+                        IVF & ICSI<br>Done Right
+                    </h1>
+                    <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mt-6 max-w-3xl">
+                        Advanced ART only when truly needed — with full transparency and optimal protocols.
+                    </p>
+                    <div class="mt-6 inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl shadow-md border border-teal-100">
+                        <svg class="w-10 h-10 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                        <div>
+                            <p class="text-base font-semibold text-gray-900">ART Expertise</p>
+                            <p class="text-sm text-gray-600">Evidence-based & ethical</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0 pointer-events-none">
+                    <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
+                        Compassion First<br>Your Story Matters
+                    </h1>
+                    <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mt-6 max-w-3xl">
+                        Beyond science — emotional support, transparency, and respect at every moment of your journey.
+                    </p>
+                    <div class="mt-6 inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl shadow-md border border-teal-100">
+                        <svg class="w-10 h-10 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                        <div>
+                            <p class="text-base font-semibold text-gray-900">Empathetic Guidance</p>
+                            <p class="text-sm text-gray-600">Heart-centered fertility care</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 2: Male Focus -->
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0 pointer-events-none">
-                <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                    Male Infertility?<br>We Understand.
-                </h1>
-                <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mt-6 max-w-3xl">
-                    Specialized assessment and treatments for low count, azoospermia, DNA issues — restoring possibilities with care.
-                </p>
-                <div class="mt-6 inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl shadow-md border border-teal-100">
-                    <svg class="w-10 h-10 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                    <div>
-                        <p class="text-base font-semibold text-gray-900">Male-Focused Solutions</p>
-                        <p class="text-sm text-gray-600">ICSI, retrieval & testing</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3: Female Focus -->
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0 pointer-events-none">
-                <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                    Female Fertility<br>Support in Lahore
-                </h1>
-                <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mt-6 max-w-3xl">
-                    Personalized protocols for PCOS, low reserve, endometriosis — gentle, effective paths forward.
-                </p>
-                <div class="mt-6 inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl shadow-md border border-teal-100">
-                    <svg class="w-10 h-10 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                    <div>
-                        <p class="text-base font-semibold text-gray-900">Female-Centered Care</p>
-                        <p class="text-sm text-gray-600">Ovulation & reserve focus</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 4: ART Focus -->
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0 pointer-events-none">
-                <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                    IVF & ICSI<br>Done Right
-                </h1>
-                <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mt-6 max-w-3xl">
-                    Advanced ART only when truly needed — with full transparency and optimal protocols.
-                </p>
-                <div class="mt-6 inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl shadow-md border border-teal-100">
-                    <svg class="w-10 h-10 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                    </svg>
-                    <div>
-                        <p class="text-base font-semibold text-gray-900">ART Expertise</p>
-                        <p class="text-sm text-gray-600">Evidence-based & ethical</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 5: Compassion Focus -->
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0 pointer-events-none">
-                <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                    Compassion First<br>Your Story Matters
-                </h1>
-                <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mt-6 max-w-3xl">
-                    Beyond science — emotional support, transparency, and respect at every moment of your journey.
-                </p>
-                <div class="mt-6 inline-flex items-center gap-4 bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl shadow-md border border-teal-100">
-                    <svg class="w-10 h-10 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                    </svg>
-                    <div>
-                        <p class="text-base font-semibold text-gray-900">Empathetic Guidance</p>
-                        <p class="text-sm text-gray-600">Heart-centered fertility care</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-<!-- Shared CTAs (always visible, no jump) -->
-            <div class="flex flex-wrap gap-5 mt-8 relative z-20">
-                <a href="/contact/" class="btn-primary px-8 py-4 text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition">Book Consultation</a>
+            <!-- Fixed CTAs – always at the bottom, no overlap -->
+            <div class="flex flex-wrap gap-5 mt-8 lg:mt-10">
+                <a href="/contact/" class="btn-primary px-8 py-4 text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition">
+                    Book Consultation
+                </a>
                 <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I%20would%20like%20to%20discuss%20my%20options" 
                    class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-7 py-4 rounded-lg font-medium text-base lg:text-lg shadow-lg transition">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -122,6 +128,8 @@ include("includes/header.php");
                     Chat on WhatsApp
                 </a>
             </div>
+        </div>
+
         <!-- Right: Static services card -->
         <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-xl p-8 rounded-2xl lg:self-start">
             <h3 class="text-2xl font-bold text-teal-700 mb-6">Core Services</h3>
@@ -150,12 +158,12 @@ include("includes/header.php");
         </div>
     </div>
 
-    <!-- Improved Rotation Script -->
+    <!-- Rotation Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const slides = document.querySelectorAll('.hero-slide');
             let current = 0;
-            const interval = 4500; // 4.5 seconds per slide
+            const interval = 4500;
 
             function showSlide(index) {
                 slides.forEach((slide, i) => {
@@ -169,20 +177,18 @@ include("includes/header.php");
                 });
             }
 
-            // Show first slide immediately
             showSlide(current);
 
-            // Auto-rotate
             const rotator = setInterval(() => {
                 current = (current + 1) % slides.length;
                 showSlide(current);
             }, interval);
 
-            // Optional: Pause on hover (user-friendly)
-            const heroArea = document.querySelector('.hero-slide').parentElement;
-            heroArea.addEventListener('mouseenter', () => clearInterval(rotator));
-            heroArea.addEventListener('mouseleave', () => {
-                clearInterval(rotator); // prevent multiple timers
+            // Pause rotation on hover (optional but user-friendly)
+            const leftColumn = document.querySelector('.flex-col.justify-between');
+            leftColumn.addEventListener('mouseenter', () => clearInterval(rotator));
+            leftColumn.addEventListener('mouseleave', () => {
+                clearInterval(rotator);
                 const newRotator = setInterval(() => {
                     current = (current + 1) % slides.length;
                     showSlide(current);
