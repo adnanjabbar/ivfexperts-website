@@ -61,9 +61,12 @@ IVF Experts
 Male Infertility
 </a>
 
-<div class="absolute left-1/2 -translate-x-1/2 top-full w-[900px] max-w-[95vw] bg-white shadow-2xl border border-gray-200 rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 mt-4">
-<div class="grid grid-cols-3 gap-10 p-10">
+<div class="absolute left-1/2 -translate-x-1/2 top-full pt-6 w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
 
+<div class="absolute inset-x-0 -top-6 h-6 bg-transparent"></div>
+
+<div class="bg-white shadow-2xl border border-gray-200 rounded-2xl">
+<div class="grid grid-cols-3 gap-10 p-10">
 <div>
 <h4 class="font-bold text-gray-900 mb-4">Overview</h4>
 <p class="text-gray-600 text-sm mb-4">
@@ -103,7 +106,9 @@ Learn More →
 Female Infertility
 </a>
 
-<div class="absolute left-1/2 -translate-x-1/2 top-full w-[900px] max-w-[95vw] bg-white shadow-2xl border border-gray-200 rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 mt-4">
+<div class="absolute left-1/2 -translate-x-1/2 top-full pt-6 w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
+
+<div class="absolute inset-x-0 -top-6 h-6 bg-transparent"></div>
 
 <div class="grid grid-cols-3 gap-10 p-10">
 
@@ -146,8 +151,11 @@ Learn More →
 ART Procedures
 </a>
 
-<div class="absolute left-1/2 -translate-x-1/2 top-full w-[900px] max-w-[95vw] bg-white shadow-2xl border border-gray-200 rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 mt-4">
+<div class="absolute left-1/2 -translate-x-1/2 top-full pt-6 w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
 
+<div class="absolute inset-x-0 -top-6 h-6 bg-transparent"></div>
+
+<div class="bg-white shadow-2xl border border-gray-200 rounded-2xl">
 <div class="grid grid-cols-3 gap-10 p-10">
 
 <div>
