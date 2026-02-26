@@ -1,89 +1,124 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-const texts = [
-"Advanced IVF & ICSI Treatment in Lahore",
-"Personalized Fertility Care Across Pakistan",
-"Male & Female Infertility Expertise",
-"Teleconsultations for Overseas Pakistanis"
-];
-// Counter animation
-const counters = document.querySelectorAll(".counter");
+    /* ===============================
+       ROTATING HERO TEXT
+    =============================== */
 
-counters.forEach(counter => {
-    const updateCount = () => {
-        const target = +counter.getAttribute("data-target");
-        const count = +counter.innerText;
-        const increment = target / 50;
+    const texts = [
+        "Advanced IVF & ICSI Treatment in Lahore",
+        "Personalized Fertility Care Across Pakistan",
+        "Male & Female Infertility Expertise",
+        "Teleconsultations for Overseas Pakistanis"
+    ];
 
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(updateCount, 40);
-        } else {
-            counter.innerText = target + "+";
-        }
-    };
+    let index = 0;
+    const rotating = document.getElementById("rotating-text");
 
-    updateCount();
-});
-// Sticky shrink header
+    if (rotating) {
+        setInterval(function () {
+            rotating.style.opacity = 0;
+
+            setTimeout(function () {
+                index = (index + 1) % texts.length;
+                rotating.innerText = texts[index];
+                rotating.style.opacity = 1;
+            }, 400);
+
+        }, 4000);
+    }
+
+    /* ===============================
+       STICKY HEADER SHADOW
+    =============================== */
+
     const header = document.querySelector("header");
 
-    window.addEventListener("scroll", function() {
-        if (window.scrollY > 80) {
-            header.classList.add("header-shrink");
-        } else {
-            header.classList.remove("header-shrink");
-        }
-    });
-
-    // Fade in on scroll
-    const faders = document.querySelectorAll(".fade-in");
-
-    const appearOptions = {
-        threshold: 0.15
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add("appear");
-            observer.unobserve(entry.target);
+    if (header) {
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 80) {
+                header.classList.add("header-shrink");
+            } else {
+                header.classList.remove("header-shrink");
+            }
         });
-    }, appearOptions);
+    }
 
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
+    /* ===============================
+       FADE-IN ON SCROLL
+    =============================== */
+
+    const fadeElements = document.querySelectorAll(".fade-in");
+
+    if ("IntersectionObserver" in window && fadeElements.length > 0) {
+
+        const observer = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("appear");
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        fadeElements.forEach(function (el) {
+            observer.observe(el);
+        });
+
+    } else {
+        fadeElements.forEach(function (el) {
+            el.classList.add("appear");
+        });
+    }
+
+    /* ===============================
+       COUNTER ANIMATION (SAFE)
+    =============================== */
+
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(function (counter) {
+
+        const target = parseInt(counter.getAttribute("data-target"));
+        if (isNaN(target)) return;
+
+        let started = false;
+
+        const runCounter = function () {
+            if (started) return;
+            started = true;
+
+            let current = 0;
+            const increment = target / 40;
+
+            const update = function () {
+                current += increment;
+
+                if (current < target) {
+                    counter.innerText = Math.ceil(current);
+                    requestAnimationFrame(update);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
+
+            update();
+        };
+
+        if ("IntersectionObserver" in window) {
+            const counterObserver = new IntersectionObserver(function (entries, obs) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        runCounter();
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            counterObserver.observe(counter);
+        } else {
+            runCounter();
+        }
+
     });
-
-});
-
-let index = 0;
-const rotating = document.getElementById("rotating-text");
-if(rotating){
-setInterval(() => {
-rotating.style.opacity = 0;
-setTimeout(() => {
-index = (index + 1) % texts.length;
-rotating.innerText = texts[index];
-rotating.style.opacity = 1;
-}, 400);
-}, 4000);
-}
-
-const counters = document.querySelectorAll(".counter");
-counters.forEach(counter => {
-counter.innerText = "0";
-const target = +counter.getAttribute("data-target");
-const updateCounter = () => {
-const value = +counter.innerText;
-if(value < target){
-counter.innerText = Math.ceil(value + target/100);
-setTimeout(updateCounter, 20);
-} else {
-counter.innerText = target + "+";
-}
-};
-updateCounter();
-});
 
 });
