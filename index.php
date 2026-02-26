@@ -1,10 +1,11 @@
-
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+?>
 
+
+<?php
 // Required variables for header.php — define them here!
 $pageTitle       = "Best Fertility Clinic in Lahore | IVF, ICSI, IUI & PGT – Dr. Adnan Jabbar";
 $metaDescription = "Leading fertility specialist in Lahore offering IVF, ICSI, IUI, PGT, male & female infertility treatment. Personalized, evidence-based care for Pakistan & international patients.";

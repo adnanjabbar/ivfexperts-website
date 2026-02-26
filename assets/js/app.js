@@ -1,6 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-    // 1. Rotating Hero Text (safe check)
+document.addEventListener("DOMContentLoaded", () => {
+    // Rotating Hero Text
     const rotating = document.getElementById("rotating-text");
     if (rotating) {
         const texts = [
@@ -11,83 +10,78 @@ document.addEventListener("DOMContentLoaded", function () {
         ];
         let index = 0;
 
-        setInterval(() => {
+        const rotate = () => {
             rotating.style.opacity = "0";
             setTimeout(() => {
                 index = (index + 1) % texts.length;
                 rotating.textContent = texts[index];
                 rotating.style.opacity = "1";
-            }, 500); // increased fade time for smoothness
-        }, 4500);
+            }, 600);
+        };
+
+        setInterval(rotate, 5000);
+        rotate(); // initial call
     }
 
-    // 2. Sticky Header Shadow (safe)
+    // Sticky Header Shadow
     const header = document.querySelector("header");
     if (header) {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 80) {
-                header.classList.add("header-shrink");
-            } else {
-                header.classList.remove("header-shrink");
-            }
+            header.classList.toggle("header-shrink", window.scrollY > 80);
         });
     }
 
-    // 3. Fade-in on Scroll (safe + fallback)
+    // Fade-in Observer (with fallback)
     const fadeElements = document.querySelectorAll(".fade-in");
     if (fadeElements.length > 0) {
         if ("IntersectionObserver" in window) {
-            const observer = new IntersectionObserver((entries, obs) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("appear");
-                        obs.unobserve(entry.target);
+                        observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.1 });
 
             fadeElements.forEach(el => observer.observe(el));
         } else {
-            // Fallback for old browsers
             fadeElements.forEach(el => el.classList.add("appear"));
         }
     }
 
-    // 4. Counter Animation (very safe)
+    // Counter Animation (very safe)
     document.querySelectorAll(".counter").forEach(counter => {
-        const target = parseInt(counter.getAttribute("data-target"), 10);
+        const target = parseInt(counter.dataset.target, 10);
         if (isNaN(target)) return;
 
         let started = false;
-
-        const runCounter = () => {
+        const run = () => {
             if (started) return;
             started = true;
 
             let current = 0;
-            const increment = target / 60; // smoother
-            const update = () => {
-                current += increment;
+            const step = target / 60;
+            const tick = () => {
+                current += step;
                 if (current < target) {
                     counter.textContent = Math.ceil(current);
-                    requestAnimationFrame(update);
+                    requestAnimationFrame(tick);
                 } else {
-                    counter.textContent = target + (counter.getAttribute("data-suffix") || "+");
+                    counter.textContent = target + (counter.dataset.suffix || "+");
                 }
             };
-            update();
+            tick();
         };
 
         if ("IntersectionObserver" in window) {
-            new IntersectionObserver((entries, obs) => {
-                if (entries[0].isIntersecting) {
-                    runCounter();
-                    obs.disconnect();
+            new IntersectionObserver(([entry]) => {
+                if (entry.isIntersecting) {
+                    run();
                 }
             }, { threshold: 0.5 }).observe(counter);
         } else {
-            runCounter();
+            run();
         }
     });
-
 });

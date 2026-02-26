@@ -212,3 +212,28 @@ main, .content, section:not(.hero), .fade-in {
     visibility: visible !important;
     min-height: 500px !important;
 }
+/* TEMP FORCE-VISIBILITY DEBUG - REMOVE LATER */
+main, section:not(.page-hero):not(footer), .content, .fade-in, body > div:not(header):not(footer) {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    min-height: 300px !important;
+    transform: none !important;
+}
+/* Force visibility for debugging - REMOVE AFTER FIX */
+.fade-in, section, main, .content {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+/* Header shrink */
+header.header-shrink {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+/* Ensure main content area */
+main, .content {
+    min-height: 60vh;
+}
