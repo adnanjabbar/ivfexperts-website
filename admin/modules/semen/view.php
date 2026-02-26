@@ -3,12 +3,12 @@ require_once $_SERVER['DOCUMENT_ROOT']."/config/db.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/admin/includes/auth.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/admin/includes/report_helpers.php";
 
-include $_SERVER['DOCUMENT_ROOT']."/admin/includes/header.php";
-
 $id = intval($_GET['id']);
+$printMode = isset($_GET['print']);
 
 $result = $conn->query("
-    SELECT sr.*, h.name as hospital_name, h.address, h.doctor_name, h.designation
+    SELECT sr.*, h.name as hospital_name, h.address, 
+           h.doctor_name, h.designation, h.license_number
     FROM semen_reports sr
     LEFT JOIN hospitals h ON sr.hospital_id = h.id
     WHERE sr.id = $id
@@ -20,106 +20,184 @@ if(!$row){
     echo "Report not found.";
     exit;
 }
+
+/* Abnormal helper */
+function abnormal($value, $threshold, $type='min'){
+    if($value === null || $value === '') return false;
+    if($type=='min' && $value < $threshold) return true;
+    if($type=='max' && $value > $threshold) return true;
+    return false;
+}
+
+/* ===============================
+   LOAD LAYOUT ONLY IF NOT PRINT
+================================= */
+
+if(!$printMode){
+    include $_SERVER['DOCUMENT_ROOT']."/admin/includes/header.php";
+}
 ?>
 
-<div class="max-w-5xl mx-auto bg-white shadow-xl rounded-2xl p-10">
-
-<!-- HEADER -->
-<div class="border-b pb-6 mb-6">
-    <h1 class="text-2xl font-bold text-center tracking-wide">
-        SEMEN ANALYSIS REPORT
-    </h1>
-
-    <div class="mt-4 text-sm text-gray-700">
-        <p><strong>Hospital:</strong> <?= $row['hospital_name'] ?></p>
-        <p>
-            <strong>Patient:</strong> <?= $row['patient_name'] ?>
-            <span class="ml-8"><strong>Age:</strong> <?= $row['patient_age'] ?></span>
-        </p>
-        <p><strong>Report #:</strong> <?= $row['report_number'] ?></p>
-    </div>
-</div>
-
-<!-- MACROSCOPIC -->
-<h2 class="text-lg font-semibold border-b pb-2 mb-3">
-MACROSCOPIC EXAMINATION
-</h2>
-
-<table class="w-full text-sm mb-8">
-<tr class="font-semibold border-b">
-<td class="py-2">Parameter</td>
-<td>Result</td>
-<td>WHO 6 Ref</td>
-</tr>
-
-<tr><td>Volume</td><td><?= $row['volume'] ?> mL</td><td>≥ 1.4 mL</td></tr>
-<tr><td>pH</td><td><?= $row['ph'] ?></td><td>≥ 7.2</td></tr>
-<tr><td>Liquefaction</td><td><?= $row['liquefaction'] ?></td><td>≤ 60 min</td></tr>
-<tr><td>Appearance</td><td><?= $row['appearance'] ?></td><td>Gray opalescent</td></tr>
-<tr><td>Viscosity</td><td><?= $row['viscosity'] ?></td><td>Normal</td></tr>
-</table>
-
-<!-- CONCENTRATION -->
-<h2 class="text-lg font-semibold border-b pb-2 mb-3">
-SPERM CONCENTRATION & MOTILITY
-</h2>
-
-<table class="w-full text-sm mb-8">
-<tr class="font-semibold border-b">
-<td>Parameter</td>
-<td>Result</td>
-<td>WHO 6th Edition Reference</td>
-</tr>
-
-<tr><td>Concentration</td><td><?= $row['concentration'] ?> M/mL</td><td>≥ 16</td></tr>
-<tr><td>Total Count</td><td><?= $row['total_count'] ?> Million</td><td>≥ 39</td></tr>
-<tr><td>Progressive</td><td><?= $row['progressive'] ?>%</td><td>≥ 30%</td></tr>
-<tr><td>Non Progressive</td><td><?= $row['non_progressive'] ?>%</td><td>-</td></tr>
-<tr><td>Immotile</td><td><?= $row['immotile'] ?>%</td><td>-</td></tr>
-<tr><td>Total Motility</td><td><?= $row['total_motility'] ?>%</td><td>≥ 42%</td></tr>
-</table>
-
-<!-- MORPHOLOGY -->
-<h2 class="text-lg font-semibold border-b pb-2 mb-3">
-MORPHOLOGY & OTHER CELLS
-</h2>
-
-<table class="w-full text-sm mb-8">
-<tr class="font-semibold border-b">
-<td>Parameter</td>
-<td>Result</td>
-<td>WHO 6th Edition Reference</td>
-</tr>
-
-<tr><td>Normal Forms</td><td><?= $row['morphology'] ?>%</td><td>≥ 4%</td></tr>
-<tr><td>Vitality</td><td><?= $row['vitality'] ?>%</td><td>≥ 54%</td></tr>
-<tr><td>Round Cells</td><td><?= $row['round_cells'] ?> M/mL</td><td>&lt; 5</td></tr>
-<tr><td>WBC</td><td><?= $row['wbc'] ?> M/mL</td><td>&lt; 1</td></tr>
-<tr><td>RBC</td><td><?= $row['rbc'] ?></td><td>-</td></tr>
-</table>
-
-<!-- INTERPRETATION -->
-<div class="bg-gray-100 p-6 rounded-xl">
-    <h3 class="font-semibold mb-2">INTERPRETATION</h3>
-    <p class="text-lg font-medium"><?= $row['interpretation'] ?></p>
-</div>
-
-<!-- DOCTOR -->
-<div class="mt-8 text-sm">
-    <strong>Doctor:</strong> <?= $row['doctor_name'] ?><br>
-    <?= $row['designation'] ?><br>
-    License #: <?= $row['license_number'] ?>
-</div>
-
-<div class="mt-8 flex gap-4">
-    <button onclick="window.print()">Print / Save as PDF</button>
+<?php if(!$printMode): ?>
+<div style="margin:20px;" class="no-print">
+    <a href="?id=<?= $row['id'] ?>&print=1" 
+       target="_blank"
+       class="bg-teal-600 text-white px-5 py-2 rounded">
+        Print / Save as PDF
+    </a>
 
     <a href="edit.php?id=<?= $row['id'] ?>" 
-       class="bg-blue-600 text-white px-5 py-2 rounded-lg">
+       class="bg-blue-600 text-white px-5 py-2 rounded ml-3">
         Edit Report
     </a>
+
+    <a href="list.php" 
+       class="bg-gray-600 text-white px-5 py-2 rounded ml-3">
+        Back
+    </a>
 </div>
+<?php endif; ?>
+
+
+<!-- ===============================
+     CLEAN REPORT BODY
+================================= -->
+
+<div style="
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    font-size: 11pt;
+    font-family: Arial, sans-serif;
+">
+
+    <div style="text-align:center; font-weight:bold; font-size:14pt; margin-bottom:20px;">
+        SEMEN ANALYSIS REPORT
+    </div>
+
+    <!-- Patient Info -->
+    <table width="100%" style="margin-bottom:20px; font-size:11pt;">
+        <tr>
+            <td><strong>Patient Name:</strong> <?= $row['patient_name'] ?></td>
+            <td><strong>Report No:</strong> <?= $row['report_number'] ?></td>
+        </tr>
+        <tr>
+            <td><strong>Age:</strong> <?= $row['patient_age'] ?></td>
+            <td><strong>Abstinence Period:</strong> <?= $row['abstinence_days'] ?> days</td>
+        </tr>
+    </table>
+
+    <!-- SECTION HEADER STYLE -->
+    <div style="background:#2f3e52;color:white;padding:6px;font-weight:bold;margin-top:15px;">
+        MACROSCOPIC EXAMINATION
+    </div>
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="6">
+        <tr style="background:#efefef;font-weight:bold;">
+            <td>Parameter</td>
+            <td>Result</td>
+            <td>WHO 6th Edition Reference</td>
+        </tr>
+
+        <tr>
+            <td>Volume</td>
+            <td style="<?= abnormal($row['volume'],1.4)?'font-weight:bold;':'' ?>">
+                <?= $row['volume'] ?> mL
+            </td>
+            <td>≥ 1.4 mL</td>
+        </tr>
+
+        <tr>
+            <td>pH</td>
+            <td><?= $row['ph'] ?></td>
+            <td>≥ 7.2</td>
+        </tr>
+
+        <tr>
+            <td>Liquefaction Time</td>
+            <td><?= $row['liquefaction'] ?></td>
+            <td>Complete within 60 min</td>
+        </tr>
+
+        <tr>
+            <td>Appearance</td>
+            <td><?= $row['appearance'] ?></td>
+            <td>Gray opalescent</td>
+        </tr>
+
+        <tr>
+            <td>Viscosity</td>
+            <td><?= $row['viscosity'] ?></td>
+            <td>Normal</td>
+        </tr>
+    </table>
+
+
+    <!-- CONCENTRATION -->
+    <div style="background:#2f3e52;color:white;padding:6px;font-weight:bold;margin-top:20px;">
+        SPERM CONCENTRATION & MOTILITY
+    </div>
+
+    <table width="100%" border="1" cellspacing="0" cellpadding="6">
+        <tr style="background:#efefef;font-weight:bold;">
+            <td>Parameter</td>
+            <td>Result</td>
+            <td>WHO 6th Edition Reference</td>
+        </tr>
+
+        <tr>
+            <td>Sperm Concentration</td>
+            <td style="<?= abnormal($row['concentration'],16)?'font-weight:bold;':'' ?>">
+                <?= $row['concentration'] ?> M/mL
+            </td>
+            <td>≥ 16 M/mL</td>
+        </tr>
+
+        <tr>
+            <td>Total Sperm Count</td>
+            <td style="<?= abnormal($row['total_count'],39)?'font-weight:bold;':'' ?>">
+                <?= $row['total_count'] ?> Million
+            </td>
+            <td>≥ 39 Million</td>
+        </tr>
+
+        <tr>
+            <td>Progressive Motility</td>
+            <td style="<?= abnormal($row['progressive'],30)?'font-weight:bold;':'' ?>">
+                <?= $row['progressive'] ?> %
+            </td>
+            <td>≥ 30 %</td>
+        </tr>
+
+        <tr>
+            <td>Total Motility</td>
+            <td style="<?= abnormal($row['total_motility'],42)?'font-weight:bold;':'' ?>">
+                <?= $row['total_motility'] ?> %
+            </td>
+            <td>≥ 42 %</td>
+        </tr>
+    </table>
+
+
+    <!-- INTERPRETATION -->
+    <div style="margin-top:20px;font-weight:bold;">
+        DIAGNOSIS & CLINICAL INTERPRETATION
+    </div>
+
+    <div style="border:1px solid #ccc;padding:10px;margin-top:5px;">
+        <?= $row['interpretation'] ?>
+    </div>
+
+    <!-- Doctor -->
+    <div style="margin-top:30px;font-size:10pt;">
+        <strong>Doctor:</strong> <?= $row['doctor_name'] ?><br>
+        <?= $row['designation'] ?><br>
+        License #: <?= $row['license_number'] ?>
+    </div>
 
 </div>
 
-<?php include $_SERVER['DOCUMENT_ROOT']."/admin/includes/footer.php"; ?>
+<?php if(!$printMode){
+    include $_SERVER['DOCUMENT_ROOT']."/admin/includes/footer.php";
+} ?>
