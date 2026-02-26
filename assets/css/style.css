@@ -1,89 +1,47 @@
-body { font-family:'Inter',sans-serif; background:#f8fafc; color:#1f2937; }
-.section { padding:6rem 1rem; }
-.card { background:#fff; padding:2rem; border-radius:1.5rem; border:1px solid #e5e7eb; transition:.3s; }
-.card:hover { transform:translateY(-5px); box-shadow:0 20px 40px rgba(0,0,0,0.08); }
-.hero-gradient { background:linear-gradient(135deg,#0f172a,#0e7490,#1e3a8a); }
-.btn-primary { background:#0e7490; color:white; padding:.8rem 1.6rem; border-radius:.75rem; font-weight:600; }
-.btn-primary:hover { background:#155e75; }
-.accordion-content { display:none; padding-top:10px; color:#4b5563; }
-/* ===============================
-   PRINTABLE MEDICAL REPORT STYLE
-================================= */
-
-.report-container {
-    max-width: 900px;
-    margin: 40px auto;
+body {
+    font-family: 'Inter', sans-serif;
     background: #ffffff;
+    color: #1f2937;
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.wave {
+    position: relative;
+}
+
+.wave::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'><path fill='%23f3f4f6' d='M0,160L80,170.7C160,181,320,203,480,213.3C640,224,800,224,960,213.3C1120,203,1280,181,1360,170.7L1440,160V320H0Z'></path></svg>") no-repeat;
+    background-size: cover;
+}
+
+.card {
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
     padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    transform: translateY(-5px);
+}
+
+.btn-primary {
+    background: #0f766e;
+    color: white;
+    padding: 14px 30px;
     border-radius: 8px;
 }
 
-.report-title {
-    text-align: center;
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-}
-
-.section-bar {
-    background: #3c465a;
-    color: #fff;
-    padding: 6px 10px;
-    font-weight: 600;
-    font-size: 13px;
-    margin-top: 25px;
-}
-
-.report-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-}
-
-.report-table th,
-.report-table td {
-    border: 1px solid #ccc;
-    padding: 6px 8px;
-}
-
-.report-table th {
-    background: #efefef;
-    font-weight: 600;
-}
-
-.abnormal {
-    font-weight: bold;
-}
-
-.no-print {
-    margin-bottom: 20px;
-}
-
-/* ===============================
-   A4 PRINT CONTROL
-================================= */
-
-@media print {
-
-    body {
-        background: #ffffff;
-    }
-
-    .sidebar,
-    .admin-header,
-    .no-print {
-        display: none !important;
-    }
-
-    .report-container {
-        width: 210mm;
-        min-height: 297mm;
-        padding: 20mm;
-        margin: 0;
-        box-shadow: none;
-        border-radius: 0;
-    }
-
+.btn-primary:hover {
+    background: #115e59;
 }
