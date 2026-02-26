@@ -54,23 +54,21 @@ IVF Experts
 <a href="/" class="hover:text-teal-600 transition">Home</a>
 <a href="/about/" class="hover:text-teal-600 transition">About</a>
 
-<!-- MALE MEGA -->
+<!-- ================= MALE ================= -->
 <div class="relative group">
-
 <a href="/male-infertility/" class="hover:text-teal-600 transition">
 Male Infertility
 </a>
 
-<div class="absolute left-1/2 -translate-x-1/2 top-full pt-6 w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
+<div class="absolute left-1/2 -translate-x-1/2 top-full w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
 
-<div class="absolute inset-x-0 -top-6 h-6 bg-transparent"></div>
-
-<div class="bg-white shadow-2xl border border-gray-200 rounded-2xl">
+<div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
 <div class="grid grid-cols-3 gap-10 p-10">
+
 <div>
-<h4 class="font-bold text-gray-900 mb-4">Overview</h4>
+<h4 class="font-bold mb-4">Overview</h4>
 <p class="text-gray-600 text-sm mb-4">
-Comprehensive evaluation and structured male infertility management in Lahore.
+Comprehensive male infertility evaluation in Lahore.
 </p>
 <a href="/male-infertility/" class="text-teal-600 text-sm font-semibold hover:underline">
 Learn More →
@@ -78,7 +76,7 @@ Learn More →
 </div>
 
 <div>
-<h4 class="font-bold text-gray-900 mb-4">Common Conditions</h4>
+<h4 class="font-bold mb-4">Common Conditions</h4>
 <ul class="space-y-2 text-gray-700 text-sm">
 <li><a href="/male-infertility/low-sperm-count.php" class="hover:text-teal-600">Low Sperm Count</a></li>
 <li><a href="/male-infertility/azoospermia.php" class="hover:text-teal-600">Azoospermia</a></li>
@@ -87,7 +85,7 @@ Learn More →
 </div>
 
 <div>
-<h4 class="font-bold text-gray-900 mb-4">Advanced Evaluation</h4>
+<h4 class="font-bold mb-4">Advanced Evaluation</h4>
 <ul class="space-y-2 text-gray-700 text-sm">
 <li><a href="/male-infertility/dna-fragmentation.php" class="hover:text-teal-600">DNA Fragmentation</a></li>
 <li><a href="/art-procedures/icsi.php" class="hover:text-teal-600">ICSI Strategy</a></li>
@@ -98,22 +96,21 @@ Learn More →
 </div>
 </div>
 </div>
+</div>
 
-<!-- FEMALE MEGA -->
+<!-- ================= FEMALE ================= -->
 <div class="relative group">
-
 <a href="/female-infertility/" class="hover:text-teal-600 transition">
 Female Infertility
 </a>
 
-<div class="absolute left-1/2 -translate-x-1/2 top-full pt-6 w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
+<div class="absolute left-1/2 -translate-x-1/2 top-full w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
 
-<div class="absolute inset-x-0 -top-6 h-6 bg-transparent"></div>
-
+<div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
 <div class="grid grid-cols-3 gap-10 p-10">
 
 <div>
-<h4 class="font-bold text-gray-900 mb-4">Overview</h4>
+<h4 class="font-bold mb-4">Overview</h4>
 <p class="text-gray-600 text-sm mb-4">
 Structured female infertility diagnosis and ART planning.
 </p>
@@ -123,7 +120,7 @@ Learn More →
 </div>
 
 <div>
-<h4 class="font-bold text-gray-900 mb-4">Common Conditions</h4>
+<h4 class="font-bold mb-4">Common Conditions</h4>
 <ul class="space-y-2 text-gray-700 text-sm">
 <li><a href="/female-infertility/pcos.php" class="hover:text-teal-600">PCOS</a></li>
 <li><a href="/female-infertility/endometriosis.php" class="hover:text-teal-600">Endometriosis</a></li>
@@ -132,7 +129,7 @@ Learn More →
 </div>
 
 <div>
-<h4 class="font-bold text-gray-900 mb-4">Advanced Evaluation</h4>
+<h4 class="font-bold mb-4">Advanced Evaluation</h4>
 <ul class="space-y-2 text-gray-700 text-sm">
 <li><a href="/female-infertility/diminished-ovarian-reserve.php" class="hover:text-teal-600">Low Ovarian Reserve</a></li>
 <li><a href="/art-procedures/ivf.php" class="hover:text-teal-600">IVF Planning</a></li>
@@ -143,23 +140,21 @@ Learn More →
 </div>
 </div>
 </div>
+</div>
 
-<!-- ART MEGA -->
+<!-- ================= ART ================= -->
 <div class="relative group">
-
 <a href="/art-procedures/" class="hover:text-teal-600 transition">
 ART Procedures
 </a>
 
-<div class="absolute left-1/2 -translate-x-1/2 top-full pt-6 w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
+<div class="absolute left-1/2 -translate-x-1/2 top-full w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
 
-<div class="absolute inset-x-0 -top-6 h-6 bg-transparent"></div>
-
-<div class="bg-white shadow-2xl border border-gray-200 rounded-2xl">
+<div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
 <div class="grid grid-cols-3 gap-10 p-10">
 
 <div>
-<h4 class="font-bold text-gray-900 mb-4">Overview</h4>
+<h4 class="font-bold mb-4">Overview</h4>
 <p class="text-gray-600 text-sm mb-4">
 Advanced assisted reproductive techniques in Lahore.
 </p>
@@ -169,7 +164,7 @@ Learn More →
 </div>
 
 <div>
-<h4 class="font-bold text-gray-900 mb-4">Core Procedures</h4>
+<h4 class="font-bold mb-4">Core Procedures</h4>
 <ul class="space-y-2 text-gray-700 text-sm">
 <li><a href="/art-procedures/ivf.php" class="hover:text-teal-600">IVF</a></li>
 <li><a href="/art-procedures/icsi.php" class="hover:text-teal-600">ICSI</a></li>
@@ -178,7 +173,7 @@ Learn More →
 </div>
 
 <div>
-<h4 class="font-bold text-gray-900 mb-4">Advanced Techniques</h4>
+<h4 class="font-bold mb-4">Advanced Techniques</h4>
 <ul class="space-y-2 text-gray-700 text-sm">
 <li><a href="/art-procedures/pgt.php" class="hover:text-teal-600">PGT</a></li>
 <li><a href="/male-infertility/dna-fragmentation.php" class="hover:text-teal-600">DNA Fragmentation</a></li>
@@ -186,6 +181,7 @@ Learn More →
 </ul>
 </div>
 
+</div>
 </div>
 </div>
 </div>
