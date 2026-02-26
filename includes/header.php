@@ -1,122 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
+$pageTitle = "Dr. Adnan Jabbar | Fertility Specialist Consultant & Clinical Embryologist";
+$metaDescription = "Dr. Adnan Jabbar is a Fertility Specialist Consultant, Clinical Embryologist and Founder of IVF Experts, specializing in IVF, ICSI, reproductive medicine systems and infertility care across Pakistan.";
+include("../includes/header.php");
+?>
 
-<title><?= $pageTitle ?? "IVF Experts | Advanced Fertility Treatment in Pakistan" ?></title>
-<meta name="description" content="<?= $metaDescription ?? "IVF Experts provides advanced IVF, ICSI and infertility treatment services across Pakistan and for overseas Pakistanis." ?>">
+<section class="bg-white py-28">
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-16">
 
-<meta name="robots" content="index, follow">
-<meta name="author" content="Dr. Adnan Jabbar">
+<!-- Portrait -->
+<div>
+<div class="border border-gray-300 p-3 rounded-lg">
+<img src="/assets/images/dr-adnan.jpg"
+alt="Dr Adnan Jabbar Fertility Specialist Lahore"
+class="w-full rounded-md">
+</div>
+</div>
 
-<link rel="canonical" href="https://ivfexperts.pk<?= $_SERVER['REQUEST_URI']; ?>">
+<!-- Core Identity -->
+<div class="md:col-span-2">
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="<?= $pageTitle ?? "IVF Experts" ?>">
-<meta property="og:description" content="<?= $metaDescription ?? "" ?>">
-<meta property="og:url" content="https://ivfexperts.pk<?= $_SERVER['REQUEST_URI']; ?>">
-<meta property="og:site_name" content="IVF Experts">
+<h1 class="text-4xl font-bold text-gray-900 mb-4">
+Dr. Adnan Jabbar
+</h1>
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="<?= $pageTitle ?? "IVF Experts" ?>">
-<meta name="twitter:description" content="<?= $metaDescription ?? "" ?>">
+<h2 class="text-lg text-teal-700 font-semibold mb-6">
+Fertility Specialist Consultant | Clinical Embryologist  
+<br>
+Founder & CEO – IVF Experts  
+<br>
+Head of Fertility & Family Medicine – Healthnox Medical Center
+</h2>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<p class="text-gray-800 leading-relaxed mb-6">
+One of the few physicians in Pakistan formally trained both as an MBBS doctor and Clinical Embryologist, integrating laboratory embryology with structured reproductive medicine decision-making.
+</p>
 
-<link rel="stylesheet" href="/assets/css/style.css">
-<script src="/assets/js/app.js" defer></script>
+<p class="text-gray-800 leading-relaxed">
+Professional background spans emergency medicine, hospital administration, public health (MPH), digital health systems, and fertility center leadership — creating a systems-level perspective in reproductive medicine.
+</p>
 
-<script src="https://cdn.tailwindcss.com"></script>
+</div>
+</div>
+</section>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-<style>
-body { font-family: 'Inter', sans-serif; }
-</style>
+<!-- PROFESSIONAL TRAJECTORY -->
+<section class="bg-gray-100 py-24">
+<div class="max-w-5xl mx-auto px-6">
 
-</head>
-<body class="bg-white text-gray-800">
+<h2 class="text-3xl font-bold text-gray-900 mb-8">
+Professional Trajectory
+</h2>
 
-<header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200 z-50">
-<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<p class="text-gray-800 leading-relaxed mb-6">
+Clinical foundation began in emergency medicine and hospital operations, managing high-volume acute care environments and serving in administrative leadership roles including Deputy Medical Superintendent and district EMR implementation lead.
+</p>
 
-<!-- LOGO -->
-<a href="/" class="text-2xl font-extrabold tracking-tight text-teal-700">
-IVF Experts
+<p class="text-gray-800 leading-relaxed mb-6">
+Transition into reproductive medicine was built upon formal embryology training, ART laboratory exposure (IVF, ICSI, IUI, PGD, PGT-A), and integration of evidence-based fertility protocols.
+</p>
+
+<p class="text-gray-800 leading-relaxed">
+Leadership roles now include directing fertility services, overseeing ART protocol planning, mentoring clinical teams and contributing to healthcare innovation initiatives within Pakistan.
+</p>
+
+</div>
+</section>
+
+
+<!-- CLINICAL PHILOSOPHY -->
+<section class="bg-white py-24">
+<div class="max-w-5xl mx-auto px-6">
+
+<h2 class="text-3xl font-bold text-gray-900 mb-8">
+Clinical Philosophy
+</h2>
+
+<p class="text-gray-800 leading-relaxed mb-6">
+Infertility management requires structured reasoning rather than procedural reflex. Every case is approached through systematic evaluation of male factors, female factors, endocrine balance, ovarian reserve, laboratory dynamics and systemic health indicators.
+</p>
+
+<p class="text-gray-800 leading-relaxed">
+Embryology laboratory insight directly informs protocol design, fertilization strategy, embryo culture considerations and transfer planning — ensuring decisions are biologically grounded and clinically accountable.
+</p>
+
+</div>
+</section>
+
+
+<!-- AREAS OF SPECIALIZATION -->
+<section class="bg-gray-100 py-24">
+<div class="max-w-6xl mx-auto px-6">
+
+<h2 class="text-3xl font-bold text-gray-900 mb-12">
+Areas of Specialization
+</h2>
+
+<div class="grid md:grid-cols-2 gap-10 text-gray-800 leading-relaxed">
+
+<div>
+<h3 class="font-semibold mb-3">Assisted Reproductive Techniques</h3>
+<p>IVF, ICSI, IUI, blastocyst culture, PGD and PGT-A planning.</p>
+</div>
+
+<div>
+<h3 class="font-semibold mb-3">Male Infertility</h3>
+<p>Azoospermia, oligospermia, DNA fragmentation and endocrine-related infertility.</p>
+</div>
+
+<div>
+<h3 class="font-semibold mb-3">Female Infertility</h3>
+<p>PCOS, diminished ovarian reserve, ovulatory dysfunction and endometriosis.</p>
+</div>
+
+<div>
+<h3 class="font-semibold mb-3">Fertility Systems & Infrastructure</h3>
+<p>Digital health integration, workflow optimization and fertility center operational design.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- ACADEMIC & PUBLIC HEALTH -->
+<section class="bg-white py-24">
+<div class="max-w-5xl mx-auto px-6">
+
+<h2 class="text-3xl font-bold text-gray-900 mb-8">
+Academic & Public Health Foundation
+</h2>
+
+<p class="text-gray-800 leading-relaxed mb-6">
+Educational background includes MBBS, Masters in Public Health (MPH), Diploma in Mental Health, and ongoing specialization in Family Medicine and Molecular Pathology & Stem Cell Culturing.
+</p>
+
+<p class="text-gray-800 leading-relaxed">
+This cross-disciplinary foundation supports fertility care that considers not only reproductive metrics but broader systemic health and population-level perspectives.
+</p>
+
+</div>
+</section>
+
+
+<!-- CLOSING -->
+<section class="bg-white py-28 border-t border-gray-300 text-center">
+<div class="max-w-4xl mx-auto px-6">
+
+<h2 class="text-3xl font-bold text-gray-900 mb-6">
+Structured, Integrated Reproductive Medicine.
+</h2>
+
+<p class="text-gray-800 mb-8">
+Serving Lahore, across Pakistan, and overseas patients seeking disciplined, evidence-based fertility strategy.
+</p>
+
+<a href="/contact/" class="bg-gray-900 text-white px-8 py-3 rounded-md font-semibold hover:bg-gray-800 transition">
+Schedule Consultation
 </a>
 
-<!-- NAV -->
-<nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-gray-700">
-
-<a href="/" class="hover:text-teal-600 transition">Home</a>
-
-<a href="/about/" class="hover:text-teal-600 transition">About</a>
-
-<!-- MALE -->
-<div class="relative group">
-<button class="hover:text-teal-600 transition focus:outline-none">
-Male Infertility
-</button>
-
-<div class="absolute left-0 top-full mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
-<div class="bg-white shadow-xl rounded-xl p-5 w-64 border border-gray-100">
-<a href="/male-infertility/" class="block py-2 hover:text-teal-600">Overview</a>
-<a href="/male-infertility/low-sperm-count.php" class="block py-2 hover:text-teal-600">Low Sperm Count</a>
-<a href="/male-infertility/azoospermia.php" class="block py-2 hover:text-teal-600">Azoospermia</a>
-<a href="/male-infertility/dna-fragmentation.php" class="block py-2 hover:text-teal-600">DNA Fragmentation</a>
-<a href="/male-infertility/varicocele.php" class="block py-2 hover:text-teal-600">Varicocele</a>
 </div>
-</div>
-</div>
+</section>
 
-<!-- FEMALE -->
-<div class="relative group">
-<button class="hover:text-teal-600 transition focus:outline-none">
-Female Infertility
-</button>
-
-<div class="absolute left-0 top-full mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
-<div class="bg-white shadow-xl rounded-xl p-5 w-64 border border-gray-100">
-<a href="/female-infertility/" class="block py-2 hover:text-teal-600">Overview</a>
-<a href="/female-infertility/pcos.php" class="block py-2 hover:text-teal-600">PCOS</a>
-<a href="/female-infertility/endometriosis.php" class="block py-2 hover:text-teal-600">Endometriosis</a>
-<a href="/female-infertility/blocked-tubes.php" class="block py-2 hover:text-teal-600">Blocked Tubes</a>
-<a href="/female-infertility/diminished-ovarian-reserve.php" class="block py-2 hover:text-teal-600">Low Ovarian Reserve</a>
-</div>
-</div>
-</div>
-
-<!-- ART -->
-<div class="relative group">
-<button class="hover:text-teal-600 transition focus:outline-none">
-ART Procedures
-</button>
-
-<div class="absolute left-0 top-full mt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
-<div class="bg-white shadow-xl rounded-xl p-5 w-64 border border-gray-100">
-<a href="/art-procedures/" class="block py-2 hover:text-teal-600">Overview</a>
-<a href="/art-procedures/ivf.php" class="block py-2 hover:text-teal-600">IVF</a>
-<a href="/art-procedures/icsi.php" class="block py-2 hover:text-teal-600">ICSI</a>
-<a href="/art-procedures/iui.php" class="block py-2 hover:text-teal-600">IUI</a>
-<a href="/art-procedures/pgt.php" class="block py-2 hover:text-teal-600">PGT</a>
-</div>
-</div>
-</div>
-
-<a href="/contact/" class="hover:text-teal-600 transition">Contact</a>
-
-</nav>
-
-<!-- CTA -->
-<a href="https://wa.me/923111101483"
-class="hidden md:inline-block bg-teal-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-800 transition">
-WhatsApp
-</a>
-
-</div>
-</header>
-
-<div class="h-24"></div>
+<?php include("../includes/footer.php"); ?>
