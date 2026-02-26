@@ -5,7 +5,7 @@ include("includes/header.php");
 ?>
 
 <!-- HERO -->
-<section class="section-lg bg-white">
+ <section class="section-lg bg-white fade-in">
 <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
 <div>
@@ -44,8 +44,8 @@ Infertility affects both men and women. Effective treatment begins with diagnost
 <div class="grid md:grid-cols-4 gap-10 text-center">
 
 <div>
-<h3 class="text-3xl font-bold text-teal-700">10+ Years</h3>
-<p class="text-gray-600 mt-2">Clinical Experience</p>
+<h3 class="text-3xl font-bold text-teal-700 counter" data-target="10">0</h3>
+<p class="text-gray-600 mt-2">Years Clinical Experience</p>
 </div>
 
 <div>
@@ -68,7 +68,7 @@ Infertility affects both men and women. Effective treatment begins with diagnost
 </section>
 
 <!-- EMOTIONAL GRAVITY -->
-<section class="section-lg bg-tint text-center">
+<section class="section-lg bg-tint text-center fade-in">
 <div class="max-w-4xl mx-auto px-6">
 <h2 class="text-3xl md:text-4xl font-bold mb-8">
 Parenthood Should Not Feel Uncertain.
@@ -82,7 +82,7 @@ Treatment decisions must be guided by medical reasoning — not assumptions or p
 
 
 <!-- DIAGNOSTIC PHILOSOPHY -->
-<section class="section-lg bg-white">
+<section class="section-lg bg-white fade-in">
 <div class="max-w-6xl mx-auto px-6">
 
 <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
@@ -121,7 +121,7 @@ IVF, ICSI or IUI decisions are guided by measurable biological indicators.
 
 
 <!-- MALE SUMMARY -->
-<section class="section-lg bg-soft">
+<section class="section-lg bg-soft fade-in">
 <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
 <div>
@@ -146,7 +146,7 @@ Low sperm count, azoospermia, varicocele and DNA fragmentation require structure
 
 
 <!-- FEMALE SUMMARY -->
-<section class="section-lg bg-white">
+<section class="section-lg bg-white fade-in">
 <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
 <div class="card">
@@ -171,7 +171,7 @@ Ovarian reserve, ovulatory disorders and tubal pathology require individualized 
 
 
 <!-- ART SECTION -->
-<section class="section-lg bg-soft text-center">
+<section class="section-lg bg-soft text-center fade-in">
 <div class="max-w-4xl mx-auto px-6">
 <h2 class="text-3xl md:text-4xl font-bold mb-8">
 IVF, ICSI & Advanced ART Procedures
@@ -185,7 +185,7 @@ Assisted Reproductive Technologies are recommended only when clinically indicate
 
 
 <!-- HOSPITALS -->
-<section class="section-md bg-white text-center border-t border-gray-200">
+<section class="section-md bg-white text-center border-t border-gray-200 fade-in">
 <div class="max-w-6xl mx-auto px-6">
 <h3 class="text-2xl font-semibold mb-8">Affiliated Practice Locations</h3>
 <div class="grid md:grid-cols-4 gap-6 text-gray-700">
@@ -197,7 +197,7 @@ Assisted Reproductive Technologies are recommended only when clinically indicate
 </div>
 </section>
 
-<section class="section-lg bg-soft">
+<section class="section-lg bg-soft fade-in">
 <div class="max-w-4xl mx-auto px-6">
 
 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -233,7 +233,7 @@ Yes. Many cases require hormonal correction, ovulation induction or lifestyle mo
 </section>
 
 <!-- FINAL CTA -->
-<section class="section-lg bg-white text-center">
+<section class="section-lg bg-white text-center fade-in">
 <div class="max-w-3xl mx-auto px-6">
 <h2 class="text-3xl md:text-4xl font-bold mb-6">
 Begin with Clarity and Structured Planning.
