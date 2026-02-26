@@ -146,5 +146,27 @@
 }
 </script>
 
+<!-- Breadcrumb Schema -->
+<?php if(isset($faqSchema)): ?>
+<script type="application/ld+json">
+{
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+<?php foreach($faqSchema as $index => $faq): ?>
+{
+"@type":"Question",
+"name":"<?= $faq['question'] ?>",
+"acceptedAnswer":{
+"@type":"Answer",
+"text":"<?= $faq['answer'] ?>"
+}
+}<?= $index + 1 < count($faqSchema) ? "," : "" ?>
+<?php endforeach; ?>
+]
+}
+</script>
+<?php endif; ?>
+<!-- End of Breadcrumb Schema -->
 </body>
 </html>

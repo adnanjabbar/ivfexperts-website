@@ -19,6 +19,13 @@ In Vitro Fertilization (IVF) is a laboratory-based assisted reproductive techniq
 IVF success depends not only on the procedure itself, but on protocol selection, ovarian response, embryo development and transfer timing.
 </p>
 
+<p class="mt-6">
+In cases of severe male factor infertility, 
+<a href="/art-procedures/icsi.php" class="text-teal-700 font-semibold hover:underline">
+ICSI may be indicated
+</a>.
+</p>
+
 </div>
 </section>
 

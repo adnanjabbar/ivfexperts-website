@@ -369,5 +369,12 @@ Serving Lahore, across Pakistan and overseas Pakistani families.
 <a href="/contact/" class="btn-primary">Book Consultation</a>
 </div>
 </section>
-
+<?php
+$faqSchema = [
+[
+"question" => "When should we consider IVF?",
+"answer" => "IVF is recommended when tubal blockage, severe male factor infertility or repeated IUI failure limits natural conception."
+]
+];
+?>
 <?php include("includes/footer.php"); ?>

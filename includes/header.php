@@ -1,80 +1,84 @@
 <!DOCTYPE html>
+<?php include("seo.php"); ?>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title><?= $pageTitle ?? "IVF Experts | Advanced Fertility Treatment in Pakistan" ?></title>
-<meta name="description" content="<?= $metaDescription ?? "IVF Experts provides advanced IVF, ICSI and infertility treatment services across Pakistan and for overseas Pakistanis." ?>">
-
+<title><?= htmlspecialchars($pageTitle) ?></title>
+<meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
 <meta name="robots" content="index, follow">
-<meta name="author" content="Dr. Adnan Jabbar">
+<link rel="canonical" href="<?= $currentUrl ?>">
 
-<link rel="canonical" href="https://ivfexperts.pk<?= $_SERVER['REQUEST_URI']; ?>">
-
+<!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="<?= $pageTitle ?? "IVF Experts" ?>">
-<meta property="og:description" content="<?= $metaDescription ?? "" ?>">
-<meta property="og:url" content="https://ivfexperts.pk<?= $_SERVER['REQUEST_URI']; ?>">
-<meta property="og:site_name" content="IVF Experts">
+<meta property="og:title" content="<?= htmlspecialchars($pageTitle) ?>">
+<meta property="og:description" content="<?= htmlspecialchars($metaDescription) ?>">
+<meta property="og:url" content="<?= $currentUrl ?>">
+<meta property="og:site_name" content="<?= $siteName ?>">
 
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="<?= $pageTitle ?? "IVF Experts" ?>">
-<meta name="twitter:description" content="<?= $metaDescription ?? "" ?>">
+<meta name="twitter:title" content="<?= htmlspecialchars($pageTitle) ?>">
+<meta name="twitter:description" content="<?= htmlspecialchars($metaDescription) ?>">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+<!-- Styles -->
 <link rel="stylesheet" href="/assets/css/style.css">
+<script src="/assets/js/app.js" defer></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- Physician + Organization Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalBusiness",
+      "@id": "https://ivfexperts.pk/#organization",
+      "name": "IVF Experts",
+      "url": "https://ivfexperts.pk",
+      "telephone": "+923111101483",
+      "medicalSpecialty": "Reproductive Medicine"
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://ivfexperts.pk/#physician",
+      "name": "Dr. Adnan Jabbar",
+      "jobTitle": "Fertility Specialist & Clinical Embryologist",
+      "medicalSpecialty": "Reproductive Medicine",
+      "worksFor": {
+        "@id": "https://ivfexperts.pk/#organization"
+      },
+      "areaServed": "Pakistan"
+    }
+  ]
+}
+</script>
+
+<!-- Breadcrumb Schema -->
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
-"@type": "Physician",
-"name": "Dr. Adnan Jabbar",
-"medicalSpecialty": "Reproductive Medicine",
-"areaServed": {
-  "@type": "Country",
-  "name": "Pakistan"
-},
-"address": {
-  "@type": "PostalAddress",
-  "addressLocality": "Lahore",
-  "addressCountry": "PK"
-},
-"telephone": "+923111101483",
-"url": "https://ivfexperts.pk"
-}
-</script>
-<script src="/assets/js/app.js" defer></script>
-<script type="application/ld+json">
+"@type": "BreadcrumbList",
+"itemListElement": [
+<?php foreach($breadcrumbs as $index => $crumb): ?>
 {
- "@context": "https://schema.org",
- "@type": "MedicalBusiness",
- "name": "IVF Experts",
- "medicalSpecialty": "ReproductiveMedicine",
- "areaServed": "Pakistan",
- "telephone": "+923111101483",
- "availableService": [
-   "IVF",
-   "ICSI",
-   "Male Infertility Treatment",
-   "Female Infertility Treatment"
- ]
+"@type": "ListItem",
+"position": <?= $index + 1 ?>,
+"name": "<?= $crumb['name'] ?>",
+"item": "<?= $crumb['url'] ?>"
+}<?= $index + 1 < count($breadcrumbs) ? "," : "" ?>
+<?php endforeach; ?>
+]
 }
 </script>
-<script src="https://cdn.tailwindcss.com"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-<style>
-body { font-family: 'Inter', sans-serif; }
-</style>
-
 </head>
+
 <body class="bg-white text-gray-800">
 
 <header class="fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50">
+
 <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
 <!-- LOGO -->
