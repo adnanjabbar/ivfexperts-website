@@ -1,36 +1,47 @@
 <?php
 $pageTitle = "Dr. Adnan Jabbar | Fertility Specialist & Clinical Embryologist Lahore Pakistan";
-$metaDescription = "Dr. Adnan Jabbar is a Fertility Specialist Consultant and Clinical Embryologist in Lahore offering IVF, ICSI, IUI and structured infertility care across Pakistan and for overseas Pakistani families.";
+$metaDescription = "Dr. Adnan Jabbar is a Fertility Specialist Consultant and Clinical Embryologist in Lahore providing IVF, ICSI and advanced infertility care across Pakistan and for overseas Pakistani families.";
 include("../includes/header.php");
 ?>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="bg-white py-32">
 <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
-<!-- LEFT: PORTRAIT -->
+<!-- LEFT: FRAMED PORTRAIT -->
+<div class="flex justify-center md:justify-start">
 <div class="relative">
-<div class="absolute -top-10 -left-10 w-72 h-72 bg-teal-100 rounded-full blur-3xl opacity-40"></div>
-<img src="/assets/images/dr-adnan.jpg" alt="Dr Adnan Jabbar Fertility Specialist Lahore" class="relative rounded-2xl shadow-2xl">
+
+<div class="absolute -inset-4 border-2 border-teal-600 rounded-2xl"></div>
+
+<img src="/assets/images/dr-adnan.jpg"
+alt="Dr Adnan Jabbar Fertility Specialist Lahore"
+class="relative w-80 rounded-2xl shadow-xl">
+
+</div>
 </div>
 
-<!-- RIGHT: IDENTITY -->
+<!-- RIGHT: AUTHORITY INTRO -->
 <div>
 
 <h1 class="text-5xl font-extrabold text-gray-900 mb-4">
 Dr. Adnan Jabbar
 </h1>
 
-<h2 class="text-2xl text-teal-700 font-semibold mb-6">
-Fertility Specialist Consultant | Clinical Embryologist | Family & Emergency Medicine Expert
+<h2 class="text-xl text-teal-700 font-semibold mb-6">
+Fertility Specialist Consultant | Clinical Embryologist  
+<span class="block text-gray-600 text-base font-normal mt-2">
+Family & Emergency Medicine Foundation
+</span>
 </h2>
 
-<p class="text-lg text-gray-600 leading-relaxed mb-6">
-Providing structured, ethical and evidence-based fertility treatment in Lahore and across Pakistan.
+<p class="text-lg text-gray-700 leading-relaxed mb-6">
+Infertility management demands structured diagnostic reasoning, laboratory precision and clinical accountability. 
+Reproductive medicine is approached not as a protocol template, but as a disciplined decision-making process.
 </p>
 
-<p class="text-lg text-gray-600 leading-relaxed">
-Combining clinical reproductive medicine with direct embryology laboratory insight, fertility care is approached with both scientific precision and compassionate understanding.
+<p class="text-lg text-gray-700 leading-relaxed">
+Combining clinical reproductive care with direct embryology laboratory insight allows fertility planning that is biologically informed, ethically transparent and strategically individualized.
 </p>
 
 </div>
@@ -38,75 +49,53 @@ Combining clinical reproductive medicine with direct embryology laboratory insig
 </section>
 
 
-<!-- PROFESSIONAL POSITIONING -->
-<section class="bg-gray-50 py-28">
-<div class="max-w-5xl mx-auto px-6 text-center">
+<!-- CLINICAL PHILOSOPHY BAND -->
+<section class="bg-teal-700 text-white py-24">
+<div class="max-w-4xl mx-auto px-6 text-center">
 
 <h2 class="text-4xl font-bold mb-8">
-Clinical & Laboratory Precision Combined
+Reproductive Medicine Requires Intellectual Discipline.
 </h2>
 
-<p class="text-lg text-gray-600 leading-relaxed mb-6">
-Infertility treatment requires more than protocol application. It requires structured evaluation, laboratory awareness and systemic medical understanding.
-</p>
-
-<p class="text-lg text-gray-600 leading-relaxed">
-With a foundation in Family Medicine and exposure to Emergency Medicine, fertility planning considers the broader health context — not just isolated reproductive markers.
+<p class="text-lg leading-relaxed opacity-90">
+Effective fertility treatment begins with diagnostic clarity — understanding male factors, female factors, systemic health influences and laboratory variables before intervention is considered.
 </p>
 
 </div>
 </section>
 
 
-<!-- EXPERTISE GRID -->
-<section class="py-28 bg-white">
+<!-- DIFFERENTIATION -->
+<section class="bg-white py-28">
 <div class="max-w-6xl mx-auto px-6">
 
 <h2 class="text-4xl font-bold text-center mb-16">
-Core Areas of Expertise
+Integrated Clinical & Laboratory Leadership
 </h2>
 
-<div class="grid md:grid-cols-3 gap-10">
+<div class="grid md:grid-cols-3 gap-12">
 
-<div class="border border-gray-200 p-10 rounded-xl bg-white hover:shadow-lg transition">
-<h3 class="text-xl font-semibold text-teal-700 mb-4">IVF & ICSI Protocol Strategy</h3>
+<div class="border border-gray-200 p-10 rounded-xl hover:shadow-lg transition">
+<div class="text-teal-600 mb-4 text-3xl">🧬</div>
+<h3 class="text-xl font-semibold mb-4">Embryology Insight</h3>
 <p class="text-gray-600">
-Optimized ovarian stimulation, fertilization strategy and embryo transfer planning.
+Understanding fertilization dynamics, embryo grading and culture conditions enhances clinical decision-making in IVF and ICSI cycles.
 </p>
 </div>
 
-<div class="border border-gray-200 p-10 rounded-xl bg-white hover:shadow-lg transition">
-<h3 class="text-xl font-semibold text-teal-700 mb-4">Male Infertility Management</h3>
+<div class="border border-gray-200 p-10 rounded-xl hover:shadow-lg transition">
+<div class="text-teal-600 mb-4 text-3xl">⚕️</div>
+<h3 class="text-xl font-semibold mb-4">Systemic Medical Perspective</h3>
 <p class="text-gray-600">
-Evaluation of low sperm count, azoospermia, DNA fragmentation and hormonal imbalance.
+Family and Emergency Medicine background supports broader health evaluation beyond isolated fertility metrics.
 </p>
 </div>
 
-<div class="border border-gray-200 p-10 rounded-xl bg-white hover:shadow-lg transition">
-<h3 class="text-xl font-semibold text-teal-700 mb-4">Female Infertility Care</h3>
+<div class="border border-gray-200 p-10 rounded-xl hover:shadow-lg transition">
+<div class="text-teal-600 mb-4 text-3xl">📊</div>
+<h3 class="text-xl font-semibold mb-4">Strategic Protocol Planning</h3>
 <p class="text-gray-600">
-Management of PCOS, diminished ovarian reserve, endometriosis and ovulatory disorders.
-</p>
-</div>
-
-<div class="border border-gray-200 p-10 rounded-xl bg-white hover:shadow-lg transition">
-<h3 class="text-xl font-semibold text-teal-700 mb-4">Embryology & Laboratory Insight</h3>
-<p class="text-gray-600">
-Understanding embryo grading, fertilization dynamics and laboratory optimization.
-</p>
-</div>
-
-<div class="border border-gray-200 p-10 rounded-xl bg-white hover:shadow-lg transition">
-<h3 class="text-xl font-semibold text-teal-700 mb-4">Genetic Testing (PGT) Planning</h3>
-<p class="text-gray-600">
-Structured reproductive genetic strategy for selected clinical scenarios.
-</p>
-</div>
-
-<div class="border border-gray-200 p-10 rounded-xl bg-white hover:shadow-lg transition">
-<h3 class="text-xl font-semibold text-teal-700 mb-4">Teleconsultation Services</h3>
-<p class="text-gray-600">
-Guidance for overseas Pakistani families seeking structured fertility planning.
+Treatment strategies are guided by ovarian reserve markers, sperm parameters, age, endocrine balance and laboratory conditions.
 </p>
 </div>
 
@@ -115,37 +104,36 @@ Guidance for overseas Pakistani families seeking structured fertility planning.
 </section>
 
 
-<!-- HOSPITAL AFFILIATIONS -->
-<section class="bg-gray-50 py-24 text-center">
-<div class="max-w-6xl mx-auto px-6">
+<!-- PRACTICE SCOPE -->
+<section class="bg-gray-50 py-28">
+<div class="max-w-5xl mx-auto px-6 text-center">
 
-<h2 class="text-3xl font-semibold mb-12">
-Affiliated Clinical Practice Locations
+<h2 class="text-4xl font-bold mb-10">
+Scope of Clinical Practice
 </h2>
 
-<div class="grid md:grid-cols-4 gap-6 text-gray-700">
+<p class="text-lg text-gray-700 leading-relaxed mb-6">
+Clinical focus includes IVF, ICSI, IUI, male infertility management, female infertility treatment, diminished ovarian reserve, azoospermia, DNA fragmentation and structured genetic testing planning (PGT).
+</p>
 
-<div class="border border-gray-200 rounded-lg py-6">Healthnox Medical Center</div>
-<div class="border border-gray-200 rounded-lg py-6">Skina International Hospital</div>
-<div class="border border-gray-200 rounded-lg py-6">AQ Ortho & Gynae Complex</div>
-<div class="border border-gray-200 rounded-lg py-6">Latif Hospital</div>
-
-</div>
+<p class="text-lg text-gray-700 leading-relaxed">
+Practice locations across Lahore include Healthnox Medical Center, Skina International Hospital, AQ Ortho & Gynae Complex and Latif Hospital — supporting patients locally and internationally.
+</p>
 
 </div>
 </section>
 
 
-<!-- CLOSING STATEMENT -->
-<section class="py-32 bg-white text-center border-t border-gray-200">
+<!-- CLOSING AUTHORITY -->
+<section class="bg-white py-32 text-center border-t border-gray-200">
 <div class="max-w-3xl mx-auto px-6">
 
 <h2 class="text-4xl font-bold mb-8">
-Responsible Reproductive Medicine.
+Responsible, Evidence-Based Reproductive Medicine.
 </h2>
 
-<p class="text-lg text-gray-600 mb-10">
-Evidence-based, structured and ethically transparent fertility care across Lahore, Pakistan and internationally.
+<p class="text-lg text-gray-700 mb-10">
+Structured fertility care across Lahore, Pakistan and for overseas Pakistani families seeking clarity and accountability.
 </p>
 
 <a href="/contact/" class="bg-teal-700 text-white px-10 py-4 rounded-lg font-semibold hover:bg-teal-800 transition">
