@@ -123,3 +123,16 @@ header {
     opacity: 1;
     transform: translateY(0);
 }
+h1 {
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+h2 {
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+h3 {
+    font-weight: 600;
+}

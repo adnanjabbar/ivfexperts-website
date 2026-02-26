@@ -18,11 +18,17 @@ Advanced Fertility Treatment in Lahore
 Infertility affects both men and women. Effective treatment begins with diagnostic clarity, laboratory precision and individualized reproductive strategy.
 </p>
 
+<p class="text-sm text-gray-500 mt-4">
+One of the few clinicians in Pakistan formally trained in both medicine and embryology.
+</p>
+
 <div class="flex gap-4">
 <a href="/contact/" class="btn-primary">Schedule Consultation</a>
 <a href="/about/" class="btn-outline">About Dr. Adnan Jabbar</a>
 </div>
 </div>
+
+<!-- COMPREHENSIVE SERVICES -->
 
 <div class="card">
 <h3 class="text-xl font-semibold mb-4">Comprehensive Services</h3>
@@ -37,6 +43,8 @@ Infertility affects both men and women. Effective treatment begins with diagnost
 
 </div>
 </section>
+
+<!-- CORE IDENTITY -->
 
 <section class="section-md bg-white border-t border-gray-100">
 <div class="max-w-6xl mx-auto px-6">
@@ -80,6 +88,24 @@ Treatment decisions must be guided by medical reasoning — not assumptions or p
 </div>
 </section>
 
+<!-- EMOTIONAL RESONANCE -->
+<section class="section-lg bg-white text-center fade-in">
+<div class="max-w-4xl mx-auto px-6">
+
+<h2 class="text-3xl md:text-4xl font-bold mb-8">
+Behind Every Fertility Case Is a Personal Story.
+</h2>
+
+<p class="text-lg text-gray-700 leading-relaxed mb-6">
+Infertility is not only a medical diagnosis — it is an emotional journey marked by uncertainty, expectation and hope.
+</p>
+
+<p class="text-lg text-gray-700 leading-relaxed">
+Clinical precision must coexist with empathy, transparency and ethical guidance.
+</p>
+
+</div>
+</section>
 
 <!-- DIAGNOSTIC PHILOSOPHY -->
 <section class="section-lg bg-white fade-in">
@@ -92,7 +118,11 @@ Clinical & Laboratory Integration
 <div class="grid md:grid-cols-3 gap-10">
 
 <div class="card text-center">
-<div class="text-teal-600 text-3xl mb-4">🧬</div>
+<div class="mb-6">
+<svg class="w-10 h-10 mx-auto text-teal-700" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M5 6h14M5 18h14"/>
+</svg>
+</div>
 <h3 class="text-xl font-semibold mb-4">Embryology Insight</h3>
 <p class="text-gray-600">
 Direct laboratory understanding informs fertilization strategy and embryo development decisions.
@@ -100,7 +130,11 @@ Direct laboratory understanding informs fertilization strategy and embryo develo
 </div>
 
 <div class="card text-center">
-<div class="text-teal-600 text-3xl mb-4">⚕️</div>
+<div class="mb-6">
+<svg class="w-10 h-10 mx-auto text-teal-700" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" d="M12 8v8m-4-4h8"/>
+</svg>
+</div>
 <h3 class="text-xl font-semibold mb-4">Structured Evaluation</h3>
 <p class="text-gray-600">
 Hormonal, semen, ovarian reserve and systemic health assessments precede treatment planning.
@@ -108,7 +142,11 @@ Hormonal, semen, ovarian reserve and systemic health assessments precede treatme
 </div>
 
 <div class="card text-center">
-<div class="text-teal-600 text-3xl mb-4">📊</div>
+<div class="mb-6">
+<svg class="w-10 h-10 mx-auto text-teal-700" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" d="M4 18V6m6 12V10m6 8V14m4 4H2"/>
+</svg>
+</div>
 <h3 class="text-xl font-semibold mb-4">Protocol Strategy</h3>
 <p class="text-gray-600">
 IVF, ICSI or IUI decisions are guided by measurable biological indicators.
@@ -196,6 +234,8 @@ Assisted Reproductive Technologies are recommended only when clinically indicate
 </div>
 </div>
 </section>
+
+<!-- FAQ -->
 
 <section class="section-lg bg-soft fade-in">
 <div class="max-w-4xl mx-auto px-6">
