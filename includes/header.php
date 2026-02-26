@@ -28,7 +28,22 @@
 
 <link rel="stylesheet" href="/assets/css/style.css">
 <script src="/assets/js/app.js" defer></script>
-
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "MedicalBusiness",
+ "name": "IVF Experts",
+ "medicalSpecialty": "ReproductiveMedicine",
+ "areaServed": "Pakistan",
+ "telephone": "+923111101483",
+ "availableService": [
+   "IVF",
+   "ICSI",
+   "Male Infertility Treatment",
+   "Female Infertility Treatment"
+ ]
+}
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">

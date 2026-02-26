@@ -38,6 +38,34 @@ Infertility affects both men and women. Effective treatment begins with diagnost
 </div>
 </section>
 
+<section class="section-md bg-white border-t border-gray-100">
+<div class="max-w-6xl mx-auto px-6">
+
+<div class="grid md:grid-cols-4 gap-10 text-center">
+
+<div>
+<h3 class="text-3xl font-bold text-teal-700">10+ Years</h3>
+<p class="text-gray-600 mt-2">Clinical Experience</p>
+</div>
+
+<div>
+<h3 class="text-3xl font-bold text-teal-700">IVF • ICSI</h3>
+<p class="text-gray-600 mt-2">Advanced ART Protocols</p>
+</div>
+
+<div>
+<h3 class="text-3xl font-bold text-teal-700">Dual Expertise</h3>
+<p class="text-gray-600 mt-2">Clinician & Embryologist</p>
+</div>
+
+<div>
+<h3 class="text-3xl font-bold text-teal-700">Pakistan & Overseas</h3>
+<p class="text-gray-600 mt-2">Consultations Available</p>
+</div>
+
+</div>
+</div>
+</section>
 
 <!-- EMOTIONAL GRAVITY -->
 <section class="section-lg bg-tint text-center">
@@ -169,6 +197,40 @@ Assisted Reproductive Technologies are recommended only when clinically indicate
 </div>
 </section>
 
+<section class="section-lg bg-soft">
+<div class="max-w-4xl mx-auto px-6">
+
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+Frequently Asked Questions
+</h2>
+
+<div class="space-y-8">
+
+<div class="card">
+<h3 class="font-semibold mb-3">When should we consider IVF?</h3>
+<p class="text-gray-600">
+IVF is considered when tubal blockage, severe male factor infertility, repeated IUI failure or diminished ovarian reserve limits natural conception.
+</p>
+</div>
+
+<div class="card">
+<h3 class="font-semibold mb-3">Is ICSI necessary for low sperm count?</h3>
+<p class="text-gray-600">
+ICSI is recommended in severe male factor infertility, azoospermia with sperm retrieval or previous fertilization failure.
+</p>
+</div>
+
+<div class="card">
+<h3 class="font-semibold mb-3">Can infertility be treated without IVF?</h3>
+<p class="text-gray-600">
+Yes. Many cases require hormonal correction, ovulation induction or lifestyle modification before assisted reproduction is considered.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
 
 <!-- FINAL CTA -->
 <section class="section-lg bg-white text-center">
