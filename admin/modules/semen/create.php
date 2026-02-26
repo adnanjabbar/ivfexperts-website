@@ -15,55 +15,51 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $report_number = generate_report_number("semen");
 
-    // BASIC INFO
-    $hospital_id      = intval($_POST['hospital_id']);
-    $mr_number        = trim($_POST['mr_number']);
-    $patient_name     = trim($_POST['patient_name']);
-    $patient_age      = intval($_POST['patient_age']);
-    $abstinence_days  = intval($_POST['abstinence_days']);
-
-    $collection_datetime = $_POST['collection_datetime'] ?: NULL;
-    $analysis_datetime   = $_POST['analysis_datetime'] ?: NULL;
-
-    // MACROSCOPIC
-    $volume         = floatval($_POST['volume']);
-    $ph             = floatval($_POST['ph']);
-    $liquefaction   = $_POST['liquefaction'] ?? '';
-    $appearance     = $_POST['appearance'] ?? '';
-    $viscosity      = $_POST['viscosity'] ?? '';
-    $collection_method = $_POST['collection_method'] ?? '';
-
-    // MICROSCOPIC
-    $concentration      = floatval($_POST['concentration']);
-    $progressive        = floatval($_POST['progressive']);
-    $non_progressive    = floatval($_POST['non_progressive']);
-    $total_motility     = $progressive + $non_progressive;
-    $immotile           = 100 - $total_motility;
-    if($immotile < 0) $immotile = 0;
-
-    $total_count    = $volume * $concentration;
-
-    $morphology     = floatval($_POST['morphology']);
-    $head_defects   = floatval($_POST['head_defects']);
-    $midpiece_defects = floatval($_POST['midpiece_defects']);
-    $tail_defects   = floatval($_POST['tail_defects']);
-
-    $vitality       = floatval($_POST['vitality']);
-    $round_cells    = floatval($_POST['round_cells']);
-    $wbc            = floatval($_POST['wbc']);
-    $rbc            = floatval($_POST['rbc']);
-    $agglutination  = $_POST['agglutination'] ?? '';
-
-    $sample_quality = $_POST['sample_quality'] ?? '';
-    $recommended_for = $_POST['recommended_for'] ?? '';
-    $clinical_note  = $_POST['clinical_note'] ?? '';
-
-    // AUTO MR if empty
+    $hospital_id = intval($_POST['hospital_id']);
+    $mr_number = $conn->real_escape_string($_POST['mr_number']);
     if(empty($mr_number)){
         $mr_number = "IVF-MR-".date("Y")."-".rand(1000,9999);
     }
 
-    // INTERPRETATION
+    $patient_name = $conn->real_escape_string($_POST['patient_name']);
+    $patient_age = intval($_POST['patient_age']);
+    $abstinence_days = intval($_POST['abstinence_days']);
+
+    $collection_datetime = $_POST['collection_datetime'] ?: NULL;
+    $analysis_datetime = $_POST['analysis_datetime'] ?: NULL;
+
+    $volume = floatval($_POST['volume']);
+    $ph = floatval($_POST['ph']);
+    $liquefaction = $conn->real_escape_string($_POST['liquefaction']);
+    $appearance = $conn->real_escape_string($_POST['appearance']);
+    $viscosity = $conn->real_escape_string($_POST['viscosity']);
+    $collection_method = $conn->real_escape_string($_POST['collection_method']);
+
+    $concentration = floatval($_POST['concentration']);
+    $progressive = floatval($_POST['progressive']);
+    $non_progressive = floatval($_POST['non_progressive']);
+
+    $total_motility = $progressive + $non_progressive;
+    $immotile = 100 - $total_motility;
+    if($immotile < 0) $immotile = 0;
+
+    $total_count = $volume * $concentration;
+
+    $morphology = floatval($_POST['morphology']);
+    $head_defects = floatval($_POST['head_defects']);
+    $midpiece_defects = floatval($_POST['midpiece_defects']);
+    $tail_defects = floatval($_POST['tail_defects']);
+
+    $vitality = floatval($_POST['vitality']);
+    $round_cells = floatval($_POST['round_cells']);
+    $wbc = floatval($_POST['wbc']);
+    $rbc = floatval($_POST['rbc']);
+    $agglutination = $conn->real_escape_string($_POST['agglutination']);
+
+    $sample_quality = $conn->real_escape_string($_POST['sample_quality']);
+    $recommended_for = $conn->real_escape_string($_POST['recommended_for']);
+    $clinical_note = $conn->real_escape_string($_POST['clinical_note']);
+
     $interpretation = classify_who6([
         'volume' => $volume,
         'concentration' => $concentration,
@@ -72,61 +68,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         'wbc' => $wbc
     ]);
 
-    $stmt = $conn->prepare("
-INSERT INTO semen_reports (
-    hospital_id, report_number, mr_number,
-    patient_name, patient_age, abstinence_days,
-    collection_datetime, analysis_datetime,
-    volume, ph, liquefaction, appearance, viscosity, collection_method,
-    concentration, progressive, non_progressive, immotile,
-    total_motility, total_count,
-    morphology, head_defects, midpiece_defects, tail_defects,
-    vitality, round_cells, wbc, rbc, agglutination,
-    sample_quality, recommended_for, clinical_note,
-    interpretation
-)
-VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-");
+    $sql = "
+    INSERT INTO semen_reports (
+        hospital_id, report_number, mr_number,
+        patient_name, patient_age, abstinence_days,
+        collection_datetime, analysis_datetime,
+        volume, ph, liquefaction, appearance, viscosity, collection_method,
+        concentration, progressive, non_progressive, immotile,
+        total_motility, total_count,
+        morphology, head_defects, midpiece_defects, tail_defects,
+        vitality, round_cells, wbc, rbc, agglutination,
+        sample_quality, recommended_for, clinical_note,
+        interpretation
+    ) VALUES (
+        '$hospital_id','$report_number','$mr_number',
+        '$patient_name','$patient_age','$abstinence_days',
+        ".($collection_datetime ? "'$collection_datetime'" : "NULL").",
+        ".($analysis_datetime ? "'$analysis_datetime'" : "NULL").",
+        '$volume','$ph','$liquefaction','$appearance','$viscosity','$collection_method',
+        '$concentration','$progressive','$non_progressive','$immotile',
+        '$total_motility','$total_count',
+        '$morphology','$head_defects','$midpiece_defects','$tail_defects',
+        '$vitality','$round_cells','$wbc','$rbc','$agglutination',
+        '$sample_quality','$recommended_for','$clinical_note',
+        '$interpretation'
+    )";
 
-$stmt->bind_param(
-    "isssiissddsssddddddddddddddssss",
-    $hospital_id,
-    $report_number,
-    $mr_number,
-    $patient_name,
-    $patient_age,
-    $abstinence_days,
-    $collection_datetime,
-    $analysis_datetime,
-    $volume,
-    $ph,
-    $liquefaction,
-    $appearance,
-    $viscosity,
-    $collection_method,
-    $concentration,
-    $progressive,
-    $non_progressive,
-    $immotile,
-    $total_motility,
-    $total_count,
-    $morphology,
-    $head_defects,
-    $midpiece_defects,
-    $tail_defects,
-    $vitality,
-    $round_cells,
-    $wbc,
-    $rbc,
-    $agglutination,
-    $sample_quality,
-    $recommended_for,
-    $clinical_note,
-    $interpretation
-);
-
-$stmt->execute();
-$stmt->close();
+    $conn->query($sql);
 
     header("Location: list.php");
     exit();
