@@ -26,9 +26,7 @@ Dr. Adnan Jabbar
 <h2 class="text-lg text-teal-700 font-semibold mb-6">
 Fertility Specialist Consultant | Clinical Embryologist  
 <br>
-Founder & CEO – IVF Experts  
-<br>
-Head of Fertility & Family Medicine – Healthnox Medical Center
+Founder IVF Experts  
 </h2>
 
 <p class="text-gray-800 leading-relaxed mb-6">
@@ -37,6 +35,10 @@ One of the few physicians in Pakistan formally trained both as an MBBS doctor an
 
 <p class="text-gray-800 leading-relaxed">
 Professional background spans emergency medicine, hospital administration, public health (MPH), digital health systems, and fertility center leadership — creating a systems-level perspective in reproductive medicine.
+</p>
+
+<p class="text-gray-800 leading-relaxed mt-6">
+Fertility Specialist Consultant and Clinical Embryologist with multidisciplinary training in Family Medicine and Emergency Medicine. Clinical practice integrates diagnostic precision, laboratory expertise and evidence-based reproductive protocol design.
 </p>
 
 </div>

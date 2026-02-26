@@ -27,6 +27,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Physician",
+"name": "Dr. Adnan Jabbar",
+"medicalSpecialty": "Reproductive Medicine",
+"areaServed": {
+  "@type": "Country",
+  "name": "Pakistan"
+},
+"address": {
+  "@type": "PostalAddress",
+  "addressLocality": "Lahore",
+  "addressCountry": "PK"
+},
+"telephone": "+923111101483",
+"url": "https://ivfexperts.pk"
+}
+</script>
 <script src="/assets/js/app.js" defer></script>
 <script type="application/ld+json">
 {

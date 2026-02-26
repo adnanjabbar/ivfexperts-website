@@ -103,6 +103,42 @@ include("includes/header.php");
 </div>
 </section>
 
+<!-- PROFESSIONAL BACKGROUND -->
+
+<section class="section-lg bg-white border-t border-gray-100 fade-in">
+<div class="max-w-6xl mx-auto px-6">
+
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+Professional Credentials & Clinical Background
+</h2>
+
+<div class="grid md:grid-cols-3 gap-10">
+
+<div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+<h3 class="font-semibold text-lg mb-4">Multidisciplinary Medical Training</h3>
+<p class="text-gray-600 text-sm leading-relaxed">
+Family Medicine and Emergency Medicine background integrated with fertility-focused specialization.
+</p>
+</div>
+
+<div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+<h3 class="font-semibold text-lg mb-4">Clinical Embryology Expertise</h3>
+<p class="text-gray-600 text-sm leading-relaxed">
+Direct laboratory-based reproductive planning including fertilization strategy and embryo development assessment.
+</p>
+</div>
+
+<div class="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
+<h3 class="font-semibold text-lg mb-4">Academic & Teaching Engagement</h3>
+<p class="text-gray-600 text-sm leading-relaxed">
+Fertility training programs and structured reproductive medicine education initiatives.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
 <!-- EMOTIONAL GRAVITY -->
 <section class="section-lg bg-tint text-center fade-in">
 <div class="max-w-4xl mx-auto px-6">
@@ -251,14 +287,35 @@ Assisted Reproductive Technologies are recommended only when clinically indicate
 
 
 <!-- HOSPITALS -->
-<section class="section-md bg-white text-center border-t border-gray-200 fade-in">
-<div class="max-w-6xl mx-auto px-6">
-<h3 class="text-2xl font-semibold mb-8">Affiliated Practice Locations</h3>
-<div class="grid md:grid-cols-4 gap-6 text-gray-700">
-<div class="card p-6">Healthnox Medical Center</div>
-<div class="card p-6">Skina International Hospital</div>
-<div class="card p-6">AQ Ortho & Gynae Complex</div>
-<div class="card p-6">Latif Hospital</div>
+<section class="section-lg bg-soft fade-in">
+<div class="max-w-6xl mx-auto px-6 text-center">
+
+<h2 class="text-3xl font-bold mb-12">
+Affiliated Practice Locations
+</h2>
+
+<div class="grid md:grid-cols-4 gap-8">
+
+<div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+<p class="font-semibold text-gray-800">Healthnox Medical Center</p>
+<p class="text-sm text-gray-500 mt-2">Lahore</p>
+</div>
+
+<div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+<p class="font-semibold text-gray-800">Skina International Hospital</p>
+<p class="text-sm text-gray-500 mt-2">Lahore</p>
+</div>
+
+<div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+<p class="font-semibold text-gray-800">AQ Ortho & Gynae Complex</p>
+<p class="text-sm text-gray-500 mt-2">Lahore</p>
+</div>
+
+<div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+<p class="font-semibold text-gray-800">Latif Hospital</p>
+<p class="text-sm text-gray-500 mt-2">Lahore</p>
+</div>
+
 </div>
 </div>
 </section>
