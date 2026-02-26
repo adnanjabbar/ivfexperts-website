@@ -1,26 +1,25 @@
 <?php
-// contact/process.php - Secure form handler with reCAPTCHA v2
+// contact/process.php - Form handler with reCAPTCHA v2 verification
 
 // === CONFIG ===
-$to_email       = "hello@ivfexperts.pk";          // Your email address
-$site_key       = "6LeiEHksAAAAAHR6-TfQs1oaDqEzXRQgikAKYzNW";           // ← Paste your reCAPTCHA Site Key here (public)
-$secret_key     = "6LeiEHksAAAAAAUbfQYXy-PgJuGhdWMdEDcykKJk";         // ← Paste your reCAPTCHA Secret Key here (private)
-$redirect_url   = "/contact/";                    // Where to go after submit
+$to_email     = "hello@ivfexperts.pk";
+$secret_key   = "6LeiEHksAAAAAAUbfQYXy-PgJuGhdWMdEDcykKJk";   // Your Secret Key
+$redirect_url = "/contact/";
 
-// === START PROCESSING ===
+// === PROCESS ===
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     header("Location: $redirect_url?error=invalid_request");
     exit;
 }
 
-// 1. Get form data
+// Get form data
 $name    = trim($_POST['name'] ?? '');
 $email   = trim($_POST['email'] ?? '');
 $phone   = trim($_POST['phone'] ?? '');
 $message = trim($_POST['message'] ?? '');
 $recaptcha_response = $_POST['g-recaptcha-response'] ?? '';
 
-// 2. Basic validation
+// Basic validation
 if (empty($name) || empty($email) || empty($message)) {
     header("Location: $redirect_url?error=missing_fields");
     exit;
@@ -31,7 +30,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-// 3. Verify reCAPTCHA
+// Verify reCAPTCHA
 if (empty($recaptcha_response)) {
     header("Location: $redirect_url?error=captcha_missing");
     exit;
@@ -61,14 +60,14 @@ if (!$response || !$response->success) {
     exit;
 }
 
-// 4. Prepare email
-$subject = "New Fertility Consultation Inquiry from $name";
+// Prepare and send email
+$subject = "New Fertility Inquiry from $name";
 
 $body = "=== New Contact Form Submission ===\n\n" .
         "Name:          $name\n" .
         "Email:         $email\n" .
         "Phone/WhatsApp: $phone\n" .
-        "Message:\n" . $message . "\n\n" .
+        "Message:\n$message\n\n" .
         "Submitted:     " . date('Y-m-d H:i:s') . "\n" .
         "IP:            " . ($_SERVER['REMOTE_ADDR'] ?? 'unknown') . "\n";
 
@@ -76,7 +75,6 @@ $headers = "From: $email\r\n" .
            "Reply-To: $email\r\n" .
            "X-Mailer: PHP/" . phpversion();
 
-// 5. Send email
 if (mail($to_email, $subject, $body, $headers)) {
     header("Location: $redirect_url?success=1");
 } else {

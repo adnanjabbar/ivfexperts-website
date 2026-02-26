@@ -4,7 +4,7 @@ $metaDescription = "Schedule your fertility consultation in Lahore with Dr. Adna
 include("../includes/header.php");
 ?>
 
-<!-- Load reCAPTCHA v2 script in head or here -->
+<!-- Load reCAPTCHA v2 script -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <!-- HERO -->
@@ -85,7 +85,7 @@ include("../includes/header.php");
             </div>
         </div>
 
-        <!-- Inquiry Form with CAPTCHA -->
+        <!-- Inquiry Form with reCAPTCHA -->
         <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-2xl p-8 lg:p-10 rounded-3xl" id="inquiry-form">
             <h2 class="text-3xl font-bold text-teal-800 mb-8">
                 Send Your Inquiry
@@ -99,10 +99,12 @@ include("../includes/header.php");
                 <div class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg mb-8">
                     <?php
                     $err = $_GET['error'];
-                    if ($err === 'captcha') echo "reCAPTCHA verification failed. Please try again.";
+                    if ($err === 'captcha') echo "reCAPTCHA verification failed. Please check the box and try again.";
+                    elseif ($err === 'captcha_missing') echo "Please complete the reCAPTCHA verification.";
                     elseif ($err === 'missing_fields') echo "Please fill all required fields.";
-                    elseif ($err === 'send_failed') echo "Sorry, there was an error sending your message. Please try WhatsApp.";
-                    else echo "An error occurred. Please try again or use WhatsApp.";
+                    elseif ($err === 'invalid_email') echo "Please enter a valid email address.";
+                    elseif ($err === 'send_failed') echo "Sorry, there was an error sending your message. Please try WhatsApp instead.";
+                    else echo "An error occurred. Please try again or contact us on WhatsApp.";
                     ?>
                 </div>
             <?php endif; ?>
@@ -139,7 +141,7 @@ include("../includes/header.php");
                 </div>
 
                 <!-- reCAPTCHA v2 Checkbox -->
-                <div class="g-recaptcha" data-sitekey="6LeiEHksAAAAAHR6-TfQs1oaDqEzXRQgikAKYzNW"></div>
+                <div class="g-recaptcha my-6" data-sitekey="6LeiEHksAAAAAHR6-TfQs1oaDqEzXRQgikAKYzNW"></div>
 
                 <button type="submit" class="btn-primary w-full py-5 text-lg font-bold shadow-xl hover:shadow-2xl transition">
                     Submit Inquiry
