@@ -21,14 +21,6 @@ if(!$row){
     exit;
 }
 
-/* Abnormal helper */
-function abnormal($value, $threshold, $type='min'){
-    if($value === null || $value === '') return false;
-    if($type=='min' && $value < $threshold) return true;
-    if($type=='max' && $value > $threshold) return true;
-    return false;
-}
-
 /* ===============================
    LOAD LAYOUT ONLY IF NOT PRINT
 ================================= */
