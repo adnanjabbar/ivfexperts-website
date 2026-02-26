@@ -4,6 +4,9 @@ $metaDescription = "Schedule your fertility consultation in Lahore with Dr. Adna
 include("../includes/header.php");
 ?>
 
+<!-- Load reCAPTCHA v2 script in head or here -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <!-- HERO -->
 <section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-teal-100/20 to-transparent pointer-events-none"></div>
@@ -82,13 +85,31 @@ include("../includes/header.php");
             </div>
         </div>
 
-        <!-- Inquiry Form -->
+        <!-- Inquiry Form with CAPTCHA -->
         <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-2xl p-8 lg:p-10 rounded-3xl" id="inquiry-form">
             <h2 class="text-3xl font-bold text-teal-800 mb-8">
                 Send Your Inquiry
             </h2>
 
+            <?php if (isset($_GET['success'])): ?>
+                <div class="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg mb-8">
+                    Thank you! Your inquiry has been sent. We'll get back to you soon.
+                </div>
+            <?php elseif (isset($_GET['error'])): ?>
+                <div class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg mb-8">
+                    <?php
+                    $err = $_GET['error'];
+                    if ($err === 'captcha') echo "reCAPTCHA verification failed. Please try again.";
+                    elseif ($err === 'missing_fields') echo "Please fill all required fields.";
+                    elseif ($err === 'send_failed') echo "Sorry, there was an error sending your message. Please try WhatsApp.";
+                    else echo "An error occurred. Please try again or use WhatsApp.";
+                    ?>
+                </div>
+            <?php endif; ?>
+
             <form action="/contact/process.php" method="POST" class="space-y-6">
+                <input type="hidden" name="form_source" value="contact_page">
+
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
                     <input type="text" id="name" name="name" required 
@@ -117,13 +138,16 @@ include("../includes/header.php");
                               placeholder="Briefly describe your situation, previous tests, or questions..."></textarea>
                 </div>
 
+                <!-- reCAPTCHA v2 Checkbox -->
+                <div class="g-recaptcha" data-sitekey="6LeiEHksAAAAAHR6-TfQs1oaDqEzXRQgikAKYzNW"></div>
+
                 <button type="submit" class="btn-primary w-full py-5 text-lg font-bold shadow-xl hover:shadow-2xl transition">
                     Submit Inquiry
                 </button>
             </form>
 
             <p class="text-sm text-gray-500 mt-6 text-center">
-                We usually respond within 24 hours (often faster via WhatsApp).
+                Protected by reCAPTCHA | We usually respond within 24 hours (faster via WhatsApp).
             </p>
         </div>
     </div>
