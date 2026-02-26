@@ -112,10 +112,7 @@ MORPHOLOGY & OTHER CELLS
 </div>
 
 <div class="mt-8 flex gap-4">
-    <a href="pdf.php?id=<?= $row['id'] ?>" 
-       class="bg-green-600 text-white px-5 py-2 rounded-lg">
-        Download PDF
-    </a>
+    <button onclick="window.print()">Print / Save as PDF</button>
 
     <a href="edit.php?id=<?= $row['id'] ?>" 
        class="bg-blue-600 text-white px-5 py-2 rounded-lg">

@@ -6,3 +6,84 @@ body { font-family:'Inter',sans-serif; background:#f8fafc; color:#1f2937; }
 .btn-primary { background:#0e7490; color:white; padding:.8rem 1.6rem; border-radius:.75rem; font-weight:600; }
 .btn-primary:hover { background:#155e75; }
 .accordion-content { display:none; padding-top:10px; color:#4b5563; }
+/* ===============================
+   PRINTABLE MEDICAL REPORT STYLE
+================================= */
+
+.report-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-radius: 8px;
+}
+
+.report-title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.section-bar {
+    background: #3c465a;
+    color: #fff;
+    padding: 6px 10px;
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 25px;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.report-table th,
+.report-table td {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+}
+
+.report-table th {
+    background: #efefef;
+    font-weight: 600;
+}
+
+.abnormal {
+    font-weight: bold;
+}
+
+.no-print {
+    margin-bottom: 20px;
+}
+
+/* ===============================
+   A4 PRINT CONTROL
+================================= */
+
+@media print {
+
+    body {
+        background: #ffffff;
+    }
+
+    .sidebar,
+    .admin-header,
+    .no-print {
+        display: none !important;
+    }
+
+    .report-container {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 20mm;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+}
