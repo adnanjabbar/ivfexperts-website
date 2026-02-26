@@ -7,75 +7,69 @@ include("includes/header.php");
 <!-- HERO -->
 <section class="relative section-lg fade-in overflow-hidden">
 
-<div class="absolute inset-0 bg-gradient-to-br from-white via-teal-50 to-slate-100"></div>
-<div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200 opacity-20 rounded-full blur-3xl"></div>
+    <!-- Gradient Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-white via-teal-50 to-slate-100"></div>
 
-<div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+    <!-- Soft Radial Accent -->
+    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200 opacity-20 rounded-full blur-3xl"></div>
 
-<!-- Left Content -->
-<div>
-<h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-gray-900">
-Advanced Fertility Treatment in Lahore
-<span class="block text-teal-700">Structured. Ethical. Evidence-Based.</span>
-</h1>
+    <!-- Content Container -->
+    <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
 
-<p class="text-lg text-gray-700 mb-8 max-w-xl">
-Infertility affects both men and women. Effective treatment begins with diagnostic clarity, laboratory precision and individualized reproductive strategy.
-</p>
-<div class="mt-8 border-l-4 border-teal-700 pl-6">
-    <div class="flex items-start gap-4">
-
-        <svg class="w-8 h-8 text-teal-700 mt-1" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M5 6h14M5 18h14"/>
-        </svg>
-
+        <!-- LEFT CONTENT -->
         <div>
-            <p class="text-base font-semibold text-gray-900">
-                One of the Few Dual-Trained Fertility Specialists in Pakistan
+
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-gray-900">
+                Advanced Fertility Treatment in Lahore
+                <span class="block text-teal-700">Structured. Ethical. Evidence-Based.</span>
+            </h1>
+
+            <p class="text-lg text-gray-700 mb-8 max-w-xl">
+                Infertility affects both men and women. Effective treatment begins with diagnostic clarity, laboratory precision and individualized reproductive strategy.
             </p>
-            <p class="text-gray-600 mt-1">
-                Clinical medical training integrated with formal embryology laboratory expertise.
-            </p>
+
+            <!-- Distinction Block -->
+            <div class="mt-8 border-l-4 border-teal-700 pl-6">
+                <div class="flex items-start gap-4">
+
+                    <svg class="w-8 h-8 text-teal-700 mt-1" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M5 6h14M5 18h14"/>
+                    </svg>
+
+                    <div>
+                        <p class="text-base font-semibold text-gray-900">
+                            One of the Few Dual-Trained Fertility Specialists in Pakistan
+                        </p>
+                        <p class="text-gray-600 mt-1">
+                            Clinical medical training integrated with formal embryology laboratory expertise.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex gap-4 mt-8">
+                <a href="/contact/" class="btn-primary">Schedule Consultation</a>
+                <a href="/about/" class="btn-outline">About Dr. Adnan Jabbar</a>
+            </div>
+
+        </div>
+
+        <!-- RIGHT CONTENT CARD -->
+        <div class="card backdrop-blur-sm bg-white/90">
+            <h3 class="text-xl font-semibold mb-4">Comprehensive Services</h3>
+            <ul class="space-y-3 text-gray-700">
+                <li>IVF & ICSI Protocol Optimization</li>
+                <li>Male & Female Infertility Evaluation</li>
+                <li>DNA Fragmentation & Advanced Testing</li>
+                <li>Genetic Planning (PGT)</li>
+                <li>Teleconsultations for Overseas Patients</li>
+            </ul>
         </div>
 
     </div>
-</div>
-<!-- Distinction block here -->
 
-<div class="flex gap-4 mt-6">
-<a href="/contact/" class="btn-primary">Schedule Consultation</a>
-<a href="/about/" class="btn-outline">About Dr. Adnan Jabbar</a>
-</div>
-</div>
-
-<!-- Right Card -->
-<div class="card backdrop-blur-sm bg-white/90">
-<h3 class="text-xl font-semibold mb-4">Comprehensive Services</h3>
-<ul class="space-y-3 text-gray-700">
-<li>IVF & ICSI Protocol Optimization</li>
-<li>Male & Female Infertility Evaluation</li>
-<li>DNA Fragmentation & Advanced Testing</li>
-<li>Genetic Planning (PGT)</li>
-<li>Teleconsultations for Overseas Patients</li>
-</ul>
-</div>
-
-</div>
-
-<!-- COMPREHENSIVE SERVICES -->
-
-<div class="card">
-<h3 class="text-xl font-semibold mb-4">Comprehensive Services</h3>
-<ul class="space-y-3 text-gray-700">
-<li>✔ IVF & ICSI Protocol Optimization</li>
-<li>✔ Male & Female Infertility Evaluation</li>
-<li>✔ DNA Fragmentation & Advanced Testing</li>
-<li>✔ Genetic Planning (PGT)</li>
-<li>✔ Teleconsultations for Overseas Patients</li>
-</ul>
-</div>
-
-</div>
 </section>
 
 <!-- CORE IDENTITY -->
