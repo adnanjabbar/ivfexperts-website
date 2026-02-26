@@ -73,60 +73,60 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     ]);
 
     $stmt = $conn->prepare("
-        INSERT INTO semen_reports (
-            hospital_id, report_number, mr_number,
-            patient_name, patient_age, abstinence_days,
-            collection_datetime, analysis_datetime,
-            volume, ph, liquefaction, appearance, viscosity, collection_method,
-            concentration, progressive, non_progressive, immotile,
-            total_motility, total_count,
-            morphology, head_defects, midpiece_defects, tail_defects,
-            vitality, round_cells, wbc, rbc, agglutination,
-            sample_quality, recommended_for, clinical_note,
-            interpretation
-        )
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-    ");
+INSERT INTO semen_reports (
+    hospital_id, report_number, mr_number,
+    patient_name, patient_age, abstinence_days,
+    collection_datetime, analysis_datetime,
+    volume, ph, liquefaction, appearance, viscosity, collection_method,
+    concentration, progressive, non_progressive, immotile,
+    total_motility, total_count,
+    morphology, head_defects, midpiece_defects, tail_defects,
+    vitality, round_cells, wbc, rbc, agglutination,
+    sample_quality, recommended_for, clinical_note,
+    interpretation
+)
+VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+");
 
-    $stmt->bind_param(
-        "isssiissddddsddddddddddddddsssss",
-        $hospital_id,
-        $report_number,
-        $mr_number,
-        $patient_name,
-        $patient_age,
-        $abstinence_days,
-        $collection_datetime,
-        $analysis_datetime,
-        $volume,
-        $ph,
-        $liquefaction,
-        $appearance,
-        $viscosity,
-        $collection_method,
-        $concentration,
-        $progressive,
-        $non_progressive,
-        $immotile,
-        $total_motility,
-        $total_count,
-        $morphology,
-        $head_defects,
-        $midpiece_defects,
-        $tail_defects,
-        $vitality,
-        $round_cells,
-        $wbc,
-        $rbc,
-        $agglutination,
-        $sample_quality,
-        $recommended_for,
-        $clinical_note,
-        $interpretation
-    );
+$stmt->bind_param(
+    "isssiissddsssddddddddddddddssss",
+    $hospital_id,
+    $report_number,
+    $mr_number,
+    $patient_name,
+    $patient_age,
+    $abstinence_days,
+    $collection_datetime,
+    $analysis_datetime,
+    $volume,
+    $ph,
+    $liquefaction,
+    $appearance,
+    $viscosity,
+    $collection_method,
+    $concentration,
+    $progressive,
+    $non_progressive,
+    $immotile,
+    $total_motility,
+    $total_count,
+    $morphology,
+    $head_defects,
+    $midpiece_defects,
+    $tail_defects,
+    $vitality,
+    $round_cells,
+    $wbc,
+    $rbc,
+    $agglutination,
+    $sample_quality,
+    $recommended_for,
+    $clinical_note,
+    $interpretation
+);
 
-    $stmt->execute();
-    $stmt->close();
+$stmt->execute();
+$stmt->close();
 
     header("Location: list.php");
     exit();
