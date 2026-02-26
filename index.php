@@ -16,9 +16,29 @@ Advanced Fertility Treatment in Lahore
 
 <p class="text-lg text-gray-600 mb-8 max-w-xl">
 Infertility affects both men and women. Effective treatment begins with diagnostic clarity, laboratory precision and individualized reproductive strategy.
-<br>
-One of the few clinicians in Pakistan formally trained in both medicine and embryology.
 </p>
+<div class="mt-8">
+    <div class="inline-flex items-center gap-4 bg-teal-50 border border-teal-100 px-6 py-4 rounded-xl shadow-sm">
+
+        <!-- Icon -->
+        <div class="flex-shrink-0">
+            <svg class="w-8 h-8 text-teal-700" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M5 6h14M5 18h14"/>
+            </svg>
+        </div>
+
+        <!-- Text -->
+        <div>
+            <p class="text-sm font-semibold text-teal-800 tracking-wide">
+                Dual Clinical & Embryology Expertise
+            </p>
+            <p class="text-sm text-gray-600">
+                Among the few clinicians in Pakistan formally trained in both medicine and embryology laboratory science.
+            </p>
+        </div>
+
+    </div>
+</div>
 
 <div class="flex gap-4">
 <a href="/contact/" class="btn-primary">Schedule Consultation</a>
