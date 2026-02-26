@@ -141,7 +141,7 @@ include("../includes/header.php");
                 </div>
 
                 <!-- reCAPTCHA v2 Checkbox -->
-                <div class="g-recaptcha my-6" data-sitekey="6LeiEHksAAAAAHR6-TfQs1oaDqEzXRQgikAKYzNW"></div>
+                <div class="g-recaptcha my-6" data-sitekey="6LdVE3ksAAAAAIsyioGnXh9yaL7AlseppNg3Fkai"></div>
 
                 <button type="submit" class="btn-primary w-full py-5 text-lg font-bold shadow-xl hover:shadow-2xl transition">
                     Submit Inquiry
@@ -184,7 +184,7 @@ include("../includes/header.php");
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m0 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                 </svg>
                 <p class="font-semibold text-lg text-gray-900">AQ Ortho & Gynae Complex</p>
-                <p class="text-gray-600 mt-2">Lahore</p>
+                <p class="text-gray-600 mt-2">Okara</p>
             </div>
 
             <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
