@@ -17,29 +17,25 @@ Advanced Fertility Treatment in Lahore
 <p class="text-lg text-gray-600 mb-8 max-w-xl">
 Infertility affects both men and women. Effective treatment begins with diagnostic clarity, laboratory precision and individualized reproductive strategy.
 </p>
-<div class="mt-8">
-    <div class="inline-flex items-center gap-4 bg-teal-50 border border-teal-100 px-6 py-4 rounded-xl shadow-sm">
+<div class="mt-8 border-l-4 border-teal-700 pl-6">
+    <div class="flex items-start gap-4">
 
-        <!-- Icon -->
-        <div class="flex-shrink-0">
-            <svg class="w-8 h-8 text-teal-700" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M5 6h14M5 18h14"/>
-            </svg>
-        </div>
+        <svg class="w-8 h-8 text-teal-700 mt-1" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M5 6h14M5 18h14"/>
+        </svg>
 
-        <!-- Text -->
         <div>
-            <p class="text-sm font-semibold text-teal-800 tracking-wide">
-                Dual Clinical & Embryology Expertise
+            <p class="text-base font-semibold text-gray-900">
+                One of the Few Dual-Trained Fertility Specialists in Pakistan
             </p>
-            <p class="text-sm text-gray-600">
-                Among the few clinicians in Pakistan formally trained in both medicine and embryology laboratory science.
+            <p class="text-gray-600 mt-1">
+                Clinical medical training integrated with formal embryology laboratory expertise.
             </p>
         </div>
 
     </div>
 </div>
-
+<br>
 <div class="flex gap-4">
 <a href="/contact/" class="btn-primary">Schedule Consultation</a>
 <a href="/about/" class="btn-outline">About Dr. Adnan Jabbar</a>
