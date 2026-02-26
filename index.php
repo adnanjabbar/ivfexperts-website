@@ -80,21 +80,38 @@ Comprehensive Fertility Care
 </section>
 
 
-<!-- EMOTIONAL CONNECTION -->
-<section class="py-28 bg-white">
-<div class="max-w-4xl mx-auto px-6 text-center">
+<!-- SIGNATURE VISUAL MOMENT -->
+<section class="relative py-36 overflow-hidden bg-gradient-to-br from-teal-50 to-blue-50">
 
-<h2 class="text-4xl font-bold text-gray-900 mb-8">
-Every Couple Deserves the Chance to Hold Their Child.
+<div class="absolute inset-0 opacity-20">
+<svg width="100%" height="100%">
+<defs>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0f766e" stroke-width="0.5"/>
+</pattern>
+</defs>
+<rect width="100%" height="100%" fill="url(#grid)" />
+</svg>
+</div>
+
+<div class="relative max-w-4xl mx-auto px-6 text-center">
+
+<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+Parenthood Is Not a Marketing Promise.
+<span class="block text-teal-700 mt-2">
+It Is a Medically Guided Journey.
+</span>
 </h2>
+
+<div class="w-24 h-1 bg-teal-600 mx-auto mb-10 rounded-full"></div>
 
 <p class="text-lg text-gray-600 leading-relaxed mb-6">
 Behind every fertility consultation is a deeply personal hope.  
-Care here is never rushed or generalized. It is thoughtful, individualized and medically structured.
+Care here is structured, individualized and grounded in reproductive science.
 </p>
 
 <p class="text-lg text-gray-600 leading-relaxed">
-The goal is not simply treatment — it is clarity, confidence and informed progression toward parenthood.
+The goal is not simply treatment — it is clarity, confidence and responsible progression toward building your family.
 </p>
 
 </div>
