@@ -61,7 +61,6 @@ Infertility affects both men and women. Effective treatment begins with diagnost
 </div>
 
 </div>
-</section>
 
 <!-- COMPREHENSIVE SERVICES -->
 
