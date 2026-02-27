@@ -79,94 +79,27 @@
 <body class="bg-white text-gray-900 font-sans antialiased">
 
 <!-- HEADER -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300" id="main-header">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
+<header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" class="text-3xl font-extrabold text-teal-700">
+            IVF Experts
+        </a>
 
-            <!-- LOGO -->
-            <a href="/" class="flex items-center gap-3 group">
-                <span class="text-3xl font-extrabold tracking-tight text-teal-700 group-hover:text-teal-600 transition">
-                    IVF Experts
-                </span>
-            </a>
+        <nav class="flex items-center gap-10 text-lg font-medium">
+            <a href="/" class="hover:text-teal-600">Home</a>
+            <a href="/male-infertility/" class="hover:text-teal-600">Male Infertility</a>
+            <a href="/female-infertility/" class="hover:text-teal-600">Female Infertility</a>
+            <a href="/art-procedures/" class="hover:text-teal-600">ART Procedures</a>
+            <a href="/contact/" class="hover:text-teal-600">Contact</a>
+        </nav>
 
-            <!-- DESKTOP NAV -->
-            <nav class="hidden lg:flex items-center space-x-10 text-base font-medium text-gray-700">
-
-                <a href="/" class="hover:text-teal-600 transition">Home</a>
-
-                <!-- Male Infertility Mega -->
-                <div class="relative group">
-                    <a href="/male-infertility/" class="hover:text-teal-600 transition flex items-center gap-1">
-                        Male Infertility
-                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </a>
-                    <div class="absolute left-0 top-full w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pt-4 pointer-events-none group-hover:pointer-events-auto">
-                        <div class="bg-white shadow-2xl rounded-2xl border border-gray-100 overflow-hidden">
-                            <div class="grid grid-cols-3 gap-10 p-10">
-                                <!-- Overview -->
-                                <div>
-                                    <h4 class="font-bold text-lg mb-4 text-teal-800">Overview</h4>
-                                    <p class="text-gray-600 text-sm mb-6">
-                                        Expert diagnosis & treatment of male infertility.
-                                    </p>
-                                    <a href="/male-infertility/" class="text-teal-600 font-semibold text-sm hover:underline">
-                                        Explore →
-                                    </a>
-                                </div>
-                                <!-- Conditions -->
-                                <div>
-                                    <h4 class="font-bold text-lg mb-4 text-teal-800">Conditions</h4>
-                                    <ul class="space-y-3 text-gray-700 text-sm">
-                                        <li><a href="/male-infertility/low-sperm-count.php" class="hover:text-teal-600">Low Sperm Count</a></li>
-                                        <li><a href="/male-infertility/azoospermia.php" class="hover:text-teal-600">Azoospermia</a></li>
-                                        <li><a href="/male-infertility/varicocele.php" class="hover:text-teal-600">Varicocele</a></li>
-                                        <li><a href="/male-infertility/dna-fragmentation.php" class="hover:text-teal-600">DNA Fragmentation</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Advanced -->
-                                <div>
-                                    <h4 class="font-bold text-lg mb-4 text-teal-800">Advanced Care</h4>
-                                    <ul class="space-y-3 text-gray-700 text-sm">
-                                        <li><a href="/art-procedures/icsi.php" class="hover:text-teal-600">ICSI</a></li>
-                                        <li><a href="/contact/" class="hover:text-teal-600">Consultation</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Repeat similar structure for Female Infertility and ART -->
-
-                <!-- ... (add Female and ART mega menus here – same pattern as above) ... -->
-
-                <a href="/contact/" class="hover:text-teal-600 transition">Contact</a>
-            </nav>
-
-            <!-- CTA Buttons -->
-            <div class="hidden lg:flex items-center gap-6">
-                <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'd%20like%20to%20discuss%20fertility%20options"
-                   class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition shadow-md animate-pulse-slow">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                    </svg>
-                    WhatsApp
-                </a>
-            </div>
-
-            <!-- Mobile Menu Button -->
-            <button class="lg:hidden text-teal-700 focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-
-        </div>
+        <a href="https://wa.me/923111101483" class="bg-teal-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-700">
+            WhatsApp
+        </a>
     </div>
 </header>
+
+<div class="h-24"></div> <!-- spacer -->
 
 <!-- Spacer -->
 <div class="header-spacer"></div>
