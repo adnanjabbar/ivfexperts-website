@@ -8,6 +8,30 @@
 // Get current page for active highlighting
 $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Page Title (set in each page) -->
+    <title><?= htmlspecialchars($pageTitle ?? 'IVF Experts Admin Panel') ?></title>
+
+    <!-- Tailwind CSS (CDN for quick dev – move to local admin.css later) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Admin Custom Styles -->
+    <link rel="stylesheet" href="/admin/assets/css/admin.css?v=<?= time() ?>">
+
+    <!-- Favicon (update path) -->
+    <link rel="icon" href="/favicon.ico">
+</head>
+
+<body class="bg-gray-50 font-sans antialiased">
+
 
 <!-- Sidebar -->
 <aside class="bg-gray-800 text-white w-64 min-h-screen fixed top-16 lg:top-20 left-0 z-40 p-6 lg:p-8 shadow-2xl">
