@@ -308,7 +308,7 @@ Affiliated Practice Locations
 
 <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
 <p class="font-semibold text-gray-800">AQ Ortho & Gynae Complex</p>
-<p class="text-sm text-gray-500 mt-2">Lahore</p>
+<p class="text-sm text-gray-500 mt-2">Okara</p>
 </div>
 
 <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
