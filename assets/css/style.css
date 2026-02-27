@@ -197,3 +197,25 @@ main, .content, section:not(.hero-section):not(footer) {
     opacity: 1;
     transform: translateY(0);
 }
+/* TEMP DEBUG - FORCE SHOW EVERYTHING - REMOVE AFTER FIX */
+main, section, .content, .fade-in, .page-content, body > *:not(header):not(footer) {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    min-height: 400px !important;
+    margin: 2rem 0 !important;
+    padding: 1rem !important;
+}
+
+/* Fix huge empty space */
+.header-spacer, .h-20, .h-24 {
+    height: 80px !important;
+}
+
+/* Force nav to show */
+.nav-desktop, .nav-link, .mega-menu {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
