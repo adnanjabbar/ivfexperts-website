@@ -1,0 +1,36 @@
+/* Admin Panel Custom Styles */
+
+/* Body & Typography */
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Cards & Shadows */
+.shadow-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+.shadow-card:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons */
+.btn-admin {
+    @apply px-6 py-3 rounded-lg font-medium transition;
+}
+.btn-primary { @apply bg-teal-600 text-white hover:bg-teal-700; }
+.btn-danger  { @apply bg-red-600 text-white hover:bg-red-700; }
+
+/* Tables */
+table {
+    @apply w-full border-collapse;
+}
+th, td {
+    @apply px-6 py-4 text-left;
+}
+th {
+    @apply bg-gray-50 text-gray-600 font-semibold uppercase text-xs tracking-wider;
+}
+tr:hover {
+    @apply bg-gray-50 transition;
+}
