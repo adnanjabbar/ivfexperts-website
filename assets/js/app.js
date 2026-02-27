@@ -1,87 +1,124 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Rotating Hero Text
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ===============================
+       ROTATING HERO TEXT
+    =============================== */
+
+    const texts = [
+        "Advanced IVF & ICSI Treatment in Lahore",
+        "Personalized Fertility Care Across Pakistan",
+        "Male & Female Infertility Expertise",
+        "Teleconsultations for Overseas Pakistanis"
+    ];
+
+    let index = 0;
     const rotating = document.getElementById("rotating-text");
+
     if (rotating) {
-        const texts = [
-            "Advanced IVF & ICSI Treatment in Lahore",
-            "Personalized Fertility Care Across Pakistan",
-            "Male & Female Infertility Expertise",
-            "Teleconsultations for Overseas Pakistanis"
-        ];
-        let index = 0;
+        setInterval(function () {
+            rotating.style.opacity = 0;
 
-        const rotate = () => {
-            rotating.style.opacity = "0";
-            setTimeout(() => {
+            setTimeout(function () {
                 index = (index + 1) % texts.length;
-                rotating.textContent = texts[index];
-                rotating.style.opacity = "1";
-            }, 600);
-        };
+                rotating.innerText = texts[index];
+                rotating.style.opacity = 1;
+            }, 400);
 
-        setInterval(rotate, 5000);
-        rotate(); // initial call
+        }, 4000);
     }
 
-    // Sticky Header Shadow
+    /* ===============================
+       STICKY HEADER SHADOW
+    =============================== */
+
     const header = document.querySelector("header");
+
     if (header) {
-        window.addEventListener("scroll", () => {
-            header.classList.toggle("header-shrink", window.scrollY > 80);
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 80) {
+                header.classList.add("header-shrink");
+            } else {
+                header.classList.remove("header-shrink");
+            }
         });
     }
 
-    // Fade-in Observer (with fallback)
-    const fadeElements = document.querySelectorAll(".fade-in");
-    if (fadeElements.length > 0) {
-        if ("IntersectionObserver" in window) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("appear");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
+    /* ===============================
+       FADE-IN ON SCROLL
+    =============================== */
 
-            fadeElements.forEach(el => observer.observe(el));
-        } else {
-            fadeElements.forEach(el => el.classList.add("appear"));
-        }
+    const fadeElements = document.querySelectorAll(".fade-in");
+
+    if ("IntersectionObserver" in window && fadeElements.length > 0) {
+
+        const observer = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("appear");
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        fadeElements.forEach(function (el) {
+            observer.observe(el);
+        });
+
+    } else {
+        fadeElements.forEach(function (el) {
+            el.classList.add("appear");
+        });
     }
 
-    // Counter Animation (very safe)
-    document.querySelectorAll(".counter").forEach(counter => {
-        const target = parseInt(counter.dataset.target, 10);
+    /* ===============================
+       COUNTER ANIMATION (SAFE)
+    =============================== */
+
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach(function (counter) {
+
+        const target = parseInt(counter.getAttribute("data-target"));
         if (isNaN(target)) return;
 
         let started = false;
-        const run = () => {
+
+        const runCounter = function () {
             if (started) return;
             started = true;
 
             let current = 0;
-            const step = target / 60;
-            const tick = () => {
-                current += step;
+            const increment = target / 40;
+
+            const update = function () {
+                current += increment;
+
                 if (current < target) {
-                    counter.textContent = Math.ceil(current);
-                    requestAnimationFrame(tick);
+                    counter.innerText = Math.ceil(current);
+                    requestAnimationFrame(update);
                 } else {
-                    counter.textContent = target + (counter.dataset.suffix || "+");
+                    counter.innerText = target + "+";
                 }
             };
-            tick();
+
+            update();
         };
 
         if ("IntersectionObserver" in window) {
-            new IntersectionObserver(([entry]) => {
-                if (entry.isIntersecting) {
-                    run();
-                }
-            }, { threshold: 0.5 }).observe(counter);
+            const counterObserver = new IntersectionObserver(function (entries, obs) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        runCounter();
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            counterObserver.observe(counter);
         } else {
-            run();
+            runCounter();
         }
+
     });
+
 });
