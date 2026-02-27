@@ -25,7 +25,6 @@
 
     <!-- Fonts & Tailwind -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/assets/css/style.css?v=<?= time() ?>">
 
     <!-- Favicon (update paths) -->
@@ -170,7 +169,7 @@
 </header>
 
 <!-- Spacer -->
-<div class="h-20 lg:h-24"></div>
+<div class="header-spacer"></div>
 
 <!-- Pulse animation for WhatsApp -->
 <style>
