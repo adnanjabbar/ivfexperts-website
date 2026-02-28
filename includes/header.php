@@ -73,6 +73,38 @@
 ]
 }
 </script>
+
+<!-- JavaScript for dynamic mega menu positioning -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const groups = document.querySelectorAll('nav .group');
+  groups.forEach(group => {
+    const dropdown = group.querySelector('.mega-dropdown');
+    if (!dropdown) return;
+
+    group.addEventListener('mouseenter', () => {
+      const triggerRect = group.getBoundingClientRect();
+      const dropdownWidth = dropdown.offsetWidth;
+      const viewportWidth = window.innerWidth;
+
+      let idealLeft = triggerRect.left + (triggerRect.width / 2) - (dropdownWidth / 2);
+
+      // Clamp to viewport with margins
+      const margin = 16;
+      if (idealLeft < margin) {
+        idealLeft = margin;
+      }
+      if (idealLeft + dropdownWidth > viewportWidth - margin) {
+        idealLeft = viewportWidth - dropdownWidth - margin;
+      }
+
+      // Set left relative to the relative parent
+      dropdown.style.left = `${idealLeft - triggerRect.left}px`;
+    });
+  });
+});
+</script>
+
 </head>
 
 <body class="bg-white text-gray-800 font-inter">
@@ -97,11 +129,7 @@
       <a href="/male-infertility/" class="hover:text-teal-600 transition">
         Male Infertility
       </a>
-      <div class="absolute top-full left-1/2 -translate-x-1/2
-                   w-[900px] min-w-[min(900px,calc(100vw-2rem))] max-w-[calc(100vw-2rem)]
-                   opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                   transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50"
-           style="left: clamp(1.5rem, 50%, calc(100% - 900px - 1.5rem));">
+      <div class="mega-dropdown absolute top-full left-0 w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
         <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
           <div class="grid grid-cols-3 gap-10 p-10">
             <div>
@@ -139,11 +167,7 @@
       <a href="/female-infertility/" class="hover:text-teal-600 transition">
         Female Infertility
       </a>
-      <div class="absolute top-full left-1/2 -translate-x-1/2
-                   w-[900px] min-w-[min(900px,calc(100vw-2rem))] max-w-[calc(100vw-2rem)]
-                   opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                   transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50"
-           style="left: clamp(1.5rem, 50%, calc(100% - 900px - 1.5rem));">
+      <div class="mega-dropdown absolute top-full left-0 w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
         <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
           <div class="grid grid-cols-3 gap-10 p-10">
             <div>
@@ -181,11 +205,7 @@
       <a href="/art-procedures/" class="hover:text-teal-600 transition">
         ART Procedures
       </a>
-      <div class="absolute top-full left-1/2 -translate-x-1/2
-                   w-[900px] min-w-[min(900px,calc(100vw-2rem))] max-w-[calc(100vw-2rem)]
-                   opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                   transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50"
-           style="left: clamp(1.5rem, 50%, calc(100% - 900px - 1.5rem));">
+      <div class="mega-dropdown absolute top-full left-0 w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
         <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
           <div class="grid grid-cols-3 gap-10 p-10">
             <div>
