@@ -19,7 +19,7 @@ include("includes/header.php");
         <div class="lg:col-span-7 fade-in">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 text-teal-700 text-sm font-semibold mb-6 border border-teal-100 shadow-sm">
                 <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
-                Accepting Consultations in Lahore & Worldwide
+                Accepting Consultations in Lahore, Karachi, Islamabad & Across Pakistan
             </div>
             
             <div class="min-h-[220px] md:min-h-[180px] flex flex-col justify-start">
@@ -183,7 +183,7 @@ include("includes/header.php");
             Behind every consultation is a <br/><span class="text-teal-400">deeply personal hope.</span>
         </h2>
         <p class="text-xl text-slate-300 leading-relaxed font-light">
-            Infertility is not just a medical diagnosis. It is an emotional journey marked by expectation and uncertainty. Our philosophy ensures that clinical precision coexists with empathy, transparency, and unyielding ethical guidance.
+            Infertility is not just a medical diagnosis. It is an emotional journey marked by expectation and uncertainty. Our philosophy ensures that clinical precision coexists with empathy, transparency, and unyielding ethical guidance for couples across Pakistan—from Lahore to Multan, Sargodha to Sialkot.
         </p>
     </div>
 </section>
@@ -302,7 +302,7 @@ include("includes/header.php");
 <!-- AFFILIATIONS / LOCATIONS -->
 <section class="section-md bg-white border-t border-slate-100 fade-in">
     <div class="max-w-7xl mx-auto px-6 text-center">
-        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-10">Affiliated Clinical Practice Locations in Lahore & Beyond</h3>
+        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-10">Affiliated Clinical Practice Locations & Online Consultations (Serving Lahore, Multan, Okara, Sahiwal, Rawalpindi & All Pakistan)</h3>
         
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 opacity-80">
             <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center justify-center">

@@ -142,6 +142,66 @@ include("../includes/header.php");
     </div>
 </section>
 
+<!-- PGT FAQ SECTION (SEO Google Snippet Hijacking) -->
+<section class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Frequently Asked Questions About PGT in Pakistan</h2>
+            <p class="text-slate-600">Common questions from families regarding embryo screening and gender selection.</p>
+        </div>
+        
+        <div class="space-y-6">
+            <!-- FAQ 1 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Is Gender Selection allowed in Pakistan through PGT?</h3>
+                <p class="text-slate-600 leading-relaxed">Yes, Family Balancing (Gender Selection) is often performed using PGT-A alongside IVF. By screening the embryos for their chromosomal makeup before transfer, parents can select the gender of the embryo securely and with 99.9% accuracy, avoiding multiple pregnancies.</p>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Does PGT damage the embryo?</h3>
+                <p class="text-slate-600 leading-relaxed">When performed by a highly experienced clinical embryologist like Dr. Adnan Jabbar, the risks to the embryo are extremely low (less than 1%). We perform a Trophectoderm Biopsy on Day 5, taking only 3-5 cells from what will eventually become the placenta, leaving the inner fetal mass completely untouched and safe.</p>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Who should get PGT testing?</h3>
+                <p class="text-slate-600 leading-relaxed">PGT is highly recommended for women over the age of 35 (where chromosomal abnormalities naturally increase), couples with a history of recurrent miscarriages, those who have experienced multiple failed IVF cycles, or families carrying known genetic diseases like Thalassemia.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is Gender Selection allowed in Pakistan through PGT?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Family Balancing (Gender Selection) is often performed using PGT-A alongside IVF, allowing parents to select the gender of the embryo securely and with 99.9% accuracy."
+    }
+  },{
+    "@type": "Question",
+    "name": "Does PGT damage the embryo?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "When performed by a highly experienced clinical embryologist, the risks to the embryo are extremely low. We perform a Trophectoderm Biopsy on Day 5, taking only 3-5 cells from the future placenta, leaving the inner fetal mass untouched."
+    }
+  },{
+    "@type": "Question",
+    "name": "Who should get PGT testing?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "PGT is highly recommended for women over 35, couples with a history of recurrent miscarriages, multiple failed IVF cycles, or families carrying known genetic diseases like Thalassemia."
+    }
+  }]
+}
+</script>
+
 <!-- CALL TO ACTION -->
 <section class="py-24 bg-white relative border-t border-slate-200">
     <div class="max-w-4xl mx-auto px-6 text-center fade-in">

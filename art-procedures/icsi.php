@@ -157,6 +157,66 @@ include("../includes/header.php");
     </div>
 </section>
 
+<!-- ICSI FAQ SECTION (SEO Google Snippet Hijacking) -->
+<section class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Frequently Asked Questions About ICSI in Pakistan</h2>
+            <p class="text-slate-600">Addressing common concerns regarding male infertility and micromanipulation.</p>
+        </div>
+        
+        <div class="space-y-6">
+            <!-- FAQ 1 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Is ICSI better than regular IVF?</h3>
+                <p class="text-slate-600 leading-relaxed">ICSI is not inherently "better" but rather a specialized tool. Regular IVF is excellent for tubal issues when the sperm is healthy. ICSI is specifically required when there is severe male factor infertility (low count, poor motility, high DNA fragmentation) or a history of failed fertilization in previous IVF cycles.</p>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">What is the success rate of ICSI in Lahore?</h3>
+                <p class="text-slate-600 leading-relaxed">At our advanced laboratory in Lahore, ICSI successfully fertilizes approximately 70-85% of injected mature eggs. Once embryos are formed, the pregnancy success rates per transfer are identical to standard IVF, generally driven by the female partner's age and egg quality.</p>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Does ICSI cause birth defects?</h3>
+                <p class="text-slate-600 leading-relaxed">Vast medical literature covering decades of ICSI use shows that children born from ICSI are as healthy as those conceived naturally or through standard IVF. Any slight increase in genetic conditions is usually linked to the underlying male infertility factor itself, not the ICSI procedure. We mitigate these risks with chromosomal screening (PGT-A) if necessary.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Is ICSI better than regular IVF?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ICSI is specifically required when there is severe male factor infertility (low count, poor motility) or a history of failed fertilization. Regular IVF is used when sperm parameters are healthy."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is the success rate of ICSI in Lahore?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ICSI successfully fertilizes approximately 70-85% of injected mature eggs. The overall pregnancy success rate is driven by maternal age and embryo quality."
+    }
+  },{
+    "@type": "Question",
+    "name": "Does ICSI cause birth defects?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Children born from ICSI are as healthy as those conceived naturally. We mitigate generic risks with chromosomal screening (PGT-A) when necessary."
+    }
+  }]
+}
+</script>
+
 <!-- CALL TO ACTION -->
 <section class="py-24 bg-white relative border-t border-slate-200">
     <div class="max-w-4xl mx-auto px-6 text-center fade-in">

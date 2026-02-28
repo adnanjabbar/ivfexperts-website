@@ -148,6 +148,66 @@ include("../includes/header.php");
     </div>
 </section>
 
+<!-- PCOS FAQ SECTION (SEO Google Snippet Hijacking) -->
+<section class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Frequently Asked Questions About PCOS & Pregnancy in Pakistan</h2>
+            <p class="text-slate-600">Clearing up common misconceptions regarding Polycystic Ovary Syndrome.</p>
+        </div>
+        
+        <div class="space-y-6">
+            <!-- FAQ 1 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Can I get pregnant with PCOS naturally?</h3>
+                <p class="text-slate-600 leading-relaxed">Yes. Many women with PCOS occasionally ovulate and can conceive naturally. However, because ovulation is unpredictable, timing intercourse is difficult. With minor lifestyle adjustments (weight loss in overweight phenotypes) and simple oral induction like Letrozole, the chances of natural conception skyrocket.</p>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Do I need IVF for PCOS?</h3>
+                <p class="text-slate-600 leading-relaxed">Usually, no. IVF is considered a last-resort treatment for PCOS. We typically only recommend IVF if 3-6 cycles of targeted ovulation induction (with Letrozole or low-dose injectables) and timed intercourse/IUI have failed, or if there is a secondary issue like blocked tubes or severe male infertility.</p>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">What is the best medicine for PCOS infertility in Pakistan?</h3>
+                <p class="text-slate-600 leading-relaxed">Current global guidelines recommend Letrozole (an aromatase inhibitor) as the first-line oral medication for inducing ovulation in PCOS patients, rather than Clomiphene (Clomid). Letrozole generally results in higher ovulation rates, better endometrial lining, and a higher live birth rate for PCOS.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Can I get pregnant with PCOS naturally?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Many women with PCOS occasionally ovulate and can conceive naturally. With minor lifestyle adjustments and simple oral induction like Letrozole, the chances of natural conception skyrocket."
+    }
+  },{
+    "@type": "Question",
+    "name": "Do I need IVF for PCOS?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Usually, no. IVF is a last-resort treatment for PCOS. We typically recommend IVF only if 3-6 cycles of targeted ovulation induction have failed, or if there are secondary issues like blocked tubes."
+    }
+  },{
+    "@type": "Question",
+    "name": "What is the best medicine for PCOS infertility in Pakistan?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Current global guidelines recommend Letrozole as the first-line oral medication for inducing ovulation in PCOS patients, as it generally results in higher ovulation rates and better endometrial lining than older medications."
+    }
+  }]
+}
+</script>
+
 <!-- CALL TO ACTION -->
 <section class="py-24 bg-white relative border-t border-slate-200">
     <div class="max-w-4xl mx-auto px-6 text-center fade-in">

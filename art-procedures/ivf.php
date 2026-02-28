@@ -198,6 +198,66 @@ include("../includes/header.php");
     </div>
 </section>
 
+<!-- IVF FAQ SECTION (SEO Google Snippet Hijacking) -->
+<section class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Frequently Asked Questions About IVF in Pakistan</h2>
+            <p class="text-slate-600">Common questions from our patients in Lahore, Karachi, and Islamabad.</p>
+        </div>
+        
+        <div class="space-y-6">
+            <!-- FAQ 1 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">What is the cost of IVF in Lahore, Pakistan?</h3>
+                <p class="text-slate-600 leading-relaxed">The cost of IVF in Pakistan varies depending on the medical history of the couple, the type of stimulation protocol required, and whether advanced procedures like ICSI or PGT (Gender Selection) are included. As a premium clinical embryologist, Dr. Adnan Jabbar ensures transparent, evidence-based pricing without unnecessary hidden fees.</p>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">What are the success rates of IVF on the first try?</h3>
+                <p class="text-slate-600 leading-relaxed">IVF success relies heavily on maternal age, egg reserve (AMH levels), and laboratory quality. In a world-class environment like ours, women under 35 can see success rates exceeding 50-60% per embryo transfer. We utilize advanced Blastocyst (Day 5) transfers to maximize these odds.</p>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Is IVF painful?</h3>
+                <p class="text-slate-600 leading-relaxed">The IVF process is generally well-tolerated. The daily hormonal injections use very fine subcutaneous needles. The actual egg retrieval is completely painless as it is performed under light, short-acting anesthesia. The embryo transfer feels similar to a routine cervical smear.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is the cost of IVF in Lahore, Pakistan?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The cost of IVF in Pakistan varies depending on the medical history of the couple, the type of stimulation protocol required, and whether advanced procedures like ICSI or PGT are included. Transparent pricing is provided after clinical evaluation."
+    }
+  },{
+    "@type": "Question",
+    "name": "What are the success rates of IVF on the first try?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Success rates vary by maternal age and egg reserve. Women under 35 at our premium laboratory can experience success rates exceeding 50-60% per embryo transfer using Day 5 Blastocyst culturing."
+    }
+  },{
+    "@type": "Question",
+    "name": "Is IVF painful?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The IVF process is generally well-tolerated. Ovarian stimulation uses small subcutaneous needles, egg retrieval is performed under painless light anesthesia, and embryo transfer is a simple, painless clinic procedure."
+    }
+  }]
+}
+</script>
+
 <!-- CALL TO ACTION -->
 <section class="py-24 bg-white relative border-t border-slate-200">
     <div class="max-w-4xl mx-auto px-6 text-center fade-in">

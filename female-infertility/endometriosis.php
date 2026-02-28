@@ -147,6 +147,66 @@ include("../includes/header.php");
     </div>
 </section>
 
+<!-- ENDOMETRIOSIS FAQ SECTION (SEO Google Snippet Hijacking) -->
+<section class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Frequently Asked Questions About Endometriosis in Pakistan</h2>
+            <p class="text-slate-600">Addressing common questions regarding pelvic pain and fertility preservation.</p>
+        </div>
+        
+        <div class="space-y-6">
+            <!-- FAQ 1 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Does Endometriosis mean I cannot get pregnant?</h3>
+                <p class="text-slate-600 leading-relaxed">Not at all. While up to 50% of women with endometriosis experience subfertility, many conceive naturally, especially with milder stages of the disease. For those with advanced disease (Stage III/IV) causing tubal blockages or ovarian damage, IVF offers an exceptionally high chance of success by entirely bypassing the inflammatory pelvic environment.</p>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Should I have surgery for Endometriosis before trying IVF?</h3>
+                <p class="text-slate-600 leading-relaxed">This requires a highly individualized decision. If you have severe daily pain or large cysts (endometriomas), laparoscopic excision may be necessary. However, if your primary goal is pregnancy and you have low ovarian reserve (Low AMH), surgery on the ovaries can further damage remaining eggs. In such cases, Dr. Adnan Jabbar often recommends proceeding directly to IVF to secure embryos first.</p>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">How is Endometriosis diagnosed in Lahore?</h3>
+                <p class="text-slate-600 leading-relaxed">While advanced transvaginal ultrasounds and MRI can identify severe disease (like deep infiltrating nodules or endometriomas), the global "gold standard" for definitively diagnosing and staging Endometriosis is minimally invasive Laparoscopy.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Does Endometriosis mean I cannot get pregnant?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not at all. While endometriosis can cause subfertility, many conceive naturally. For advanced disease, IVF offers an exceptionally high chance of success by entirely bypassing the inflammatory pelvic environment."
+    }
+  },{
+    "@type": "Question",
+    "name": "Should I have surgery for Endometriosis before trying IVF?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "If your primary goal is pregnancy and you have low ovarian reserve, surgery on the ovaries can further damage remaining eggs. In such cases, we often recommend proceeding directly to IVF to secure embryos first."
+    }
+  },{
+    "@type": "Question",
+    "name": "How is Endometriosis diagnosed in Lahore?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "While advanced transvaginal ultrasounds and MRI can identify severe disease, the global gold standard for definitively diagnosing and staging Endometriosis is minimally invasive Laparoscopy."
+    }
+  }]
+}
+</script>
+
 <!-- CALL TO ACTION -->
 <section class="py-24 bg-slate-50 relative border-t border-slate-200">
     <div class="max-w-4xl mx-auto px-6 text-center fade-in">
