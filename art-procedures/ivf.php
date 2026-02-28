@@ -24,7 +24,7 @@ include("../includes/header.php");
             
             <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.10] mb-6 tracking-tight">
                 Engineering <br/>
-                <span class="text-indigo-600">
+                <span class="inline-block mt-2 px-4 py-2 bg-indigo-100 rounded-lg text-indigo-800 border border-indigo-200 shadow-sm">
                     Miracles.
                 </span>
             </h1>
@@ -45,7 +45,7 @@ include("../includes/header.php");
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-200/60 bg-white/50 backdrop-blur-xl p-2">
                 <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 flex items-center justify-center">
                     <!-- IMAGE PLACEHOLDER: The user can place 'ivf-hero.jpg' in /assets/images/ -->
-                    <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=1200" alt="IVF Laboratory and Embryology" class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1200" alt="IVF Laboratory and Embryology" class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105">
                     
 
                     <div class="absolute bottom-6 left-6 right-6">

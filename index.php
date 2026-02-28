@@ -60,6 +60,11 @@ include("includes/header.php");
                         title: "A Partnership in",
                         highlight: "Hope & Healing.",
                         desc: "Your dreams are our priority. We walk closely beside you through every emotional high and clinical milestone, ensuring you always feel informed, respected, and empowered."
+                    },
+                    {
+                        title: "Expertise that Turns",
+                        highlight: "Obstacles into Miracles.",
+                        desc: "With thousands of successful cycles, we specialize in overcoming the most severe infertility barriers, turning scientific mastery into the joy of holding your baby."
                     }
                 ];
 
@@ -84,13 +89,13 @@ include("includes/header.php");
                         titleEl.style.opacity = '1';
                         highlightEl.style.opacity = '1';
                         descEl.style.opacity = '1';
-                    }, 500); // Quick pause for fade out
-                }, 4000); // 4 seconds total viewing time per slide
+                    }, 600); // Quick pause for fade out
+                }, 4500); // 4.5 seconds total viewing time per slide
             });
             </script>
 
             <div class="flex flex-wrap gap-5">
-                <a href="#consultation" class="btn-primary text-white hover:text-white shadow-[0_8px_25px_rgba(15,118,110,0.25)]">
+                <a href="#consultation" class="btn-primary text-white hover:text-teal-50 shadow-[0_8px_25px_rgba(15,118,110,0.25)]">
                     Schedule Your Consultation
                 </a>
                 <a href="/about/" class="btn-outline group flex items-center gap-2">

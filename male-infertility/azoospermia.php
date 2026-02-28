@@ -24,7 +24,7 @@ include("../includes/header.php");
             
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
                 Azoospermia: <br/>
-                <span class="text-indigo-400">
+                <span class="inline-block mt-2 px-4 py-2 bg-indigo-900/80 rounded-lg text-indigo-300 backdrop-blur-sm border border-indigo-700/50">
                     Finding the Hidden Potential.
                 </span>
             </h1>

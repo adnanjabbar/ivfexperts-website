@@ -24,7 +24,7 @@ include("../includes/header.php");
             
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] mb-6">
                 Restoring hope through <br/>
-                <span class="text-rose-600 drop-shadow-sm">
+                <span class="inline-block mt-2 px-4 py-2 bg-rose-100 rounded-lg text-rose-800 border border-rose-200 shadow-sm drop-shadow-sm">
                     Precision & Compassion.
                 </span>
             </h1>

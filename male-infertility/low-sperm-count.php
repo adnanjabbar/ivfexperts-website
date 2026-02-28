@@ -24,7 +24,7 @@ include("../includes/header.php");
             
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
                 Low Sperm Count <br/>
-                <span class="text-indigo-400">
+                <span class="inline-block mt-2 px-4 py-2 bg-indigo-900/80 rounded-lg text-indigo-300 backdrop-blur-sm border border-indigo-700/50">
                     is not the end of your journey.
                 </span>
             </h1>
@@ -45,7 +45,7 @@ include("../includes/header.php");
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-800/60 bg-slate-900/50 backdrop-blur-xl p-2">
                 <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-800 flex items-center justify-center">
                     <!-- IMAGE PLACEHOLDER: The user can place 'oligospermia-hero.jpg' in /assets/images/ -->
-                    <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=1200" alt="Low Sperm Count Diagnosis" class="w-full h-full object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition duration-700">
+                    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1200" alt="Semen Analysis and Male Fertility Diagnostics" class="w-full h-full object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition duration-700">
                     
 
                     <div class="absolute bottom-6 left-6 right-6">
