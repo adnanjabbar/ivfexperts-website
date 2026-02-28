@@ -34,7 +34,7 @@ include("includes/header.php");
             </p>
 
             <div class="flex flex-wrap gap-5">
-                <a href="#consultation" class="btn-primary shadow-[0_8px_25px_rgba(15,118,110,0.25)]">
+                <a href="#consultation" class="btn-primary text-white hover:text-white shadow-[0_8px_25px_rgba(15,118,110,0.25)]">
                     Schedule Your Consultation
                 </a>
                 <a href="/about/" class="btn-outline group flex items-center gap-2">
