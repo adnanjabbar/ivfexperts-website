@@ -17,8 +17,34 @@ $booked_query = $conn->query("SELECT COUNT(id) as count FROM leads WHERE status 
 $booked_leads = $booked_query->fetch_assoc()['count'] ?? 0;
 
 // 4. Recent Leads (Last 5)
-$recent_leads_query = $conn->query("SAMSELECT patient_name, inquiry_type, created_at FROM leads ORDER BY created_at DESC LIMIT 5");
+$recent_leads_query = $conn->query("SELECT patient_name, inquiry_type, created_at FROM leads ORDER BY created_at DESC LIMIT 5");
+
+// 5. Analytics: Leads per day over the last 30 days
+$thirty_days_ago = date('Y-m-d', strtotime('-30 days'));
+$chart_query = $conn->query("
+    SELECT DATE(created_at) as log_date, COUNT(*) as daily_count 
+    FROM leads 
+    WHERE created_at >= '$thirty_days_ago' 
+    GROUP BY DATE(created_at) 
+    ORDER BY DATE(created_at) ASC
+");
+
+// Process Data for Chart.js
+$chart_dates = [];
+$chart_data = [];
+if ($chart_query) {
+    while ($row = $chart_query->fetch_assoc()) {
+        $chart_dates[] = date('M j', strtotime($row['log_date']));
+        $chart_data[] = (int)$row['daily_count'];
+    }
+}
+// Convert to JSON for Javascript
+$js_dates = json_encode($chart_dates);
+$js_data = json_encode($chart_data);
 ?>
+
+<!-- Include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
     
@@ -107,14 +133,97 @@ $recent_leads_query = $conn->query("SAMSELECT patient_name, inquiry_type, create
                     <i class="ph ph-users-three text-xl text-teal-400"></i>
                     <span class="font-semibold text-sm">Manage Leads</span>
                 </a>
-                <a href="#" class="bg-white/10 cursor-not-allowed opacity-50 rounded-xl p-4 border border-white/5 flex items-center gap-3" title="SEO Settings Coming Phase 2">
-                    <i class="ph ph-magnifying-glass text-xl text-rose-400"></i>
-                    <span class="font-semibold text-sm">SEO Engine</span>
+                <a href="settings.php" class="bg-white/10 hover:bg-white/20 transition-colors rounded-xl p-4 border border-white/5 flex items-center gap-3">
+                    <i class="ph ph-gear text-xl text-indigo-400"></i>
+                    <span class="font-semibold text-sm">Global Settings</span>
                 </a>
+            </div>
+        </div>
+        
+        <!-- Analytics Chart -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+            <h3 class="font-bold text-slate-800 mb-4">Lead Acquisition (30 Days)</h3>
+            <div class="relative h-64 w-full">
+                <canvas id="leadsChart"></canvas>
             </div>
         </div>
     </div>
 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('leadsChart').getContext('2d');
+    
+    // Gradient Fill
+    let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, 'rgba(13, 148, 136, 0.5)'); // Teal 600
+    gradient.addColorStop(1, 'rgba(13, 148, 136, 0.0)');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: <?= $js_dates ?>,
+            datasets: [{
+                label: 'New Inquiries',
+                data: <?= $js_data ?>,
+                borderColor: '#0d9488', // Teal 600
+                backgroundColor: gradient,
+                borderWidth: 3,
+                pointBackgroundColor: '#ffffff',
+                pointBorderColor: '#0d9488',
+                pointBorderWidth: 2,
+                pointRadius: 4,
+                pointHoverRadius: 6,
+                fill: true,
+                tension: 0.4 // Smooth curves
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#1e293b',
+                    padding: 12,
+                    titleFont: { family: 'Inter', size: 13 },
+                    bodyFont: { family: 'Inter', size: 14, weight: 'bold' },
+                    displayColors: false,
+                    callbacks: {
+                        label: function(context) {
+                            return context.parsed.y + ' Inquiries';
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1,
+                        precision: 0,
+                        font: { family: 'Inter', size: 11 },
+                        color: '#64748b'
+                    },
+                    grid: { color: '#f1f5f9', drawBorder: false }
+                },
+                x: {
+                    ticks: {
+                        font: { family: 'Inter', size: 11 },
+                        color: '#64748b',
+                        maxTicksLimit: 7
+                    },
+                    grid: { display: false, drawBorder: false }
+                }
+            },
+            interaction: {
+                intersect: false,
+                mode: 'index',
+            },
+        }
+    });
+});
+</script>
 
 <?php require_once "includes/footer.php"; ?>
