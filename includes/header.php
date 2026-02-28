@@ -75,11 +75,11 @@
 </script>
 </head>
 
-<body class="bg-white text-gray-800">
+<body class="bg-white text-gray-800 font-inter">
 
 <header class="fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50">
 
-<div class="relative max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
 <!-- LOGO -->
 <a href="/" class="text-2xl font-extrabold tracking-tight text-teal-700">
@@ -87,17 +87,17 @@ IVF Experts
 </a>
 
 <!-- NAV -->
-<nav class="hidden md:flex items-center space-x-10 text-sm font-semibold text-gray-700">
+<nav class="hidden md:flex items-center gap-x-10 text-sm font-semibold text-gray-700">
 
 <a href="/" class="hover:text-teal-600 transition">Home</a>
 <a href="/about/" class="hover:text-teal-600 transition">About</a>
 
 <!-- ================= MALE ================= -->
-<div class="group">
+<div class="relative group inline-block">
 <a href="/male-infertility/" class="hover:text-teal-600 transition">
 Male Infertility
 </a>
-<div class="absolute left-1/2 -translate-x-1/2 top-full w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
+<div class="absolute left-[max(16px,calc(50%-450px))] -translate-x-1/2 top-full w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto">
 <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
 <div class="grid grid-cols-3 gap-10 p-10">
 <div>
@@ -129,12 +129,13 @@ Learn More →
 </div>
 </div>
 </div>
+
 <!-- ================= FEMALE ================= -->
-<div class="group">
+<div class="relative group inline-block">
 <a href="/female-infertility/" class="hover:text-teal-600 transition">
 Female Infertility
 </a>
-<div class="absolute left-1/2 -translate-x-1/2 top-full w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
+<div class="absolute left-[max(16px,calc(50%-450px))] -translate-x-1/2 top-full w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto">
 <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
 <div class="grid grid-cols-3 gap-10 p-10">
 <div>
@@ -166,12 +167,13 @@ Learn More →
 </div>
 </div>
 </div>
+
 <!-- ================= ART ================= -->
-<div class="group">
+<div class="relative group inline-block">
 <a href="/art-procedures/" class="hover:text-teal-600 transition">
 ART Procedures
 </a>
-<div class="absolute left-1/2 -translate-x-1/2 top-full w-[900px] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200">
+<div class="absolute left-[max(16px,calc(50%-450px))] -translate-x-1/2 top-full w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto">
 <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
 <div class="grid grid-cols-3 gap-10 p-10">
 <div>
@@ -203,13 +205,17 @@ Learn More →
 </div>
 </div>
 </div>
+
 <a href="/contact/" class="hover:text-teal-600 transition">Contact</a>
 </nav>
+
 <!-- CTA -->
 <a href="https://wa.me/923111101483"
 class="hidden md:inline-block bg-teal-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-800 transition">
 WhatsApp
 </a>
+
 </div>
 </header>
+
 <div class="h-24"></div>
