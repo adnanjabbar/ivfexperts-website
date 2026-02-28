@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ===============================
        ROTATING HERO TEXT
     =============================== */
-
     const texts = [
         "Advanced IVF & ICSI Treatment in Lahore",
         "Personalized Fertility Care Across Pakistan",
@@ -17,20 +16,20 @@ document.addEventListener("DOMContentLoaded", function () {
     if (rotating) {
         setInterval(function () {
             rotating.style.opacity = 0;
+            rotating.style.transform = "translateY(10px)";
 
             setTimeout(function () {
                 index = (index + 1) % texts.length;
                 rotating.innerText = texts[index];
                 rotating.style.opacity = 1;
-            }, 400);
-
-        }, 4000);
+                rotating.style.transform = "translateY(0)";
+            }, 500);
+        }, 4500);
     }
 
     /* ===============================
        STICKY HEADER SHADOW
     =============================== */
-
     const header = document.querySelector("header");
 
     if (header) {
@@ -44,13 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* ===============================
-       FADE-IN ON SCROLL
+       ADVANCED SCROLL REVEAL
     =============================== */
-
     const fadeElements = document.querySelectorAll(".fade-in");
 
     if ("IntersectionObserver" in window && fadeElements.length > 0) {
-
         const observer = new IntersectionObserver(function (entries, obs) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -58,26 +55,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     obs.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
         fadeElements.forEach(function (el) {
             observer.observe(el);
         });
-
     } else {
-        fadeElements.forEach(function (el) {
-            el.classList.add("appear");
-        });
+        fadeElements.forEach(el => el.classList.add("appear"));
     }
 
     /* ===============================
-       COUNTER ANIMATION (SAFE)
+       COUNTER ANIMATION
     =============================== */
-
     const counters = document.querySelectorAll(".counter");
 
     counters.forEach(function (counter) {
-
         const target = parseInt(counter.getAttribute("data-target"));
         if (isNaN(target)) return;
 
@@ -88,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
             started = true;
 
             let current = 0;
-            const increment = target / 40;
+            const increment = target / 60;
 
             const update = function () {
                 current += increment;
@@ -112,13 +104,27 @@ document.addEventListener("DOMContentLoaded", function () {
                         obs.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.6 });
+            }, { threshold: 0.5 });
 
             counterObserver.observe(counter);
         } else {
             runCounter();
         }
+    });
 
+    /* ===============================
+       PREMIUM CARD HOVER GLOW
+    =============================== */
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        card.addEventListener("mousemove", e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+        });
     });
 
 });

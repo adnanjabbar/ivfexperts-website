@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #0f766e;
+    --color-primary-dark: #0c5f59;
+    --color-primary-light: #e6f6f5;
+    --font-sans: "Inter", sans-serif;
+    --font-heading: "Outfit", sans-serif;
+}
+
+@layer base {
+    body {
+        background-color: #ffffff;
+        color: #1f2937;
+        line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-heading);
+        letter-spacing: -0.02em;
+    }
+}
+
+/* SECTION SYSTEM */
+@layer components {
+    .section-lg {
+        @apply py-24;
+    }
+
+    .section-md {
+        @apply py-16;
+    }
+
+    .bg-soft {
+        background-color: #f9fafb;
+    }
+
+    .bg-tint {
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+
+    /* CARD SYSTEM */
+    .card {
+        @apply relative overflow-hidden bg-white border border-gray-200 rounded-2xl p-8 transition-all duration-300;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .card::before {
+        content: "";
+        @apply absolute inset-0 opacity-0 transition-opacity duration-300 pointer-events-none;
+        background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(15, 118, 110, 0.04), transparent 40%);
+    }
+
+    .card:hover::before {
+        @apply opacity-100;
+    }
+
+    .card:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+        transform: translateY(-4px);
+    }
+
+    /* BUTTON SYSTEM */
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold tracking-wide text-white transition-all duration-300;
+        background-color: var(--color-primary);
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-primary-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 10px 25px -5px rgba(15, 118, 110, 0.4);
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 border-2;
+        border-color: var(--color-primary);
+        color: var(--color-primary);
+    }
+
+    .btn-outline:hover {
+        background-color: var(--color-primary);
+        color: white;
+    }
+}
+
+/* ANIMATIONS */
+@layer utilities {
+    .header-shrink {
+        @apply py-2 shadow-md bg-white/90 backdrop-blur-md;
+    }
+
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-in.appear {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

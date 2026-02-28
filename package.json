@@ -1,0 +1,26 @@
+{
+  "name": "ivfexperts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css",
+    "watch": "tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adnanjabbar/ivfexperts-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/adnanjabbar/ivfexperts-website/issues"
+  },
+  "homepage": "https://github.com/adnanjabbar/ivfexperts-website#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "tailwindcss": "^4.2.1"
+  }
+}

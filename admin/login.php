@@ -1,7 +1,9 @@
 <?php
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . "/config/db.php";
-
+include $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/header.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/auth.php"; // Protects this page
+include $_SERVER['DOCUMENT_ROOT'] . "/admin/includes/footer.php";
 // === CSRF Token
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
