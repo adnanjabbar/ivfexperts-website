@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription) ?>">
 <!-- Styles -->
 <link rel="stylesheet" href="/assets/css/style.css">
-<script src="/assets/js/app.js" defer></script>
+<script src="/assets/js/app.js?v=2" defer></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <!-- Physician + Organization Schema -->
