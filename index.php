@@ -25,7 +25,7 @@ include("includes/header.php");
             <div class="min-h-[220px] md:min-h-[180px] flex flex-col justify-start">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] mb-6">
                     <span id="hero-title" class="transition-opacity duration-700 block">Parenthood Begins with</span>
-                    <span id="hero-highlight" class="text-transparent bg-clip-text bg-gradient-to-r from-teal-700 to-emerald-600 transition-opacity duration-700 block mt-2">Clarity & Strategy.</span>
+                    <span id="hero-highlight" class="text-teal-700 transition-opacity duration-700 block mt-2">Clarity & Strategy.</span>
                 </h1>
                 
                 <p id="hero-desc" class="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl leading-relaxed transition-opacity duration-700">

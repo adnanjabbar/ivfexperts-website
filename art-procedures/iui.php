@@ -24,7 +24,7 @@ include("../includes/header.php");
             
             <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.10] mb-6 tracking-tight">
                 Enhancing <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">
+                <span class="text-teal-600">
                     Natural Odds.
                 </span>
             </h1>
@@ -45,12 +45,8 @@ include("../includes/header.php");
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-200/60 bg-white/50 backdrop-blur-xl p-2">
                 <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 flex items-center justify-center">
                     <!-- IMAGE PLACEHOLDER: The user can place 'iui-hero.jpg' in /assets/images/ -->
-                    <img src="/assets/images/iui-hero.jpg" alt="IUI Clinical Procedure" class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <!-- Fallback if image not found -->
-                    <div class="absolute inset-0 flex-col items-center justify-center text-slate-400 hidden" style="display: none;">
-                        <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                        <span class="text-sm">Image: iui-hero.jpg</span>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200" alt="IUI Clinical Procedure" class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105">
+                    
 
                     <div class="absolute bottom-6 left-6 right-6">
                         <div class="p-6 rounded-xl bg-white/90 backdrop-blur-md border border-slate-100 shadow-lg">

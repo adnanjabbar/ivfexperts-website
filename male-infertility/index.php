@@ -23,7 +23,7 @@ include("../includes/header.php");
             
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] mb-6">
                 Redefining the approach to <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-700 to-teal-600">
+                <span class="text-indigo-700">
                     Male Infertility.
                 </span>
             </h1>
@@ -124,7 +124,7 @@ include("../includes/header.php");
             <!-- Dynamic Medical Image Representation -->
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group min-h-[400px]">
                 <div class="absolute inset-0 bg-slate-100 flex items-center justify-center">
-                    <img src="/assets/images/art_procedures_lab.png" alt="Clinical Embryology Lab" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"/>
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=1200" alt="Clinical Embryology Lab" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"/>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
                 <div class="absolute bottom-8 left-8 right-8">

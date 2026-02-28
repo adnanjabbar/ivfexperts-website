@@ -43,7 +43,7 @@ include("../includes/header.php");
                 <h1 class="text-5xl lg:text-6xl xl:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-4 tracking-tight">
                     Dr. Adnan Jabbar
                 </h1>
-                <h2 class="text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-indigo-600">
+                <h2 class="text-2xl lg:text-3xl font-bold text-teal-600">
                     Fertility Consultant & Clinical Embryologist
                 </h2>
                 <p class="text-indigo-600 font-bold uppercase tracking-widest text-sm mt-3 flex items-center gap-2">
@@ -126,7 +126,7 @@ include("../includes/header.php");
     
     <div class="max-w-5xl mx-auto px-6 relative z-10 text-center fade-in">
         <svg class="w-16 h-16 mx-auto text-indigo-500 mb-8 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-        <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-10 leading-[1.2] tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400">
+        <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-10 leading-[1.2] tracking-tight text-white">
             "Infertility is deeply personal. <br/>My role is to remove the uncertainty."
         </h2>
         <p class="text-xl lg:text-2xl text-slate-300 leading-relaxed font-light mb-12 max-w-4xl mx-auto">

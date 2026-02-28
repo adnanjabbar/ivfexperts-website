@@ -24,7 +24,7 @@ include("../includes/header.php");
             
             <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
                 Precision down to <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-300">
+                <span class="text-sky-400">
                     A Single Cell.
                 </span>
             </h1>
@@ -45,12 +45,8 @@ include("../includes/header.php");
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-700/60 bg-slate-800/50 backdrop-blur-xl p-2">
                 <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-800 flex items-center justify-center">
                     <!-- IMAGE PLACEHOLDER: The user can place 'icsi-hero.jpg' in /assets/images/ -->
-                    <img src="/assets/images/icsi-hero.jpg" alt="ICSI Micropipette and Egg" class="w-full h-full object-cover opacity-70 mix-blend-luminosity hover:mix-blend-normal transition duration-700" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <!-- Fallback if image not found -->
-                    <div class="absolute inset-0 flex-col items-center justify-center text-slate-500 hidden" style="display: none;">
-                        <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                        <span class="text-sm">Image: icsi-hero.jpg</span>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1200" alt="ICSI Micropipette and Egg" class="w-full h-full object-cover opacity-70 mix-blend-luminosity hover:mix-blend-normal transition duration-700">
+                    
 
                     <div class="absolute bottom-6 left-6 right-6">
                         <div class="p-6 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700/50">

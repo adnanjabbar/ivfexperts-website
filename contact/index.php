@@ -24,7 +24,7 @@ include("../includes/header.php");
         
         <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.10] text-white mb-6 tracking-tight">
             The first step toward <br/>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-teal-300">
+            <span class="text-indigo-400">
                 clarity and confidence.
             </span>
         </h1>
