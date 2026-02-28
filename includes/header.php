@@ -171,16 +171,17 @@ document.addEventListener('DOMContentLoaded', () => {
               <h4 class="font-bold mb-4">Common Conditions</h4>
               <ul class="space-y-2 text-gray-700 text-sm">
                 <li><a href="/male-infertility/low-sperm-count.php" class="hover:text-teal-600">Low Sperm Count</a></li>
-                <li><a href="/male-infertility/azoospermia.php" class="hover:text-teal-600">Azoospermia</a></li>
+                <li><a href="/male-infertility/azoospermia.php" class="hover:text-teal-600">Azoospermia (Zero Sperm)</a></li>
                 <li><a href="/male-infertility/varicocele.php" class="hover:text-teal-600">Varicocele</a></li>
+                <li><a href="/male-infertility/erectile-ejaculatory-dysfunction.php" class="hover:text-teal-600">Erectile & Ejaculatory Dysfunction</a></li>
               </ul>
             </div>
             <div>
               <h4 class="font-bold mb-4">Advanced Evaluation</h4>
               <ul class="space-y-2 text-gray-700 text-sm">
                 <li><a href="/male-infertility/dna-fragmentation.php" class="hover:text-teal-600">DNA Fragmentation</a></li>
-                <li><a href="/art-procedures/icsi.php" class="hover:text-teal-600">ICSI Strategy</a></li>
-                <li><a href="/contact/" class="hover:text-teal-600">Consultation</a></li>
+                <li><a href="/male-infertility/unexplained-male-infertility.php" class="hover:text-teal-600">Unexplained Male Infertility</a></li>
+                <li><a href="/male-infertility/klinefelters-syndrome.php" class="hover:text-teal-600">Klinefelter's Syndrome</a></li>
               </ul>
             </div>
           </div>
@@ -206,19 +207,21 @@ document.addEventListener('DOMContentLoaded', () => {
               </a>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Common Conditions</h4>
+              <h4 class="font-bold mb-4">Structural & Hormonal</h4>
               <ul class="space-y-2 text-gray-700 text-sm">
                 <li><a href="/female-infertility/pcos.php" class="hover:text-teal-600">PCOS</a></li>
                 <li><a href="/female-infertility/endometriosis.php" class="hover:text-teal-600">Endometriosis</a></li>
                 <li><a href="/female-infertility/blocked-tubes.php" class="hover:text-teal-600">Blocked Tubes</a></li>
+                <li><a href="/female-infertility/uterine-fibroids-polyps.php" class="hover:text-teal-600">Uterine Fibroids & Polyps</a></li>
+                <li><a href="/female-infertility/adenomyosis.php" class="hover:text-teal-600">Adenomyosis</a></li>
               </ul>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Advanced Evaluation</h4>
+              <h4 class="font-bold mb-4">Complex Diagnoses</h4>
               <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/female-infertility/diminished-ovarian-reserve.php" class="hover:text-teal-600">Low Ovarian Reserve</a></li>
-                <li><a href="/art-procedures/ivf.php" class="hover:text-teal-600">IVF Planning</a></li>
-                <li><a href="/contact/" class="hover:text-teal-600">Consultation</a></li>
+                <li><a href="/female-infertility/diminished-ovarian-reserve.php" class="hover:text-teal-600">Low Ovarian Reserve (AMH)</a></li>
+                <li><a href="/female-infertility/recurrent-pregnancy-loss.php" class="hover:text-teal-600">Recurrent Miscarriages</a></li>
+                <li><a href="/female-infertility/unexplained-infertility.php" class="hover:text-teal-600">Unexplained Infertility</a></li>
               </ul>
             </div>
           </div>
@@ -246,17 +249,19 @@ document.addEventListener('DOMContentLoaded', () => {
             <div>
               <h4 class="font-bold mb-4">Core Procedures</h4>
               <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/art-procedures/ivf.php" class="hover:text-teal-600">IVF</a></li>
-                <li><a href="/art-procedures/icsi.php" class="hover:text-teal-600">ICSI</a></li>
-                <li><a href="/art-procedures/iui.php" class="hover:text-teal-600">IUI</a></li>
+                <li><a href="/art-procedures/ivf.php" class="hover:text-teal-600">IVF Treatment</a></li>
+                <li><a href="/art-procedures/icsi.php" class="hover:text-teal-600">ICSI Treatment</a></li>
+                <li><a href="/art-procedures/iui.php" class="hover:text-teal-600">IUI Insemination</a></li>
+                <li><a href="/art-procedures/pgt.php" class="hover:text-teal-600">PGT / Gender Selection</a></li>
               </ul>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Advanced Techniques</h4>
+              <h4 class="font-bold mb-4">Advanced Laboratory</h4>
               <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/art-procedures/pgt.php" class="hover:text-teal-600">PGT</a></li>
-                <li><a href="/male-infertility/dna-fragmentation.php" class="hover:text-teal-600">DNA Fragmentation</a></li>
-                <li><a href="/contact/" class="hover:text-teal-600">Consultation</a></li>
+                <li><a href="/art-procedures/fertility-preservation.php" class="hover:text-teal-600">Egg & Sperm Freezing</a></li>
+                <li><a href="/art-procedures/ovarian-endometrial-prp.php" class="hover:text-teal-600">Ovarian & Endometrial PRP</a></li>
+                <li><a href="/art-procedures/surgical-sperm-retrieval.php" class="hover:text-teal-600">Surgical Sperm Retrieval</a></li>
+                <li><a href="/art-procedures/laser-assisted-hatching.php" class="hover:text-teal-600">Laser-Assisted Hatching</a></li>
               </ul>
             </div>
           </div>
@@ -269,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   <!-- CTA -->
   <a href="https://wa.me/923111101483"
-     class="hidden md:inline-block bg-teal-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-800 transition">
+     class="hidden md:inline-block bg-teal-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-800 transition shadow-[0_4px_15px_rgba(15,118,110,0.3)] border-none">
     WhatsApp
   </a>
 
@@ -277,4 +282,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </header>
 
 <div class="h-24"></div>
-<!-- forced git update timestamp: 02/28/2026 17:26:42 -->
