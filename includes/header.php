@@ -4,30 +4,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title><?= htmlspecialchars($pageTitle) ?></title>
 <meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="<?= $currentUrl ?>">
-
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="<?= htmlspecialchars($pageTitle) ?>">
 <meta property="og:description" content="<?= htmlspecialchars($metaDescription) ?>">
 <meta property="og:url" content="<?= $currentUrl ?>">
 <meta property="og:site_name" content="<?= $siteName ?>">
-
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="<?= htmlspecialchars($pageTitle) ?>">
 <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription) ?>">
-
 <!-- Styles -->
 <link rel="stylesheet" href="/assets/css/style.css">
 <script src="/assets/js/app.js" defer></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
 <!-- Physician + Organization Schema -->
 <script type="application/ld+json">
 {
@@ -81,7 +76,6 @@
 }
 </script>
 <?php endif; ?>
-
 <!-- Breadcrumb Schema -->
 <script type="application/ld+json">
 {
@@ -99,7 +93,6 @@
 ]
 }
 </script>
-
 <!-- JavaScript for dynamic mega menu positioning -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -107,14 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
   groups.forEach(group => {
     const dropdown = group.querySelector('.mega-dropdown');
     if (!dropdown) return;
-
     group.addEventListener('mouseenter', () => {
       const triggerRect = group.getBoundingClientRect();
       const dropdownWidth = dropdown.offsetWidth;
       const viewportWidth = window.innerWidth;
-
       let idealLeft = triggerRect.left + (triggerRect.width / 2) - (dropdownWidth / 2);
-
       // Clamp to viewport with margins
       const margin = 16;
       if (idealLeft < margin) {
@@ -123,33 +113,24 @@ document.addEventListener('DOMContentLoaded', () => {
       if (idealLeft + dropdownWidth > viewportWidth - margin) {
         idealLeft = viewportWidth - dropdownWidth - margin;
       }
-
       // Set left relative to the relative parent
       dropdown.style.left = `${idealLeft - triggerRect.left}px`;
     });
   });
 });
 </script>
-
 </head>
-
 <body class="bg-white text-gray-800 font-inter">
-
 <header class="fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50">
-
 <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
   <!-- LOGO -->
   <a href="/" class="text-2xl font-extrabold tracking-tight text-teal-700">
     IVF Experts
   </a>
-
   <!-- NAV -->
   <nav class="hidden md:flex items-center gap-x-10 text-sm font-semibold text-gray-700">
-
     <a href="/" class="hover:text-teal-600 transition">Home</a>
     <a href="/about/" class="hover:text-teal-600 transition">About</a>
-
     <!-- ================= MALE INFERTILITY ================= -->
     <div class="relative group inline-block">
       <a href="/male-infertility/" class="hover:text-teal-600 transition">
@@ -188,7 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     </div>
-
     <!-- ================= FEMALE INFERTILITY ================= -->
     <div class="relative group inline-block">
       <a href="/female-infertility/" class="hover:text-teal-600 transition">
@@ -228,7 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     </div>
-
     <!-- ================= ART PROCEDURES ================= -->
     <div class="relative group inline-block">
       <a href="/art-procedures/" class="hover:text-teal-600 transition">
@@ -268,16 +247,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     </div>
-
     <a href="/contact/" class="hover:text-teal-600 transition">Contact</a>
   </nav>
-
   <!-- CTA (Desktop) -->
   <a href="https://wa.me/923111101483"
      class="hidden md:inline-block bg-teal-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-800 transition shadow-[0_4px_15px_rgba(15,118,110,0.3)] border-none">
     WhatsApp
   </a>
-
   <!-- HAMBURGER BUTTON (Mobile) -->
   <button id="mobile-menu-btn" aria-label="Open navigation menu" style="display:none;flex-direction:column;justify-content:center;align-items:center;width:40px;height:40px;border-radius:8px;background:transparent;border:none;cursor:pointer;">
     <span style="display:block;width:24px;height:2px;background:#374151;"></span>
@@ -295,10 +271,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })();
   </script>
-
 </div>
 </header>
-
 <!-- MOBILE MENU OVERLAY -->
 <div id="mobile-menu-overlay" style="display:none;position:fixed;inset:0;z-index:9999;">
   <!-- Backdrop -->
@@ -312,12 +286,10 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="/" style="font-size:1.35rem;font-weight:800;color:#0f766e;text-decoration:none;">IVF Experts</a>
       <button id="mobile-menu-close" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:transparent;cursor:pointer;border:none;font-size:24px;color:#374151;" aria-label="Close menu">&#x2715;</button>
     </div>
-
     <!-- Navigation Links -->
     <nav style="padding:16px 0;">
       <a href="/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">Home</a>
       <a href="/about/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">About</a>
-
       <!-- Male Infertility Accordion -->
       <div class="mobile-accordion" style="border-bottom:1px solid #f1f5f9;">
         <button class="mobile-accordion-toggle" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;background:transparent;border:none;cursor:pointer;text-align:left;">
@@ -335,7 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="/male-infertility/klinefelters-syndrome.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Klinefelter's Syndrome</a>
         </div>
       </div>
-
       <!-- Female Infertility Accordion -->
       <div class="mobile-accordion" style="border-bottom:1px solid #f1f5f9;">
         <button class="mobile-accordion-toggle" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;background:transparent;border:none;cursor:pointer;text-align:left;">
@@ -354,7 +325,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="/female-infertility/unexplained-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Unexplained Infertility</a>
         </div>
       </div>
-
       <!-- ART Procedures Accordion -->
       <div class="mobile-accordion" style="border-bottom:1px solid #f1f5f9;">
         <button class="mobile-accordion-toggle" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;background:transparent;border:none;cursor:pointer;text-align:left;">
@@ -373,10 +343,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="/art-procedures/laser-assisted-hatching.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Laser-Assisted Hatching</a>
         </div>
       </div>
-
       <a href="/contact/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">Contact</a>
     </nav>
-
     <!-- WhatsApp CTA -->
     <div style="padding:16px 24px 32px;">
       <a href="https://wa.me/923111101483" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#0f766e;color:#fff;padding:14px 24px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 4px 15px rgba(15,118,110,0.3);">
@@ -384,9 +352,6 @@ document.addEventListener('DOMContentLoaded', () => {
         WhatsApp Consultation
       </a>
     </div>
-
   </div>
 </div>
-
 <div class="h-24" style="height:6rem;"></div>
-
