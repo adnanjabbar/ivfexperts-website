@@ -81,7 +81,7 @@ include("../includes/header.php");
                     <div class="flex">
                         <div class="w-1/3 bg-gradient-to-br from-sky-50 to-slate-100 flex items-center justify-center p-4">
                             <div class="w-28 h-28 rounded-full bg-white border-2 border-sky-200 flex items-center justify-center overflow-hidden shadow-md">
-                                <img src="/assets/images/doctors/prof-aamir-khan.jpg" alt="Prof. Dr. Aamir Khan" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-sky-50 text-sky-600 font-bold text-2xl\'>AK</div>'">
+                                <img src="/assets/images/doctors/prof-aamir-khan.png" alt="Prof. Dr. Aamir Khan" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-sky-50 text-sky-600 font-bold text-2xl\'>AK</div>'">
                             </div>
                         </div>
                         <div class="w-2/3 p-6">
@@ -101,7 +101,7 @@ include("../includes/header.php");
                     <div class="flex">
                         <div class="w-1/3 bg-gradient-to-br from-rose-50 to-slate-100 flex items-center justify-center p-4">
                             <div class="w-28 h-28 rounded-full bg-white border-2 border-rose-200 flex items-center justify-center overflow-hidden shadow-md">
-                                <img src="/assets/images/doctors/prof-mahliqa-maqsood.jpg" alt="Prof. Dr. Mahliqa Maqsood" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-rose-50 text-rose-600 font-bold text-2xl\'>MM</div>'">
+                                <img src="/assets/images/doctors/prof-mahliqa-maqsood.png" alt="Prof. Dr. Mahliqa Maqsood" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-rose-50 text-rose-600 font-bold text-2xl\'>MM</div>'">
                             </div>
                         </div>
                         <div class="w-2/3 p-6">
@@ -121,7 +121,7 @@ include("../includes/header.php");
                     <div class="flex">
                         <div class="w-1/3 bg-gradient-to-br from-emerald-50 to-slate-100 flex items-center justify-center p-4">
                             <div class="w-28 h-28 rounded-full bg-white border-2 border-emerald-200 flex items-center justify-center overflow-hidden shadow-md">
-                                <img src="/assets/images/doctors/dr-sajida-shahnawaz.jpg" alt="Dr. Sajida Shahnawaz" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-emerald-50 text-emerald-600 font-bold text-2xl\'>SS</div>'">
+                                <img src="/assets/images/doctors/dr-sajida-shahnawaz.png" alt="Dr. Sajida Shahnawaz" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-emerald-50 text-emerald-600 font-bold text-2xl\'>SS</div>'">
                             </div>
                         </div>
                         <div class="w-2/3 p-6">
@@ -141,7 +141,7 @@ include("../includes/header.php");
                     <div class="flex">
                         <div class="w-1/3 bg-gradient-to-br from-indigo-50 to-slate-100 flex items-center justify-center p-4">
                             <div class="w-28 h-28 rounded-full bg-white border-2 border-indigo-200 flex items-center justify-center overflow-hidden shadow-md">
-                                <img src="/assets/images/doctors/prof-ammad-siddiqui.jpg" alt="Prof. Dr. Ammad Siddiqui" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-indigo-50 text-indigo-600 font-bold text-2xl\'>AS</div>'">
+                                <img src="/assets/images/doctors/prof-ammad-siddiqui.png" alt="Prof. Dr. Ammad Siddiqui" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-indigo-50 text-indigo-600 font-bold text-2xl\'>AS</div>'">
                             </div>
                         </div>
                         <div class="w-2/3 p-6">
