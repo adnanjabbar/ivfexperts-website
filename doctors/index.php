@@ -1,6 +1,6 @@
 <?php
 $pageTitle = "Our Expert Team | IVF Experts Pakistan | Dr. Adnan Jabbar";
-$metaDescription = "Meet the expert doctors at IVF Experts Pakistan. Our multi-disciplinary team provides world-class fertility, andrology, and reproductive medicine services in Lahore.";
+$metaDescription = "Meet the expert doctors at IVF Experts Pakistan. Our multi-disciplinary team of fertility specialists, urologists, radiologists, and OBGYN surgeons provides world-class reproductive medicine in Lahore.";
 include("../includes/header.php");
 ?>
 
@@ -17,43 +17,53 @@ include("../includes/header.php");
             The Experts Behind <br/><span class="text-teal-400">Your Journey.</span>
         </h1>
         <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light" style="color:#cbd5e1;">
-            A world-class, multi-disciplinary team of specialists in reproductive medicine, andrology, embryology, and regenerative science — united under the leadership of Dr. Adnan Jabbar.
+            A world-class, multi-disciplinary team of specialists in reproductive medicine, andrology, radiology, gynecological surgery, urology, and regenerative science — united under the leadership of Dr. Adnan Jabbar.
         </p>
     </div>
 </section>
 
-<!-- DOCTORS GRID -->
+<!-- ========== LEAD DOCTOR ========== -->
 <section class="py-24 bg-soft">
     <div class="max-w-7xl mx-auto px-6">
 
-        <!-- ========== LEAD DOCTOR ========== -->
         <div class="mb-20 fade-in">
             <div class="text-center mb-12">
-                <p class="text-sm font-semibold text-teal-600 uppercase tracking-wider mb-2">Lead Consultant</p>
+                <p class="text-sm font-semibold text-teal-600 uppercase tracking-wider mb-2">Founder & Lead Consultant</p>
                 <h2 class="text-3xl font-bold text-slate-900">Leadership</h2>
             </div>
             
-            <div class="max-w-3xl mx-auto">
-                <!-- DOCTOR CARD: Dr. Adnan Jabbar -->
+            <div class="max-w-4xl mx-auto">
                 <div class="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 hover:shadow-2xl transition-shadow">
                     <div class="md:flex">
-                        <div class="md:w-1/3 bg-slate-100 flex items-center justify-center p-8">
-                            <!-- Replace src with actual photo -->
-                            <div class="w-48 h-48 rounded-full bg-teal-50 border-4 border-teal-200 flex items-center justify-center overflow-hidden">
-                                <img src="/assets/images/doctors/dr-adnan-jabbar.jpg" alt="Dr. Adnan Jabbar" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-teal-100 text-teal-600\'><svg class=\'w-20 h-20\' fill=\'currentColor\' viewBox=\'0 0 24 24\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg></div>'">
+                        <div class="md:w-2/5 bg-gradient-to-br from-teal-50 to-slate-100 flex items-center justify-center p-8">
+                            <div class="w-56 h-56 rounded-full bg-teal-50 border-4 border-teal-200 flex items-center justify-center overflow-hidden shadow-lg">
+                                <img src="/assets/images/dr-adnan.jpg" alt="Dr. Adnan Jabbar - Lead Fertility Specialist" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-teal-100 text-teal-600\'><svg class=\'w-20 h-20\' fill=\'currentColor\' viewBox=\'0 0 24 24\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg></div>'">
                             </div>
                         </div>
-                        <div class="md:w-2/3 p-8">
+                        <div class="md:w-3/5 p-8 md:p-10">
                             <h3 class="text-2xl font-bold text-slate-900 mb-1">Dr. Adnan Jabbar</h3>
-                            <p class="text-teal-600 font-semibold mb-4">Lead Consultant — Reproductive Medicine, Andrology & Regenerative Fertility</p>
-                            <p class="text-sm text-slate-600 mb-3"><strong>Place of Work:</strong> IVF Experts, Lahore | Sakina International Hospital</p>
+                            <p class="text-teal-600 font-semibold mb-4 text-sm">Fertility Specialist, Clinical Embryologist & Regenerative Medicine Specialist</p>
+                            
+                            <div class="mb-5">
+                                <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Places of Practice</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-teal-50 text-teal-700 text-xs font-semibold rounded-full border border-teal-100">IVF Experts</span>
+                                    <span class="px-3 py-1 bg-sky-50 text-sky-700 text-xs font-semibold rounded-full border border-sky-100">Healthnox Medical Center</span>
+                                    <span class="px-3 py-1 bg-indigo-50 text-indigo-700 text-xs font-semibold rounded-full border border-indigo-100">AQ Ortho & Gyne Complex</span>
+                                    <span class="px-3 py-1 bg-amber-50 text-amber-700 text-xs font-semibold rounded-full border border-amber-100">Latif Hospital</span>
+                                    <span class="px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-semibold rounded-full border border-emerald-100">Sakina International Hospital</span>
+                                </div>
+                            </div>
+
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Pakistan's leading reproductive medicine specialist and founder of IVF Experts. Dr. Adnan Jabbar provides comprehensive male and female infertility care across multiple premier healthcare facilities in Lahore. He is pioneering stem cell-based fertility treatments in collaboration with Sakina International Hospital and The University of Lahore, pushing the boundaries of regenerative reproductive medicine in Pakistan.
+                            </p>
                             <p class="text-slate-600 text-sm leading-relaxed">
-                                Pakistan's leading reproductive medicine specialist. Pioneering stem cell-based fertility treatments in collaboration with Sakina International Hospital and The University of Lahore. Expert in male & female infertility, IVF/ICSI, surgical sperm retrieval, and regenerative reproductive medicine.
+                                Expert in IVF, ICSI, Micro-TESE, surgical sperm retrieval, andrology, ovarian PRP, stem cell ovarian rejuvenation, and testicular regeneration. His multi-site practice ensures that patients across Lahore have access to world-class fertility services.
                             </p>
                         </div>
                     </div>
                 </div>
-                <!-- END DOCTOR CARD -->
             </div>
         </div>
 
@@ -61,63 +71,88 @@ include("../includes/header.php");
         <div class="fade-in">
             <div class="text-center mb-12">
                 <p class="text-sm font-semibold text-teal-600 uppercase tracking-wider mb-2">Our Specialists</p>
-                <h2 class="text-3xl font-bold text-slate-900">Team Members</h2>
+                <h2 class="text-3xl font-bold text-slate-900">Core Team</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 
-                <!--
-                ==========================================================
-                TEMPLATE: Copy this block for each new doctor.
-                Replace the placeholders (NAME, DESIGNATION, ROLE, PLACE, DETAIL, PHOTO) with actual data.
-                ==========================================================
-                -->
-
-                <!-- DOCTOR CARD TEMPLATE (copy this) -->
-                <!--
+                <!-- Prof. Dr. Aamir Khan -->
                 <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <div class="p-6 text-center">
-                        <div class="w-28 h-28 rounded-full bg-slate-100 border-2 border-slate-200 flex items-center justify-center overflow-hidden mx-auto mb-4">
-                            <img src="/assets/images/doctors/PHOTO.jpg" alt="NAME" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-slate-50 text-slate-400\'><svg class=\'w-12 h-12\' fill=\'currentColor\' viewBox=\'0 0 24 24\'><path d=\'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z\'/></svg></div>'">
+                    <div class="flex">
+                        <div class="w-1/3 bg-gradient-to-br from-sky-50 to-slate-100 flex items-center justify-center p-4">
+                            <div class="w-28 h-28 rounded-full bg-white border-2 border-sky-200 flex items-center justify-center overflow-hidden shadow-md">
+                                <img src="/assets/images/doctors/prof-aamir-khan.jpg" alt="Prof. Dr. Aamir Khan" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-sky-50 text-sky-600 font-bold text-2xl\'>AK</div>'">
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-1">NAME</h3>
-                        <p class="text-teal-600 text-sm font-semibold mb-2">DESIGNATION</p>
-                        <p class="text-xs text-slate-500 mb-3"><strong>Role:</strong> ROLE</p>
-                        <p class="text-xs text-slate-500 mb-3"><strong>Place:</strong> PLACE</p>
-                        <p class="text-slate-600 text-sm leading-relaxed">DETAIL</p>
-                    </div>
-                </div>
-                -->
-                <!-- END DOCTOR CARD TEMPLATE -->
-
-                <!-- EXAMPLE PLACEHOLDER CARDS (remove when adding real data) -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-dashed border-slate-300 hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <div class="p-8 text-center flex flex-col items-center justify-center min-h-[280px]">
-                        <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        <div class="w-2/3 p-6">
+                            <h3 class="text-lg font-bold text-slate-900 mb-0.5">Prof. Dr. Aamir Khan</h3>
+                            <p class="text-sky-600 text-xs font-semibold mb-2">MBBS, DMRD, FRCR (Radiology, UK)</p>
+                            <p class="text-xs text-slate-500 mb-1"><strong>Role:</strong> Head of Radiology & Diagnostic Imaging</p>
+                            <p class="text-xs text-slate-500 mb-3"><strong>Place:</strong> Healthnox Medical Center, Lahore</p>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                Prof. Dr. Aamir Khan leads the diagnostic imaging division at Healthnox Medical Center. With his FRCR from the UK, he brings international-standard radiological expertise to the team, providing advanced ultrasound, Doppler studies, and imaging support for complex fertility and urological cases.
+                            </p>
                         </div>
-                        <p class="text-slate-400 font-semibold">Coming Soon</p>
-                        <p class="text-xs text-slate-300 mt-2">New team member to be added</p>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-dashed border-slate-300 hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <div class="p-8 text-center flex flex-col items-center justify-center min-h-[280px]">
-                        <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <!-- Prof. Dr. Mahliqa Maqsood -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="flex">
+                        <div class="w-1/3 bg-gradient-to-br from-rose-50 to-slate-100 flex items-center justify-center p-4">
+                            <div class="w-28 h-28 rounded-full bg-white border-2 border-rose-200 flex items-center justify-center overflow-hidden shadow-md">
+                                <img src="/assets/images/doctors/prof-mahliqa-maqsood.jpg" alt="Prof. Dr. Mahliqa Maqsood" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-rose-50 text-rose-600 font-bold text-2xl\'>MM</div>'">
+                            </div>
                         </div>
-                        <p class="text-slate-400 font-semibold">Coming Soon</p>
-                        <p class="text-xs text-slate-300 mt-2">New team member to be added</p>
+                        <div class="w-2/3 p-6">
+                            <h3 class="text-lg font-bold text-slate-900 mb-0.5">Prof. Dr. Mahliqa Maqsood</h3>
+                            <p class="text-rose-600 text-xs font-semibold mb-2">MBBS, FCPS (Obstetrics & Gynecology)</p>
+                            <p class="text-xs text-slate-500 mb-1"><strong>Role:</strong> Consultant Obstetrician & Gynecologist</p>
+                            <p class="text-xs text-slate-500 mb-3"><strong>Place:</strong> Professor of OBGYN, Services Hospital Lahore</p>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                Prof. Dr. Mahliqa Maqsood is a Professor of Obstetrics & Gynecology at Services Hospital, one of Lahore's most prestigious teaching hospitals. Her expertise in high-risk obstetrics, gynecological surgery, and reproductive endocrinology strengthens the team's capacity for comprehensive female fertility management.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-dashed border-slate-300 hover:shadow-xl hover:-translate-y-1 transition-all">
-                    <div class="p-8 text-center flex flex-col items-center justify-center min-h-[280px]">
-                        <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <!-- Dr. Sajida Shahnawaz -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="flex">
+                        <div class="w-1/3 bg-gradient-to-br from-emerald-50 to-slate-100 flex items-center justify-center p-4">
+                            <div class="w-28 h-28 rounded-full bg-white border-2 border-emerald-200 flex items-center justify-center overflow-hidden shadow-md">
+                                <img src="/assets/images/doctors/dr-sajida-shahnawaz.jpg" alt="Dr. Sajida Shahnawaz" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-emerald-50 text-emerald-600 font-bold text-2xl\'>SS</div>'">
+                            </div>
                         </div>
-                        <p class="text-slate-400 font-semibold">Coming Soon</p>
-                        <p class="text-xs text-slate-300 mt-2">New team member to be added</p>
+                        <div class="w-2/3 p-6">
+                            <h3 class="text-lg font-bold text-slate-900 mb-0.5">Dr. Sajida Shahnawaz</h3>
+                            <p class="text-emerald-600 text-xs font-semibold mb-2">MBBS, FCPS (Obstetrics & Gynecology)</p>
+                            <p class="text-xs text-slate-500 mb-1"><strong>Role:</strong> Fertility & Regenerative Medicine / OBGYN Surgeon / Stem Cell Specialist</p>
+                            <p class="text-xs text-slate-500 mb-3"><strong>Place:</strong> Owner, Sakina International Hospital, Lahore</p>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                Dr. Sajida Shahnawaz is the driving force behind Sakina International Hospital — the clinical partner for all stem cell-based fertility treatments at IVF Experts. As an OBGYN surgeon with deep expertise in fertility and regenerative medicine, she plays a pivotal role in the team's stem cell protocols for ovarian rejuvenation and endometrial repair.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prof. Dr. Ammad Siddiqui -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="flex">
+                        <div class="w-1/3 bg-gradient-to-br from-indigo-50 to-slate-100 flex items-center justify-center p-4">
+                            <div class="w-28 h-28 rounded-full bg-white border-2 border-indigo-200 flex items-center justify-center overflow-hidden shadow-md">
+                                <img src="/assets/images/doctors/prof-ammad-siddiqui.jpg" alt="Prof. Dr. Ammad Siddiqui" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center w-full h-full bg-indigo-50 text-indigo-600 font-bold text-2xl\'>AS</div>'">
+                            </div>
+                        </div>
+                        <div class="w-2/3 p-6">
+                            <h3 class="text-lg font-bold text-slate-900 mb-0.5">Prof. Dr. Ammad Siddiqui</h3>
+                            <p class="text-indigo-600 text-xs font-semibold mb-2">MBBS, MS (Urology)</p>
+                            <p class="text-xs text-slate-500 mb-1"><strong>Role:</strong> Consultant Urologist</p>
+                            <p class="text-xs text-slate-500 mb-3"><strong>Place:</strong> HOD Urology, Social Security Hospital HQ Lahore | Saira Memorial Hospital, Model Town</p>
+                            <p class="text-slate-600 text-xs leading-relaxed">
+                                Prof. Dr. Ammad Siddiqui is the Head of the Department of Urology at Social Security Hospital Headquarters, Lahore, and a Consultant Urologist at Saira Memorial Hospital, Model Town. His urological expertise complements the team's andrology services, particularly in varicocele surgery, obstructive azoospermia reconstruction, and complex male reproductive cases.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -137,7 +172,11 @@ include("../includes/header.php");
   "medicalSpecialty": "Reproductive Medicine",
   "address": { "@type": "PostalAddress", "addressLocality": "Lahore", "addressCountry": "PK" },
   "member": [
-    { "@type": "Physician", "name": "Dr. Adnan Jabbar", "medicalSpecialty": "Reproductive Endocrinology and Infertility" }
+    { "@type": "Physician", "name": "Dr. Adnan Jabbar", "medicalSpecialty": "Reproductive Endocrinology and Infertility", "jobTitle": "Fertility Specialist & Clinical Embryologist" },
+    { "@type": "Physician", "name": "Prof. Dr. Aamir Khan", "medicalSpecialty": "Radiology", "jobTitle": "Head of Radiology, Healthnox Medical Center" },
+    { "@type": "Physician", "name": "Prof. Dr. Mahliqa Maqsood", "medicalSpecialty": "Obstetrics and Gynecology", "jobTitle": "Professor of OBGYN, Services Hospital Lahore" },
+    { "@type": "Physician", "name": "Dr. Sajida Shahnawaz", "medicalSpecialty": "Obstetrics and Gynecology", "jobTitle": "Fertility & Regenerative Medicine Specialist, Sakina International Hospital" },
+    { "@type": "Physician", "name": "Prof. Dr. Ammad Siddiqui", "medicalSpecialty": "Urology", "jobTitle": "HOD Urology, Social Security Hospital HQ Lahore" }
   ]
 }
 </script>
