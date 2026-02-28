@@ -69,7 +69,7 @@ if (isset($_GET['logout'])) {
     <nav class="bg-indigo-900 text-white shadow-lg sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="../assets/images/ivfexperts-logo.png" class="h-10 bg-white rounded p-1 object-contain" alt="Logo">
+                <img src="/assets/images/logo.png" class="h-10 bg-white rounded p-1 object-contain" alt="Logo">
                 <div>
                     <div class="font-bold tracking-wider leading-tight">Patient Portal</div>
                     <div class="text-xs text-indigo-300">Secure EMR Access</div>
