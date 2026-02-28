@@ -55,6 +55,32 @@
   ]
 }
 </script>
+<!-- Dynamic Page Schema -->
+<?php if(isset($schemaType) && ($schemaType == 'MedicalCondition' || $schemaType == 'MedicalProcedure')): ?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "<?= $schemaType ?>",
+  "name": "<?= htmlspecialchars($pageTitle) ?>",
+  "description": "<?= htmlspecialchars($metaDescription) ?>",
+  "url": "<?= $currentUrl ?>",
+  "relevantSpecialty": {
+    "@type": "MedicalSpecialty",
+    "name": "<?= $medicalSpecialty ?>"
+  }
+  <?php if($schemaType == 'MedicalProcedure'): ?>
+  ,"provider": {
+    "@id": "https://ivfexperts.pk/#physician"
+  }
+  <?php elseif($schemaType == 'MedicalCondition'): ?>
+  ,"possibleTreatment": {
+    "@type": "MedicalTherapy",
+    "name": "Consultation with Dr. Adnan Jabbar"
+  }
+  <?php endif; ?>
+}
+</script>
+<?php endif; ?>
 
 <!-- Breadcrumb Schema -->
 <script type="application/ld+json">
