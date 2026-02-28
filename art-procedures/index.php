@@ -1,204 +1,189 @@
 <?php
-$pageTitle = "IVF, ICSI, IUI & PGT in Lahore | Assisted Reproductive Technology Pakistan";
-$metaDescription = "Advanced, ethical ART in Lahore — IVF, ICSI, IUI, PGT — by dual-trained specialist Dr. Adnan Jabbar. Tailored only when clinically needed for tubal factor, endometriosis, male infertility, genetic concerns. Highest standards for families in Pakistan and overseas.";
+$pageTitle = "IVF, ICSI, IUI & PGT in Lahore | Advanced ART by Dr. Adnan Jabbar";
+$metaDescription = "Advanced, ethical ART in Lahore — IVF, ICSI, IUI, PGT — by dual-trained specialist Dr. Adnan Jabbar. Tailored only when clinically needed for tubal factor, endometriosis, male infertility, genetic concerns.";
 include("../includes/header.php");
 ?>
 
-<!-- HERO -->
-<section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-100/20 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200/25 rounded-full blur-3xl pointer-events-none"></div>
+<!-- HERO SECTION -->
+<section class="relative min-h-[85vh] flex items-center overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-24 bg-slate-950 text-white">
+    <!-- Clinical / High-Tech Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 -z-20"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGFwYXRoIGQ9Ik01OS45IDB2NjAuMWgtLjFWLjFoLS4xdjYwSDBWMGg1OS45eiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvc3ZnPg==')] opacity-20 mix-blend-overlay -z-10"></div>
+    
+    <!-- Animated Glow Orbs -->
+    <div class="absolute top-10 right-10 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px] -z-10 animate-pulse-slow"></div>
+    <div class="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[80px] -z-10"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-            <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                IVF, ICSI, IUI & PGT<br>in Lahore
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-16 items-center z-10">
+        
+        <!-- LEFT: NARRATIVE -->
+        <div class="lg:col-span-7 fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-900/40 text-cyan-300 text-sm font-semibold mb-6 border border-cyan-800/50 shadow-sm backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                Advanced Clinical Embryology
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
+                The pinnacle of <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">
+                    Reproductive Science.
+                </span>
             </h1>
-            <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl">
-                Assisted Reproductive Technology (ART) gives hope when natural conception or simpler treatments aren't enough. We recommend IVF, ICSI, IUI or PGT **only after thorough evaluation** — never as a default or rushed step. Every protocol is customized to your age, reserve, diagnosis, and goals, prioritizing safety, ethics, and realistic expectations.
+            
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
+                Assisted Reproductive Technology (ART) bridges the gap when natural conception is blocked by severe physiology. We execute IVF, ICSI, and PGT with uncompromised laboratory standards, only when ethically and clinically indicated.
             </p>
 
             <div class="flex flex-wrap gap-5">
-                <a href="/contact/" class="btn-primary px-8 py-4 text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition">
-                    Book Consultation
-                </a>
-                <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I%20would%20like%20to%20understand%20IVF/ICSI/IUI%20options" 
-                   class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-7 py-4 rounded-lg font-medium text-base lg:text-lg shadow-lg transition">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                    </svg>
-                    Chat on WhatsApp
+                <a href="#consultation" class="btn-primary text-slate-900 shadow-[0_8px_25px_rgba(34,211,238,0.25)] bg-cyan-400 hover:bg-cyan-300 border-none px-8 py-4">
+                    Explore ART Suitability
                 </a>
             </div>
         </div>
 
-        <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-xl p-8 rounded-2xl">
-            <h3 class="text-2xl font-bold text-teal-700 mb-6">When ART Becomes the Right Step</h3>
-            <ul class="space-y-4 text-gray-700 text-base">
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Blocked fallopian tubes (bilateral or hydrosalpinx)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                    </svg>
-                    Severe male factor (low count, motility, or azoospermia)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Repeated IUI failure (3–6 cycles)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                    </svg>
-                    Advanced maternal age (>38) or genetic carrier risks (PGT)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"/>
-                    </svg>
-                    Severe endometriosis or multiple failed simpler treatments
-                </li>
-            </ul>
+        <!-- RIGHT: GLASSMORPHIC IMAGERY / METRICS -->
+        <div class="lg:col-span-5 fade-in" style="transition-delay: 200ms;">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-800/60 bg-slate-900/50 backdrop-blur-xl p-2">
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/5]">
+                    <img src="/assets/images/art_procedures_lab.png" alt="Clinical Embryology Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 mix-blend-luminosity hover:mix-blend-normal"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="p-6 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-700/50">
+                            <h4 class="text-cyan-400 font-bold mb-1">Dual Expertise</h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Dr. Adnan Jabbar uniquely merges clinical fertility practice with master-level embryology, ensuring quality continuity from consultation to embryo transfer.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- PROCEDURE CARDS -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Our Assisted Reproductive Technology Services
-        </h2>
+<!-- THE INDICATION FOR ART -->
+<section class="section-lg bg-soft relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-4xl mx-auto mb-20 fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight">
+                When does ART become <br/><span class="text-cyan-600">the necessary step?</span>
+            </h2>
+            <p class="text-lg text-slate-600 leading-relaxed text-left md:text-center">
+                We never rush patients into IVF. ART is a sophisticated tool deployed strategically when structural, genetic, or severe functional barriers cannot be bypassed by simpler methods. 
+            </p>
+        </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <a href="/art-procedures/iui.php" class="bg-teal-50/40 rounded-2xl p-8 hover:shadow-xl transition border border-teal-100 group">
-                <div class="text-center mb-6">
-                    <svg class="w-14 h-14 mx-auto text-teal-600 group-hover:text-teal-700 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+            <div class="card p-8 border-t-4 border-t-rose-400">
+                <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
-                <h3 class="text-2xl font-semibold text-teal-800 mb-4 text-center group-hover:text-teal-900">IUI</h3>
-                <p class="text-gray-700 text-center group-hover:text-gray-900 transition">
-                    Gentle first step: sperm placed in uterus around ovulation. Ideal for unexplained infertility, mild male factor, PCOS. ~10–20% per cycle.
-                </p>
+                <h4 class="font-bold text-slate-800 mb-2">Age & Ovarian Reserve</h4>
+                <p class="text-sm text-slate-600">Advanced maternal age (>37) or extremely low AMH dictates faster escalation to maximize the chances with remaining oocytes.</p>
+            </div>
+
+            <div class="card p-8 border-t-4 border-t-teal-400">
+                <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                </div>
+                <h4 class="font-bold text-slate-800 mb-2">Severe Male Factor</h4>
+                <p class="text-sm text-slate-600">Critical oligospermia, poor morphology, or azoospermia (requiring Micro-TESE) makes ICSI the definitive necessity.</p>
+            </div>
+
+            <div class="card p-8 border-t-4 border-t-indigo-400">
+                <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                </div>
+                <h4 class="font-bold text-slate-800 mb-2">Tubal Blockages</h4>
+                <p class="text-sm text-slate-600">Bilateral fallopian tube occlusion physically prevents conception. IVF bypasses the tubes entirely.</p>
+            </div>
+
+            <div class="card p-8 border-t-4 border-t-amber-400">
+                <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <h4 class="font-bold text-slate-800 mb-2">Severe Endometriosis</h4>
+                <p class="text-sm text-slate-600">Endometriosis alters pelvic anatomy and creates a toxic inflammatory environment. ART safely retrieves and isolates eggs for fertilization.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CORE PROCEDURES DIRECTORY -->
+<section class="section-lg bg-white relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center fade-in">Our ART Services</h2>
+        <p class="text-lg text-slate-600 mb-16 text-center max-w-2xl mx-auto fade-in">Click to explore the technical details, protocols, and indicators for each advanced laboratory procedure.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+            <a href="/art-procedures/ivf.php" class="relative group bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:bg-cyan-600 hover:border-cyan-600 transition-all duration-300 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 rounded-full bg-white text-cyan-600 flex items-center justify-center mb-6 shadow-sm group-hover:text-cyan-700">
+                        <span class="font-bold text-xl">IVF</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-white mb-3">In Vitro Fertilization</h3>
+                    <p class="text-slate-600 group-hover:text-cyan-50 text-sm leading-relaxed">
+                        Controlled ovarian stimulation, precise retrieval, and laboratory culturing for complex infertility.
+                    </p>
+                </div>
             </a>
 
-            <a href="/art-procedures/ivf.php" class="bg-teal-50/40 rounded-2xl p-8 hover:shadow-xl transition border border-teal-100 group">
-                <div class="text-center mb-6">
-                    <svg class="w-14 h-14 mx-auto text-teal-600 group-hover:text-teal-700 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                    </svg>
+            <a href="/art-procedures/icsi.php" class="relative group bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:bg-cyan-600 hover:border-cyan-600 transition-all duration-300 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 rounded-full bg-white text-cyan-600 flex items-center justify-center mb-6 shadow-sm group-hover:text-cyan-700">
+                        <span class="font-bold text-xl">ICSI</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-white mb-3">Intracytoplasmic Sperm Injection</h3>
+                    <p class="text-slate-600 group-hover:text-cyan-50 text-sm leading-relaxed">
+                        The micromanipulation gold standard for severe male factor infertility to guarantee fertilization.
+                    </p>
                 </div>
-                <h3 class="text-2xl font-semibold text-teal-800 mb-4 text-center group-hover:text-teal-900">IVF</h3>
-                <p class="text-gray-700 text-center group-hover:text-gray-900 transition">
-                    Eggs retrieved, fertilized in lab, embryos grown & transferred. Best for blocked tubes, endometriosis, moderate male factor, failed IUI. ~40–50% per cycle (<35).
-                </p>
             </a>
 
-            <a href="/art-procedures/icsi.php" class="bg-teal-50/40 rounded-2xl p-8 hover:shadow-xl transition border border-teal-100 group">
-                <div class="text-center mb-6">
-                    <svg class="w-14 h-14 mx-auto text-teal-600 group-hover:text-teal-700 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-                    </svg>
+            <a href="/art-procedures/pgt.php" class="relative group bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:bg-cyan-600 hover:border-cyan-600 transition-all duration-300 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 rounded-full bg-white text-cyan-600 flex items-center justify-center mb-6 shadow-sm group-hover:text-cyan-700">
+                        <span class="font-bold text-xl">PGT</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-white mb-3">Preimplantation Genetic Testing</h3>
+                    <p class="text-slate-600 group-hover:text-cyan-50 text-sm leading-relaxed">
+                        Embryo biopsy to screen for chromosomal euploidy (PGT-A) or monogenic diseases (PGT-M) before transfer.
+                    </p>
                 </div>
-                <h3 class="text-2xl font-semibold text-teal-800 mb-4 text-center group-hover:text-teal-900">ICSI</h3>
-                <p class="text-gray-700 text-center group-hover:text-gray-900 transition">
-                    Single sperm injected into egg. Gold standard for severe male factor, azoospermia, prior fertilization failure. Fertilization 70–80%.
-                </p>
             </a>
 
-            <a href="/art-procedures/pgt.php" class="bg-teal-50/40 rounded-2xl p-8 hover:shadow-xl transition border border-teal-100 group">
-                <div class="text-center mb-6">
-                    <svg class="w-14 h-14 mx-auto text-teal-600 group-hover:text-teal-700 transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+            <a href="/art-procedures/iui.php" class="relative group bg-slate-50 border border-slate-200 rounded-3xl p-8 hover:bg-cyan-600 hover:border-cyan-600 transition-all duration-300 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="w-14 h-14 rounded-full bg-white text-cyan-600 flex items-center justify-center mb-6 shadow-sm group-hover:text-cyan-700">
+                        <span class="font-bold text-xl">IUI</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 group-hover:text-white mb-3">Intrauterine Insemination</h3>
+                    <p class="text-slate-600 group-hover:text-cyan-50 text-sm leading-relaxed">
+                        A frontline, minimally invasive procedure for mild male factor, unexplained infertility, or optimized PCOS cycles.
+                    </p>
                 </div>
-                <h3 class="text-2xl font-semibold text-teal-800 mb-4 text-center group-hover:text-teal-900">PGT</h3>
-                <p class="text-gray-700 text-center group-hover:text-gray-900 transition">
-                    Embryos screened for chromosomal issues (PGT-A) or genetic disorders (PGT-M). Ideal for advanced age, recurrent loss, carrier couples.
-                </p>
             </a>
         </div>
     </div>
 </section>
 
-<!-- LAB & ETHICS INSIGHT -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-10 text-gray-900">
-            Laboratory Excellence & Ethical Care
-        </h2>
-        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Success in ART depends on embryology quality: precise sperm selection, optimal culture, accurate grading, and gentle handling. As a dual-trained clinician and embryologist, I oversee every step. We recommend procedures only when medically indicated — never routinely or for profit. Transparency, informed consent, and your values guide every decision.
+<!-- CALL TO ACTION -->
+<section id="consultation" class="section-lg relative overflow-hidden bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 relative z-10 text-center fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Discuss your ART viability.</h2>
+        <p class="text-lg text-slate-600 mb-10">
+            Let's evaluate your history to determine if advanced reproductive technology is your most statistically sound path forward.
         </p>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Frequently Asked Questions
-        </h2>
-
-        <div class="space-y-6">
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">When is ART really necessary?</h3>
-                <p class="text-gray-700">
-                    After failed simpler treatments (timed intercourse, IUI), blocked tubes, severe male factor, advanced age with low reserve, genetic risks, or endometriosis causing significant damage. Many couples conceive without ART after proper workup.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">What is the overall success rate of IVF/ICSI?</h3>
-                <p class="text-gray-700">
-                    Live birth per cycle: ~40–50% under 35, ~30–40% age 35–37, ~20–30% age 38–40, lower after 40. Cumulative success (2–3 cycles) often 60–80% in younger patients.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Is PGT always part of IVF?</h3>
-                <p class="text-gray-700">
-                    No — only recommended for specific indications (age >38, recurrent loss, genetic carriers). It improves implantation in high-risk groups but adds cost and requires careful discussion.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">How do you decide between IUI and IVF?</h3>
-                <p class="text-gray-700">
-                    IUI first for mild/unexplained cases with open tubes and good sperm. IVF/ICSI if tubes blocked, severe male factor, failed IUI, low reserve, or endometriosis.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="section-lg bg-gradient-to-br from-teal-700 to-teal-900 text-white text-center">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
-            Begin ART with Clarity & Confidence
-        </h2>
-        <p class="text-lg lg:text-xl mb-10 opacity-90">
-            No pressure, no unnecessary procedures — only evidence-based recommendations tailored to your exact situation. Expert, ethical care is here in Lahore for families across Pakistan and worldwide.
-        </p>
-        <div class="flex flex-wrap justify-center gap-6">
-            <a href="/contact/" class="bg-white text-teal-900 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl hover:bg-gray-100 transition">
-                Schedule Your Consultation
-            </a>
-            <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'd%20like%20to%20understand%20ART%20options%20better" 
-               class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl transition">
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                </svg>
-                WhatsApp Message
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="https://wa.me/923111101483" class="bg-cyan-600 text-white px-8 py-4 rounded-xl font-bold shadow-xl hover:bg-cyan-700 hover:scale-105 transition-all w-full sm:w-auto flex items-center justify-center gap-3">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                Connect on WhatsApp
             </a>
         </div>
     </div>
