@@ -54,6 +54,18 @@ elseif (strpos($uriPaths, 'male-infertility') !== false) {
         $pageTitle = "Sperm DNA Fragmentation Testing & Treatment | Lahore, Pakistan";
         $metaDescription = "High Sperm DNA Fragmentation causes recurrent miscarriages and IVF failure. Get advanced testing and targeted PICSI/ICSI treatments in Lahore.";
     }
+    elseif (strpos($uriPaths, 'erectile-ejaculatory-dysfunction') !== false) {
+        $pageTitle = "Erectile & Ejaculatory Dysfunction Fertility Treatment Pakistan";
+        $metaDescription = "Confidential, advanced treatments for retrograde ejaculation and ED in Lahore. Overcome mechanical male infertility with expert sperm retrieval techniques.";
+    }
+    elseif (strpos($uriPaths, 'unexplained-male-infertility') !== false) {
+        $pageTitle = "Unexplained Male Infertility Treatment in Lahore, Pakistan";
+        $metaDescription = "Normal semen analysis but still struggling? Discover advanced diagnostics like Reactive Oxygen Species (ROS) testing and PICSI for unexplained male infertility.";
+    }
+    elseif (strpos($uriPaths, 'klinefelters-syndrome') !== false) {
+        $pageTitle = "Klinefelter Syndrome Fertility Treatment | Micro-TESE Lahore";
+        $metaDescription = "Compassionate, cutting-edge fertility treatments for Klinefelter's Syndrome. Specialized Micro-TESE surgical sperm retrieval by Dr. Adnan Jabbar in Pakistan.";
+    }
     else {
         $pageTitle = "Male Infertility Specialist in Pakistan | Azoospermia & Varicocele";
         $metaDescription = "Leading male infertility expert in Lahore. Treating low sperm count, zero sperm, erectile dysfunction, and offering elite ICSI solutions across Pakistan.";
@@ -79,6 +91,22 @@ elseif (strpos($uriPaths, 'female-infertility') !== false) {
         $pageTitle = "Low AMH & Diminished Ovarian Reserve Treatment Pakistan";
         $metaDescription = "Pregnancy with Low AMH is possible. Individualized ovarian stimulation and advanced reproductive techniques for Diminished Ovarian Reserve in Lahore.";
     }
+    elseif (strpos($uriPaths, 'recurrent-pregnancy-loss') !== false) {
+        $pageTitle = "Recurrent Pregnancy Loss & Miscarriage Treatment | Lahore";
+        $metaDescription = "Expert care for recurrent miscarriages and repeated IVF failures in Pakistan. Advanced immunological testing and PGT-A chromosomal screening to secure your pregnancy.";
+    }
+    elseif (strpos($uriPaths, 'unexplained-infertility') !== false) {
+        $pageTitle = "Unexplained Infertility Specialist in Lahore, Pakistan";
+        $metaDescription = "Frustrated by unexplained infertility? Dr. Adnan Jabbar offers deep diagnostics and targeted ART solutions to overcome idiopathic infertility in Pakistan.";
+    }
+    elseif (strpos($uriPaths, 'uterine-fibroids-polyps') !== false) {
+        $pageTitle = "Uterine Fibroids & Polyps Treatment for Fertility Pakistan";
+        $metaDescription = "Optimize your uterus for implantation. Minimally invasive hysteroscopic removal of fibroids and polyps by leading fertility experts in Lahore.";
+    }
+    elseif (strpos($uriPaths, 'adenomyosis') !== false) {
+        $pageTitle = "Adenomyosis Fertility Treatment & IVF | Lahore, Pakistan";
+        $metaDescription = "Specialized IVF protocols downregulating severe adenomyosis. Maximize your chances of embryo implantation and a healthy pregnancy with Dr. Adnan Jabbar.";
+    }
     else {
         $pageTitle = "Female Infertility Specialist | PCOS & IVF Expert in Lahore";
         $metaDescription = "Comprehensive female infertility treatments in Pakistan. Overcome PCOS, Endometriosis, Low AMH, and unexplainable infertility with Dr. Adnan Jabbar.";
@@ -103,6 +131,22 @@ elseif (strpos($uriPaths, 'art-procedures') !== false) {
     elseif (strpos($uriPaths, 'iui') !== false) {
         $pageTitle = "IUI Cost & Success Rate in Pakistan | Intrauterine Insemination";
         $metaDescription = "Affordable IUI (Intrauterine Insemination) treatments in Lahore. Safe, effective first-line fertility treatments for couples in Pakistan.";
+    }
+    elseif (strpos($uriPaths, 'fertility-preservation') !== false) {
+        $pageTitle = "Egg & Sperm Freezing (Fertility Preservation) Cost Lahore";
+        $metaDescription = "Take control of your biological clock. Advanced ultra-fast vitrification for egg freezing, sperm banking, and oncology fertility preservation in Pakistan.";
+    }
+    elseif (strpos($uriPaths, 'ovarian-endometrial-prp') !== false) {
+        $pageTitle = "Ovarian & Endometrial PRP Rejuvenation Treatment Pakistan";
+        $metaDescription = "Boost your IVF success with Platelet-Rich Plasma (PRP) therapy in Lahore. Groundbreaking treatments for thin endometrium and dormant ovaries.";
+    }
+    elseif (strpos($uriPaths, 'surgical-sperm-retrieval') !== false) {
+        $pageTitle = "Surgical Sperm Retrieval (PESA, TESA, Micro-TESE) Pakistan";
+        $metaDescription = "Virtually painless surgical sperm retrieval procedures in Lahore. PESA, TESA, and Micro-TESE solutions for severe male infertility and zero sperm count.";
+    }
+    elseif (strpos($uriPaths, 'laser-assisted-hatching') !== false) {
+        $pageTitle = "Laser Assisted Hatching for IVF Success | Lahore, Pakistan";
+        $metaDescription = "Improve embryo implantation rates with state-of-the-art Laser-Assisted Hatching. Advanced embryology services by Dr. Adnan Jabbar.";
     }
     else {
         $pageTitle = "IVF, ICSI & Gender Selection Procedures | IVF Experts Pakistan";
