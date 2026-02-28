@@ -1,0 +1,18 @@
+RewriteEngine On
+RewriteBase /
+
+# Route sitemap.xml to the dynamic PHP generator
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+# Remove .php extension from URLs (if the file exists)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Redirect HTTP to HTTPS (standard SSL forcing)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect non-www to www (canonicalization)
+# RewriteCond %{HTTP_HOST} ^ivfexperts\.pk [NC]
+# RewriteRule ^(.*)$ https://www.ivfexperts.pk/$1 [L,R=301]
