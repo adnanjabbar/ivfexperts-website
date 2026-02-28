@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /config/
 
 # Sitemaps
 Sitemap: https://ivfexperts.pk/sitemap.php

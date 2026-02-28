@@ -9,7 +9,9 @@ $baseUrl = "https://ivfexperts.pk";
 $directoriesToScan = [
     'male-infertility',
     'female-infertility',
-    'art-procedures'
+    'art-procedures',
+    'stemcell',
+    'doctors'
 ];
 
 // Start with standard root-level pages

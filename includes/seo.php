@@ -66,6 +66,26 @@ elseif (strpos($uriPaths, 'male-infertility') !== false) {
         $pageTitle = "Klinefelter Syndrome Fertility Treatment | Micro-TESE Lahore";
         $metaDescription = "Compassionate, cutting-edge fertility treatments for Klinefelter's Syndrome. Specialized Micro-TESE surgical sperm retrieval by Dr. Adnan Jabbar in Pakistan.";
     }
+    elseif (strpos($uriPaths, 'hypogonadotropic-hypogonadism') !== false) {
+        $pageTitle = "Hypogonadotropic Hypogonadism Fertility Treatment | Lahore";
+        $metaDescription = "Expert hormonal therapy and fertility treatment for Hypogonadotropic Hypogonadism in Pakistan. Dr. Adnan Jabbar restores male fertility and testosterone.";
+    }
+    elseif (strpos($uriPaths, 'low-testicular-volume') !== false) {
+        $pageTitle = "Low Testicular Volume & Testicular Atrophy Treatment Pakistan";
+        $metaDescription = "Advanced male infertility treatments for low testicular volume and atrophy in Lahore. Maximize sperm production with targeted therapies and Micro-TESE.";
+    }
+    elseif (strpos($uriPaths, 'primary-testicular-failure') !== false) {
+        $pageTitle = "Primary Testicular Failure Treatment | Lahore, Pakistan";
+        $metaDescription = "Hope for Primary Testicular Failure (Hypergonadotropic Hypogonadism). Advanced Micro-TESE and regenerative stem cell options in Pakistan.";
+    }
+    elseif (strpos($uriPaths, 'testicular-recovery-stemcell') !== false) {
+        $pageTitle = "Testicular Recovery via Stem Cell Therapy | Pakistan Infertility";
+        $metaDescription = "Pioneering stem cell therapy for testicular regeneration and non-obstructive azoospermia in Lahore, Pakistan. Leading-edge male infertility treatment.";
+    }
+    elseif (strpos($uriPaths, 'penile-doppler-ultrasound') !== false) {
+        $pageTitle = "Penile Doppler Ultrasound (PSV, EDV, RI) in Lahore, Pakistan";
+        $metaDescription = "Expert Penile Doppler Ultrasound for erectile dysfunction. Measuring PSV, EDV, and RI per AUA/EAU guidelines with Dr. Adnan Jabbar in Lahore.";
+    }
     else {
         $pageTitle = "Male Infertility Specialist in Pakistan | Azoospermia & Varicocele";
         $metaDescription = "Leading male infertility expert in Lahore. Treating low sperm count, zero sperm, erectile dysfunction, and offering elite ICSI solutions across Pakistan.";
@@ -106,6 +126,18 @@ elseif (strpos($uriPaths, 'female-infertility') !== false) {
     elseif (strpos($uriPaths, 'adenomyosis') !== false) {
         $pageTitle = "Adenomyosis Fertility Treatment & IVF | Lahore, Pakistan";
         $metaDescription = "Specialized IVF protocols downregulating severe adenomyosis. Maximize your chances of embryo implantation and a healthy pregnancy with Dr. Adnan Jabbar.";
+    }
+    elseif (strpos($uriPaths, 'primary-ovarian-failure') !== false) {
+        $pageTitle = "Primary Ovarian Failure (POF) Treatment in Lahore, Pakistan";
+        $metaDescription = "Advanced fertility treatments for Premature Ovarian Failure (POI/POF). Explore IVF protocols and stem cell ovarian rejuvenation in Pakistan.";
+    }
+    elseif (strpos($uriPaths, 'ovarian-tissue-preservation') !== false) {
+        $pageTitle = "Ovarian Tissue Preservation & Oncofertility in Pakistan";
+        $metaDescription = "Preserve your fertility before cancer treatment. Advanced ovarian tissue freezing and oncofertility services in Lahore, Pakistan.";
+    }
+    elseif (strpos($uriPaths, 'stemcell-ovarian-rejuvenation') !== false) {
+        $pageTitle = "Stem Cell Ovarian Rejuvenation Therapy | Lahore, Pakistan";
+        $metaDescription = "Revitalize failing ovaries with cutting-edge Stem Cell Ovarian Rejuvenation in Pakistan. Improve egg quality and restore natural fertility.";
     }
     else {
         $pageTitle = "Female Infertility Specialist | PCOS & IVF Expert in Lahore";
@@ -152,6 +184,42 @@ elseif (strpos($uriPaths, 'art-procedures') !== false) {
         $pageTitle = "IVF, ICSI & Gender Selection Procedures | IVF Experts Pakistan";
         $metaDescription = "State-of-the-art ART procedures including IVF, ICSI, IUI, and Genetic Testing (PGT) in Lahore. World-class embryology laboratory.";
     }
+}
+
+// ==== STEM CELL ====
+elseif (strpos($uriPaths, 'stemcell') !== false) {
+    $schemaType = "MedicalProcedure";
+    if (strpos($uriPaths, 'adscs') !== false) {
+        $pageTitle = "Adipose-Derived Stem Cells (ADSCs) for Fertility | Pakistan";
+        $metaDescription = "ADSC stem cell therapy for reproductive health. Regenerating endometrial lining and improving IVF outcomes at IVF Experts Lahore.";
+    }
+    elseif (strpos($uriPaths, 'mesenchymal-umbilical') !== false) {
+        $pageTitle = "Mesenchymal & Umbilical Cord Stem Cells (MSCs/MHUCs) Fertility";
+        $metaDescription = "Advanced Wharton's Jelly and MSC stem cell treatments for male and female infertility in collaboration with Sakina International Hospital, Lahore.";
+    }
+    elseif (strpos($uriPaths, 'pluripotent-stem-cells') !== false) {
+        $pageTitle = "Pluripotent Stem Cells & In-Vitro Gametogenesis | Pakistan";
+        $metaDescription = "The future of fertility: Pluripotent stem cells and IVG research. Discover cutting-edge reproductive science at IVF Experts Pakistan.";
+    }
+    elseif (strpos($uriPaths, 'multipotent-stem-cells') !== false) {
+        $pageTitle = "Multipotent Stem Cells for Fertility Repair | IVF Experts";
+        $metaDescription = "Targeted fertility repair using Multipotent Stem Cells. Ovarian, testicular, and endometrial tissue regeneration in Lahore, Pakistan.";
+    }
+    elseif (strpos($uriPaths, 'role-in-infertility') !== false) {
+        $pageTitle = "The Role of Stem Cells in Treating Infertility | Lahore";
+        $metaDescription = "How stem cell therapy works for infertility. Clinical pathways for POF, Asherman's Syndrome, and NOA with Dr. Adnan Jabbar in Pakistan.";
+    }
+    else {
+        $pageTitle = "Stem Cell Research & Fertility Center | Lahore, Pakistan";
+        $metaDescription = "Pakistan's leading center for Stem Cell in Reproductive Medicine. Pioneering treatments for severe infertility at Sakina International Hospital & UOL.";
+    }
+}
+
+// ==== DOCTORS ====
+elseif (strpos($uriPaths, 'doctors') !== false) {
+    $schemaType = "MedicalOrganization";
+    $pageTitle = "Our Expert Fertility Doctors & Specialists | IVF Experts Pakistan";
+    $metaDescription = "Meet the top multi-disciplinary team of fertility specialists, IVF consultants, urologists, and gynecologists led by Dr. Adnan Jabbar in Lahore.";
 }
 
 // Override variables if defined globally before including seo.php
