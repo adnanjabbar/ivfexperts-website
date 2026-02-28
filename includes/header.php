@@ -417,4 +417,3 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 <div class="h-24" style="height:6rem;"></div>
-
