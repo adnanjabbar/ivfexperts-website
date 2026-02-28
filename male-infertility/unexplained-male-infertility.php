@@ -12,11 +12,11 @@ include("../includes/header.php");
                 Advanced Male Infertility Diagnostics
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.10] mb-6 tracking-tight">
-                When the Semen Analysis looks <span class="text-teal-600 underline decoration-4 decoration-teal-200">Normal</span>.
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.10] mb-6 tracking-tight" style="color:#0f172a;">
+                When the Semen Analysis looks <span class="text-teal-600 underline decoration-4 decoration-teal-200" style="color:#0d9488;">Normal</span>.
             </h1>
             
-            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light">
+            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light" style="color:#475569;">
                 A basic semen analysis checks quantity and movement, but it cannot see the hidden molecular damage inside the sperm. Unexplained Male Infertility requires a deep dive into oxidative stress and DNA integrity.
             </p>
 

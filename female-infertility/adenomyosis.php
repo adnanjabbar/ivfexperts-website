@@ -17,14 +17,14 @@ include("../includes/header.php");
                 The Silent Cousin of Endometriosis
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight" style="color:#ffffff;">
                 Navigating Fertility with <br class="hidden lg:block"/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-purple-400">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-purple-400" style="background:linear-gradient(to right,#a5b4fc,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
                     Adenomyosis.
                 </span>
             </h1>
             
-            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light mx-auto lg:mx-0">
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light mx-auto lg:mx-0" style="color:#cbd5e1;">
                 Severe pain, heavy bleeding, and a uterus that actively resists embryo implantation. Adenomyosis is a profoundly complex diagnosis, but with ultra-long downregulation IVF protocols, pregnancy is absolutely possible.
             </p>
 

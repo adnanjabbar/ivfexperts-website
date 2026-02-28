@@ -16,12 +16,12 @@ include("../includes/header.php");
                 Preparing the Home for Your Baby
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight" style="color:#ffffff;">
                 Overcoming <br class="hidden lg:block"/>
-                <span class="text-rose-400">Fibroids & Polyps.</span>
+                <span class="text-rose-400" style="color:#fb7185;">Fibroids &amp; Polyps.</span>
             </h1>
             
-            <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed font-light">
+            <p class="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed font-light" style="color:#cbd5e1;">
                 An embryo needs a perfectly smooth, uninterrupted environment to implant and grow. Uterine fibroids and endometrial polyps act as physical barriers to pregnancy. Through minimally invasive hysteroscopy, we restore your uterine cavity.
             </p>
 

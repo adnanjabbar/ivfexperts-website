@@ -15,12 +15,12 @@ include("../includes/header.php");
                 Pause Your Biological Clock
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.10] mb-6 tracking-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.10] mb-6 tracking-tight" style="color:#0f172a;">
                 Empowerment through <br/>
-                <span class="text-blue-600">Fertility Preservation.</span>
+                <span class="text-blue-600" style="color:#2563eb;">Fertility Preservation.</span>
             </h1>
             
-            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light">
+            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light" style="color:#475569;">
                 Whether for career planning, personal choices, or critical oncology treatments, egg and sperm freezing gives you complete control over your reproductive timeline using ultra-fast vitrification technology in Lahore.
             </p>
 

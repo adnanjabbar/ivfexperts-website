@@ -12,14 +12,14 @@ include("../includes/header.php");
                 Beyond "Normal" Test Results
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.10] mb-6 tracking-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.10] mb-6 tracking-tight" style="color:#0f172a;">
                 Solving the Mystery of <br/>
-                <span class="text-teal-600">
+                <span class="text-teal-600" style="color:#0d9488;">
                     Unexplained Infertility.
                 </span>
             </h1>
             
-            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light">
+            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light" style="color:#475569;">
                 Being told that "everything looks fine" while month after month ends in disappointment is endlessly frustrating. As Lahore's leading clinical embryologist, Dr. Adnan Jabbar goes beyond basic testing to uncover the hidden cellular barriers preventing pregnancy.
             </p>
 

@@ -15,12 +15,12 @@ include("../includes/header.php");
                 Healing from Within
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.10] mb-6 tracking-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.10] mb-6 tracking-tight" style="color:#0f172a;">
                 Rejuvenation through <br/>
-                <span class="text-rose-600">Platelet-Rich Plasma (PRP).</span>
+                <span class="text-rose-600" style="color:#e11d48;">Platelet-Rich Plasma (PRP).</span>
             </h1>
             
-            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light">
+            <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light" style="color:#475569;">
                 When the uterine lining refuses to thicken, or the ovaries stop producing eggs, we harness the concentrated healing power of your own blood to restart dormant cellular activity.
             </p>
 

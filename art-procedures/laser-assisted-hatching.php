@@ -17,14 +17,14 @@ include("../includes/header.php");
                 Micromanipulation Technology
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight" style="color:#ffffff;">
                 Enhancing Implantation with <br class="hidden lg:block"/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-500">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-500" style="background:linear-gradient(to right,#fcd34d,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
                     Laser-Assisted Hatching.
                 </span>
             </h1>
             
-            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light mx-auto lg:mx-0">
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light mx-auto lg:mx-0" style="color:#cbd5e1;">
                 A beautiful embryo means nothing if it cannot break out of its shell to attach to the uterus. Using state-of-the-art laboratory lasers, we give your embryo the precise mechanical opening it needs to ensure a successful pregnancy.
             </p>
 

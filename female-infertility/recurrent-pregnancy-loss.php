@@ -15,14 +15,14 @@ include("../includes/header.php");
                 Breaking the Cycle of Heartbreak
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight" style="color:#ffffff;">
                 Healing After <br class="hidden lg:block" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-red-600">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-red-600" style="background:linear-gradient(to right,#fb7185,#dc2626);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
                     Recurrent Miscarriages.
                 </span>
             </h1>
             
-            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light mx-auto lg:mx-0">
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light mx-auto lg:mx-0" style="color:#cbd5e1;">
                 Losing a pregnancy repeatedly is unimaginably devastating. You are not failing—your medical strategy might be. Dr. Adnan Jabbar provides precise chromosomal and immunological answers to secure your next pregnancy in Lahore.
             </p>
 

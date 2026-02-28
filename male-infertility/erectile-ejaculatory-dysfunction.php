@@ -14,14 +14,14 @@ include("../includes/header.php");
                 100% Confidential & Discreeet
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight" style="color:#ffffff;">
                 Mechanical Barriers to <br class="hidden lg:block"/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500" style="background:linear-gradient(to right,#38bdf8,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
                     Male Fertility.
                 </span>
             </h1>
             
-            <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed font-light mx-auto max-w-3xl">
+            <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed font-light mx-auto max-w-3xl" style="color:#cbd5e1;">
                 Erectile Dysfunction (ED) and Retrograde Ejaculation can make natural conception physically impossible, even if your sperm factory is working perfectly. Dr. Adnan Jabbar provides strictly confidential, highly advanced workarounds to secure your biological child.
             </p>
 

@@ -127,4 +127,80 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    /* ===============================
+       MOBILE MENU
+    =============================== */
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenuClose = document.getElementById("mobile-menu-close");
+    const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+    const mobileMenuBackdrop = document.getElementById("mobile-menu-backdrop");
+    const mobileMenuPanel = document.getElementById("mobile-menu-panel");
+
+    function openMobileMenu() {
+        if (!mobileMenuOverlay) return;
+        mobileMenuOverlay.style.display = "block";
+        document.body.style.overflow = "hidden";
+        // Trigger animation on next frame
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                mobileMenuBackdrop.style.opacity = "1";
+                mobileMenuPanel.style.transform = "translateX(0)";
+            });
+        });
+    }
+
+    function closeMobileMenu() {
+        if (!mobileMenuOverlay) return;
+        mobileMenuBackdrop.style.opacity = "0";
+        mobileMenuPanel.style.transform = "translateX(100%)";
+        document.body.style.overflow = "";
+        setTimeout(function () {
+            mobileMenuOverlay.style.display = "none";
+        }, 300);
+    }
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener("click", openMobileMenu);
+    }
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener("click", closeMobileMenu);
+    }
+    if (mobileMenuBackdrop) {
+        mobileMenuBackdrop.addEventListener("click", closeMobileMenu);
+    }
+
+    // Close menu when a nav link is clicked
+    if (mobileMenuOverlay) {
+        var menuLinks = mobileMenuOverlay.querySelectorAll("nav a");
+        menuLinks.forEach(function (link) {
+            link.addEventListener("click", closeMobileMenu);
+        });
+    }
+
+    // Accordion toggles
+    var accordionToggles = document.querySelectorAll(".mobile-accordion-toggle");
+    accordionToggles.forEach(function (toggle) {
+        toggle.addEventListener("click", function () {
+            var accordion = toggle.closest(".mobile-accordion");
+            var content = accordion.querySelector(".mobile-accordion-content");
+            var arrow = accordion.querySelector(".mobile-accordion-arrow");
+            var isOpen = content.style.display === "block";
+
+            // Close all others first
+            accordionToggles.forEach(function (otherToggle) {
+                var otherAccordion = otherToggle.closest(".mobile-accordion");
+                var otherContent = otherAccordion.querySelector(".mobile-accordion-content");
+                var otherArrow = otherAccordion.querySelector(".mobile-accordion-arrow");
+                otherContent.style.display = "none";
+                otherArrow.style.transform = "rotate(0deg)";
+            });
+
+            // Toggle current
+            if (!isOpen) {
+                content.style.display = "block";
+                arrow.style.transform = "rotate(180deg)";
+            }
+        });
+    });
+
 });

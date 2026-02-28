@@ -15,14 +15,14 @@ include("../includes/header.php");
                 Advanced Male Infertility Logistics
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight" style="color:#ffffff;">
                 Surgical Sperm Retrieval <br class="hidden lg:block"/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-500" style="background:linear-gradient(to right,#38bdf8,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
                     (PESA, TESA, Micro-TESE).
                 </span>
             </h1>
             
-            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light mx-auto lg:mx-0">
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light mx-auto lg:mx-0" style="color:#cbd5e1;">
                 When there is absolutely zero sperm in the ejaculate (Azoospermia), or a severe blockage prevents delivery, we bypass the plumbing entirely. Using minimally invasive surgical techniques, we extract healthy sperm directly from the source.
             </p>
 

@@ -13,12 +13,12 @@ include("../includes/header.php");
             Advanced Genetic Male Fertility
         </div>
         
-        <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 leading-[1.10] mb-8 tracking-tight">
+        <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 leading-[1.10] mb-8 tracking-tight" style="color:#0f172a;">
             Overcoming <br/>
-            <span class="text-blue-600">Klinefelter Syndrome.</span>
+            <span class="text-blue-600" style="color:#2563eb;">Klinefelter Syndrome.</span>
         </h1>
         
-        <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
+        <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed font-light" style="color:#475569;">
             A diagnosis of Klinefelter Syndrome (47,XXY) historically meant absolute sterility. Today, with the advent of Micro-TESE surgical retrieval and world-class embryology, many men with Klinefelter’s go on to father their own biological children. Let us prove it.
         </p>
 
