@@ -80,7 +80,7 @@ $total_motility = $sa['pr_motility'] + $sa['np_motility'];
         <div class="flex justify-between items-center mb-6 border-b-2 border-slate-800 pb-4">
             <!-- Left Side: IVF Experts Standard Logo (we pull from web root assets if exists, or text fallback) -->
             <div class="w-1/3">
-                <img src="../assets/images/ivfexperts-logo.png" alt="IVF Experts" class="h-16 object-contain" onerror="this.style.display='none'; document.getElementById('fb1').style.display='block';">
+                <img src="../assets/images/logo.png" alt="IVF Experts" class="h-16 object-contain" onerror="this.style.display='none'; document.getElementById('fb1').style.display='block';">
                 <div id="fb1" style="display:none;" class="font-extrabold text-2xl text-blue-900 tracking-tight">IVF EXPERTS</div>
             </div>
             
@@ -90,7 +90,7 @@ $total_motility = $sa['pr_motility'] + $sa['np_motility'];
             </div>
             
             <div class="w-1/3 flex justify-end">
-                <?php if (!empty($sa['logo_path']) && $sa['logo_path'] !== 'assets/images/ivfexperts-logo.png'): ?>
+                <?php if (!empty($sa['logo_path']) && $sa['logo_path'] !== 'assets/images/logo.png'): ?>
                     <img src="../<?php echo esc($sa['logo_path']); ?>" alt="<?php echo esc($sa['hospital_name']); ?>" class="h-16 object-contain">
                 <?php
 endif; ?>
@@ -208,7 +208,7 @@ endif; ?>
             
             <div class="flex items-center gap-3">
                 <!-- QR Code points to Patient Portal for 2FA unlock -->
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://ivfexperts.pk/portal/verify.php?hash=<?php echo urlencode($sa['qrcode_hash']); ?>" alt="QR Code" class="w-20 h-20 border border-slate-800 p-1" />
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $sa['qrcode_hash']); ?>" alt="QR Code" class="w-20 h-20 border border-slate-800 p-1" />
                 <div class="text-[10px] text-slate-500 w-48 leading-tight">
                     <span class="font-bold block text-slate-800">Scan for Secure PDF version</span>
                     Unlock code required via patient portal.

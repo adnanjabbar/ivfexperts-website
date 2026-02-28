@@ -68,7 +68,7 @@ if (!$rx)
         <!-- Header Logos -->
         <div class="flex justify-between items-center mb-8 border-b-2 border-emerald-900 pb-4">
             <div class="w-1/3">
-                <img src="../assets/images/ivfexperts-logo.png" alt="IVF Experts" class="h-20 object-contain" onerror="this.style.display='none';">
+                <img src="../assets/images/logo.png" alt="IVF Experts" class="h-20 object-contain" onerror="this.style.display='none';">
             </div>
             
             <div class="w-1/3 text-center">
@@ -77,7 +77,7 @@ if (!$rx)
             </div>
             
             <div class="w-1/3 flex justify-end">
-                <?php if (!empty($rx['logo_path']) && $rx['logo_path'] !== 'assets/images/ivfexperts-logo.png'): ?>
+                <?php if (!empty($rx['logo_path']) && $rx['logo_path'] !== 'assets/images/logo.png'): ?>
                     <img src="../<?php echo esc($rx['logo_path']); ?>" alt="<?php echo esc($rx['hospital_name']); ?>" class="h-20 object-contain">
                 <?php
 endif; ?>
@@ -139,7 +139,7 @@ endif; ?>
         <div class="absolute bottom-6 left-0 right-0 flex justify-between items-end border-t border-gray-300 pt-4">
             
             <div class="flex items-center gap-3">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://ivfexperts.pk/portal/verify.php?hash=<?php echo urlencode($rx['qrcode_hash']); ?>" alt="QR Code" class="w-16 h-16 border p-1" />
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-16 h-16 border p-1" />
                 <div class="text-[10px] text-gray-500 w-48 leading-snug">
                     Scan to download Digital PDF Receipt.
                 </div>

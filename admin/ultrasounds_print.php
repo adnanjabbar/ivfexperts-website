@@ -128,7 +128,7 @@ $mr = $usg['letterhead_right'] ?? 15;
         <div class="absolute bottom-4 left-0 right-0 flex justify-between items-end border-t border-gray-300 pt-4">
             
             <div class="flex items-center gap-3">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://ivfexperts.pk/portal/verify.php?hash=<?php echo urlencode($usg['qrcode_hash']); ?>" alt="QR Code" class="w-16 h-16 border border-gray-200" />
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $usg['qrcode_hash']); ?>" alt="QR Code" class="w-16 h-16 border border-gray-200" />
                 <div class="text-[10px] text-gray-500 w-48">
                     Scan to verify authenticity of this report digitally.
                 </div>

@@ -186,7 +186,7 @@ endif; ?>
         <div class="absolute bottom-4 left-0 right-0 flex justify-between items-end border-t border-gray-300 pt-4">
             
             <div class="flex items-center gap-3">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://ivfexperts.pk/portal/verify.php?hash=<?php echo urlencode($rx['qrcode_hash']); ?>" alt="QR Code" class="w-20 h-20 border p-1" />
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-20 h-20 border p-1" />
                 <div class="text-xs text-gray-500 w-48 leading-snug">
                     <span class="font-bold block text-gray-700">Scan to Verify & Download</span>
                     Point your camera at this code to view the EMR portal and download the original PDF.
