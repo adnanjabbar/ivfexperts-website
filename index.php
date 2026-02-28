@@ -22,16 +22,72 @@ include("includes/header.php");
                 Accepting Consultations in Lahore & Worldwide
             </div>
             
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] mb-6">
-                Parenthood Begins with <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-700 to-emerald-600">
-                    Clarity & Strategy.
-                </span>
-            </h1>
-            
-            <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed">
-                We believe that every fertility journey is deeply personal. By integrating compassionate clinical care with elite embryology expertise, we design treatments that honor your unique path to parenthood.
-            </p>
+            <div class="min-h-[220px] md:min-h-[180px] flex flex-col justify-start">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] mb-6">
+                    <span id="hero-title" class="transition-opacity duration-700 block">Parenthood Begins with</span>
+                    <span id="hero-highlight" class="text-transparent bg-clip-text bg-gradient-to-r from-teal-700 to-emerald-600 transition-opacity duration-700 block mt-2">Clarity & Strategy.</span>
+                </h1>
+                
+                <p id="hero-desc" class="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl leading-relaxed transition-opacity duration-700">
+                    We believe that every fertility journey is deeply personal. By integrating compassionate clinical care with elite embryology expertise, we design treatments that honor your unique path to parenthood.
+                </p>
+            </div>
+
+            <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const slides = [
+                    {
+                        title: "Parenthood Begins with",
+                        highlight: "Clarity & Strategy.",
+                        desc: "We believe that every fertility journey is deeply personal. By integrating compassionate clinical care with elite embryology expertise, we design treatments that honor your unique path to parenthood."
+                    },
+                    {
+                        title: "Your Journey Deserves",
+                        highlight: "Unwavering Empathy.",
+                        desc: "Infertility can feel overwhelming, but you don't have to face it alone. We listen carefully and construct an ethical, supportive environment centered entirely around your well-being."
+                    },
+                    {
+                        title: "Advanced Science,",
+                        highlight: "Personalized Care.",
+                        desc: "Leveraging state-of-the-art clinical embryology and highly individualized IVF protocols, we maximize your chances of success without rushing into unnecessary procedures."
+                    },
+                    {
+                        title: "Building Families with",
+                        highlight: "Trust & Precision.",
+                        desc: "From complex male factor diagnostics to nuanced female reproductive challenges, our dual-trained expertise guarantees a comprehensive roadmap tailored specifically for you."
+                    },
+                    {
+                        title: "A Partnership in",
+                        highlight: "Hope & Healing.",
+                        desc: "Your dreams are our priority. We walk closely beside you through every emotional high and clinical milestone, ensuring you always feel informed, respected, and empowered."
+                    }
+                ];
+
+                let currentSlide = 0;
+                const titleEl = document.getElementById('hero-title');
+                const highlightEl = document.getElementById('hero-highlight');
+                const descEl = document.getElementById('hero-desc');
+
+                setInterval(() => {
+                    // Fade out
+                    titleEl.style.opacity = '0';
+                    highlightEl.style.opacity = '0';
+                    descEl.style.opacity = '0';
+
+                    setTimeout(() => {
+                        currentSlide = (currentSlide + 1) % slides.length;
+                        titleEl.textContent = slides[currentSlide].title;
+                        highlightEl.textContent = slides[currentSlide].highlight;
+                        descEl.textContent = slides[currentSlide].desc;
+                        
+                        // Fade in
+                        titleEl.style.opacity = '1';
+                        highlightEl.style.opacity = '1';
+                        descEl.style.opacity = '1';
+                    }, 500); // Quick pause for fade out
+                }, 4000); // 4 seconds total viewing time per slide
+            });
+            </script>
 
             <div class="flex flex-wrap gap-5">
                 <a href="#consultation" class="btn-primary text-white hover:text-white shadow-[0_8px_25px_rgba(15,118,110,0.25)]">

@@ -25,7 +25,7 @@ include("../includes/header.php");
             
             <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
                 The pinnacle of <br/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">
+                <span class="text-cyan-400">
                     Reproductive Science.
                 </span>
             </h1>
