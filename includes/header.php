@@ -97,7 +97,7 @@ IVF Experts
 <a href="/male-infertility/" class="hover:text-teal-600 transition">
 Male Infertility
 </a>
-<div class="absolute left-[max(16px,calc(50%-450px))] -translate-x-1/2 top-full w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto">
+<div class="absolute left-[max(2rem,calc(50%-450px))] top-full w-[900px] min-w-[min(900px,95vw)] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
 <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
 <div class="grid grid-cols-3 gap-10 p-10">
 <div>
@@ -135,7 +135,7 @@ Learn More →
 <a href="/female-infertility/" class="hover:text-teal-600 transition">
 Female Infertility
 </a>
-<div class="absolute left-[max(16px,calc(50%-450px))] -translate-x-1/2 top-full w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto">
+<div class="absolute left-[max(2rem,calc(50%-450px))] top-full w-[900px] min-w-[min(900px,95vw)] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
 <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
 <div class="grid grid-cols-3 gap-10 p-10">
 <div>
@@ -173,7 +173,7 @@ Learn More →
 <a href="/art-procedures/" class="hover:text-teal-600 transition">
 ART Procedures
 </a>
-<div class="absolute left-[max(16px,calc(50%-450px))] -translate-x-1/2 top-full w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto">
+<div class="absolute left-[max(2rem,calc(50%-450px))] top-full w-[900px] min-w-[min(900px,95vw)] max-w-[95vw] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
 <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
 <div class="grid grid-cols-3 gap-10 p-10">
 <div>
