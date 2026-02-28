@@ -45,7 +45,7 @@ include("../includes/header.php");
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-800/60 bg-slate-900/50 backdrop-blur-xl p-2">
                 <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-800 flex items-center justify-center">
                     <!-- IMAGE PLACEHOLDER: The user can place 'dna-frag-hero.jpg' in /assets/images/ -->
-                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1200" alt="Molecular DNA Analysis" class="w-full h-full object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition duration-700">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1200" alt="Molecular DNA Analysis and Sperm Fragmentation Testing in Lahore" loading="lazy" class="w-full h-full object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition duration-700">
                     
 
                     <div class="absolute bottom-6 left-6 right-6">

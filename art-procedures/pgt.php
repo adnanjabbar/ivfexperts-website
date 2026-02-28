@@ -44,7 +44,7 @@ include("../includes/header.php");
         <div class="lg:col-span-5 fade-in" style="transition-delay: 200ms;">
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-700/60 bg-slate-800/50 backdrop-blur-xl p-2">
                 <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-800 flex items-center justify-center">
-                    <img src="https://images.unsplash.com/photo-1614935151651-0bea6508ab6b?auto=format&fit=crop&q=80&w=1200" alt="PGT DNA Screening" class="w-full h-full object-cover opacity-70 mix-blend-luminosity hover:mix-blend-normal transition duration-700">
+                    <img src="https://images.unsplash.com/photo-1614935151651-0bea6508ab6b?auto=format&fit=crop&q=80&w=1200" alt="PGT DNA Screening and Gender Selection in Lahore, Pakistan" loading="lazy" class="w-full h-full object-cover opacity-70 mix-blend-luminosity hover:mix-blend-normal transition duration-700">
                     <div class="absolute bottom-6 left-6 right-6">
                         <div class="p-6 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700/50">
                             <h4 class="text-teal-400 font-bold mb-1">Eradicating Uncertainty</h4>

@@ -45,7 +45,7 @@ include("../includes/header.php");
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-200/60 bg-white/50 backdrop-blur-xl p-2">
                 <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 flex items-center justify-center">
                     <!-- IMAGE PLACEHOLDER: The user can place 'ivf-hero.jpg' in /assets/images/ -->
-                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1200" alt="IVF Laboratory and Embryology" class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1200" alt="In Vitro Fertilization (IVF) Laboratory and Embryology in Lahore" loading="lazy" class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105">
                     
 
                     <div class="absolute bottom-6 left-6 right-6">

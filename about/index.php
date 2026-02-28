@@ -22,7 +22,7 @@ include("../includes/header.php");
                 <div class="absolute -inset-4 bg-gradient-to-r from-teal-500 to-indigo-600 rounded-[2.5rem] blur-xl opacity-20 group-hover:opacity-40 transition duration-700"></div>
                 <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/60 transform group-hover:scale-[1.02] transition duration-700 bg-white aspect-[3/4] flex justify-center items-center">
                     <!-- IMAGE PLACEHOLDER: The user can place 'dr-adnan.jpg' in /assets/images/ -->
-                    <img src="/assets/images/dr-adnan.jpg" alt="Dr. Adnan Jabbar" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <img src="/assets/images/dr-adnan.jpg" alt="Dr. Adnan Jabbar - Top IVF Specialist and Fertility Consultant in Pakistan" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <!-- Fallback if image not found -->
                     <div class="absolute inset-0 flex-col items-center justify-center text-slate-400 hidden" style="display: none;">
                         <svg class="w-16 h-16 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>

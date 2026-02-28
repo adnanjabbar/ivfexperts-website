@@ -124,7 +124,7 @@ include("../includes/header.php");
             <!-- Dynamic Medical Image Representation -->
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group min-h-[400px]">
                 <div class="absolute inset-0 bg-slate-100 flex items-center justify-center">
-                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=1200" alt="Clinical Embryology Lab" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"/>
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&q=80&w=1200" alt="Clinical Embryology Lab for Male Infertility Treatments in Pakistan" loading="lazy" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"/>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
                 <div class="absolute bottom-8 left-8 right-8">

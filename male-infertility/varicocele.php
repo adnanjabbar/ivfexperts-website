@@ -45,7 +45,7 @@ include("../includes/header.php");
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-800/60 bg-slate-900/50 backdrop-blur-xl p-2">
                 <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-800 flex items-center justify-center">
                     <!-- IMAGE PLACEHOLDER: The user can place 'varicocele-hero.jpg' in /assets/images/ -->
-                    <img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=1200" alt="Clinical Evaluation of Varicocele" class="w-full h-full object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition duration-700">
+                    <img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=1200" alt="Clinical Evaluation of Varicocele & Male Infertility in Lahore, Pakistan" loading="lazy" class="w-full h-full object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition duration-700">
                     
 
                     <div class="absolute bottom-6 left-6 right-6">
