@@ -1,281 +1,170 @@
 <?php
-$pageTitle = "Endometriosis Treatment in Lahore | Endometriosis & Infertility Management";
-$metaDescription = "Expert endometriosis care in Lahore by Dr. Adnan Jabbar. Painful periods, infertility, adhesions — diagnosis (laparoscopy, ultrasound), medical/surgical treatment, IVF. Improve fertility & reduce symptoms for women in Pakistan and overseas.";
+$pageTitle = "Endometriosis & Fertility Treatment in Lahore | Dr. Adnan Jabbar";
+$metaDescription = "Expert Endometriosis management in Lahore. We harmonize pain relief with fertility preservation through precise laparoscopy and optimized IVF/ICSI protocols.";
 include("../includes/header.php");
 ?>
 
-<!-- HERO -->
-<section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-100/20 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200/25 rounded-full blur-3xl pointer-events-none"></div>
+<!-- HERO SECTION -->
+<section class="relative min-h-[75vh] flex items-center pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-slate-950 text-white">
+    <!-- Clinical / Sophisticated Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-rose-950/80 to-slate-950 -z-20"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-30 mix-blend-overlay -z-10"></div>
+    
+    <!-- Animated Glow Orbs -->
+    <div class="absolute bottom-10 right-10 w-[500px] h-[500px] bg-rose-500/20 rounded-full blur-[100px] -z-10 animate-pulse-slow"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-            <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                Endometriosis Treatment<br>in Lahore
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-16 items-center z-10">
+        
+        <!-- Narratives -->
+        <div class="lg:col-span-7 fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-900/40 text-rose-300 text-sm font-semibold mb-6 border border-rose-800/50 shadow-sm backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
+                Complex Fertility Care
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
+                Quiet the pain. <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-orange-300">
+                    Protect the reserve.
+                </span>
             </h1>
-            <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl">
-                Endometriosis affects 10–15% of reproductive-age women in Pakistan and is a leading cause of pelvic pain and infertility (up to 30–50% of infertile women). Tissue similar to the uterine lining grows outside the uterus, causing inflammation, adhesions, and ovarian cysts (endometriomas). With accurate diagnosis and tailored treatment — medical management, laparoscopic surgery, or IVF — many women find pain relief and achieve pregnancy.
+            
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
+                Endometriosis presents a multifaceted challenge, demanding a delicate balance between pain management and preserving ovarian tissue. We deploy advanced imaging, disciplined surgery, and IVF to overcome the inflammatory barriers it creates.
             </p>
 
-            <div class="flex flex-wrap gap-5">
-                <a href="/contact/" class="btn-primary px-8 py-4 text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition">
-                    Book Consultation
-                </a>
-                <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I%20would%20like%20to%20discuss%20endometriosis%20treatment" 
-                   class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-7 py-4 rounded-lg font-medium text-base lg:text-lg shadow-lg transition">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                    </svg>
-                    Chat on WhatsApp
+            <div class="flex flex-wrap gap-4">
+                <a href="https://wa.me/923111101483" class="btn-primary bg-rose-600 hover:bg-rose-500 shadow-[0_8px_25px_rgba(225,29,72,0.3)] border-none text-white px-8 py-4">
+                    Book an Evaluation
                 </a>
             </div>
         </div>
 
-        <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-xl p-8 rounded-2xl">
-            <h3 class="text-2xl font-bold text-teal-700 mb-6">Key Facts About Endometriosis</h3>
-            <ul class="space-y-4 text-gray-700 text-base">
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Affects 10–15% of women, 30–50% of infertile women
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Causes 30–50% of chronic pelvic pain cases
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                    </svg>
-                    Laparoscopic surgery improves pain in 60–80%
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    IVF success: 40–50% per cycle for endometriosis-related infertility
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+        <!-- Glassmorphic Image Placeholder -->
+        <div class="lg:col-span-5 fade-in" style="transition-delay: 200ms;">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-800/60 bg-slate-900/50 backdrop-blur-xl p-2">
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-800 flex items-center justify-center">
+                    <!-- IMAGE PLACEHOLDER: The user can place 'endometriosis-hero.jpg' in /assets/images/ -->
+                    <img src="/assets/images/endometriosis-hero.jpg" alt="Endometriosis Specialist" class="w-full h-full object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition duration-700" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <!-- Fallback if image not found -->
+                    <div class="absolute inset-0 flex-col items-center justify-center text-slate-500 hidden" style="display: none;">
+                        <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        <span class="text-sm">Image: endometriosis-hero.jpg</span>
+                    </div>
 
-<!-- WHAT IS ENDOMETRIOSIS & STAGES -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-10 text-gray-900">
-            What Is Endometriosis & Its Stages
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-4xl mx-auto">
-            Endometriosis occurs when tissue similar to the uterine lining grows outside the uterus (ovaries, pelvic lining, fallopian tubes). It responds to hormonal changes, causing inflammation, scarring, adhesions, and pain. In Pakistan, delayed diagnosis is common due to normalization of period pain — average time to diagnosis is 7–10 years.
-        </p>
-
-        <div class="grid md:grid-cols-4 gap-6">
-            <div class="bg-teal-50/40 rounded-2xl p-6 shadow-md border border-teal-100 text-center">
-                <h4 class="text-xl font-bold text-teal-800 mb-3">Stage I</h4>
-                <p class="text-gray-700">Minimal — few superficial lesions</p>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-6 shadow-md border border-teal-100 text-center">
-                <h4 class="text-xl font-bold text-teal-800 mb-3">Stage II</h4>
-                <p class="text-gray-700">Mild — more lesions, some deep</p>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-6 shadow-md border border-teal-100 text-center">
-                <h4 class="text-xl font-bold text-teal-800 mb-3">Stage III</h4>
-                <p class="text-gray-700">Moderate — many deep lesions, small endometriomas</p>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-6 shadow-md border border-teal-100 text-center">
-                <h4 class="text-xl font-bold text-teal-800 mb-3">Stage IV</h4>
-                <p class="text-gray-700">Severe — large endometriomas, dense adhesions</p>
-            </div>
-        </div>
-
-        <p class="text-lg text-gray-700 leading-relaxed mt-10 max-w-4xl mx-auto text-center">
-            Stage does not always match symptoms or infertility severity — even Stage I can cause significant pain/infertility.
-        </p>
-    </div>
-</section>
-
-<!-- SYMPTOMS & DIAGNOSIS -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Symptoms & How We Diagnose Endometriosis
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            Symptoms vary widely — we use a combination of history, exam, imaging, and laparoscopy (gold standard) for definitive diagnosis.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Common Symptoms</h3>
-                <p class="text-gray-700">Severe period pain, chronic pelvic pain, pain during intercourse, heavy bleeding, infertility, fatigue.</p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Non-Invasive Diagnosis</h3>
-                <p class="text-gray-700">Transvaginal ultrasound (endometriomas), CA-125 blood test (elevated in moderate-severe), MRI for deep infiltrating disease.</p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Laparoscopy</h3>
-                <p class="text-gray-700">Gold standard — visual confirmation, biopsy, staging, and treatment in one procedure.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TREATMENT PATHWAY -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Endometriosis Treatment Pathway
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            Treatment balances pain relief and fertility goals. We prioritize conservative options first — surgery or IVF when needed.
-        </p>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">1</span>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="p-6 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-700/50">
+                            <h4 class="text-rose-400 font-bold mb-1">Impact on Fertility</h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Endometriosis is implicated in up to 50% of unexplained infertility cases, affecting both anatomy and egg quality.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">Pain Management</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• NSAIDs (ibuprofen)</li>
-                    <li>• Hormonal therapy (pills, IUD, GnRH agonists)</li>
-                    <li>• Lifestyle (diet, exercise, heat therapy)</li>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THE CLINICAL PICTURE -->
+<section class="section-lg bg-soft border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-center fade-in">
+            <!-- Details -->
+            <div>
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">How Endometriosis Sabotages Conception</h2>
+                <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                    Endometriosis occurs when cells resembling the uterine lining grow outside the uterus—most commonly on the ovaries, fallopian tubes, and pelvic sidewalls. It creates a deeply inflammatory environment.
+                </p>
+                <ul class="space-y-4 text-slate-700 font-medium">
+                    <li class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                        <span><strong>Anatomical Distortion:</strong> Dense scar tissue (adhesions) can physically block the fallopian tubes or freeze the ovaries in place, preventing the egg from being picked up.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                        <span><strong>Ovarian Reserve Damage:</strong> Endometriomas (chocolate cysts) invade healthy ovarian tissue over time, destroying primordial follicles and lowering AMH levels.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                        <span><strong>Chemical Hostility:</strong> The chronic pelvic inflammation releases cytokines that are toxic to both sperm and early dividing embryos.</span>
+                    </li>
                 </ul>
             </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">2</span>
+            
+            <!-- Diagnosis UI -->
+            <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-100">
+                <h3 class="text-2xl font-bold text-slate-800 mb-8">The Diagnostic Triad</h3>
+                <div class="space-y-6">
+                    <div class="p-5 bg-rose-50 border border-border-100 rounded-2xl relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-2 bg-rose-400"></div>
+                        <h4 class="font-bold text-slate-800 ml-4">Clinical Symphony</h4>
+                        <p class="text-sm text-slate-500 ml-4 mt-1">Severe dysmenorrhea (period pain), dyspareunia (painful intercourse), and subfertility strongly point toward the disease.</p>
+                    </div>
+                    <div class="p-5 bg-slate-50 border border-slate-100 rounded-2xl relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-2 bg-slate-300"></div>
+                        <h4 class="font-bold text-slate-800 ml-4">Advanced Ultrasound</h4>
+                        <p class="text-sm text-slate-500 ml-4 mt-1">High-resolution transvaginal sonography identifies ovarian endometriomas and deep infiltrating nodules accurately.</p>
+                    </div>
+                    <div class="p-5 bg-teal-50 border border-teal-100 rounded-2xl relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-2 bg-teal-500"></div>
+                        <h4 class="font-bold text-teal-900 ml-4">Laparoscopy (The Gold Standard)</h4>
+                        <p class="text-sm text-teal-800/70 ml-4 mt-1">Direct minimally invasive visualization allows for immediate definitive staging and concurrent surgical therapy.</p>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">Fertility-Focused</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• Ovulation induction + timed intercourse/IUI</li>
-                    <li>• Controlled ovarian stimulation</li>
-                    <li>• Avoid long-term suppression if trying to conceive</li>
-                </ul>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">3</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">Laparoscopic Surgery</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• Excision of lesions/adhesions</li>
-                    <li>• Improves pain in 60–80%</li>
-                    <li>• Boosts natural conception (20–40% in 1–2 years)</li>
-                    <li>• Cystectomy for endometriomas (preserves ovarian reserve)</li>
-                </ul>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">4</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">IVF / ART</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• For moderate-severe cases or failed surgery</li>
-                    <li>• Success: 40–50% per cycle (<35)</li>
-                    <li>• Careful stimulation to protect reserve</li>
-                </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- EMOTIONAL SUPPORT -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-10 text-gray-900">
-            Emotional Support for Endometriosis
-        </h2>
-        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Endometriosis can be physically and emotionally exhausting — chronic pain, infertility struggles, and repeated doctor visits often lead to anxiety, depression, or isolation. Many women feel unheard or dismissed. Endometriosis is a real medical condition with effective treatments — you're not alone. We provide compassionate care, counseling referrals, and a supportive space to help you regain control and hope.
-        </p>
-    </div>
-</section>
+<!-- MANAGEMENT PROTOCOLS -->
+<section class="py-24 bg-white relative overflow-hidden text-center">
+    <div class="max-w-7xl mx-auto px-6 relative z-10 fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-slate-900">Pathways to Success</h2>
+        <p class="text-slate-600 font-light max-w-2xl mx-auto mb-16 text-lg">Every endometriosis patient sits on a spectrum. Treatment must be heavily individualized based on age, ovarian reserve, degree of pain, and stage of disease.</p>
 
-<!-- FAQ -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Frequently Asked Questions
-        </h2>
-
-        <div class="space-y-6">
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">How does endometriosis cause infertility?</h3>
-                <p class="text-gray-700">
-                    Inflammation, adhesions distort anatomy, impair egg quality, block tubes, and create hostile environment for implantation.
-                </p>
+        <div class="grid md:grid-cols-2 gap-10 text-left">
+            <!-- Surgery First -->
+            <div class="p-10 border border-rose-100 bg-rose-50/30 rounded-3xl group">
+                <div class="w-14 h-14 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.121 15.536c-1.171 1.952-3.07 1.536-4.242 0-1.172-1.536-1.036-3.882 1.414-4.95L12 9h.01M19 10v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4m14 0V6a2 2 0 00-2-2H7a2 2 0 00-2 2v4m14 0H5"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Laparoscopic Excision</h3>
+                <p class="text-slate-600 leading-relaxed mb-4">If anatomy is distorted or pain is severe, surgical excision (removing the disease, not just burning it) restores pelvic anatomy immediately.</p>
+                <div class="bg-white p-4 rounded-xl border border-rose-100 text-sm text-slate-700">
+                    <strong>Caveat:</strong> Overly aggressive repeated surgery on the ovaries severely damages egg reserve. We are extremely cautious about cutting into ovarian tissue.
+                </div>
             </div>
 
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Can endometriosis be cured?</h3>
-                <p class="text-gray-700">
-                    No cure, but symptoms and fertility can be managed effectively. Surgery removes lesions, hormones suppress growth, IVF bypasses issues.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Does surgery improve fertility in endometriosis?</h3>
-                <p class="text-gray-700">
-                    Yes — excision of mild/moderate disease improves natural conception rates (20–40% in 1–2 years). Severe cases often need IVF.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Is pregnancy good for endometriosis?</h3>
-                <p class="text-gray-700">
-                    Pregnancy often relieves symptoms temporarily (due to no periods), but symptoms may return postpartum. Breastfeeding can delay recurrence.
-                </p>
+            <!-- IVF / ART First -->
+            <div class="p-10 border border-teal-100 bg-teal-50/30 rounded-3xl group">
+                <div class="w-14 h-14 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">IVF / ICSI Acceleration</h3>
+                <p class="text-slate-600 leading-relaxed mb-4">For older patients, advanced stage disease, or diminished reserve (low AMH), we often bypass surgery entirely and move straight to IVF.</p>
+                <div class="bg-white p-4 rounded-xl border border-teal-100 text-sm text-slate-700">
+                    <strong>Advantage:</strong> IVF completely bypasses the toxic pelvic environment and blocked tubes. Long down-regulation protocols (GnRH agonists) quiet the disease before embryo transfer to enhance implantation.
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="section-lg bg-gradient-to-br from-teal-700 to-teal-900 text-white text-center">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
-            Endometriosis Doesn't Have to Stop Motherhood
-        </h2>
-        <p class="text-lg lg:text-xl mb-10 opacity-90">
-            With expert care, pain relief and pregnancy are achievable for most women. Don't suffer in silence — get personalized help in Lahore today.
+<!-- CALL TO ACTION -->
+<section class="py-24 bg-slate-50 relative border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Strategic management is key.</h2>
+        <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
+            Timing matters immensely with endometriosis. We evaluate both your pain and your ovarian reserve to recommend the safest possible pathway to pregnancy.
         </p>
-        <div class="flex flex-wrap justify-center gap-6">
-            <a href="/contact/" class="bg-white text-teal-900 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl hover:bg-gray-100 transition">
-                Book Your Consultation
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="https://wa.me/923111101483" class="bg-rose-600 text-white px-10 py-5 rounded-xl font-bold shadow-xl hover:bg-rose-700 hover:scale-105 transition-all text-lg flex items-center gap-3 w-full sm:w-auto justify-center">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                WhatsApp Consultation
             </a>
-            <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'd%20like%20to%20discuss%20endometriosis%20treatment" 
-               class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl transition">
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                </svg>
-                WhatsApp Now
+            <a href="/contact/" class="text-rose-600 font-bold hover:underline py-4 w-full sm:w-auto">
+                Or View Clinic Details
             </a>
         </div>
     </div>

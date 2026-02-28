@@ -1,260 +1,210 @@
 <?php
-$pageTitle = "Varicocele Treatment in Lahore | Improve Sperm Quality & Male Fertility";
-$metaDescription = "Expert varicocele diagnosis and treatment in Lahore by Dr. Adnan Jabbar. Clinical exam, Doppler ultrasound, microsurgical varicocelectomy. Improves sperm count/motility in 60–70% of cases. Fertility specialist for men in Pakistan and overseas.";
+$pageTitle = "Varicocele Treatment & Microsurgery in Lahore | Dr. Adnan Jabbar";
+$metaDescription = "Expert varicocele diagnosis and treatment in Lahore. Advanced Doppler ultrasound and microsurgical varicocelectomy to restore fertility, improve sperm count, and enhance DNA integrity.";
 include("../includes/header.php");
 ?>
 
-<!-- HERO -->
-<section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-100/20 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200/25 rounded-full blur-3xl pointer-events-none"></div>
+<!-- HERO SECTION -->
+<section class="relative min-h-[75vh] flex items-center pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-slate-950 text-white">
+    <!-- Clinical / Sophisticated Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950/80 to-slate-900 -z-20"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-30 mix-blend-overlay -z-10"></div>
+    
+    <!-- Animated Glow Orbs -->
+    <div class="absolute bottom-10 left-10 w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[100px] -z-10 animate-pulse-slow"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-            <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                Varicocele Treatment<br>in Lahore
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-16 items-center z-10">
+        
+        <!-- Narratives -->
+        <div class="lg:col-span-7 fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-900/40 text-indigo-300 text-sm font-semibold mb-6 border border-indigo-800/50 shadow-sm backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+                Male Fertility Diagnostics
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
+                Reversing the <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-sky-300">
+                    impact of Varicocele.
+                </span>
             </h1>
-            <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl">
-                Varicocele — enlarged veins in the scrotum — is one of the most common correctable causes of male infertility, found in ~15% of all men and up to 40% of infertile men. It raises scrotal temperature and causes oxidative stress, damaging sperm production, count, motility, and DNA integrity. Microsurgical repair often significantly improves semen parameters and natural pregnancy rates — many men avoid or delay ART after treatment.
+            
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
+                Varicocele is the most common correctable cause of male infertility, affecting 40% of infertile men. Through precise microsurgical repair, we eliminate oxidative stress, frequently restoring natural fertility.
             </p>
 
-            <div class="flex flex-wrap gap-5">
-                <a href="/contact/" class="btn-primary px-8 py-4 text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition">
-                    Book Consultation
-                </a>
-                <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I%20would%20like%20to%20discuss%20varicocele%20treatment" 
-                   class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-7 py-4 rounded-lg font-medium text-base lg:text-lg shadow-lg transition">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                    </svg>
-                    Chat on WhatsApp
+            <div class="flex flex-wrap gap-4">
+                <a href="https://wa.me/923111101483" class="btn-primary bg-indigo-600 hover:bg-indigo-500 shadow-[0_8px_25px_rgba(79,70,229,0.3)] border-none text-white px-8 py-4">
+                    Book an Evaluation
                 </a>
             </div>
         </div>
 
-        <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-xl p-8 rounded-2xl">
-            <h3 class="text-2xl font-bold text-teal-700 mb-6">Key Facts About Varicocele</h3>
-            <ul class="space-y-4 text-gray-700 text-base">
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Found in 15% of all men, 40% of infertile men
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Left-sided: 85–90%, bilateral: 10–15%
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                    </svg>
-                    Microsurgery improves semen in 60–70% of cases
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Pregnancy rate increase: 30–50% post-repair
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+        <!-- Glassmorphic Image Placeholder -->
+        <div class="lg:col-span-5 fade-in" style="transition-delay: 200ms;">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-800/60 bg-slate-900/50 backdrop-blur-xl p-2">
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-800 flex items-center justify-center">
+                    <!-- IMAGE PLACEHOLDER: The user can place 'varicocele-hero.jpg' in /assets/images/ -->
+                    <img src="/assets/images/varicocele-hero.jpg" alt="Clinical Evaluation of Varicocele" class="w-full h-full object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition duration-700" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <!-- Fallback if image not found -->
+                    <div class="absolute inset-0 flex-col items-center justify-center text-slate-500 hidden" style="display: none;">
+                        <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        <span class="text-sm">Image: varicocele-hero.jpg</span>
+                    </div>
 
-<!-- WHAT IS VARICOCELE & IMPACT -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-10 text-gray-900">
-            What Is Varicocele & How It Affects Fertility
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-4xl mx-auto">
-            A varicocele is an abnormal enlargement of the veins within the scrotum (pampiniform plexus), similar to varicose veins in the legs. It usually occurs on the left side due to anatomical vein drainage differences. The increased blood flow raises scrotal temperature by 2–3°C and causes oxidative stress, which damages sperm production, reduces count/motility, worsens morphology, and increases DNA fragmentation.
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">Grading of Varicocele</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li><strong>Grade 1</strong>: Small, only felt during Valsalva maneuver</li>
-                    <li><strong>Grade 2</strong>: Palpable without Valsalva</li>
-                    <li><strong>Grade 3</strong>: Visible through scrotal skin (“bag of worms”)</li>
-                </ul>
-                <p class="text-gray-700 mt-4 font-medium">Higher grades more strongly linked to infertility (Grade 3: 80% abnormal semen).</p>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">Impact on Sperm Parameters</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>• Sperm count reduced in 65–75% of cases</li>
-                    <li>• Motility decreased 20–40%</li>
-                    <li>• Morphology abnormalities increased</li>
-                    <li>• DNA fragmentation elevated (often >30%)</li>
-                    <li>• Testicular volume atrophy on affected side</li>
-                </ul>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="p-6 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-700/50">
+                            <h4 class="text-indigo-400 font-bold mb-1">Impact of Microsurgery</h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Studies demonstrate a significant improvement in semen parameters in 60-70% of men post-microsurgical repair.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- DIAGNOSIS -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            How We Diagnose Varicocele
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            Accurate diagnosis combines clinical exam and imaging — early detection prevents further sperm damage.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Clinical Examination</h3>
-                <p class="text-gray-700">Standing exam with Valsalva maneuver — feels like “bag of worms” in higher grades.</p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Scrotal Doppler Ultrasound</h3>
-                <p class="text-gray-700">Gold standard — confirms reflux, vein diameter (>2–3 mm), and grade. Detects subclinical cases.</p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Semen & Hormone Analysis</h3>
-                <p class="text-gray-700">Often shows low count/motility, high FSH in long-standing cases.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TREATMENT OPTIONS -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Treatment Options for Varicocele
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            Not all varicoceles need treatment — we treat when they impact fertility (abnormal semen, pain, testicular atrophy). Microsurgery is the gold standard.
-        </p>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">Conservative Management</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>• Watchful waiting for subclinical or mild cases</li>
-                    <li>• Lifestyle: avoid heavy lifting, tight clothing</li>
-                    <li>• Antioxidants to reduce oxidative stress</li>
-                    <li>• Regular semen monitoring</li>
-                </ul>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">Microsurgical Varicocelectomy</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>• Gold standard (subinguinal approach)</li>
-                    <li>• Magnification preserves lymphatics/arteries</li>
-                    <li>• Outpatient, local anesthesia</li>
-                    <li>• Improves semen in 60–70%, pregnancy up 30–50%</li>
-                    <li>• Recurrence <1%, complications <5% </li>
-                </ul>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">When ART Is Still Needed</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>• Persistent severe abnormality post-repair</li>
-                    <li>• Female factor coexists</li>
-                    <li>• Age/time sensitivity</li>
-                    <li>• IVF/ICSI success 40–50% per cycle</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- EMOTIONAL SUPPORT -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-10 text-gray-900">
-            Emotional Support for Varicocele Diagnosis
-        </h2>
-        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Discovering a varicocele can feel frustrating — especially when it’s linked to fertility challenges. Many men worry about masculinity or future fatherhood. The reality: varicocele is extremely common, highly treatable, and surgery often restores normal fertility potential. We provide a supportive, non-judgmental space, counseling referrals, and clear hope based on real outcomes.
-        </p>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Frequently Asked Questions
-        </h2>
-
-        <div class="space-y-6">
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Does every varicocele need surgery?</h3>
-                <p class="text-gray-700">
-                    No — only when it causes pain, testicular atrophy, or abnormal semen parameters affecting fertility. Subclinical cases are often monitored.
+<!-- PATHOPHYSIOLOGY -->
+<section class="section-lg bg-soft border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-center fade-in">
+            <!-- Details -->
+            <div>
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">Understanding the Biological Cascade</h2>
+                <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                    A varicocele is an abnormal enlargement of the veins (pampiniform plexus) within the scrotum. Due to defective valves, blood pools and drastically raises the local testicular temperature.
                 </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">How much does varicocele repair improve sperm count?</h3>
-                <p class="text-gray-700">
-                    In 60–70% of men, count increases significantly (often 50–100%). Motility and morphology also improve in most cases.
+                <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                    This seemingly simple anatomical issue triggers a cascade of oxidative stress, directly damaging the delicate machinery of spermatogenesis.
                 </p>
+                <ul class="space-y-4 text-slate-700 font-medium">
+                    <li class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                        <span><strong>Sperm Density Drops:</strong> Constant heat exposure impairs production rates.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                        <span><strong>Motility Failure:</strong> Oxidative stress damages tail mechanics.</span>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></div>
+                        <span><strong>High DNA Fragmentation:</strong> The genetic payload of the sperm incurs breakages.</span>
+                    </li>
+                </ul>
             </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">What is the recovery time after microsurgery?</h3>
-                <p class="text-gray-700">
-                    Outpatient procedure — back to light work in 2–3 days, full activity in 1–2 weeks. Pain is minimal with microsurgical technique.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Can varicocele come back after surgery?</h3>
-                <p class="text-gray-700">
-                    Recurrence is rare (<1%) with microsurgical approach (vs 10–15% with older methods). We use magnification to ensure complete ligation.
-                </p>
+            
+            <!-- Grading UI -->
+            <div class="bg-white rounded-3xl p-10 shadow-xl border border-slate-100">
+                <h3 class="text-2xl font-bold text-slate-800 mb-8">Clinical Grading</h3>
+                <div class="space-y-6">
+                    <div class="p-5 bg-slate-50 border border-slate-100 rounded-2xl relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-2 bg-slate-300"></div>
+                        <h4 class="font-bold text-slate-800 ml-4">Subclinical / Grade I</h4>
+                        <p class="text-sm text-slate-500 ml-4 mt-1">Detected via Doppler or palpated only during Valsalva maneuver. Often monitored continuously.</p>
+                    </div>
+                    <div class="p-5 bg-indigo-50 border border-indigo-100 rounded-2xl relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-2 bg-indigo-400"></div>
+                        <h4 class="font-bold text-indigo-900 ml-4">Grade II</h4>
+                        <p class="text-sm text-indigo-700/70 ml-4 mt-1">Easily palpable but not visibly apparent through the scrotum. Highly correlated with infertility.</p>
+                    </div>
+                    <div class="p-5 bg-teal-50 border border-teal-100 rounded-2xl relative overflow-hidden">
+                        <div class="absolute left-0 top-0 bottom-0 w-2 bg-teal-500"></div>
+                        <h4 class="font-bold text-teal-900 ml-4">Grade III</h4>
+                        <p class="text-sm text-teal-800/70 ml-4 mt-1">Visible ("bag of worms" appearance) and large. Exhibits the strongest association with impaired semen parameters and testicular atrophy.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="section-lg bg-gradient-to-br from-teal-700 to-teal-900 text-white text-center">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
-            Varicocele Is One of the Most Treatable Causes
-        </h2>
-        <p class="text-lg lg:text-xl mb-10 opacity-90">
-            Surgery restores fertility for many men — often avoiding or reducing the need for IVF. Get evaluated and take control of your future today.
+<!-- DIAGNOSTIC EVALUATION -->
+<section class="py-24 bg-slate-900 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10 fade-in">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Precision Evaluation</h2>
+            <p class="text-slate-400 font-light max-w-2xl mx-auto">Diagnosis must be objective before any surgical intervention is recommended.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10 backdrop-blur-sm">
+                <div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <h4 class="font-bold text-lg text-white mb-2">Detailed Semen Analysis</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">Strict morphology assessment and consecutive count tests to establish the degree of spermatogenic arrest.</p>
+            </div>
+            
+            <div class="p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10 backdrop-blur-sm">
+                <div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                </div>
+                <h4 class="font-bold text-lg text-white mb-2">Scrotal Doppler Ultrasound</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">The clinical gold standard. Provides specific measurements of venous reflux and detects subclinical presentation.</p>
+            </div>
+
+            <div class="p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10 backdrop-blur-sm">
+                <div class="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                </div>
+                <h4 class="font-bold text-lg text-white mb-2">DNA Fragmentation Index (DFI)</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">If morphology is severely affected, DFI testing dictates whether microsurgery should precede any ART / ICSI attempt.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MICROSURGICAL PROTOCOL -->
+<section class="section-lg bg-white relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl lg:text-4xl font-bold text-center text-slate-900 mb-16 fade-in">The Microsurgical Gold Standard</h2>
+        
+        <div class="bg-indigo-50/50 rounded-3xl p-8 lg:p-12 border border-indigo-100 shadow-xl max-w-5xl mx-auto fade-in">
+            <h3 class="text-2xl font-bold text-indigo-900 mb-6 text-center">Subinguinal Microsurgical Varicocelectomy</h3>
+            <p class="text-slate-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
+                Not all varicocele surgeries are equal. We strictly employ the subinguinal microsurgical technique, avoiding higher incisions and relying on extreme magnification to distinguish and protect the tiny testicular arteries and lymphatics while definitively ligating the problematic veins.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="font-bold text-slate-800 mb-4 flex items-center gap-2"><svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Clinical Advantages</h4>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li>• Lowest recurrence rate (&lt;1%).</li>
+                        <li>• Lowest complication rate (preserves vital lymphatics, preventing hydrocele).</li>
+                        <li>• Day-case procedure under local / light anesthesia.</li>
+                        <li>• Patients return to light duty within 48-72 hours.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-800 mb-4 flex items-center gap-2"><svg class="w-5 h-5 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> Post-Operative Outcomes</h4>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li>• Semen parameters (count/motility) measurably improve in ~70% of men.</li>
+                        <li>• Natural pregnancy rates increase by 30-50%.</li>
+                        <li>• Drastically lowers DNA fragmentation within 3 to 6 months.</li>
+                        <li>• Can rescue failed IVF/ICSI cycles by improving the core genetic payload.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="py-24 bg-slate-50 relative border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Reverse the Damage.</h2>
+        <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
+            Varicocele repair is one of the most successful interventions in reproductive medicine. Get evaluated accurately to protect your future fertility.
         </p>
-        <div class="flex flex-wrap justify-center gap-6">
-            <a href="/contact/" class="bg-white text-teal-900 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl hover:bg-gray-100 transition">
-                Book Your Consultation
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="https://wa.me/923111101483" class="bg-indigo-600 text-white px-10 py-5 rounded-xl font-bold shadow-xl hover:bg-indigo-700 hover:scale-105 transition-all text-lg flex items-center gap-3 w-full sm:w-auto justify-center">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                WhatsApp Consultation
             </a>
-            <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'd%20like%20to%20discuss%20varicocele%20treatment" 
-               class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl transition">
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                </svg>
-                WhatsApp Now
+            <a href="/contact/" class="text-indigo-600 font-bold hover:underline py-4 w-full sm:w-auto">
+                Or View Clinic Details
             </a>
         </div>
     </div>

@@ -1,221 +1,177 @@
 <?php
-$pageTitle = "ICSI Treatment in Lahore | Intracytoplasmic Sperm Injection for Male Infertility";
-$metaDescription = "ICSI treatment in Lahore by Dr. Adnan Jabbar – severe male factor, azoospermia, low motility, prior fertilization failure. Microinjection with testicular/epididymal sperm. High fertilization rates (70–80%) for IVF success in Pakistan and overseas.";
+$pageTitle = "ICSI Treatment in Lahore | Micro-manipulation for Male Fertility | Dr. Adnan Jabbar";
+$metaDescription = "Advanced Intracytoplasmic Sperm Injection (ICSI) in Lahore. Unlocking biological fatherhood to combat extreme male-factor infertility and poor fertilization.";
 include("../includes/header.php");
 ?>
 
-<!-- HERO -->
-<section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-100/20 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200/25 rounded-full blur-3xl pointer-events-none"></div>
+<!-- HERO SECTION -->
+<section class="relative min-h-[75vh] flex items-center pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-slate-950 text-white">
+    <!-- Clinical / High-Tech Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-sky-900/60 to-slate-950 -z-20"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-30 mix-blend-overlay -z-10"></div>
+    
+    <!-- Animated Glow Orbs -->
+    <div class="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-sky-500/15 rounded-full blur-[100px] -z-10 animate-pulse-slow"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-            <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                Intracytoplasmic Sperm Injection (ICSI)<br>in Lahore
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-16 items-center z-10">
+        
+        <!-- Narratives -->
+        <div class="lg:col-span-7 fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-900/40 text-sky-200 text-sm font-semibold mb-6 border border-sky-800/50 shadow-sm backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                Micromanipulation Technology
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
+                Precision down to <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-300">
+                    A Single Cell.
+                </span>
             </h1>
-            <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl">
-                ICSI is an advanced IVF technique where a single sperm is directly injected into the egg — bypassing natural barriers. It revolutionized treatment for severe male factor infertility, azoospermia (no sperm in ejaculate), low motility, abnormal morphology, or previous fertilization failure. With testicular/epididymal sperm retrieval and ICSI, fertilization rates reach 70–80%, enabling biological fatherhood for many men who previously had no options.
+            
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
+                Intracytoplasmic Sperm Injection (ICSI) forces fertilization when biology refuses. By manually injecting a single, highly-selected sperm directly into the core of the egg, we overcome the most extreme cases of male infertility.
             </p>
 
-            <div class="flex flex-wrap gap-5">
-                <a href="/contact/" class="btn-primary px-8 py-4 text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition">
-                    Book Consultation
-                </a>
-                <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I%20would%20like%20to%20discuss%20ICSI%20treatment" 
-                   class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-7 py-4 rounded-lg font-medium text-base lg:text-lg shadow-lg transition">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                    </svg>
-                    Chat on WhatsApp
+            <div class="flex flex-wrap gap-4">
+                <a href="https://wa.me/923111101483" class="btn-primary bg-sky-600 hover:bg-sky-500 shadow-[0_8px_25px_rgba(2,132,199,0.3)] border-none text-white px-8 py-4">
+                    Explore ICSI Treatment
                 </a>
             </div>
         </div>
 
-        <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-xl p-8 rounded-2xl">
-            <h3 class="text-2xl font-bold text-teal-700 mb-6">Key Facts About ICSI</h3>
-            <ul class="space-y-4 text-gray-700 text-base">
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Fertilization rate: 70–80% (vs 50–60% conventional IVF in severe male factor)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Gold standard for severe oligospermia, azoospermia, teratozoospermia
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                    </svg>
-                    Works with testicular/epididymal sperm (micro-TESE/PESA)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Overall IVF+ICSI live birth rate: 40–50% per cycle (<35)
-                </li>
-            </ul>
+        <!-- Glassmorphic Image Placeholder -->
+        <div class="lg:col-span-5 fade-in" style="transition-delay: 200ms;">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-700/60 bg-slate-800/50 backdrop-blur-xl p-2">
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-800 flex items-center justify-center">
+                    <!-- IMAGE PLACEHOLDER: The user can place 'icsi-hero.jpg' in /assets/images/ -->
+                    <img src="/assets/images/icsi-hero.jpg" alt="ICSI Micropipette and Egg" class="w-full h-full object-cover opacity-70 mix-blend-luminosity hover:mix-blend-normal transition duration-700" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <!-- Fallback if image not found -->
+                    <div class="absolute inset-0 flex-col items-center justify-center text-slate-500 hidden" style="display: none;">
+                        <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        <span class="text-sm">Image: icsi-hero.jpg</span>
+                    </div>
+
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="p-6 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700/50">
+                            <h4 class="text-sky-400 font-bold mb-1">Guaranteed Penetration</h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                ICSI bypasses the sperm's need to swim to or bore through the egg's tough outer shell, yielding a 70-80% successful fertilization rate.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- WHEN ICSI IS RECOMMENDED -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-10 text-gray-900">
-            When Is ICSI Recommended?
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-4xl mx-auto">
-            ICSI is indicated when conventional IVF fertilization would be low or impossible — it dramatically improves outcomes in severe male factor cases.
-        </p>
+<!-- THE REQUIREMENT FOR ICSI -->
+<section class="section-lg bg-soft border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+            <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">When Nature Needs Assistance</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">
+                In standard IVF, 50,000 sperm are placed in a dish with an egg, relying on one "winning" sperm to natural fertilize it. When sperm lack the biology to perform this task, ICSI takes over. 
+            </p>
+        </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-xl font-bold text-teal-800 mb-4">Severe Male Factor</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>Severe oligospermia (<1–5 million motile sperm)</li>
-                    <li>Asthenoteratozoospermia (poor motility/morphology)</li>
-                    <li>High DNA fragmentation</li>
-                </ul>
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 flex flex-col group hover:-translate-y-2 transition-transform">
+                <div class="w-16 h-16 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Severe Oligospermia</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Extremely low sperm counts. When there simply aren't enough sperm to create the enzymatic reaction needed to pierce the egg shell naturally.</p>
             </div>
 
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-xl font-bold text-teal-800 mb-4">Azoospermia</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>Obstructive (PESA/MESA)</li>
-                    <li>Non-obstructive (micro-TESE)</li>
-                    <li>Frozen/thawed sperm</li>
-                </ul>
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 flex flex-col group hover:-translate-y-2 transition-transform">
+                <div class="w-16 h-16 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Poor Motility / Morphology</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Sperm that cannot swim straight (Asthenospermia) or have misshapen heads/tails (Teratospermia) meaning they cannot physically bind to the egg.</p>
             </div>
 
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-xl font-bold text-teal-800 mb-4">Other Indications</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>Previous IVF fertilization failure</li>
-                    <li>Low oocyte number</li>
-                    <li>Immature oocytes</li>
-                    <li>Donor sperm or oocyte cycles</li>
-                </ul>
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 flex flex-col group hover:-translate-y-2 transition-transform">
+                <div class="w-16 h-16 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Azoospermia (No Sperm)</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Zero sperm in the ejaculate. We surgically extract sperm directly from the testicles (TESE/PESA) and use ICSI to achieve fertilization.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ICSI PROCESS -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            The ICSI Procedure Step-by-Step
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            ICSI is performed in the embryology lab during an IVF cycle — high-precision micromanipulation ensures fertilization.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Sperm Selection</h3>
-                <p class="text-gray-700">Motile, morphologically normal sperm selected under high magnification (often IMSI).</p>
+<!-- THE MICROSCOPIC PROCEDURE -->
+<section class="py-24 bg-sky-950 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10 fade-in">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="space-y-6">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">The Micro-Injection Protocol</h2>
+                <p class="text-sky-200 text-lg leading-relaxed font-light mb-8">
+                    ICSI is performed simultaneously with maternal egg retrieval. It requires a highly skilled embryologist operating a multi-axis mechanical micromanipulator under hundreds of times magnification.
+                </p>
+                
+                <ul class="space-y-6">
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-sky-800 text-sky-300 flex items-center justify-center flex-shrink-0 font-bold border border-sky-600">1</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-white">Sperm Selection & Immobilization</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed mt-1">The embryologist visually scans thousands of sperm, selecting a single candidate with the most perfect morphology. The sperm's tail is lightly struck to immobilize it.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-sky-800 text-sky-300 flex items-center justify-center flex-shrink-0 font-bold border border-sky-600">2</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-white">Preparation of the Oocyte</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed mt-1">A gentle holding pipette applies light suction to the egg to keep it perfectly still under the microscope.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-sky-800 text-sky-300 flex items-center justify-center flex-shrink-0 font-bold border border-sky-600">3</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-white">The Injection</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed mt-1">A microscopic, hollow glass needle (the injection pipette) containing the single sperm is smoothly pushed through the zona pellucida (outer shell) and into the inner cytoplasm of the egg, where the sperm is released.</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Microinjection</h3>
-                <p class="text-gray-700">Single sperm injected directly into mature oocyte cytoplasm using fine needle.</p>
+            <div class="bg-slate-900 border border-slate-700/50 p-8 rounded-3xl shadow-xl">
+                 <h3 class="text-2xl font-bold text-amber-400 mb-6">Beyond ICSI: IMSI & PICSI</h3>
+                 <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                     When standard ICSI fails due to exceedingly poor sperm quality, we look to ultra-advanced selection methods prior to injection:
+                 </p>
+                 <div class="space-y-4">
+                     <div class="p-4 bg-slate-800 rounded-xl border border-slate-700">
+                         <h4 class="text-white font-bold mb-1">IMSI (Intracytoplasmic Morphologically-selected Sperm Injection)</h4>
+                         <p class="text-slate-400 text-xs leading-relaxed">Magnifying the sperm to virtually 6000x normal size (instead of standard 400x) to spot microscopic vacuoles or defects in the sperm head before injection.</p>
+                     </div>
+                     <div class="p-4 bg-slate-800 rounded-xl border border-slate-700">
+                         <h4 class="text-white font-bold mb-1">PICSI (Physiological ICSI)</h4>
+                         <p class="text-slate-400 text-xs leading-relaxed">Binding sperm to a Hyaluronic Acid gel. Only genetically mature, DNA-competent sperm bind to the gel, allowing the embryologist to select chemically superior sperm.</p>
+                     </div>
+                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Fertilization Check</h3>
-                <p class="text-gray-700">16–18 hours later — 2 pronuclei confirm normal fertilization.</p>
-            </div>
         </div>
     </div>
 </section>
 
-<!-- EMOTIONAL SUPPORT -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-10 text-gray-900">
-            Emotional Support for ICSI & Male Factor
-        </h2>
-        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Severe male factor or azoospermia diagnoses can cause significant emotional strain — feelings of guilt, inadequacy, or fear of not fathering a child biologically. ICSI has transformed outcomes for thousands of men — enabling fatherhood even with very few or no sperm in ejaculate. This is a medical condition, not a reflection of masculinity. We provide compassionate counseling, realistic hope, and support to help you and your partner feel empowered.
+<!-- CALL TO ACTION -->
+<section class="py-24 bg-white relative border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Rewrite the odds of conception.</h2>
+        <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
+            A low sperm analysis is not the end of the line. Through ICSI, we bypass massive male-factor hurdles every day. Speak with us regarding advanced micromanipulation.
         </p>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Frequently Asked Questions
-        </h2>
-
-        <div class="space-y-6">
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Does ICSI guarantee fertilization?</h3>
-                <p class="text-gray-700">
-                    Fertilization rate is 70–80% — higher than conventional IVF in male factor cases — but not 100%. Oocyte maturity and sperm viability matter.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Can ICSI be used with zero sperm in ejaculate?</h3>
-                <p class="text-gray-700">
-                    Yes — with micro-TESE (non-obstructive) or PESA/TESA (obstructive), sperm is retrieved and used for ICSI. Success in 50–60% retrieval cases.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Is ICSI safe for the baby?</h3>
-                <p class="text-gray-700">
-                    Yes — large studies show no significant increase in birth defects or health issues compared to natural conception or conventional IVF.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">When do we choose ICSI over standard IVF?</h3>
-                <p class="text-gray-700">
-                    Severe male factor, previous low/no fertilization, azoospermia, high DNA fragmentation, or low oocyte number.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="section-lg bg-gradient-to-br from-teal-700 to-teal-900 text-white text-center">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
-            ICSI Opens the Door to Fatherhood
-        </h2>
-        <p class="text-lg lg:text-xl mb-10 opacity-90">
-            Even with severe male factor or azoospermia, ICSI offers real hope for biological children. Get expert evaluation and a clear plan in Lahore today.
-        </p>
-        <div class="flex flex-wrap justify-center gap-6">
-            <a href="/contact/" class="bg-white text-teal-900 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl hover:bg-gray-100 transition">
-                Book Your Consultation
-            </a>
-            <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'd%20like%20to%20discuss%20ICSI%20treatment" 
-               class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl transition">
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                </svg>
-                WhatsApp Now
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="https://wa.me/923111101483" class="bg-sky-600 text-white px-10 py-5 rounded-xl font-bold shadow-xl hover:bg-sky-700 hover:scale-105 transition-all text-lg flex items-center gap-3 w-full sm:w-auto justify-center">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                Male Fertility Assessment
             </a>
         </div>
     </div>

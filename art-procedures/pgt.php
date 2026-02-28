@@ -1,254 +1,168 @@
 <?php
-$pageTitle = "PGT Genetic Testing in Lahore | PGT-A & PGT-M for Embryo Screening";
-$metaDescription = "Advanced Preimplantation Genetic Testing (PGT-A and PGT-M) in Lahore by Dr. Adnan Jabbar. Chromosomal screening, inherited disease prevention, recurrent miscarriage, advanced maternal age. Ethical, evidence-based embryo selection for higher IVF success in Pakistan and overseas.";
+$pageTitle = "PGT Genetic Testing in Lahore | PGT-A & PGT-M | Dr. Adnan Jabbar";
+$metaDescription = "Advanced Preimplantation Genetic Testing (PGT-A and PGT-M) in Lahore. Secure the health of your future child by screening embryos prior to transfer.";
 include("../includes/header.php");
 ?>
 
-<!-- HERO -->
-<section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-100/20 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200/25 rounded-full blur-3xl pointer-events-none"></div>
+<!-- HERO SECTION -->
+<section class="relative min-h-[75vh] flex items-center pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-slate-900 text-white">
+    <!-- Futuristic / Clinical Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-indigo-900/40 to-slate-950 -z-20"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-40 mix-blend-overlay -z-10"></div>
+    
+    <!-- Animated Glow Orbs -->
+    <div class="absolute top-1/4 right-1/3 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[120px] -z-10 animate-pulse-slow"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-            <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                Preimplantation Genetic Testing (PGT)<br>in Lahore
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-16 items-center z-10">
+        
+        <!-- Narratives -->
+        <div class="lg:col-span-7 fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-900/40 text-indigo-200 text-sm font-semibold mb-6 border border-indigo-800/50 shadow-sm backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+                Embryo Genetics
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
+                Securing <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-teal-300">
+                    The Blueprint.
+                </span>
             </h1>
-            <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl">
-                Preimplantation Genetic Testing (PGT) is an advanced IVF add-on that screens embryos for chromosomal abnormalities (PGT-A) or specific inherited genetic conditions (PGT-M) before transfer. It helps increase implantation chances, reduce miscarriage risk, and avoid passing on serious genetic disorders. In Lahore, we offer ethical, evidence-based PGT counseling and testing — recommended selectively based on age, history, or known risks — never as routine.
+            
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
+                Preimplantation Genetic Testing (PGT) allows us to look inside the DNA of an embryo before it is ever transferred to the uterus. By identifying chromosomal errors or specific inherited diseases, we drastically reduce miscarriage rates and secure the health of your future child.
             </p>
 
-            <div class="flex flex-wrap gap-5">
-                <a href="/contact/" class="btn-primary px-8 py-4 text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition">
-                    Book Consultation
-                </a>
-                <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I%20would%20like%20to%20discuss%20PGT%20genetic%20testing" 
-                   class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-7 py-4 rounded-lg font-medium text-base lg:text-lg shadow-lg transition">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                    </svg>
-                    Chat on WhatsApp
+            <div class="flex flex-wrap gap-4">
+                <a href="https://wa.me/923111101483" class="btn-primary bg-indigo-600 hover:bg-indigo-500 shadow-[0_8px_25px_rgba(79,70,229,0.3)] border-none text-white px-8 py-4">
+                    Discuss PGT Options
                 </a>
             </div>
         </div>
 
-        <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-xl p-8 rounded-2xl">
-            <h3 class="text-2xl font-bold text-teal-700 mb-6">Key Facts About PGT</h3>
-            <ul class="space-y-4 text-gray-700 text-base">
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    PGT-A reduces miscarriage by 50–70% in women >38
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    PGT-M prevents transmission of known genetic disorders (e.g., thalassemia, cystic fibrosis)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                    </svg>
-                    Not routine — used selectively (advanced age, recurrent loss, carrier status)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Improves live birth rate per transfer in high-risk groups by 10–20%
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+        <!-- Glassmorphic Image Placeholder -->
+        <div class="lg:col-span-5 fade-in" style="transition-delay: 200ms;">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-700/60 bg-slate-800/50 backdrop-blur-xl p-2">
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-800 flex items-center justify-center">
+                    <!-- IMAGE PLACEHOLDER: The user can place 'pgt-hero.jpg' in /assets/images/ -->
+                    <img src="/assets/images/pgt-hero.jpg" alt="PGT DNA Screening" class="w-full h-full object-cover opacity-70 mix-blend-luminosity hover:mix-blend-normal transition duration-700" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <!-- Fallback if image not found -->
+                    <div class="absolute inset-0 flex-col items-center justify-center text-slate-500 hidden" style="display: none;">
+                        <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        <span class="text-sm">Image: pgt-hero.jpg</span>
+                    </div>
 
-<!-- TYPES OF PGT -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-10 text-gray-900">
-            Types of Preimplantation Genetic Testing
-        </h2>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">PGT-A (Aneuploidy Screening)</h3>
-                <p class="text-gray-700 leading-relaxed mb-4">
-                    Screens all 23 chromosome pairs for extra/missing chromosomes (e.g., Down syndrome/trisomy 21).
-                </p>
-                <ul class="space-y-2 text-gray-700">
-                    <li>• Advanced maternal age (>38)</li>
-                    <li>• Recurrent implantation failure</li>
-                    <li>• Recurrent miscarriage</li>
-                    <li>• Previous aneuploid pregnancy</li>
-                </ul>
-                <p class="text-gray-700 mt-4 font-medium">Reduces miscarriage risk by 50–70% in older women.</p>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">PGT-M (Monogenic Disorders)</h3>
-                <p class="text-gray-700 leading-relaxed mb-4">
-                    Tests for specific single-gene disorders when parents are carriers.
-                </p>
-                <ul class="space-y-2 text-gray-700">
-                    <li>• Thalassemia (common in Pakistan)</li>
-                    <li>• Cystic fibrosis</li>
-                    <li>• Spinal muscular atrophy</li>
-                    <li>• Huntington’s, sickle cell, etc.</li>
-                </ul>
-                <p class="text-gray-700 mt-4 font-medium">Prevents transmission of known serious genetic conditions.</p>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="p-6 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700/50">
+                            <h4 class="text-teal-400 font-bold mb-1">Eradicating Uncertainty</h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                A morphologically "perfect" looking embryo can still be genetically abnormal. PGT removes the guesswork from embryo selection.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- INDICATIONS & MOSAICISM -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            When Is PGT Recommended?
-        </h2>
+<!-- PGT-A AND PGT-M -->
+<section class="section-lg bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+            <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">The Testing Modalities</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">
+                Not all genetic testing is the same. Depending on your clinical history and family background, we utilize specific PGT modalities to target different layers of the genome.
+            </p>
+        </div>
 
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            PGT is not routine — we recommend it selectively based on age, history, or genetic risk to maximize safety and success.
+        <div class="grid md:grid-cols-2 gap-10">
+            <!-- PGT-A -->
+            <div class="bg-indigo-50/50 rounded-3xl p-10 shadow-sm border border-indigo-100 fade-in group">
+                <div class="w-16 h-16 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-6">
+                    <span class="font-bold text-xl">PGT-A</span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Aneuploidy Screening</h3>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    This test counts the total number of chromosomes in the embryo. A healthy embryo must have exactly 46 chromosomes. An extra or missing chromosome (Aneuploidy) is the primary cause of IVF failure, miscarriage, and conditions like Down Syndrome.
+                </p>
+                <div class="bg-white p-5 rounded-xl border border-indigo-100 text-sm">
+                    <strong class="text-indigo-900 block mb-2">Highly Recommended For:</strong>
+                    <ul class="text-slate-600 space-y-1">
+                        <li>• Women over the age of 35</li>
+                        <li>• Patients with recurrent miscarriages</li>
+                        <li>• Patients with previous failed IVF cycles</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PGT-M -->
+            <div class="bg-teal-50/50 rounded-3xl p-10 shadow-sm border border-teal-100 fade-in group" style="transition-delay: 150ms;">
+                <div class="w-16 h-16 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center mb-6">
+                    <span class="font-bold text-xl">PGT-M</span>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4">Monogenic Disease Screening</h3>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    This test looks deep inside a specific gene to check for inherited mutations. If both parents are carriers of a deadly genetic disease, PGT-M allows us to select and transfer only the embryos that are completely free of the disease.
+                </p>
+                <div class="bg-white p-5 rounded-xl border border-teal-100 text-sm">
+                    <strong class="text-teal-900 block mb-2">Highly Recommended For:</strong>
+                    <ul class="text-slate-600 space-y-1">
+                        <li>• Known carriers of Thalassemia (Common in Pakistan)</li>
+                        <li>• Carriers of Cystic Fibrosis or Spinal Muscular Atrophy</li>
+                        <li>• Families with a history of inheritable severe disease</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THE CLINICAL WORKFLOW -->
+<section class="py-24 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-6 fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center text-slate-900">The PGT Protocol</h2>
+        <p class="text-slate-600 font-light max-w-2xl mx-auto mb-16 text-center text-lg">Genetic testing is an add-on to the IVF procedure. It requires high-precision embryology to perform safely.</p>
+        
+        <div class="grid md:grid-cols-4 gap-6 text-center">
+            <div class="p-6">
+                <div class="w-16 h-16 mx-auto rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-2xl mb-4">1</div>
+                <h4 class="font-bold text-slate-800 mb-2">IVF & Culture</h4>
+                <p class="text-slate-600 text-sm">Eggs are retrieved and fertilized. Embryos are cultured strictly to Day 5 (Blastocyst stage).</p>
+            </div>
+            <div class="p-6">
+                <div class="w-16 h-16 mx-auto rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-2xl mb-4">2</div>
+                <h4 class="font-bold text-slate-800 mb-2">Trophectoderm Biopsy</h4>
+                <p class="text-slate-600 text-sm">A laser safely removes 3-5 cells from the outer layer of the embryo (which becomes the placenta) without touching the inner fetal mass.</p>
+            </div>
+            <div class="p-6">
+                <div class="w-16 h-16 mx-auto rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-2xl mb-4">3</div>
+                <h4 class="font-bold text-slate-800 mb-2">Vitrification & Analysis</h4>
+                <p class="text-slate-600 text-sm">The embryos are immediately flash-frozen. The biopsied cells are sent to an advanced genetics lab for Next Generation Sequencing.</p>
+            </div>
+            <div class="p-6">
+                <div class="w-16 h-16 mx-auto rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-2xl mb-4">4</div>
+                <h4 class="font-bold text-indigo-900 mb-2">Selective Transfer</h4>
+                <p class="text-slate-600 text-sm">Once the report returns, only a chromosomally normal, genetically healthy embryo is thawed and transferred.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="py-24 bg-white relative border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Investigate Embryo Genetics</h2>
+        <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
+            If you have suffered from recurrent pregnancy loss, or carry a known genetic mutation, PGT offers the most powerful diagnostic control in modern medicine.
         </p>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Age & History</h3>
-                <p class="text-gray-700">Women >38, recurrent miscarriage (≥2), repeated IVF failure, previous aneuploid pregnancy.</p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Genetic Carriers</h3>
-                <p class="text-gray-700">Known carriers of monogenic disorders (e.g., thalassemia — common in Pakistan).</p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Mosaicism Note</h3>
-                <p class="text-gray-700">Some embryos show mosaic results (mix of normal/abnormal cells) — transfer possible in low-level cases with counseling.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- LIMITATIONS & ETHICS -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Limitations & Ethical Considerations
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            PGT improves selection but is not a guarantee. We provide transparent counseling to ensure decisions align with your values and medical needs.
-        </p>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">Limitations</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>• Does not detect all genetic issues</li>
-                    <li>• Biopsy carries small risk to embryo</li>
-                    <li>• Mosaicism can lead to complex decisions</li>
-                    <li>• No guarantee of implantation/pregnancy</li>
-                    <li>• Adds cost and time to IVF cycle</li>
-                </ul>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">Ethical Approach</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>• Indication-based only (not routine)</li>
-                    <li>• Full counseling on benefits/risks</li>
-                    <li>• Respect for patient autonomy</li>
-                    <li>• No selection for non-medical traits</li>
-                    <li>• Focus on medical necessity & family planning</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- EMOTIONAL SUPPORT -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-10 text-gray-900">
-            Emotional Support for PGT Decisions
-        </h2>
-        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Considering PGT can bring anxiety — fear of abnormal results, guilt over embryo selection, or worry about "playing God." These are normal feelings. PGT is a medical tool to increase safety and success — not a judgment on your worth as parents. We provide clear, compassionate counseling to help you make informed choices that feel right for your family.
-        </p>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Frequently Asked Questions
-        </h2>
-
-        <div class="space-y-6">
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">When is PGT-A most helpful?</h3>
-                <p class="text-gray-700">
-                    Advanced maternal age (>38), recurrent miscarriage (≥2), repeated implantation failure, or previous chromosomally abnormal pregnancy.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Can PGT-M prevent thalassemia?</h3>
-                <p class="text-gray-700">
-                    Yes — if both partners are carriers (common in Pakistan), PGT-M identifies unaffected embryos, preventing transmission.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">What happens with mosaic embryos?</h3>
-                <p class="text-gray-700">
-                    Low-level mosaicism may still lead to healthy babies — decision made with full counseling. High-level often not transferred.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Does PGT guarantee a healthy baby?</h3>
-                <p class="text-gray-700">
-                    No — it screens for specific issues but cannot detect everything. It increases chances of success and reduces certain risks.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="section-lg bg-gradient-to-br from-teal-700 to-teal-900 text-white text-center">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
-            Make Informed Embryo Choices with PGT
-        </h2>
-        <p class="text-lg lg:text-xl mb-10 opacity-90">
-            PGT can increase your chances of a healthy pregnancy — especially with age or genetic concerns. Get ethical, expert guidance in Lahore today.
-        </p>
-        <div class="flex flex-wrap justify-center gap-6">
-            <a href="/contact/" class="bg-white text-teal-900 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl hover:bg-gray-100 transition">
-                Book Your Consultation
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="https://wa.me/923111101483" class="bg-indigo-600 text-white px-10 py-5 rounded-xl font-bold shadow-xl hover:bg-indigo-700 hover:scale-105 transition-all text-lg flex items-center gap-3 w-full sm:w-auto justify-center">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                Inquire About PGT
             </a>
-            <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'd%20like%20to%20discuss%20PGT%20genetic%20testing" 
-               class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl transition">
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                </svg>
-                WhatsApp Now
+            <a href="/contact/" class="text-indigo-600 font-bold hover:underline py-4 w-full sm:w-auto">
+                Or View Clinic Details
             </a>
         </div>
     </div>

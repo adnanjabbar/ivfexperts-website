@@ -1,226 +1,172 @@
 <?php
-$pageTitle = "IUI Treatment in Lahore | Intrauterine Insemination & Ovulation Induction";
-$metaDescription = "IUI (Intrauterine Insemination) treatment in Lahore by Dr. Adnan Jabbar. Ovulation induction (letrozole, clomiphene, gonadotropins), sperm washing, timed IUI for unexplained infertility, mild male factor, PCOS. Success 10–20% per cycle – gentle, affordable first-line ART in Pakistan.";
+$pageTitle = "IUI Treatment in Lahore | Intrauterine Insemination | Dr. Adnan Jabbar";
+$metaDescription = "IUI (Intrauterine Insemination) treatment in Lahore. A less invasive, highly synchronized procedure prioritizing natural fertilization dynamics.";
 include("../includes/header.php");
 ?>
 
-<!-- HERO -->
-<section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-100/20 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200/25 rounded-full blur-3xl pointer-events-none"></div>
+<!-- HERO SECTION -->
+<section class="relative min-h-[75vh] flex items-center pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-slate-50 text-slate-900">
+    <!-- Soft Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-teal-50/80 via-white to-emerald-50/80 -z-20"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyMCwgMTgzLCAxMzcsIDAuMDIpIi8+PC9zdmc+')] opacity-50 mix-blend-overlay -z-10"></div>
+    
+    <!-- Animated Glow Orbs -->
+    <div class="absolute top-20 right-10 w-[500px] h-[500px] bg-teal-300/20 rounded-full blur-[100px] -z-10 animate-pulse-slow"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-            <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                Intrauterine Insemination (IUI)<br>in Lahore
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-16 items-center z-10">
+        
+        <!-- Narratives -->
+        <div class="lg:col-span-7 fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-100 text-teal-700 text-sm font-semibold mb-6 border border-teal-200 shadow-sm backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                First-Line ART Procedure
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.10] mb-6 tracking-tight">
+                Enhancing <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">
+                    Natural Odds.
+                </span>
             </h1>
-            <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl">
-                IUI is a gentle, affordable first-line assisted reproduction technique where washed, concentrated sperm is placed directly into the uterus around ovulation. It helps in unexplained infertility, mild male factor, PCOS ovulatory issues, or cervical factors — with success rates of 10–20% per cycle (higher with ovulation induction). Many couples start here before moving to IVF, achieving pregnancy naturally without more invasive steps.
+            
+            <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed font-light">
+                Intrauterine Insemination (IUI) is a precisely timed, low-intervention procedure. By washing and concentrating sperm and placing it directly at the top of the uterus during peak ovulation, we drastically increase the local density of capable sperm exactly where it counts.
             </p>
 
-            <div class="flex flex-wrap gap-5">
-                <a href="/contact/" class="btn-primary px-8 py-4 text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition">
-                    Book Consultation
-                </a>
-                <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I%20would%20like%20to%20discuss%20IUI%20treatment" 
-                   class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-7 py-4 rounded-lg font-medium text-base lg:text-lg shadow-lg transition">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                    </svg>
-                    Chat on WhatsApp
+            <div class="flex flex-wrap gap-4">
+                <a href="https://wa.me/923111101483" class="btn-primary bg-teal-600 hover:bg-teal-500 shadow-[0_8px_25px_rgba(20,184,166,0.3)] border-none text-white px-8 py-4">
+                    Book an IUI Consultation
                 </a>
             </div>
         </div>
 
-        <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-xl p-8 rounded-2xl">
-            <h3 class="text-2xl font-bold text-teal-700 mb-6">Key Facts About IUI</h3>
-            <ul class="space-y-4 text-gray-700 text-base">
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Success rate: 10–20% per cycle (higher with meds)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Ideal for unexplained infertility, mild male factor, PCOS
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                    </svg>
-                    Multiple cycles (3–6) often recommended before IVF
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Low risk, minimal invasiveness, affordable first step
-                </li>
-            </ul>
+        <!-- Glassmorphic Image Placeholder -->
+        <div class="lg:col-span-5 fade-in" style="transition-delay: 200ms;">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-200/60 bg-white/50 backdrop-blur-xl p-2">
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 flex items-center justify-center">
+                    <!-- IMAGE PLACEHOLDER: The user can place 'iui-hero.jpg' in /assets/images/ -->
+                    <img src="/assets/images/iui-hero.jpg" alt="IUI Clinical Procedure" class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <!-- Fallback if image not found -->
+                    <div class="absolute inset-0 flex-col items-center justify-center text-slate-400 hidden" style="display: none;">
+                        <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        <span class="text-sm">Image: iui-hero.jpg</span>
+                    </div>
+
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="p-6 rounded-xl bg-white/90 backdrop-blur-md border border-slate-100 shadow-lg">
+                            <h4 class="text-teal-700 font-bold mb-1">Less Invasive ART</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                IUI requires open fallopian tubes and a baseline level of motile sperm, serving as the bridge between natural conception and IVF.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- WHEN IUI IS APPROPRIATE -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-10 text-gray-900">
-            When Is IUI the Right Choice?
-        </h2>
+<!-- WHEN TO USE IUI -->
+<section class="section-lg bg-soft border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-center fade-in">
+            <!-- Diagnosis Data -->
+            <div>
+                <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">Strategic Indications for IUI</h2>
+                <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                    IUI is not appropriate for everyone. It relies entirely on the fallopian tubes to act as the conduit, and the sperm must still be capable of piercing the egg shell unassisted.
+                </p>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-lg">Unexplained Infertility</h4>
+                            <p class="text-slate-600 text-sm mt-1">When all diagnostic tests return clear but conception still fails. IUI with mild ovulation induction corrects minor timing mismatches.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg></div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-lg">Mild Male Factor</h4>
+                            <p class="text-slate-600 text-sm mt-1">For slight decreases in motility or volume. The laboratory wash concentrates the best sperm into a highly motile sample.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center flex-shrink-0 mt-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-lg">PCOS / Ovulation Dysfunction</h4>
+                            <p class="text-slate-600 text-sm mt-1">If oral medication (Letrozole) alone isn't succeeding, combining it with IUI ensures perfect synchronicity between egg and sperm.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-4xl mx-auto">
-            IUI is a first-line treatment for many couples — gentle, low-cost, and effective when tubes are open and sperm parameters are sufficient.
-        </p>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-xl font-bold text-teal-800 mb-4">Best Indications</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>Unexplained infertility</li>
-                    <li>Mild male factor (low count/motility but >5–10 million post-wash)</li>
-                    <li>PCOS or ovulatory dysfunction</li>
-                    <li>Cervical factor (hostile mucus)</li>
-                    <li>Mild endometriosis</li>
-                    <li>Donor sperm cycles</li>
+            <!-- Caution Box -->
+            <div class="bg-rose-50 rounded-3xl p-8 border border-rose-100">
+                <h3 class="text-xl font-bold text-rose-900 mb-4">When to skip IUI directly to IVF</h3>
+                <ul class="space-y-3 text-rose-800 text-sm">
+                    <li class="flex items-start gap-2"><span class="mt-1 font-bold text-rose-500">•</span> Blocked or severely damaged fallopian tubes</li>
+                    <li class="flex items-start gap-2"><span class="mt-1 font-bold text-rose-500">•</span> Severe male factor (very low count/motility)</li>
+                    <li class="flex items-start gap-2"><span class="mt-1 font-bold text-rose-500">•</span> Advanced maternal age (&gt;38) where time is critical</li>
+                    <li class="flex items-start gap-2"><span class="mt-1 font-bold text-rose-500">•</span> Advanced endometriosis causing pelvic distortion</li>
                 </ul>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-xl font-bold text-teal-800 mb-4">Not Ideal For</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>Severe male factor (<5 million motile sperm)</li>
-                    <li>Blocked tubes or severe tubal damage</li>
-                    <li>Advanced age (>38–40)</li>
-                    <li>Moderate-severe endometriosis</li>
-                    <li>Multiple failed IUI cycles (consider IVF)</li>
-                </ul>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-xl font-bold text-teal-800 mb-4">Success Expectations</h3>
-                <ul class="space-y-2 text-gray-700">
-                    <li>10–20% per cycle (natural cycle)</li>
-                    <li>15–25% with ovulation induction</li>
-                    <li>Cumulative: 40–60% after 3–6 cycles</li>
-                    <li>Higher in women <35 with good sperm</li>
-                </ul>
+                <div class="mt-6 p-4 bg-white/60 rounded-xl text-rose-900 text-sm border border-rose-100">
+                    <strong>Rule of thumb:</strong> In most clinical scenarios, if 3 to 4 rounds of well-timed IUI are unsuccessful, the protocol should escalate to IVF.
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- IUI PROCESS -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            The IUI Process Step-by-Step
-        </h2>
+<!-- THE IUI PROCESS -->
+<section class="py-24 bg-teal-950 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10 fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center">The IUI Lifecycle</h2>
+        <p class="text-teal-100 font-light max-w-2xl mx-auto mb-16 text-center text-lg">A highly controlled process completed within your natural monthly cycle.</p>
 
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            IUI is simple and quick — most cycles take 2–4 weeks from start to insemination.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Step 1: Monitoring & Induction</h3>
-                <p class="text-gray-700">Ultrasound + blood tests track follicles. Letrozole, clomiphene, or gonadotropins induce ovulation if needed.</p>
+        <div class="grid md:grid-cols-4 gap-6 text-center">
+            <!-- Step 1 -->
+            <div class="p-6 bg-teal-900/50 rounded-3xl border border-teal-800">
+                <div class="w-12 h-12 mx-auto rounded-full bg-teal-800 text-teal-300 flex items-center justify-center font-bold text-xl mb-4 border border-teal-600">1</div>
+                <h4 class="font-bold text-white mb-2">Stimulation</h4>
+                <p class="text-teal-200 text-sm leading-relaxed">Mild oral medications or low-dose injectables are given early in the cycle to encourage the growth of 1 to 3 healthy follicles.</p>
             </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Step 2: Sperm Preparation</h3>
-                <p class="text-gray-700">Semen washed to concentrate motile sperm, remove plasma/debris — improves quality for insemination.</p>
+            <!-- Step 2 -->
+            <div class="p-6 bg-teal-900/50 rounded-3xl border border-teal-800">
+                <div class="w-12 h-12 mx-auto rounded-full bg-teal-800 text-teal-300 flex items-center justify-center font-bold text-xl mb-4 border border-teal-600">2</div>
+                <h4 class="font-bold text-white mb-2">Trigger</h4>
+                <p class="text-teal-200 text-sm leading-relaxed">Ultrasound monitoring tracks the follicle growth. Once mature, a "trigger shot" (hCG) is administered to force exact ovulation within 36 hours.</p>
             </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Step 3: Insemination</h3>
-                <p class="text-gray-700">Quick procedure (5–10 min) — catheter places sperm in uterus. Rest briefly, then resume normal activity.</p>
+            <!-- Step 3 -->
+            <div class="p-6 bg-teal-900/50 rounded-3xl border border-teal-800">
+                <div class="w-12 h-12 mx-auto rounded-full bg-teal-800 text-teal-300 flex items-center justify-center font-bold text-xl mb-4 border border-teal-600">3</div>
+                <h4 class="font-bold text-white mb-2">Sperm Wash</h4>
+                <p class="text-teal-200 text-sm leading-relaxed">On the day of the procedure, the semen sample is centrifuged and chemically washed in the lab to isolate the most active, fastest-swimming sperm.</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="p-6 bg-teal-900/50 rounded-3xl border border-teal-800">
+                <div class="w-12 h-12 mx-auto rounded-full bg-teal-400 text-teal-900 flex items-center justify-center font-bold text-xl mb-4 shadow-[0_0_15px_rgba(45,212,191,0.5)]">4</div>
+                <h4 class="font-bold text-white mb-2">Insemination</h4>
+                <p class="text-teal-200 text-sm leading-relaxed">A very fine, flexible catheter is passed through the cervix. The concentrated sperm is injected deep into the uterus, mere inches from the releasing egg.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- EMOTIONAL SUPPORT -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-10 text-gray-900">
-            Emotional Support for IUI
-        </h2>
-        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            IUI is hopeful yet uncertain — waiting for ovulation, the two-week wait, and potential disappointment after each cycle can cause stress or anxiety. Many couples feel pressure from family or society. IUI is a gentle, empowering first step — most couples who succeed do so within 3–6 cycles. We provide supportive care, realistic expectations, counseling referrals, and a judgment-free space to help you feel confident and cared for.
+<!-- CALL TO ACTION -->
+<section class="py-24 bg-white relative border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Take a structured first step.</h2>
+        <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
+            IUI removes the physiological barriers of the cervix and optimizes timing perfectly. Let us see if this gentle ART procedure is right for you.
         </p>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Frequently Asked Questions
-        </h2>
-
-        <div class="space-y-6">
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">What is the success rate of IUI?</h3>
-                <p class="text-gray-700">
-                    10–20% per cycle without meds, 15–25% with ovulation induction. Cumulative success after 3–6 cycles: 40–60% in good-prognosis couples.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">How many IUI cycles should we try?</h3>
-                <p class="text-gray-700">
-                    3–6 cycles typically recommended before considering IVF — depending on age, ovarian reserve, and response.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Is IUI painful?</h3>
-                <p class="text-gray-700">
-                    Usually minimal discomfort — like a Pap smear. Cramping possible after, but short-lived. Most women resume normal activities immediately.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">When do we move from IUI to IVF?</h3>
-                <p class="text-gray-700">
-                    After 3–6 failed cycles, or sooner if age >35–38, low reserve, severe male factor, or blocked tubes/endometriosis.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="section-lg bg-gradient-to-br from-teal-700 to-teal-900 text-white text-center">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
-            Start with Gentle IUI – Many Families Begin Here
-        </h2>
-        <p class="text-lg lg:text-xl mb-10 opacity-90">
-            IUI is a hopeful, low-stress first step — often all that's needed. Get personalized guidance and timing in Lahore today.
-        </p>
-        <div class="flex flex-wrap justify-center gap-6">
-            <a href="/contact/" class="bg-white text-teal-900 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl hover:bg-gray-100 transition">
-                Book Your Consultation
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="https://wa.me/923111101483" class="bg-teal-600 text-white px-10 py-5 rounded-xl font-bold shadow-xl hover:bg-teal-700 hover:scale-105 transition-all text-lg flex items-center gap-3 w-full sm:w-auto justify-center">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                IUI Evaluation
             </a>
-            <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'd%20like%20to%20discuss%20IUI%20treatment" 
-               class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl transition">
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                </svg>
-                WhatsApp Now
+            <a href="/contact/" class="text-teal-600 font-bold hover:underline py-4 w-full sm:w-auto">
+                Or View Clinic Details
             </a>
         </div>
     </div>

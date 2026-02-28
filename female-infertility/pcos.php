@@ -1,278 +1,171 @@
 <?php
-$pageTitle = "PCOS Treatment in Lahore | Polycystic Ovary Syndrome & Infertility";
-$metaDescription = "Expert PCOS management in Lahore by Dr. Adnan Jabbar. High prevalence in Pakistan, ovulation induction, letrozole, metformin, lifestyle, IVF. Improve fertility & reduce symptoms for women seeking pregnancy.";
+$pageTitle = "PCOS Treatment & Fertility Care in Lahore | Dr. Adnan Jabbar";
+$metaDescription = "Expert PCOS management in Lahore. We utilize targeted ovulation induction (Letrozole), metabolic optimization, and advanced IVF protocols for anovulatory infertility.";
 include("../includes/header.php");
 ?>
 
-<!-- HERO -->
-<section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-100/20 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200/25 rounded-full blur-3xl pointer-events-none"></div>
+<!-- HERO SECTION -->
+<section class="relative min-h-[75vh] flex items-center pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-slate-50">
+    <!-- Soft Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-rose-50/80 via-white to-emerald-50/80 -z-20"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyMjUsIDI5LCA3MiwgMC4wMykiLz48L3N2Zz4=')] opacity-50 mix-blend-overlay -z-10"></div>
+    
+    <!-- Animated Glow Orbs -->
+    <div class="absolute top-20 right-10 w-[500px] h-[500px] bg-rose-300/20 rounded-full blur-[100px] -z-10 animate-pulse-slow"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-            <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                PCOS Treatment<br>in Lahore
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-16 items-center z-10">
+        
+        <!-- Narratives -->
+        <div class="lg:col-span-7 fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-100 text-rose-700 text-sm font-semibold mb-6 border border-rose-200 shadow-sm backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+                Endocrinology & Fertility
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 leading-[1.10] mb-6 tracking-tight">
+                Mastering <br/>
+                <span class="text-rose-600 drop-shadow-sm">
+                    Metabolic Balance.
+                </span>
             </h1>
-            <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl">
-                Polycystic Ovary Syndrome (PCOS) is the most common hormonal disorder in women of reproductive age in Pakistan, affecting 20–40% and causing up to 70% of anovulatory infertility. With structured management — lifestyle changes, ovulation induction (letrozole/metformin), and IVF when needed — most women with PCOS can achieve pregnancy naturally or with help.
+            
+            <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed font-light">
+                Polycystic Ovary Syndrome (PCOS) is the leading cause of anovulatory infertility. By addressing the underlying insulin resistance and carefully inducing ovulation, we turn hormonal roadblocks into successful pregnancies.
             </p>
 
-            <div class="flex flex-wrap gap-5">
-                <a href="/contact/" class="btn-primary px-8 py-4 text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition">
-                    Book Consultation
-                </a>
-                <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I%20would%20like%20to%20discuss%20PCOS%20treatment%20options" 
-                   class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-7 py-4 rounded-lg font-medium text-base lg:text-lg shadow-lg transition">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                    </svg>
-                    Chat on WhatsApp
+            <div class="flex flex-wrap gap-4">
+                <a href="https://wa.me/923111101483" class="btn-primary bg-rose-600 hover:bg-rose-500 shadow-[0_8px_25px_rgba(225,29,72,0.3)] border-none text-white px-8 py-4">
+                    Consult on PCOS
                 </a>
             </div>
         </div>
 
-        <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-xl p-8 rounded-2xl">
-            <h3 class="text-2xl font-bold text-teal-700 mb-6">Key Facts About PCOS in Pakistan</h3>
-            <ul class="space-y-4 text-gray-700 text-base">
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Prevalence: 20–40% in reproductive-age women (higher than global average)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Causes 70% of anovulatory infertility cases
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                    </svg>
-                    Weight loss (5–10%) restores ovulation in 50–80%
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    Letrozole superior to clomiphene (higher ovulation & live birth rates)
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+        <!-- Glassmorphic Image Placeholder -->
+        <div class="lg:col-span-5 fade-in" style="transition-delay: 200ms;">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-200/60 bg-white/50 backdrop-blur-xl p-2">
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 flex items-center justify-center">
+                    <!-- IMAGE PLACEHOLDER: The user can place 'pcos-hero.jpg' in /assets/images/ -->
+                    <img src="/assets/images/pcos-hero.jpg" alt="PCOS Consultation" class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <!-- Fallback if image not found -->
+                    <div class="absolute inset-0 flex-col items-center justify-center text-slate-400 hidden" style="display: none;">
+                        <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        <span class="text-sm">Image: pcos-hero.jpg</span>
+                    </div>
 
-<!-- WHAT IS PCOS & TYPES -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-10 text-gray-900">
-            What Is PCOS & Its Types
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-4xl mx-auto">
-            PCOS is a hormonal disorder causing irregular periods, excess androgens (male hormones), and polycystic ovaries. It disrupts ovulation, leading to infertility. In Pakistan, genetic predisposition, insulin resistance, and lifestyle factors make it very common. Diagnosis uses Rotterdam criteria (2 of 3): irregular cycles, high androgens, polycystic ovaries on ultrasound.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">Classic PCOS</h3>
-                <p class="text-gray-700">
-                    High androgens + irregular cycles + polycystic ovaries. Most common type in Pakistan.
-                </p>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">Lean PCOS</h3>
-                <p class="text-gray-700">
-                    Normal weight but insulin resistance + high androgens. Often overlooked.
-                </p>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">Ovulatory PCOS</h3>
-                <p class="text-gray-700">
-                    Regular cycles but high androgens + polycystic ovaries. Infertility less common but still possible.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SYMPTOMS & DIAGNOSIS -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Symptoms & How We Diagnose PCOS
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            PCOS presents differently in each woman — we use blood tests, ultrasound, and history for accurate diagnosis and personalized plan.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Common Symptoms</h3>
-                <p class="text-gray-700">Irregular periods, excess hair growth, acne, weight gain, hair loss, infertility.</p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Blood Tests</h3>
-                <p class="text-gray-700">High LH/FSH ratio, elevated androgens (testosterone), insulin resistance markers.</p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Ultrasound</h3>
-                <p class="text-gray-700">≥12 follicles per ovary or ovarian volume >10 mL — Rotterdam criteria.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TREATMENT PATHWAY -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            PCOS Treatment Pathway
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            We start conservative — 70–80% of women with PCOS ovulate and conceive with lifestyle + medication. IVF is reserved for resistant cases.
-        </p>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">1</span>
+                    <div class="absolute bottom-6 left-6 right-6">
+                        <div class="p-6 rounded-xl bg-white/90 backdrop-blur-md border border-slate-100 shadow-lg">
+                            <h4 class="text-rose-600 font-bold mb-1">High Success Probability</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Over 70-80% of women with PCOS will ovulate successfully with targeted oral induction matching their phenotype.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">Lifestyle First</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• 5–10% weight loss restores ovulation in 50–80%</li>
-                    <li>• Low-GI diet, exercise 150 min/week</li>
-                    <li>• Stress management (yoga/meditation)</li>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DEFINING PCOS -->
+<section class="section-lg bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+            <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">The PCOS Spectrum</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">
+                PCOS is not a cyst disease; it is an endocrine disruptor. The "cysts" are actually dormant ovarian follicles that failed to mature and release an egg due to altered hormonal signals.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 fade-in">
+            <!-- Classic Pathophysiology -->
+            <div class="bg-rose-50/30 rounded-3xl p-8 shadow-xl border border-rose-100 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                    <svg class="w-6 h-6 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                    The Biological Mechanism
+                </h3>
+                <p class="text-slate-600 mb-4 leading-relaxed">
+                    Most cases are driven by systemic insulin resistance. The pancreas overproduces insulin, which signals the ovaries to overproduce androgens (testosterone). High androgens halt the delicate ovulation cycle mid-process.
+                </p>
+                <ul class="space-y-4 text-slate-600 font-medium">
+                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-rose-400 mt-2 flex-shrink-0"></span> Lack of monthly ovulation (Oligo/Anovulation).</li>
+                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-rose-400 mt-2 flex-shrink-0"></span> Clinical androgen excess (acne, hirsutism).</li>
+                    <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 rounded-full bg-rose-400 mt-2 flex-shrink-0"></span> Polycystic ovarian morphology on ultrasound.</li>
                 </ul>
             </div>
 
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">2</span>
+            <!-- Phenotypes -->
+            <div class="bg-teal-50/30 rounded-3xl p-8 shadow-xl border border-teal-100 relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-white rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                    <svg class="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                    Understanding Phenotypes
+                </h3>
+                <p class="text-slate-600 mb-4 leading-relaxed">
+                    Not every woman with PCOS is overweight or has acne. Lean PCOS, for example, represents a significant subset where insulin derangement is subtle but still suppresses ovulation. Diagnosing your specific phenotype is critical.
+                </p>
+                <div class="mt-6 p-4 bg-teal-100/50 rounded-lg border border-teal-200">
+                    <p class="text-sm text-teal-800 font-bold">The Rotterdam Criteria</p>
+                    <p class="text-sm text-teal-700">Diagnosis requires 2 of 3 defining clinical parameters, avoiding misdiagnosis of normal, highly fertile ovaries.</p>
                 </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">Ovulation Induction</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• Letrozole (first-line, higher success than clomiphene)</li>
-                    <li>• Metformin (improves insulin sensitivity)</li>
-                    <li>• Gonadotropins if needed</li>
-                    <li>• Timed intercourse / IUI (15–25% per cycle)</li>
-                </ul>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">3</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">Surgical Options</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• Laparoscopic ovarian drilling (restores ovulation in 60–80%)</li>
-                    <li>• For clomiphene-resistant cases</li>
-                    <li>• Quick recovery</li>
-                </ul>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">4</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">IVF / ART</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• For resistant cases or male factor</li>
-                    <li>• Success: 40–50% per cycle (<35)</li>
-                    <li>• Careful stimulation to avoid OHSS</li>
-                </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- EMOTIONAL SUPPORT -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-10 text-gray-900">
-            Emotional Support for PCOS
-        </h2>
-        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            PCOS can affect self-image (weight, hair growth, acne) and cause anxiety about fertility and long-term health. Many women feel isolated or blame themselves. PCOS is a common, manageable condition — not a personal failure. With treatment, most achieve pregnancy and symptom relief. We offer counseling referrals and a supportive environment to help you feel empowered.
-        </p>
-    </div>
-</section>
+<!-- TREATMENT PATHWAYS -->
+<section class="py-24 bg-slate-50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10 fade-in">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 text-slate-900">Structured Management</h2>
+            <p class="text-slate-600 font-light max-w-2xl mx-auto text-lg">We employ a stepped, conservative-first approach. We only escalate intervention if the previous step fails to yield a high-quality dominant follicle.</p>
+        </div>
 
-<!-- FAQ -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Frequently Asked Questions
-        </h2>
-
-        <div class="space-y-6">
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">How common is PCOS in Pakistan?</h3>
-                <p class="text-gray-700">
-                    Very common — 20–40% of reproductive-age women (higher than global 5–10%). Urban lifestyle and genetics contribute.
-                </p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Step 1 -->
+            <div class="p-8 border border-white hover:border-rose-200 bg-white rounded-2xl shadow-lg transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center mb-6 font-bold text-xl group-hover:scale-110 transition-transform">
+                    1
+                </div>
+                <h4 class="font-bold text-xl text-slate-900 mb-3">Metabolic Optimization</h4>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">A mere 5% reduction in body weight in insulin-resistant phenotypes can spontaneously restore ovulation. We often utilize insulin-sensitizing agents (Metformin/Myo-inositol) as a baseline priming strategy.</p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="p-8 border border-white hover:border-emerald-200 bg-white rounded-2xl shadow-lg transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-6 font-bold text-xl group-hover:scale-110 transition-transform">
+                    2
+                </div>
+                <h4 class="font-bold text-xl text-slate-900 mb-3">Targeted Ovulation Induction</h4>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">We rely primarily on <strong>Letrozole (Aromatase Inhibitors)</strong> over older medications like Clomiphene. It offers higher ovulation rates for PCOS, superior endometrial lining development, and fewer multiples (twins).</p>
             </div>
 
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Can I get pregnant with PCOS without treatment?</h3>
-                <p class="text-gray-700">
-                    Yes in mild cases, but irregular ovulation reduces chances. 70% need help — lifestyle/meds restore ovulation in most.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Is letrozole better than clomiphene for PCOS?</h3>
-                <p class="text-gray-700">
-                    Yes — letrozole has higher ovulation (60–80%) and live birth rates (27% vs 19%), fewer side effects.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Will PCOS go away after pregnancy?</h3>
-                <p class="text-gray-700">
-                    Symptoms often improve during pregnancy and post-menopause, but insulin resistance persists — long-term monitoring needed.
-                </p>
+            <!-- Step 3 -->
+            <div class="p-8 border border-white hover:border-indigo-200 bg-white rounded-2xl shadow-lg transition-all group">
+                <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-6 font-bold text-xl group-hover:scale-110 transition-transform">
+                    3
+                </div>
+                <h4 class="font-bold text-xl text-slate-900 mb-3">ART & IVF Protocols</h4>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">If oral induction fails, we pivot to low-dose Gonadotropins or IVF. PCOS patients generally yield high numbers of eggs, making IVF highly successful. We utilize strict Antagonist protocols to prevent Ovarian Hyperstimulation Syndrome (OHSS).</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="section-lg bg-gradient-to-br from-teal-700 to-teal-900 text-white text-center">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
-            PCOS Is Manageable – Pregnancy Is Possible
-        </h2>
-        <p class="text-lg lg:text-xl mb-10 opacity-90">
-            With the right plan, most women with PCOS conceive and enjoy symptom relief. Don't wait — get personalized care in Lahore today.
+<!-- CALL TO ACTION -->
+<section class="py-24 bg-white relative border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 text-center fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Take control of your cycle.</h2>
+        <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
+            You do not have to wait years to conceive with PCOS. Clinical ovulation induction is highly effective. Schedule an evaluation to map out your protocol.
         </p>
-        <div class="flex flex-wrap justify-center gap-6">
-            <a href="/contact/" class="bg-white text-teal-900 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl hover:bg-gray-100 transition">
-                Book Your Consultation
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="https://wa.me/923111101483" class="bg-rose-600 text-white px-10 py-5 rounded-xl font-bold shadow-xl hover:bg-rose-700 hover:scale-105 transition-all text-lg flex items-center gap-3 w-full sm:w-auto justify-center">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                WhatsApp Consultation
             </a>
-            <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'd%20like%20to%20discuss%20PCOS%20treatment" 
-               class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl transition">
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                </svg>
-                WhatsApp Now
+            <a href="/contact/" class="text-rose-600 font-bold hover:underline py-4 w-full sm:w-auto">
+                Or View Clinic Details
             </a>
         </div>
     </div>
