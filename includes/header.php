@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription) ?>">
 <!-- Styles -->
 <link rel="stylesheet" href="/assets/css/style.css">
-<script src="/assets/js/app.js?v=3" defer></script>
+<script src="/assets/js/app.js?v=4" defer></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <!-- Physician + Organization Schema -->
@@ -155,14 +155,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li><a href="/male-infertility/azoospermia.php" class="hover:text-teal-600">Azoospermia (Zero Sperm)</a></li>
                 <li><a href="/male-infertility/varicocele.php" class="hover:text-teal-600">Varicocele</a></li>
                 <li><a href="/male-infertility/erectile-ejaculatory-dysfunction.php" class="hover:text-teal-600">Erectile &amp; Ejaculatory Dysfunction</a></li>
+                <li><a href="/male-infertility/penile-doppler-ultrasound.php" class="hover:text-teal-600">Penile Doppler Ultrasound</a></li>
               </ul>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Advanced Evaluation</h4>
+              <h4 class="font-bold mb-4">Advanced Diagnosis & Stem Cell</h4>
               <ul class="space-y-2 text-gray-700 text-sm">
                 <li><a href="/male-infertility/dna-fragmentation.php" class="hover:text-teal-600">DNA Fragmentation</a></li>
                 <li><a href="/male-infertility/unexplained-male-infertility.php" class="hover:text-teal-600">Unexplained Male Infertility</a></li>
                 <li><a href="/male-infertility/klinefelters-syndrome.php" class="hover:text-teal-600">Klinefelter's Syndrome</a></li>
+                <li><a href="/male-infertility/hypogonadotropic-hypogonadism.php" class="hover:text-teal-600">Hypogonadotropic Hypogonadism</a></li>
+                <li><a href="/male-infertility/low-testicular-volume.php" class="hover:text-teal-600">Low Testicular Volume</a></li>
+                <li><a href="/male-infertility/primary-testicular-failure.php" class="hover:text-teal-600">Primary Testicular Failure</a></li>
+                <li><a href="/male-infertility/testicular-recovery-stemcell.php" class="hover:text-teal-600">Testicular Recovery via Stem Cell</a></li>
               </ul>
             </div>
           </div>
@@ -197,11 +202,14 @@ document.addEventListener('DOMContentLoaded', () => {
               </ul>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Complex Diagnoses</h4>
+              <h4 class="font-bold mb-4">Complex & Regenerative</h4>
               <ul class="space-y-2 text-gray-700 text-sm">
                 <li><a href="/female-infertility/diminished-ovarian-reserve.php" class="hover:text-teal-600">Low Ovarian Reserve (AMH)</a></li>
                 <li><a href="/female-infertility/recurrent-pregnancy-loss.php" class="hover:text-teal-600">Recurrent Miscarriages</a></li>
                 <li><a href="/female-infertility/unexplained-infertility.php" class="hover:text-teal-600">Unexplained Infertility</a></li>
+                <li><a href="/female-infertility/primary-ovarian-failure.php" class="hover:text-teal-600">Primary Ovarian Failure</a></li>
+                <li><a href="/female-infertility/ovarian-tissue-preservation.php" class="hover:text-teal-600">Oncofertility / Tissue Preservation</a></li>
+                <li><a href="/female-infertility/stemcell-ovarian-rejuvenation.php" class="hover:text-teal-600">Stem Cell Ovarian Rejuvenation</a></li>
               </ul>
             </div>
           </div>
@@ -247,6 +255,36 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     </div>
+    <!-- ================= STEM CELL ================= -->
+    <div class="relative group inline-block">
+      <a href="/stemcell/" class="hover:text-teal-600 transition">
+        Stem Cell
+      </a>
+      <div class="mega-dropdown absolute top-full left-0 w-[700px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
+        <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
+          <div class="grid grid-cols-2 gap-10 p-10">
+            <div>
+              <h4 class="font-bold mb-4">Stem Cell Types</h4>
+              <ul class="space-y-2 text-gray-700 text-sm">
+                <li><a href="/stemcell/adscs.php" class="hover:text-teal-600">ADSCs (Adipose-Derived)</a></li>
+                <li><a href="/stemcell/mesenchymal-umbilical.php" class="hover:text-teal-600">MSCs / MHUCs (Mesenchymal)</a></li>
+                <li><a href="/stemcell/pluripotent-stem-cells.php" class="hover:text-teal-600">Pluripotent Stem Cells</a></li>
+                <li><a href="/stemcell/multipotent-stem-cells.php" class="hover:text-teal-600">Multipotent Stem Cells</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-bold mb-4">Clinical Applications</h4>
+              <ul class="space-y-2 text-gray-700 text-sm">
+                <li><a href="/stemcell/role-in-infertility.php" class="hover:text-teal-600">Stem Cells & Infertility</a></li>
+                <li><a href="/male-infertility/testicular-recovery-stemcell.php" class="hover:text-teal-600">Testicular Recovery</a></li>
+                <li><a href="/female-infertility/stemcell-ovarian-rejuvenation.php" class="hover:text-teal-600">Ovarian Rejuvenation</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="/doctors/" class="hover:text-teal-600 transition">Our Team</a>
     <a href="/contact/" class="hover:text-teal-600 transition">Contact</a>
   </nav>
   <!-- CTA (Desktop) -->
@@ -305,6 +343,11 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="/male-infertility/dna-fragmentation.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">DNA Fragmentation</a>
           <a href="/male-infertility/unexplained-male-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Unexplained Male Infertility</a>
           <a href="/male-infertility/klinefelters-syndrome.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Klinefelter's Syndrome</a>
+          <a href="/male-infertility/hypogonadotropic-hypogonadism.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Hypogonadotropic Hypogonadism</a>
+          <a href="/male-infertility/low-testicular-volume.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Low Testicular Volume</a>
+          <a href="/male-infertility/primary-testicular-failure.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Primary Testicular Failure</a>
+          <a href="/male-infertility/testicular-recovery-stemcell.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Testicular Recovery via Stem Cell</a>
+          <a href="/male-infertility/penile-doppler-ultrasound.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Penile Doppler Ultrasound</a>
         </div>
       </div>
       <!-- Female Infertility Accordion -->
@@ -323,6 +366,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="/female-infertility/diminished-ovarian-reserve.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Low Ovarian Reserve (AMH)</a>
           <a href="/female-infertility/recurrent-pregnancy-loss.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Recurrent Miscarriages</a>
           <a href="/female-infertility/unexplained-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Unexplained Infertility</a>
+          <a href="/female-infertility/primary-ovarian-failure.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Primary Ovarian Failure</a>
+          <a href="/female-infertility/ovarian-tissue-preservation.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Oncofertility / Tissue Preservation</a>
+          <a href="/female-infertility/stemcell-ovarian-rejuvenation.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Stem Cell Ovarian Rejuvenation</a>
         </div>
       </div>
       <!-- ART Procedures Accordion -->
@@ -343,6 +389,22 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="/art-procedures/laser-assisted-hatching.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Laser-Assisted Hatching</a>
         </div>
       </div>
+      <!-- Stem Cell Accordion -->
+      <div class="mobile-accordion" style="border-bottom:1px solid #f1f5f9;">
+        <button class="mobile-accordion-toggle" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;background:transparent;border:none;cursor:pointer;text-align:left;">
+          Stem Cell
+          <svg class="mobile-accordion-arrow" style="width:18px;height:18px;transition:transform 0.3s;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="mobile-accordion-content" style="display:none;padding:0 24px 12px 24px;background:#f8fafc;">
+          <a href="/stemcell/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;">Overview &rarr;</a>
+          <a href="/stemcell/adscs.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">ADSCs (Adipose-Derived)</a>
+          <a href="/stemcell/mesenchymal-umbilical.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">MSCs / MHUCs (Mesenchymal)</a>
+          <a href="/stemcell/pluripotent-stem-cells.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Pluripotent Stem Cells</a>
+          <a href="/stemcell/multipotent-stem-cells.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Multipotent Stem Cells</a>
+          <a href="/stemcell/role-in-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Stem Cells & Infertility</a>
+        </div>
+      </div>
+      <a href="/doctors/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">Our Team</a>
       <a href="/contact/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">Contact</a>
     </nav>
     <!-- WhatsApp CTA -->
@@ -355,3 +417,4 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 <div class="h-24" style="height:6rem;"></div>
+
