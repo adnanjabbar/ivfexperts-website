@@ -1,0 +1,329 @@
+<?php
+$pageTitle = "New Semen Analysis";
+require_once __DIR__ . '/includes/auth.php';
+
+$error = '';
+$pre_patient_id = $_GET['patient_id'] ?? '';
+$qrcode_hash = bin2hex(random_bytes(16));
+
+// Fetch Patients
+$patients = [];
+try {
+    $res = $conn->query("SELECT id, mr_number, first_name, last_name FROM patients ORDER BY id DESC");
+    if ($res) {
+        while ($row = $res->fetch_assoc())
+            $patients[] = $row;
+    }
+}
+catch (Exception $e) {
+}
+
+// Fetch Hospitals
+$hospitals = [];
+try {
+    $res = $conn->query("SELECT id, name FROM hospitals ORDER BY name ASC");
+    if ($res) {
+        while ($row = $res->fetch_assoc())
+            $hospitals[] = $row;
+    }
+}
+catch (Exception $e) {
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_sa'])) {
+    $patient_id = intval($_POST['patient_id'] ?? 0);
+    $hospital_id = intval($_POST['hospital_id'] ?? 0);
+    $coll_time = $_POST['collection_time'] ?? null;
+    $exam_time = $_POST['examination_time'] ?? null;
+    $abstinence = intval($_POST['abstinence_days'] ?? 0);
+
+    $volume = floatval($_POST['volume'] ?? 0);
+    $ph = floatval($_POST['ph'] ?? 0);
+    $conc = floatval($_POST['concentration'] ?? 0);
+
+    $pr = floatval($_POST['pr_motility'] ?? 0);
+    $np = floatval($_POST['np_motility'] ?? 0);
+    $im = floatval($_POST['im_motility'] ?? 0);
+
+    $norm = floatval($_POST['normal_morphology'] ?? 0);
+    $abnorm = floatval($_POST['abnormal_morphology'] ?? 0);
+
+    $wbc = trim($_POST['wbc'] ?? '');
+    $agglut = trim($_POST['agglutination'] ?? '');
+    $auto_diag = trim($_POST['auto_diagnosis'] ?? 'Pending');
+    $notes = trim($_POST['notes'] ?? '');
+
+    if (empty($patient_id) || empty($hospital_id)) {
+        $error = "Patient and Hospital fields are required.";
+    }
+    else {
+        $stmt = $conn->prepare("INSERT INTO semen_analyses (patient_id, hospital_id, qrcode_hash, collection_time, examination_time, abstinence_days, volume, ph, concentration, pr_motility, np_motility, im_motility, normal_morphology, abnormal_morphology, wbc, agglutination, auto_diagnosis, admin_notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+        if ($stmt) {
+            $stmt->bind_param("iisssiddddddddssss", $patient_id, $hospital_id, $qrcode_hash, $coll_time, $exam_time, $abstinence, $volume, $ph, $conc, $pr, $np, $im, $norm, $abnorm, $wbc, $agglut, $auto_diag, $notes);
+            if ($stmt->execute()) {
+                header("Location: semen_analyses.php?msg=saved");
+                exit;
+            }
+            else {
+                $error = "Database Error: " . $stmt->error;
+            }
+        }
+    }
+}
+
+include __DIR__ . '/includes/header.php';
+?>
+
+<div class="max-w-5xl mx-auto" x-data="semenEngine()">
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6">
+        <div class="px-6 py-4 border-b border-gray-100 bg-sky-900 text-white flex justify-between items-center">
+            <h3 class="font-bold"><i class="fa-solid fa-microscope text-sky-300 mr-2"></i> Advanced Semen Analysis Form</h3>
+            <span class="text-xs bg-sky-800 px-2 py-1 rounded text-sky-200 uppercase font-bold tracking-wider">WHO 6th Edition Ready</span>
+        </div>
+        
+        <div class="p-6 md:p-8">
+            <?php if (!empty($error)): ?>
+                <div class="bg-red-50 text-red-600 p-4 rounded-xl mb-6 border border-red-100 flex gap-2">
+                    <i class="fa-solid fa-circle-exclamation mt-1"></i> <?php echo esc($error); ?>
+                </div>
+            <?php
+endif; ?>
+
+            <form method="POST">
+                
+                <!-- Setup Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 border-b border-gray-100 pb-8">
+                    <div class="lg:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Select Patient *</label>
+                        <select name="patient_id" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 bg-gray-50" required>
+                            <option value="">-- Choose Patient --</option>
+                            <?php foreach ($patients as $p): ?>
+                                <option value="<?php echo $p['id']; ?>" <?php echo($pre_patient_id == $p['id']) ? 'selected' : ''; ?>>
+                                    <?php echo esc($p['mr_number'] . ' | ' . $p['first_name'] . ' ' . $p['last_name']); ?>
+                                </option>
+                            <?php
+endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Print Location (Hospital) *</label>
+                        <select name="hospital_id" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 bg-gray-50" required>
+                            <?php foreach ($hospitals as $h): ?>
+                                <option value="<?php echo $h['id']; ?>"><?php echo esc($h['name']); ?></option>
+                            <?php
+endforeach; ?>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Collection Time</label>
+                        <input type="datetime-local" name="collection_time" value="<?php echo date('Y-m-d\TH:i'); ?>" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Examination Time</label>
+                        <input type="datetime-local" name="examination_time" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Abstinence (Days)</label>
+                        <input type="number" name="abstinence_days" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500">
+                    </div>
+                </div>
+
+                <!-- Live Evaluator Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    
+                    <!-- Macroscopic & Basic -->
+                    <div>
+                        <h4 class="font-bold text-gray-800 border-b border-gray-100 pb-2 mb-4">Core Parameters</h4>
+                        
+                        <div class="space-y-4">
+                            <!-- Volume -->
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-medium text-gray-700 w-1/3">Semen Volume</label>
+                                <div class="w-1/3 relative">
+                                    <input type="number" step="0.1" name="volume" x-model.number="volume" class="w-full px-3 py-2 border border-gray-200 rounded focus:ring-1 focus:ring-sky-500 font-mono text-right" :class="isRed(volume, 1.4) ? 'text-red-600 bg-red-50 border-red-300' : ''">
+                                    <span class="absolute right-3 top-2 text-xs text-gray-400">ml</span>
+                                </div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 font-mono">≥ 1.4 ml</div>
+                            </div>
+                            
+                            <!-- pH -->
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-medium text-gray-700 w-1/3">pH</label>
+                                <div class="w-1/3">
+                                    <input type="number" step="0.1" name="ph" x-model.number="ph" class="w-full px-3 py-2 border border-gray-200 rounded focus:ring-1 focus:ring-sky-500 font-mono text-right" :class="isRed(ph, 7.2) ? 'text-red-600 bg-red-50 border-red-300' : ''">
+                                </div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 font-mono">≥ 7.2</div>
+                            </div>
+                            
+                            <!-- Concentration -->
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-medium text-gray-700 w-1/3 border-b-2 border-transparent hover:border-sky-300">Concentration</label>
+                                <div class="w-1/3 relative">
+                                    <input type="number" step="0.1" name="concentration" x-model.number="conc" class="w-full px-3 py-2 border border-gray-200 rounded focus:ring-1 focus:ring-sky-500 font-mono text-right font-bold text-sky-800" :class="isRed(conc, 16) ? 'text-red-600 bg-red-50 border-red-300' : ''">
+                                    <span class="absolute right-2 top-2 text-[10px] text-gray-400 leading-tight">M/ml</span>
+                                </div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 font-mono">≥ 16 M/ml</div>
+                            </div>
+
+                            <div class="pt-4 border-t border-gray-100">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Pus Cells (WBC)</label>
+                                <input type="text" name="wbc" placeholder="e.g. 1-2 / HPF" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Agglutination</label>
+                                <input type="text" name="agglutination" placeholder="e.g. None, ++" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Motility & Morphology -->
+                    <div>
+                        <h4 class="font-bold text-gray-800 border-b border-gray-100 pb-2 mb-4">Motility & Morphology</h4>
+                        
+                        <div class="space-y-4">
+                            <!-- PR -->
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-medium text-gray-700 w-1/3">Progressive (PR)</label>
+                                <div class="w-1/3 relative">
+                                    <input type="number" step="1" name="pr_motility" x-model.number="pr" class="w-full px-3 py-2 border border-gray-200 rounded focus:ring-1 focus:ring-sky-500 font-mono text-right" :class="isRed(pr, 30) ? 'text-red-600 bg-red-50 border-red-300' : ''">
+                                    <span class="absolute right-3 top-2 text-xs text-gray-400">%</span>
+                                </div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 font-mono">≥ 30 %</div>
+                            </div>
+                            
+                            <!-- NP -->
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-medium text-gray-700 w-1/3">Non-Progress (NP)</label>
+                                <div class="w-1/3 relative">
+                                    <input type="number" step="1" name="np_motility" x-model.number="np" class="w-full px-3 py-2 border border-gray-200 rounded font-mono text-right focus:ring-1 focus:ring-sky-500">
+                                    <span class="absolute right-3 top-2 text-xs text-gray-400">%</span>
+                                </div>
+                                <div class="w-1/3 text-right"></div>
+                            </div>
+
+                            <!-- IM -->
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-medium text-gray-700 w-1/3">Immotility (IM)</label>
+                                <div class="w-1/3 relative">
+                                    <input type="number" step="1" name="im_motility" :value="im()" readonly class="w-full px-3 py-2 border border-gray-100 rounded text-gray-500 bg-gray-50 font-mono text-right cursor-not-allowed">
+                                    <span class="absolute right-3 top-2 text-xs text-gray-400">%</span>
+                                </div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 italic">Auto</div>
+                            </div>
+
+                            <!-- Total Motility -->
+                            <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                                <label class="text-sm font-bold text-sky-800 w-1/3">Total Motility (PR+NP)</label>
+                                <div class="w-1/3 text-right font-mono font-bold text-lg" :class="isRed(pr + np, 42) ? 'text-red-600' : 'text-sky-700'" x-text="(pr + np) + ' %'"></div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 font-mono">≥ 42 %</div>
+                            </div>
+
+                            <h4 class="font-bold text-gray-800 border-b border-gray-100 pb-2 mt-6 mb-4">Morphology</h4>
+
+                            <!-- Normal Form -->
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-medium text-gray-700 w-1/3">Normal Forms</label>
+                                <div class="w-1/3 relative">
+                                    <input type="number" step="1" name="normal_morphology" x-model.number="norm" class="w-full px-3 py-2 border border-gray-200 rounded focus:ring-1 focus:ring-sky-500 font-mono text-right" :class="isRed(norm, 4) ? 'text-red-600 bg-red-50 border-red-300' : ''">
+                                    <span class="absolute right-3 top-2 text-xs text-gray-400">%</span>
+                                </div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 font-mono">≥ 4 %</div>
+                            </div>
+                            
+                            <!-- Abnormal Form -->
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-medium text-gray-700 w-1/3">Abnormal Forms</label>
+                                <div class="w-1/3 relative">
+                                    <input type="number" step="1" name="abnormal_morphology" :value="100 - norm" readonly class="w-full px-3 py-2 border border-gray-100 bg-gray-50 rounded text-gray-500 font-mono text-right cursor-not-allowed">
+                                    <span class="absolute right-3 top-2 text-xs text-gray-400">%</span>
+                                </div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 italic">Auto</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auto Diagnosis -->
+                <div class="bg-sky-50 rounded-xl p-6 border border-sky-100 mb-8 flex flex-col md:flex-row items-center justify-between gap-4 shadow-inner">
+                    <div class="flex-1">
+                        <label class="block text-sm font-bold text-sky-800 mb-1 uppercase tracking-wider">Automated Diagnosis Output</label>
+                        <input type="text" name="auto_diagnosis" x-model="diagnosis" readonly class="w-full bg-transparent text-xl md:text-2xl font-bold text-gray-900 focus:outline-none cursor-default truncate">
+                        <p class="text-xs text-sky-600 mt-1">Extrapolated via JS mapping directly against WHO 6th standard reference guidelines.</p>
+                    </div>
+                    <div class="shrink-0 text-3xl opacity-20 text-sky-900 hidden md:block">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Additional Notes</label>
+                    <textarea name="notes" rows="3" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500"></textarea>
+                </div>
+                
+                <div class="flex justify-end gap-3 mt-8">
+                    <a href="semen_analyses.php" class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg font-medium transition-colors">Cancel</a>
+                    <button type="submit" name="save_sa" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all focus:outline-none flex items-center gap-2">
+                        <i class="fa-solid fa-file-signature"></i> Finalize Report
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('alpine:init', () => {
+    Alpine.data('semenEngine', () => ({
+        volume: 0,
+        ph: 0,
+        conc: 0,
+        pr: 0,
+        np: 0,
+        norm: 0,
+        
+        // Compute Immotility automatically (100 - PR - NP)
+        im() {
+            let res = 100 - this.pr - this.np;
+            return res < 0 ? 0 : res;
+        },
+
+        // Red light engine based on WHO
+        isRed(val, ref) {
+            // Only trigger red if a number is actually entered and it's below reference
+            if (val === 0 || val === "") return false;
+            return val < ref;
+        },
+
+        // The Smart Diagnosis Array map
+        get diagnosis() {
+            if (this.conc === 0 && this.volume === 0) return 'Pending Entry...';
+            
+            let diagList = [];
+            
+            // Azoospermia rules out everything else
+            if (this.conc === 0) {
+                return 'Azoospermia';
+            }
+            
+            if (this.conc > 0 && this.conc < 16) diagList.push('Oligozoospermia');
+            if (this.pr < 30 || (this.pr + this.np) < 42) diagList.push('Asthenozoospermia');
+            if (this.norm < 4) diagList.push('Teratozoospermia');
+            
+            if (diagList.length === 0) {
+                return 'Normozoospermia';
+            } else if (diagList.length === 3) {
+                return 'Oligoasthenoteratozoospermia (OAT)';
+            } else {
+                return diagList.join(', ');
+            }
+        }
+    }))
+})
+</script>
+
+<?php include __DIR__ . '/includes/footer.php'; ?>
