@@ -30,7 +30,7 @@ include("../includes/header.php");
             </h1>
             
             <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed font-light">
-                Intrauterine Insemination (IUI) is a precisely timed, low-intervention procedure. By washing and concentrating sperm and placing it directly at the top of the uterus during peak ovulation, we drastically increase the local density of capable sperm exactly where it counts.
+                Intrauterine Insemination (IUI) is a precisely timed, low-intervention fertility procedure. By washing and concentrating sperm in our advanced laboratory, and placing it directly into the uterus during peak ovulation, Dr. Adnan Jabbar drastically increases the local density of capable sperm exactly where it counts. IUI is widely considered the first line of assisted conception for couples in Lahore, Pakistan.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -114,6 +114,34 @@ include("../includes/header.php");
     </div>
 </section>
 
+<!-- SEO SECTION: BEST IUI CLINIC IN LAHORE -->
+<section class="py-20 bg-teal-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-20 mix-blend-overlay -z-10"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Expert IUI Treatment in Lahore, Pakistan</h2>
+        <p class="text-xl text-teal-200 mb-8 leading-relaxed max-w-4xl mx-auto">
+            While IUI is less complex than IVF, the success of the procedure relies heavily on two completely critical factors: perfect ovulation timing and superior laboratory sperm-washing. Dr. Adnan Jabbar utilizes advanced ultrasound follicular tracking to pinpoint the exact window of opportunity. Simultaneously, our embryology lab processes the semen sample to extract only the most highly motile sperm, stripping away debris and dead cells. For couples in Lahore seeking an affordable, first-step fertility treatment, our IUI protocols offer significant advantages over natural conception.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mt-12">
+            <div class="bg-teal-800/50 p-6 rounded-2xl border border-teal-700/50 backdrop-blur-sm">
+                <i class="ph ph-target text-3xl text-teal-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Precision Timing</h4>
+                <p class="text-sm text-teal-200">Using carefully monitored ovulation induction (Letrozole/Clomid) and precise trigger shots (hCG) to ensure eggs are ready.</p>
+            </div>
+            <div class="bg-teal-800/50 p-6 rounded-2xl border border-teal-700/50 backdrop-blur-sm">
+                <i class="ph ph-flask text-3xl text-emerald-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Advanced Sperm Wash</h4>
+                <p class="text-sm text-teal-200">Our gradient centrifugation process removes seminal fluid and concentrates only the highest quality, rapidly progressive sperm.</p>
+            </div>
+            <div class="bg-teal-800/50 p-6 rounded-2xl border border-teal-700/50 backdrop-blur-sm">
+                <i class="ph ph-currency-circle-dollar text-3xl text-green-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Affordable IUI Price</h4>
+                <p class="text-sm text-teal-200">IUI is a highly cost-effective treatment compared to IVF. We provide complete transparency on the cost of IUI cycles in Pakistan.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- THE IUI PROCESS -->
 <section class="py-24 bg-teal-950 text-white relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 relative z-10 fade-in">
@@ -167,5 +195,65 @@ include("../includes/header.php");
         </div>
     </div>
 </section>
+
+<!-- FAQ SCHEMA AND MEDICAL CONDITION SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Intrauterine Insemination (IUI) Treatment in Lahore",
+    "description": "Expert IUI treatment in Lahore by Dr. Adnan Jabbar. Combining precision ovulation timing with advanced laboratory sperm washing for unexplained infertility.",
+    "url": "https://ivfexperts.pk/art-procedures/iui.php",
+    "author": {
+      "@type": "Physician",
+      "name": "Dr. Adnan Jabbar"
+    },
+    "about": {
+      "@type": "MedicalTherapy",
+      "name": "Intrauterine Insemination (IUI)",
+      "alternateName": "Artificial Insemination",
+      "treatmentIndication": [{
+        "@type": "MedicalCondition",
+        "name": "Unexplained Infertility"
+      }, {
+        "@type": "MedicalCondition",
+        "name": "Mild Male Factor Infertility"
+      }],
+      "code": {
+         "@type": "MedicalCode",
+         "codeValue": "58322",
+         "codingSystem": "CPT"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "What is the cost of IUI in Lahore, Pakistan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The cost of IUI is significantly lower than IVF. The total package generally includes ovulation induction medications, ultrasound monitoring scans, the laboratory sperm wash, and the insemination procedure itself."
+      }
+    },{
+      "@type": "Question",
+      "name": "Is IUI painful?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, IUI is entirely painless and does not require anesthesia. The procedure feels very similar to a routine Pap smear and takes only a few minutes to complete in the clinic."
+      }
+    },{
+      "@type": "Question",
+      "name": "How many IUI cycles should I try before IVF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clinical guidelines generally recommend 3 to 4 cycles of well-timed IUI. If pregnancy is not achieved after 4 cycles, the statistical probability decreases, and IVF is typically recommended."
+      }
+    }]
+  }
+]
+</script>
 
 <?php include("../includes/footer.php"); ?>

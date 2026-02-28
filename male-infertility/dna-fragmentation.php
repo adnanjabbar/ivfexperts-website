@@ -30,7 +30,7 @@ include("../includes/header.php");
             </h1>
             
             <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
-                A normal sperm count doesn't mean normal fertility. High DNA fragmentation (DFI) is a hidden cause of unexplained infertility, recurrent miscarriages, and IVF failure. We test the genetic integrity of the sperm.
+                A normal sperm count doesn't mean normal fertility. High DNA fragmentation (DFI) is a hidden cause of unexplained infertility, recurrent miscarriages, and IVF failure. In Lahore, Pakistan, Dr. Adnan Jabbar provides advanced molecular testing to evaluate the genetic integrity of the sperm, moving far beyond the limitations of standard semen analysis.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -164,6 +164,34 @@ include("../includes/header.php");
     </div>
 </section>
 
+<!-- SEO SECTION: BEST DFI CLINIC IN LAHORE -->
+<section class="py-20 bg-indigo-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-20 mix-blend-overlay -z-10"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Expert DNA Fragmentation Testing in Lahore</h2>
+        <p class="text-xl text-indigo-200 mb-8 leading-relaxed max-w-4xl mx-auto">
+            Recurrent miscarriages and repeated IVF failures carry a profound emotional and financial toll. Often, clinics exclusively investigate the female partner while ignoring the microscopic genetic payload carried by the male. Dr. Adnan Jabbar, a leading fertility specialist in Pakistan, champions the routine use of Sperm DNA Fragmentation (DFI) testing for couples suffering from unexplained infertility. By accurately diagnosing high DFI, we can implement targeted antioxidant protocols, microsurgical interventions, or advanced ICSI preparation techniques (like MACS or PICSI) to finally achieve a healthy, full-term pregnancy.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mt-12">
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-shield-check text-3xl text-indigo-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Preventing Miscarriage</h4>
+                <p class="text-sm text-indigo-200">Lowering sperm DNA damage is one of the most effective, mathematically proven ways to reduce the risk of early first-trimester miscarriage.</p>
+            </div>
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-flask text-3xl text-teal-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Optimizing IVF/ICSI</h4>
+                <p class="text-sm text-indigo-200">If DFI is critically high, our embryology lab utilizes specialized micro-fluidic sorting chips to physically separate fragmented sperm from healthy sperm prior to ICSI.</p>
+            </div>
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-currency-circle-dollar text-3xl text-rose-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Cost-Effective Diagnostics</h4>
+                <p class="text-sm text-indigo-200">A DFI test is significantly cheaper than undergoing another failed IVF cycle. It provides crucial answers when standard semen reports look completely normal.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- CALL TO ACTION -->
 <section class="py-24 bg-white relative border-t border-slate-200">
     <div class="max-w-4xl mx-auto px-6 text-center fade-in">
@@ -179,5 +207,63 @@ include("../includes/header.php");
         </div>
     </div>
 </section>
+
+<!-- FAQ SCHEMA AND MEDICAL CONDITION SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Sperm DNA Fragmentation (DFI) Testing and Treatment in Lahore",
+    "description": "Advanced sperm DNA fragmentation (DFI) testing in Lahore, Pakistan by Dr. Adnan Jabbar. Diagnosing the hidden causes of recurrent miscarriage and IVF failure.",
+    "url": "https://ivfexperts.pk/male-infertility/dna-fragmentation.php",
+    "author": {
+      "@type": "Physician",
+      "name": "Dr. Adnan Jabbar"
+    },
+    "about": {
+      "@type": "MedicalTest",
+      "name": "Sperm DNA Fragmentation Assay",
+      "alternateName": "DFI Testing",
+      "usedToDiagnose": [
+        {
+          "@type": "MedicalCondition",
+          "name": "Male Infertility"
+        },
+        {
+          "@type": "MedicalCondition",
+          "name": "Recurrent Miscarriage"
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "What is a normal sperm DNA fragmentation (DFI) score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A DFI score below 15% is considered excellent and highly protective against miscarriage. Scores between 15% and 30% are elevated, and scores above 30% are considered severe, significantly reducing the chances of a successful pregnancy."
+      }
+    },{
+      "@type": "Question",
+      "name": "Can high sperm DNA fragmentation cause miscarriage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. While sperm with highly fragmented DNA can still successfully fertilize an egg, the resulting embryo often lacks the genetic integrity to develop properly, leading to cellular arrest or early first-trimester miscarriage."
+      }
+    },{
+      "@type": "Question",
+      "name": "How do you lower sperm DNA fragmentation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Treatment depends on the cause but often includes microsurgical varicocele repair (if present), cessation of smoking, lifestyle modifications, and clinically validated high-dose antioxidant therapy for 3 months to quench oxidative stress."
+      }
+    }]
+  }
+]
+</script>
 
 <?php include("../includes/footer.php"); ?>

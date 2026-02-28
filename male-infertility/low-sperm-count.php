@@ -30,7 +30,7 @@ include("../includes/header.php");
             </h1>
             
             <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
-                Oligospermia affects up to 40% of infertile men. With advanced diagnostics, hormonal optimization, varicocele repair, or ICSI, we bypass natural barriers and turn scientific precision into fatherhood.
+                Oligospermia (low sperm count) affects up to 40% of infertile men in Pakistan. At our specialized male infertility clinic in Lahore, Dr. Adnan Jabbar utilizes advanced diagnostics, hormonal optimization, varicocele repair, and precise ICSI protocols to bypass natural reproductive barriers, turning scientific precision into fatherhood.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -44,9 +44,12 @@ include("../includes/header.php");
         <div class="lg:col-span-5 fade-in" style="transition-delay: 200ms;">
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-800/60 bg-slate-900/50 backdrop-blur-xl p-2">
                 <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-800 flex items-center justify-center">
-                    <!-- IMAGE PLACEHOLDER: The user can place 'oligospermia-hero.jpg' in /assets/images/ -->
-                    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1200" alt="Semen Analysis and Low Sperm Count (Oligospermia) Diagnostics in Lahore" loading="lazy" class="w-full h-full object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition duration-700">
-                    
+                    <!-- IMAGE: Locally hosted hero image -->
+                    <img src="/assets/images/hero_low_sperm_count.png" 
+                         alt="Microscopic view of spermatozoa for Low Sperm Count (Oligospermia) treatment in Lahore Pakistan" 
+                         title="Best Low Sperm Count Treatment by Dr. Adnan Jabbar"
+                         loading="lazy" 
+                         class="w-full h-full object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition duration-700">
 
                     <div class="absolute bottom-6 left-6 right-6">
                         <div class="p-6 rounded-xl bg-slate-900/80 backdrop-blur-md border border-slate-700/50">
@@ -167,9 +170,37 @@ include("../includes/header.php");
 
             <div class="card p-8 group hover:-translate-y-2 transition-all">
                 <h3 class="text-xl font-bold text-indigo-900 mb-4">IV. ART / ICSI</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">If counts remain critically low, Intracytoplasmic Sperm Injection (ICSI) requires only a single viable sperm per egg, bypassing the sperm count issue entirely.</p>
+                <p class="text-slate-600 text-sm leading-relaxed">If counts remain critically low (Severe Oligospermia), Intracytoplasmic Sperm Injection (ICSI) requires only a single viable sperm per egg, effectively bypassing the low count issue entirely.</p>
             </div>
 
+        </div>
+    </div>
+</section>
+
+<!-- SEO SECTION: BEST OLIGOSPERMIA CLINIC IN LAHORE -->
+<section class="py-20 bg-indigo-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-20 mix-blend-overlay -z-10"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Expert Low Sperm Count Treatment in Lahore</h2>
+        <p class="text-xl text-indigo-200 mb-8 leading-relaxed max-w-4xl mx-auto">
+            A diagnosis of low sperm count (Oligospermia) or poor sperm motility (Asthenospermia) should not immediately push a couple into expensive IVF treatments. Dr. Adnan Jabbar specializes in identifying the reversible causes of male infertility in Pakistan. By addressing underlying endocrinological imbalances or repairing clinical varicoceles, many men achieve significant improvements in their semen parameters, allowing them to conceive naturally or through simpler procedures like IUI.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mt-12">
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-heartbeat text-3xl text-indigo-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Hormonal Optimization</h4>
+                <p class="text-sm text-indigo-200">Using targeted Clomiphene and hCG therapies to safely stimulate the testes and boost natural testosterone and sperm production pathways.</p>
+            </div>
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-microscope text-3xl text-teal-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Advanced Semen Analytics</h4>
+                <p class="text-sm text-indigo-200">We don't just count sperm; our lab assesses strict Kruger morphology, vitality, and DNA Fragmentation Index (DFI) for a complete biological picture.</p>
+            </div>
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-syringe text-3xl text-rose-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Seamless ICSI Backup</h4>
+                <p class="text-sm text-indigo-200">If medical therapy fails to improve the counts sufficiently, our in-house embryology laboratory provides seamless integration to ICSI treatment.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -192,5 +223,68 @@ include("../includes/header.php");
         </div>
     </div>
 </section>
+
+<!-- FAQ SCHEMA AND MEDICAL CONDITION SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Low Sperm Count (Oligospermia) Treatment in Lahore",
+    "description": "Expert treatment for low sperm count (Oligospermia) in Lahore, Pakistan by Dr. Adnan Jabbar. Offering hormonal therapy, varicocele repair, and ICSI.",
+    "url": "https://ivfexperts.pk/male-infertility/low-sperm-count.php",
+    "author": {
+      "@type": "Physician",
+      "name": "Dr. Adnan Jabbar"
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Oligospermia",
+      "alternateName": "Low Sperm Count",
+      "associatedPathophysiology": "Male Infertility",
+      "possibleTreatment": [
+        {
+          "@type": "MedicalTherapy",
+          "name": "Endocrine Therapy (Clomiphene/hCG)"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Varicocelectomy"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Intracytoplasmic Sperm Injection (ICSI)"
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Can low sperm count be cured with medicine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, depending on the underlying cause. If the low sperm count is due to a hormonal imbalance (such as low testosterone or hypogonadism), medications like Clomiphene citrate or hCG injections can significantly improve sperm production in many men."
+      }
+    },{
+      "@type": "Question",
+      "name": "What is considered a critically low sperm count?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "According to the WHO (2021) guidelines, a normal sperm count is 15 million sperm per milliliter or more. Counts below 5 million per milliliter are generally considered Severe Oligospermia, often requiring ICSI for successful conception."
+      }
+    },{
+      "@type": "Question",
+      "name": "Does varicocele surgery increase sperm count?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A clinical varicocele raises testicular temperature and damages sperm. Microsurgical repair of the varicocele results in notable improvement in both sperm count and motility in roughly 60% to 70% of patients within 3 to 6 months."
+      }
+    }]
+  }
+]
+</script>
 
 <?php include("../includes/footer.php"); ?>

@@ -30,7 +30,7 @@ include("../includes/header.php");
             </h1>
             
             <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
-                Varicocele is the most common correctable cause of male infertility, affecting 40% of infertile men. Through precise microsurgical repair, we eliminate oxidative stress, frequently restoring natural fertility.
+                Varicocele is the most internationally recognized and correctable cause of male infertility, affecting roughly 40% of infertile men. In Lahore, Pakistan, Dr. Adnan Jabbar specializes in subinguinal microsurgical varicocelectomy—a precise, advanced technique that eliminates testicular oxidative stress, drastically improves DNA integrity, and frequently restores natural fertility without the immediate need for IVF.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -182,6 +182,35 @@ include("../includes/header.php");
                         <li>• Can rescue failed IVF/ICSI cycles by improving the core genetic payload.</li>
                     </ul>
                 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEO SECTION: BEST VARICOCELE SURGEON IN LAHORE -->
+<section class="py-20 bg-indigo-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-20 mix-blend-overlay -z-10"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Expert Varicocele Surgery in Lahore</h2>
+        <p class="text-xl text-indigo-200 mb-8 leading-relaxed max-w-4xl mx-auto">
+            Not all varicocele repairs yield the same fertility outcomes. Traditional laparoscopic or open high-ligation surgeries carry higher risks of recurrence and hydrocele formation. Dr. Adnan Jabbar exclusively performs the internationally recognized gold standard: Microsurgical Subinguinal Varicocelectomy. Under a state-of-the-art operating microscope, the abnormal veins are carefully separated from the microscopic testicular artery and lymphatic channels. For couples in Pakistan struggling with poor sperm morphology or high DNA fragmentation, this precision surgery is often the definitive cure.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mt-12">
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-microscope text-3xl text-indigo-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Microscopic Precision</h4>
+                <p class="text-sm text-indigo-200">Using 15x to 25x optical magnification ensures zero damage to the crucial 1mm testicular artery, preserving complete organ function.</p>
+            </div>
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-drop text-3xl text-teal-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Zero Hydrocele Risk</h4>
+                <p class="text-sm text-indigo-200">By meticulously identifying and avoiding the tiny lymphatic vessels, we eliminate the risk of post-vascular swelling (hydrocele).</p>
+            </div>
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-fast-forward-circle text-3xl text-rose-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Rapid Recovery</h4>
+                <p class="text-sm text-indigo-200">The subinguinal approach avoids cutting abdominal muscle layers entirely. Patients typically return to desk work within 48 to 72 hours.</p>
             </div>
         </div>
     </div>
@@ -205,5 +234,59 @@ include("../includes/header.php");
         </div>
     </div>
 </section>
+
+<!-- FAQ SCHEMA AND MEDICAL CONDITION SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Varicocele Treatment and Microsurgery in Lahore",
+    "description": "Expert diagnosis and microsurgical varicocelectomy treatment in Lahore, Pakistan by Dr. Adnan Jabbar to restore sperm count and motility.",
+    "url": "https://ivfexperts.pk/male-infertility/varicocele.php",
+    "author": {
+      "@type": "Physician",
+      "name": "Dr. Adnan Jabbar"
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Varicocele",
+      "associatedPathophysiology": "Male Infertility",
+      "possibleTreatment": [
+        {
+          "@type": "MedicalTherapy",
+          "name": "Microsurgical Subinguinal Varicocelectomy"
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Can varicocele cause zero sperm count?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most commonly, varicoceles cause a gradual decrease in sperm count (oligospermia) and motility (asthenospermia). However, in severe, prolonged cases, it can completely arrest sperm production, leading to non-obstructive azoospermia."
+      }
+    },{
+      "@type": "Question",
+      "name": "What is the recovery time for microscopic varicocelectomy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the subinguinal microscopic approach does not cut through abdominal muscle, recovery is very fast. Most patients return to light, desk-based work within 2 to 3 days."
+      }
+    },{
+      "@type": "Question",
+      "name": "How long after varicocele surgery does sperm count improve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The human spermatogenesis cycle takes approximately 72 to 90 days. Therefore, the first semen analysis to check for improvements is typically scheduled 3 to 4 months after the surgery."
+      }
+    }]
+  }
+]
+</script>
 
 <?php include("../includes/footer.php"); ?>

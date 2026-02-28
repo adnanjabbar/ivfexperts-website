@@ -30,7 +30,7 @@ include("../includes/header.php");
             </h1>
             
             <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
-                Intracytoplasmic Sperm Injection (ICSI) forces fertilization when biology refuses. By manually injecting a single, highly-selected sperm directly into the core of the egg, we overcome the most extreme cases of male infertility.
+                Intracytoplasmic Sperm Injection (ICSI) forces fertilization when biology refuses. By manually injecting a single, highly selected sperm directly into the core of the egg, Dr. Adnan Jabbar overcomes the most extreme cases of male infertility. Whether facing low sperm count or azoospermia, our state-of-the-art ICSI clinic in Lahore, Pakistan offers world-class micromanipulation to help you build your family.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -78,23 +78,51 @@ include("../includes/header.php");
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                 </div>
                 <h3 class="text-xl font-bold text-slate-900 mb-3">Severe Oligospermia</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">Extremely low sperm counts. When there simply aren't enough sperm to create the enzymatic reaction needed to pierce the egg shell naturally.</p>
+                <p class="text-slate-600 text-sm leading-relaxed">Extremely low sperm counts. When there simply aren't enough sperm to create the enzymatic reaction needed to pierce the egg shell naturally in a standard IVF dish.</p>
             </div>
 
             <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 flex flex-col group hover:-translate-y-2 transition-transform">
                 <div class="w-16 h-16 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-6">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">Poor Motility / Morphology</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">Sperm that cannot swim straight (Asthenospermia) or have misshapen heads/tails (Teratospermia) meaning they cannot physically bind to the egg.</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Asthenozoospermia / Teratozoospermia</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Sperm that cannot swim straight (poor motility) or have misshapen heads or tails (poor morphology), rendering them physically incapable of binding to and penetrating the egg.</p>
             </div>
 
             <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 flex flex-col group hover:-translate-y-2 transition-transform">
                 <div class="w-16 h-16 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-6">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3">Azoospermia (No Sperm)</h3>
-                <p class="text-slate-600 text-sm leading-relaxed">Zero sperm in the ejaculate. We surgically extract sperm directly from the testicles (TESE/PESA) and use ICSI to achieve fertilization.</p>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Azoospermia (Zero Sperm)</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">No sperm found in the natural ejaculate. In these complex cases, Dr. Adnan Jabbar routinely performs surgical sperm extraction (TESE/PESA) from the testicles and utilizes ICSI to ensure successful fertilization.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEO SECTION: BEST ICSI CLINIC IN LAHORE -->
+<section class="py-20 bg-sky-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-20 mix-blend-overlay -z-10"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Expert ICSI Treatment in Lahore, Pakistan</h2>
+        <p class="text-xl text-sky-200 mb-8 leading-relaxed max-w-4xl mx-auto">
+            Intracytoplasmic Sperm Injection is a highly delicate, operator-dependent procedure. The success of ICSI lies entirely in the hands of the clinical embryologist. Dr. Adnan Jabbar operates one of the most technologically advanced and successful micromanipulation laboratories in Lahore, catering to couples from across Pakistan struggling with severe male factor infertility. By combining advanced sperm selection techniques (IMSI, PICSI) with precision injection protocols, we consistently bypass nature's toughest barriers.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mt-12">
+            <div class="bg-sky-800/50 p-6 rounded-2xl border border-sky-700/50 backdrop-blur-sm">
+                <i class="ph ph-target text-3xl text-sky-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">High Fertilization Rates</h4>
+                <p class="text-sm text-sky-200">Our meticulous handling of vital gametes ensures fertilization rates exceeding 75%, far above standard benchmarks.</p>
+            </div>
+            <div class="bg-sky-800/50 p-6 rounded-2xl border border-sky-700/50 backdrop-blur-sm">
+                <i class="ph ph-shield-plus text-3xl text-teal-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Advanced Selection (IMSI/PICSI)</h4>
+                <p class="text-sm text-sky-200">We utilize ultra-high magnification and physiological binding assays to select the single best sperm prior to injection.</p>
+            </div>
+            <div class="bg-sky-800/50 p-6 rounded-2xl border border-sky-700/50 backdrop-blur-sm">
+                <i class="ph ph-currency-circle-dollar text-3xl text-rose-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Affordable ICSI Cost</h4>
+                <p class="text-sm text-sky-200">World-class embryology does not mean hidden costs. We provide a fully transparent, ethical breakdown of your ICSI package in Pakistan.</p>
             </div>
         </div>
     </div>
@@ -187,34 +215,66 @@ include("../includes/header.php");
     </div>
 </section>
 
-<!-- FAQ SCHEMA (JSON-LD) -->
+<!-- FAQ SCHEMA AND MEDICAL CONDITION SCHEMA (JSON-LD) -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "Is ICSI better than regular IVF?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "ICSI is specifically required when there is severe male factor infertility (low count, poor motility) or a history of failed fertilization. Regular IVF is used when sperm parameters are healthy."
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Intracytoplasmic Sperm Injection (ICSI) Treatment in Lahore",
+    "description": "Expert ICSI treatment for severe male infertility (oligospermia, azoospermia) in Lahore by Dr. Adnan Jabbar.",
+    "url": "https://ivfexperts.pk/art-procedures/icsi.php",
+    "author": {
+      "@type": "Physician",
+      "name": "Dr. Adnan Jabbar"
+    },
+    "about": {
+      "@type": "MedicalTherapy",
+      "name": "Intracytoplasmic Sperm Injection (ICSI)",
+      "treatmentIndication": [{
+        "@type": "MedicalCondition",
+        "name": "Male Infertility"
+      }, {
+        "@type": "MedicalCondition",
+        "name": "Oligozoospermia"
+      }, {
+        "@type": "MedicalCondition",
+        "name": "Azoospermia"
+      }],
+      "code": {
+         "@type": "MedicalCode",
+         "codeValue": "89253",
+         "codingSystem": "CPT"
+      }
     }
-  },{
-    "@type": "Question",
-    "name": "What is the success rate of ICSI in Lahore?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "ICSI successfully fertilizes approximately 70-85% of injected mature eggs. The overall pregnancy success rate is driven by maternal age and embryo quality."
-    }
-  },{
-    "@type": "Question",
-    "name": "Does ICSI cause birth defects?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Children born from ICSI are as healthy as those conceived naturally. We mitigate generic risks with chromosomal screening (PGT-A) when necessary."
-    }
-  }]
-}
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Is ICSI better than regular IVF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ICSI is specifically required when there is severe male factor infertility (low count, poor motility) or a history of failed fertilization. Regular IVF is used when sperm parameters are healthy."
+      }
+    },{
+      "@type": "Question",
+      "name": "What is the success rate of ICSI in Lahore?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ICSI successfully fertilizes approximately 70-85% of injected mature eggs. The overall pregnancy success rate is driven by maternal age and embryo quality."
+      }
+    },{
+      "@type": "Question",
+      "name": "Does ICSI cause birth defects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Children born from ICSI are as healthy as those conceived naturally. We mitigate genetic risks with chromosomal screening (PGT-A) when necessary."
+      }
+    }]
+  }
+]
 </script>
 
 <!-- CALL TO ACTION -->

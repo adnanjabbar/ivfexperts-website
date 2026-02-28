@@ -30,7 +30,7 @@ include("../includes/header.php");
             </h1>
             
             <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
-                Diminished Ovarian Reserve (Low AMH) presents a clear urgency, but it is not an absolute barrier. Through aggressive, highly tailored stimulation protocols and embryo banking, we maximize your remaining reproductive potential.
+                Diminished Ovarian Reserve (Low AMH) presents a clear urgency, but it is not an absolute barrier to motherhood. As a leading fertility specialist in Lahore, Pakistan, Dr. Adnan Jabbar utilizes aggressive, highly tailored <a href="/art-procedures/ivf.php" class="text-rose-400 font-semibold hover:underline">IVF stimulation protocols</a> and embryo banking to maximize your remaining reproductive potential before it's too late.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -129,16 +129,75 @@ include("../includes/header.php");
                 <div class="p-8 border border-slate-800 bg-slate-900/50 rounded-3xl">
                     <h3 class="text-2xl font-bold text-sky-400 mb-4">Androgen Priming (DHEA/Testosterone)</h3>
                     <p class="text-slate-300 leading-relaxed text-sm">
-                        Preparing the ovaries 2-3 months prior to a cycle with specialized androgens (like DHEA) can increase follicle receptor sensitivity, sometimes boosting the number of eggs retrieved by 20-30%.
+                        Preparing the ovaries 2-3 months prior to an IVF cycle with specialized androgens (like DHEA) can increase follicle receptor sensitivity, sometimes boosting the number of eggs retrieved by 20-30% in poor responders.
                     </p>
                 </div>
 
                 <div class="p-8 border border-slate-800 bg-slate-900/50 rounded-3xl">
-                    <h3 class="text-2xl font-bold text-teal-400 mb-4">Ovarian PRP (Emerging)</h3>
+                    <h3 class="text-2xl font-bold text-teal-400 mb-4">Ovarian PRP (Emerging in Lahore)</h3>
                     <p class="text-slate-300 leading-relaxed text-sm">
-                        For extremely low responders, we offer Platelet-Rich Plasma (PRP) ovarian rejuvenation. By injecting concentrated growth factors directly into the ovaries, we attempt to awaken dormant follicles prior to stimulation.
+                        For extremely low responders, we offer Platelet-Rich Plasma (PRP) ovarian rejuvenation at our Lahore clinic. By injecting concentrated growth factors directly into the ovaries, we attempt to awaken dormant follicles prior to stimulation.
                     </p>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEO SECTION: BEST LOW AMH DOCTOR IN LAHORE -->
+<section class="py-20 bg-rose-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-rose-950 via-rose-900 to-rose-800 -z-20"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-20 mix-blend-overlay -z-10"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Expert Low AMH Treatment in Lahore</h2>
+        <p class="text-xl text-rose-200 mb-8 leading-relaxed max-w-4xl mx-auto">
+            A diagnosis of Diminished Ovarian Reserve or Early Menopause can be devastating, but modern reproductive endocrinology offers powerful tools. Dr. Adnan Jabbar specializes in poor-responder IVF protocols in Pakistan. We refuse to use cookie-cutter, high-dose stimulation that simply "burns out" fragile ovaries. Instead, our personalized, low-dose "Mini IVF" approaches focus entirely on egg *quality*, rescuing your remaining fertility through precision medicine.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mt-12">
+            <div class="bg-rose-800/50 p-6 rounded-2xl border border-rose-700/50 backdrop-blur-sm">
+                <i class="ph ph-test-tube text-3xl text-rose-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Accurate Diagnostics</h4>
+                <p class="text-sm text-rose-200">We precisely measure AMH, Day 3 FSH, and perform high-resolution Antral Follicle Counts (AFC) to map out your exact timeline and reserve status.</p>
+            </div>
+            <div class="bg-rose-800/50 p-6 rounded-2xl border border-rose-700/50 backdrop-blur-sm">
+                <i class="ph ph-target text-3xl text-emerald-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Tailored Stimulation</h4>
+                <p class="text-sm text-rose-200">Our protocols use natural cycles, Letrozole, or low-dose Gonadotropins to coax 1-3 high-quality eggs per cycle without damaging them with hyper-stimulation.</p>
+            </div>
+            <div class="bg-rose-800/50 p-6 rounded-2xl border border-rose-700/50 backdrop-blur-sm">
+                <i class="ph ph-snowflake text-3xl text-indigo-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Embryo Banking</h4>
+                <p class="text-sm text-rose-200">We utilize ultra-fast vitrification (freezing) to safely "bank" embryos across multiple retrieval cycles before proceeding to a frozen transfer.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DOR FAQ SECTION (SEO Google Snippet Hijacking) -->
+<section class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Frequently Asked Questions About Low AMH in Pakistan</h2>
+            <p class="text-slate-600">Addressing common concerns regarding Diminished Ovarian Reserve and success rates.</p>
+        </div>
+        
+        <div class="space-y-6">
+            <!-- FAQ 1 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Can I get pregnant naturally with Low AMH?</h3>
+                <p class="text-slate-600 leading-relaxed">Yes, it is possible. Low AMH indicates a low *quantity* of eggs, but if you are under 35, your egg *quality* may still be excellent. You only need one good egg to conceive naturally. However, because the window of fertility is rapidly closing, we highly recommend aggressive fertility preservation or IVF rather than waiting and losing the remaining reserve.</p>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Will taking higher doses of IVF injections produce more eggs?</h3>
+                <p class="text-slate-600 leading-relaxed">Usually, no. In patients with Diminished Ovarian Reserve, giving massive doses of gonadotropin injections (over 300-450 IU) rarely recruits more eggs, but it frequently ruins the microscopic quality of the few eggs that do grow. This is why Dr. Adnan Jabbar utilizes "Mini IVF" or mild stimulation protocols for low responders to focus strictly on egg quality.</p>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">How does DHEA help with Low Ovarian Reserve?</h3>
+                <p class="text-slate-600 leading-relaxed">DHEA is a mild androgen (male hormone) supplement. Research suggests that priming the ovaries with DHEA for 8 to 12 weeks before an IVF cycle can increase the density of FSH receptors on the tiny, resting follicles, allowing them to respond better to IVF stimulation drugs and potentially yielding a higher number of mature eggs.</p>
             </div>
         </div>
     </div>
@@ -162,5 +221,72 @@ include("../includes/header.php");
         </div>
     </div>
 </section>
+
+<!-- FAQ SCHEMA AND MEDICAL CONDITION SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Diminished Ovarian Reserve (Low AMH) Treatment in Lahore",
+    "description": "Expert Diminished Ovarian Reserve (DOR) and Low AMH fertility treatment in Lahore, Pakistan by Dr. Adnan Jabbar. Specialized in Mini IVF, embryo banking, and PRP.",
+    "url": "https://ivfexperts.pk/female-infertility/diminished-ovarian-reserve.php",
+    "author": {
+      "@type": "Physician",
+      "name": "Dr. Adnan Jabbar"
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Diminished Ovarian Reserve",
+      "alternateName": "Low AMH",
+      "associatedPathophysiology": "Female Infertility",
+      "possibleTreatment": [
+        {
+          "@type": "MedicalTherapy",
+          "name": "Mini IVF (Mild Stimulation)"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Embryo Banking (Vitrification)"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "DHEA Androgen Priming"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Ovarian PRP (Emerging)"
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Can I get pregnant naturally with Low AMH?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, it is possible. Low AMH indicates a low quantity of eggs, but if you are under 35, your egg quality may still be excellent. However, because the window of fertility is rapidly closing, we highly recommend aggressive fertility preservation or IVF rather than waiting."
+      }
+    },{
+      "@type": "Question",
+      "name": "Will taking higher doses of IVF injections produce more eggs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually, no. In patients with Diminished Ovarian Reserve, giving massive doses of gonadotropin injections rarely recruits more eggs, but it frequently ruins the microscopic quality of the few eggs that do grow. This is why we utilize Mini IVF."
+      }
+    },{
+      "@type": "Question",
+      "name": "How does DHEA help with Low Ovarian Reserve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DHEA is a mild androgen supplement. Research suggests that priming the ovaries with DHEA for 8 to 12 weeks before an IVF cycle can increase the density of FSH receptors on the tiny, resting follicles, allowing them to respond better to IVF stimulation drugs."
+      }
+    }]
+  }
+]
+</script>
 
 <?php include("../includes/footer.php"); ?>

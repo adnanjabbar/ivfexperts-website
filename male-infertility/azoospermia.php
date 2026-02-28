@@ -30,7 +30,7 @@ include("../includes/header.php");
             </h1>
             
             <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
-                The absence of sperm in the ejaculate does not mean the absence of fatherhood. Through advanced microscopic retrieval techniques (micro-TESE) and ICSI, we unlock biological possibilities that were once thought impossible.
+                The complete absence of sperm in the ejaculate does not mean the absence of fatherhood. As a highly specialized fertility clinic in Lahore, Pakistan, we utilize advanced microscopic retrieval techniques (micro-TESE, PESA) and ICSI to unlock biological possibilities that were once thought impossible. Dr. Adnan Jabbar routinely treats the most severe cases of male infertility.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -168,17 +168,45 @@ include("../includes/header.php");
 
             <div class="card p-8 group hover:-translate-y-2 transition-all relative overflow-hidden">
                 <div class="absolute inset-0 bg-indigo-50 opacity-0 group-hover:opacity-100 transition duration-500 -z-10"></div>
-                <h3 class="text-xl font-bold text-indigo-900 mb-4">Micro-TESE</h3>
-                <p class="text-slate-600 text-sm leading-relaxed mb-4">Under high-powered surgical microscopes, we identify micro-islands of healthy sperm production within otherwise failing testicles. The gold standard for Non-Obstructive Azoospermia.</p>
+                <h3 class="text-xl font-bold text-indigo-900 mb-4">Micro-TESE Surgery in Lahore</h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">Under high-powered surgical microscopes, we identify micro-islands of healthy sperm production within otherwise failing testicles. The undisputed gold standard for Non-Obstructive Azoospermia cases in Pakistan.</p>
                 <div class="text-xs font-bold text-indigo-600 uppercase tracking-wider mt-auto pt-4 border-t border-indigo-100">Highest Yield Strategy</div>
             </div>
 
             <div class="card p-8 group hover:-translate-y-2 transition-all">
                 <h3 class="text-xl font-bold text-indigo-900 mb-4">ICSI Integration</h3>
-                <p class="text-slate-600 text-sm leading-relaxed mb-4">Instead of relying on motility, a single healthy sperm retrieved from surgery is injected directly into the cytoplasm of the harvested egg by Dr. Adnan Jabbar.</p>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">Instead of relying on natural motility, a single healthy, surgically-retrieved sperm is selected and injected directly into the cytoplasm of the harvested egg by Dr. Adnan Jabbar.</p>
                 <div class="text-xs font-bold text-indigo-500 uppercase tracking-wider mt-auto pt-4 border-t border-slate-100">Lab Synchronized</div>
             </div>
 
+        </div>
+    </div>
+</section>
+
+<!-- SEO SECTION: BEST AZOOSPERMIA CLINIC IN LAHORE -->
+<section class="py-20 bg-indigo-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-20 mix-blend-overlay -z-10"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Expert Azoospermia Treatment in Pakistan</h2>
+        <p class="text-xl text-indigo-200 mb-8 leading-relaxed max-w-4xl mx-auto">
+            A diagnosis of Azoospermia requires a highly methodical, evidence-based approach. Blind testicular biopsies without prior hormonal profiling often cause unnecessary scar tissue and fail to retrieve sperm. Dr. Adnan Jabbar operates a dedicated male infertility clinic in Lahore, utilizing exact diagnostic algorithms before moving to surgical retrieval. This minimizes trauma to the testes while systematically maximizing the chances of finding viable sperm for IVF/ICSI.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mt-12">
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-microscope text-3xl text-indigo-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Micro-TESE Excellence</h4>
+                <p class="text-sm text-indigo-200">Using advanced operating microscopes, we can locate isolated pockets of spermatogenesis even in atrophied testicles.</p>
+            </div>
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-test-tube text-3xl text-teal-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Immediate Lab Processing</h4>
+                <p class="text-sm text-indigo-200">Surgically retrieved tissue is immediately processed in the adjoining embryology lab to confirm the presence of viable sperm while the patient is still under anesthesia.</p>
+            </div>
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-shield-check text-3xl text-rose-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Transparent Counseling</h4>
+                <p class="text-sm text-indigo-200">We provide realistic prognoses based on specific genetic markers (like AZF microdeletions), ensuring couples are fully informed.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -201,5 +229,68 @@ include("../includes/header.php");
         </div>
     </div>
 </section>
+
+<!-- FAQ SCHEMA AND MEDICAL CONDITION SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Azoospermia Treatment and Micro-TESE in Lahore",
+    "description": "Expert diagnosis and surgical retrieval treatment (Micro-TESE, PESA, TESA) for Obstructive and Non-Obstructive Azoospermia in Lahore, Pakistan by Dr. Adnan Jabbar.",
+    "url": "https://ivfexperts.pk/male-infertility/azoospermia.php",
+    "author": {
+      "@type": "Physician",
+      "name": "Dr. Adnan Jabbar"
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Azoospermia",
+      "alternateName": "No Sperm Count",
+      "associatedPathophysiology": "Male Infertility",
+      "possibleTreatment": [
+        {
+          "@type": "MedicalTherapy",
+          "name": "Micro-TESE (Microdissection Testicular Sperm Extraction)"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "PESA (Percutaneous Epididymal Sperm Aspiration)"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Intracytoplasmic Sperm Injection (ICSI)"
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Can a man with zero sperm count have a biological child?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A diagnosis of zero sperm in the ejaculate (Azoospermia) does not necessarily mean there is no sperm production in the testicles. Procedures like Micro-TESE or PESA can surgically extract viable sperm to be used in IVF/ICSI."
+      }
+    },{
+      "@type": "Question",
+      "name": "What is the success rate of Micro-TESE?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For Non-Obstructive Azoospermia, Micro-TESE finds viable sperm in approximately 50% to 60% of cases depending on the exact genetic and hormonal diagnosis."
+      }
+    },{
+      "@type": "Question",
+      "name": "Is Azoospermia curable with medication?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only specific types of Azoospermia related to severe hormonal imbalances (Hypogonadotropic Hypogonadism) can be corrected with long-term hormonal therapy. Most other cases require surgical retrieval."
+      }
+    }]
+  }
+]
+</script>
 
 <?php include("../includes/footer.php"); ?>

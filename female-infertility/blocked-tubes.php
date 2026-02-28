@@ -30,7 +30,7 @@ include("../includes/header.php");
             </h1>
             
             <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed font-light">
-                Blocked fallopian tubes create a physical barrier between sperm and egg. Representing 25-35% of all female infertility cases, this absolute obstacle can be surgically corrected or definitively bypassed using IVF.
+                Blocked fallopian tubes create a physical barrier between sperm and egg. Representing up to 35% of all female infertility cases in Pakistan, this absolute mechanical obstacle can be expertly diagnosed via HSG, surgically corrected, or definitively bypassed using advanced <a href="/art-procedures/ivf.php" class="text-emerald-700 font-semibold hover:underline">IVF treatments</a> by Dr. Adnan Jabbar in Lahore.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -158,9 +158,68 @@ include("../includes/header.php");
             <div class="p-10 bg-white shadow-xl rounded-3xl group hover:-translate-y-2 transition-transform border border-slate-100">
                 <h3 class="text-2xl font-bold text-emerald-600 mb-4 whitespace-nowrap">IVF (In Vitro Fertilization)</h3>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                    Rather than forcefully correcting a severely damaged tube—which often results in a dangerous ectopic pregnancy—we bypass it. By harvesting eggs directly from the ovary, fertilizing them in the lab, and transferring the embryo directly into the uterus, <strong>IVF boasts a 40-50% success rate per cycle for tubal factor infertility</strong>.
+                    Rather than forcefully correcting a severely damaged tube—which often results in a dangerous ectopic pregnancy—we bypass it entirely. By harvesting eggs directly from the ovaries, fertilizing them via <a href="/art-procedures/icsi.php" class="font-semibold text-emerald-600 hover:underline">ICSI</a> in our Lahore lab, and transferring the embryo directly into the uterus, <strong>IVF boasts a 40-50% success rate per cycle for tubal factor infertility</strong>.
                 </p>
                 <div class="text-xs font-bold text-emerald-500 uppercase tracking-wider mt-auto pt-4 border-t border-slate-100">Gold Standard Treatment</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEO SECTION: BEST TUBAL FACTOR INFERTILITY DOCTOR IN LAHORE -->
+<section class="py-20 bg-emerald-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-emerald-950 via-emerald-900 to-teal-900 -z-20"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-20 mix-blend-overlay -z-10"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Expert Treatment for Blocked Tubes in Lahore</h2>
+        <p class="text-xl text-emerald-100 mb-8 leading-relaxed max-w-4xl mx-auto">
+            Tubal factor infertility is often silent. Women with completely blocked tubes usually possess excellent ovarian reserve and experience normal menstrual cycles, but natural conception remains mathematically impossible. Dr. Adnan Jabbar leads one of the premier fertility clinics in Pakistan, offering painless HSG diagnostic testing, minimally invasive operative laparoscopy to remove toxic Hydrosalpinges, and exceptionally highly-rated IVF protocols to help couples bypass tubal barriers and achieve parenthood.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mt-12">
+            <div class="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700/50 backdrop-blur-sm">
+                <i class="ph ph-stethoscope text-3xl text-emerald-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Painless HSG Testing</h4>
+                <p class="text-sm text-emerald-100">We utilize advanced imaging techniques to ensure the Hysterosalpingogram (dye test) is as comfortable and highly accurate as possible.</p>
+            </div>
+            <div class="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700/50 backdrop-blur-sm">
+                <i class="ph ph-scissors text-3xl text-teal-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Hydrosalpinx Excision</h4>
+                <p class="text-sm text-emerald-100">When fluid-filled tubes threaten embryo implantation, our laparoscopic removal immediately corrects the toxic uterine environment.</p>
+            </div>
+            <div class="bg-emerald-800/50 p-6 rounded-2xl border border-emerald-700/50 backdrop-blur-sm">
+                <i class="ph ph-baby text-3xl text-indigo-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">IVF Specialization</h4>
+                <p class="text-sm text-emerald-100">Tubal factor patients represent some of the most successful IVF candidates because their underlying egg and sperm quality is usually intact.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BLOCKED TUBES FAQ SECTION (SEO Google Snippet Hijacking) -->
+<section class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4">Frequently Asked Questions About Blocked Tubes in Pakistan</h2>
+            <p class="text-slate-600">Clarifying diagnosis and treatment for tubal factor infertility.</p>
+        </div>
+        
+        <div class="space-y-6">
+            <!-- FAQ 1 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Can I get pregnant naturally if one fallopian tube is blocked?</h3>
+                <p class="text-slate-600 leading-relaxed">Yes. If one tube is completely open and healthy, and the other is blocked (but not leaking toxic fluid like a Hydrosalpinx), you can still conceive naturally. The open tube can often pick up an egg from either ovary. However, if pregnancy does not occur within a year, we may recommend ovulation induction or mild intervention.</p>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Is IVF the only option for bilaterally blocked tubes?</h3>
+                <p class="text-slate-600 leading-relaxed">If both tubes are severely blocked or severely scarred by PID or severe endometriosis, surgery to open them often fails and highly increases the risk of a dangerous ectopic pregnancy. In these cases, IVF is clinically considered the only safe and highly effective option, as it entirely bypasses the tubes.</p>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-3">Does reopening blocked tubes hurt?</h3>
+                <p class="text-slate-600 leading-relaxed">Sometimes, mucus plugs or minor debris can mimic a severe blockage on an HSG x-ray. In these cases, the pressure of the dye itself or a simple tubal flushing procedure (tubal cannulation) can clear the tube with minimal discomfort. Surgical reopening, if recommended, is always done under general anesthesia.</p>
             </div>
         </div>
     </div>
@@ -181,5 +240,64 @@ include("../includes/header.php");
         </div>
     </div>
 </section>
+
+<!-- FAQ SCHEMA AND MEDICAL CONDITION SCHEMA (JSON-LD) -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Blocked Fallopian Tubes and Tubal Factor Infertility Treatment in Lahore",
+    "description": "Expert diagnosis via HSG and treatment for blocked fallopian tubes (Hydrosalpinx) in Lahore, Pakistan by Dr. Adnan Jabbar. Offering IVF bypass and operative laparoscopy.",
+    "url": "https://ivfexperts.pk/female-infertility/blocked-tubes.php",
+    "author": {
+      "@type": "Physician",
+      "name": "Dr. Adnan Jabbar"
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Tubal Factor Infertility",
+      "alternateName": "Blocked Fallopian Tubes",
+      "associatedPathophysiology": "Female Infertility",
+      "possibleTreatment": [
+        {
+          "@type": "MedicalTherapy",
+          "name": "In Vitro Fertilization (IVF)"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Laparoscopic Salpingectomy"
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Can I get pregnant naturally if one fallopian tube is blocked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If one tube is completely open and healthy, and the other is blocked (but not leaking toxic fluid like a Hydrosalpinx), you can still conceive naturally. The open tube can often pick up an egg from either ovary."
+      }
+    },{
+      "@type": "Question",
+      "name": "Is IVF the only option for bilaterally blocked tubes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If both tubes are severely blocked or severely scarred by PID or severe endometriosis, surgery to open them often fails and highly increases the risk of a dangerous ectopic pregnancy. In these cases, IVF is clinically considered the only safe and highly effective option, as it entirely bypasses the tubes."
+      }
+    },{
+      "@type": "Question",
+      "name": "Does reopening blocked tubes hurt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes, mucus plugs or minor debris can mimic a severe blockage on an HSG x-ray. In these cases, the pressure of the dye itself or a simple tubal flushing procedure (tubal cannulation) can clear the tube with minimal discomfort. Surgical reopening, if recommended, is always done under general anesthesia."
+      }
+    }]
+  }
+]
+</script>
 
 <?php include("../includes/footer.php"); ?>

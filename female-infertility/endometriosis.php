@@ -30,7 +30,7 @@ include("../includes/header.php");
             </h1>
             
             <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
-                Endometriosis presents a multifaceted challenge, demanding a delicate balance between pain management and preserving ovarian tissue. We deploy advanced imaging, disciplined surgery, and IVF to overcome the inflammatory barriers it creates.
+                Endometriosis presents a multifaceted challenge, demanding a delicate balance between pain management and preserving ovarian tissue. As a leading Endometriosis specialist in Lahore, Pakistan, Dr. Adnan Jabbar deploys advanced imaging, disciplined conservative surgery, and specialized <a href="/art-procedures/ivf.php" class="text-rose-400 font-semibold hover:underline">IVF protocols</a> to overcome the inflammatory barriers it creates.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -138,10 +138,39 @@ include("../includes/header.php");
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                 </div>
                 <h3 class="text-2xl font-bold text-slate-900 mb-4">IVF / ICSI Acceleration</h3>
-                <p class="text-slate-600 leading-relaxed mb-4">For older patients, advanced stage disease, or diminished reserve (low AMH), we often bypass surgery entirely and move straight to IVF.</p>
+                <p class="text-slate-600 leading-relaxed mb-4">For older patients, advanced stage disease (Stage III/IV), or diminished reserve (low AMH), Dr. Adnan Jabbar often bypasses surgery entirely and moves straight to <a href="/art-procedures/ivf.php" class="font-semibold text-rose-600 hover:underline">In Vitro Fertilization (IVF)</a> or <a href="/art-procedures/icsi.php" class="font-semibold text-rose-600 hover:underline">ICSI</a>.</p>
                 <div class="bg-white p-4 rounded-xl border border-teal-100 text-sm text-slate-700">
                     <strong>Advantage:</strong> IVF completely bypasses the toxic pelvic environment and blocked tubes. Long down-regulation protocols (GnRH agonists) quiet the disease before embryo transfer to enhance implantation.
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEO SECTION: BEST ENDOMETRIOSIS SPECIALIST IN LAHORE -->
+<section class="py-20 bg-rose-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-rose-950 via-rose-900 to-rose-800 -z-20"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-20 mix-blend-overlay -z-10"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Expert Endometriosis Treatment in Lahore</h2>
+        <p class="text-xl text-rose-200 mb-8 leading-relaxed max-w-4xl mx-auto">
+            Endometriosis is notorious for misdiagnosis and delayed treatment. In Pakistan, many women suffer through years of debilitating pelvic pain (dysmenorrhea) and unexplained infertility before receiving a proper diagnosis. Dr. Adnan Jabbar brings world-class expertise to the management of Endometriosis in Lahore. From high-resolution transvaginal sonography that maps deep infiltrating disease, to specialized long-protocol IVF cycles designed to suppress pelvic inflammation prior to embryo transfer, we provide comprehensive care that protects both your quality of life and your fertility.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mt-12">
+            <div class="bg-rose-800/50 p-6 rounded-2xl border border-rose-700/50 backdrop-blur-sm">
+                <i class="ph ph-microscope text-3xl text-rose-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Advanced Staging</h4>
+                <p class="text-sm text-rose-200">Accurate staging is critical. We utilize expert ultrasound and, when necessary, diagnostic laparoscopy to map the exact anatomical extent of the disease before planning treatment.</p>
+            </div>
+            <div class="bg-rose-800/50 p-6 rounded-2xl border border-rose-700/50 backdrop-blur-sm">
+                <i class="ph ph-shield-plus text-3xl text-emerald-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Ovarian Preservation</h4>
+                <p class="text-sm text-rose-200">Aggressive cyst removal (stripping endometriomas) permanently destroys eggs. We prioritize fertility preservation, often turning to IVF before considering invasive ovarian surgery.</p>
+            </div>
+            <div class="bg-rose-800/50 p-6 rounded-2xl border border-rose-700/50 backdrop-blur-sm">
+                <i class="ph ph-baby text-3xl text-indigo-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Optimized Transfer Protocols</h4>
+                <p class="text-sm text-rose-200">For our endometriosis IVF patients, we use ultra-long downregulation protocols to medically mimic menopause temporarily, starving the endometrial implants before transferring the embryo.</p>
             </div>
         </div>
     </div>
@@ -177,34 +206,67 @@ include("../includes/header.php");
     </div>
 </section>
 
-<!-- FAQ SCHEMA (JSON-LD) -->
+<!-- FAQ SCHEMA AND MEDICAL CONDITION SCHEMA (JSON-LD) -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "Does Endometriosis mean I cannot get pregnant?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Not at all. While endometriosis can cause subfertility, many conceive naturally. For advanced disease, IVF offers an exceptionally high chance of success by entirely bypassing the inflammatory pelvic environment."
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "Endometriosis and Fertility Treatment in Lahore",
+    "description": "Expert Endometriosis management and fertility preservation in Lahore, Pakistan by Dr. Adnan Jabbar. Specialized in laparoscopy and IVF protocols for Endometriosis.",
+    "url": "https://ivfexperts.pk/female-infertility/endometriosis.php",
+    "author": {
+      "@type": "Physician",
+      "name": "Dr. Adnan Jabbar"
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Endometriosis",
+      "alternateName": "Endometrioma",
+      "associatedPathophysiology": "Female Infertility",
+      "possibleTreatment": [
+        {
+          "@type": "MedicalTherapy",
+          "name": "Laparoscopic Excision Surgery"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "In Vitro Fertilization (IVF)"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Long GnRH Agonist Downregulation Protocol"
+        }
+      ]
     }
-  },{
-    "@type": "Question",
-    "name": "Should I have surgery for Endometriosis before trying IVF?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "If your primary goal is pregnancy and you have low ovarian reserve, surgery on the ovaries can further damage remaining eggs. In such cases, we often recommend proceeding directly to IVF to secure embryos first."
-    }
-  },{
-    "@type": "Question",
-    "name": "How is Endometriosis diagnosed in Lahore?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "While advanced transvaginal ultrasounds and MRI can identify severe disease, the global gold standard for definitively diagnosing and staging Endometriosis is minimally invasive Laparoscopy."
-    }
-  }]
-}
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "Does Endometriosis mean I cannot get pregnant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not at all. While endometriosis can cause subfertility, many conceive naturally. For advanced disease, IVF offers an exceptionally high chance of success by entirely bypassing the inflammatory pelvic environment."
+      }
+    },{
+      "@type": "Question",
+      "name": "Should I have surgery for Endometriosis before trying IVF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your primary goal is pregnancy and you have low ovarian reserve, surgery on the ovaries can further damage remaining eggs. In such cases, we often recommend proceeding directly to IVF to secure embryos first."
+      }
+    },{
+      "@type": "Question",
+      "name": "How is Endometriosis diagnosed in Lahore?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While advanced transvaginal ultrasounds and MRI can identify severe disease, the global gold standard for definitively diagnosing and staging Endometriosis is minimally invasive Laparoscopy."
+      }
+    }]
+  }
+]
 </script>
 
 <!-- CALL TO ACTION -->

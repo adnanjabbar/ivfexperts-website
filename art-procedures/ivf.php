@@ -30,7 +30,7 @@ include("../includes/header.php");
             </h1>
             
             <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed font-light">
-                In Vitro Fertilization (IVF) is the absolute gold standard in reproductive medicine. By uniting the egg and sperm in a highly controlled laboratory environment, we bypass vast physiological barriers to establish a healthy pregnancy.
+                In Vitro Fertilization (IVF) is the absolute gold standard in reproductive medicine. By uniting the egg and sperm in a highly controlled laboratory environment, we bypass vast physiological barriers to establish a healthy pregnancy. As a leading IVF clinic in Lahore, Pakistan, Dr. Adnan Jabbar utilizes state-of-the-art embryology to deliver exceptional live birth rates.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -44,9 +44,12 @@ include("../includes/header.php");
         <div class="lg:col-span-5 fade-in" style="transition-delay: 200ms;">
             <div class="relative rounded-3xl overflow-hidden shadow-2xl group border border-slate-200/60 bg-white/50 backdrop-blur-xl p-2">
                 <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 flex items-center justify-center">
-                    <!-- IMAGE PLACEHOLDER: The user can place 'ivf-hero.jpg' in /assets/images/ -->
-                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=1200" alt="In Vitro Fertilization (IVF) Laboratory and Embryology in Lahore" loading="lazy" class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105">
-                    
+                    <!-- IMAGE: Locally hosted hero image -->
+                    <img src="/assets/images/hero_ivf_procedure.png" 
+                         alt="Microscopic view of In Vitro Fertilization (IVF) and ICSI process at the fertility clinic in Lahore Pakistan" 
+                         title="Advanced IVF Treatment Center by Dr. Adnan Jabbar"
+                         loading="lazy" 
+                         class="w-full h-full object-cover opacity-90 transition duration-700 group-hover:scale-105">
 
                     <div class="absolute bottom-6 left-6 right-6">
                         <div class="p-6 rounded-xl bg-white/90 backdrop-blur-md border border-slate-100 shadow-lg">
@@ -77,8 +80,8 @@ include("../includes/header.php");
                 <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center mb-4">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                 </div>
-                <h4 class="font-bold text-lg mb-2 text-slate-800">Tubal Factor</h4>
-                <p class="text-slate-600 text-sm">Completely bypasses blocked, damaged, or removed fallopian tubes.</p>
+                <h4 class="font-bold text-lg mb-2 text-slate-800">Tubal Factor Infertility</h4>
+                <p class="text-slate-600 text-sm">Completely bypasses blocked, damaged, or surgically removed fallopian tubes. IVF extracts the eggs directly from the ovaries, mimicking the natural function of the fallopian tube in a lab setting.</p>
             </div>
             
             <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:-translate-y-1 transition-transform fade-in" style="transition-delay: 100ms;">
@@ -86,15 +89,15 @@ include("../includes/header.php");
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                 </div>
                 <h4 class="font-bold text-lg mb-2 text-slate-800">Severe Male Factor</h4>
-                <p class="text-slate-600 text-sm">Combined with ICSI, IVF allows successful fertilization even with extremely low sperm counts.</p>
+                <p class="text-slate-600 text-sm">Combined with Intracytoplasmic Sperm Injection (ICSI), IVF allows for successful fertilization even in cases of severe oligozoospermia (low sperm count) or asthenozoospermia (poor motility).</p>
             </div>
 
             <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:-translate-y-1 transition-transform fade-in" style="transition-delay: 200ms;">
                 <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-lg flex items-center justify-center mb-4">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                 </div>
-                <h4 class="font-bold text-lg mb-2 text-slate-800">Endometriosis</h4>
-                <p class="text-slate-600 text-sm">Avoids the toxic pelvic environment created by advanced endometriosis entirely.</p>
+                <h4 class="font-bold text-lg mb-2 text-slate-800">Advanced Endometriosis</h4>
+                <p class="text-slate-600 text-sm">Avoids the toxic pelvic inflammatory environment created by advanced endometriosis entirely. IVF protects the fragile egg and sperm interaction away from the body.</p>
             </div>
 
             <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:-translate-y-1 transition-transform fade-in" style="transition-delay: 300ms;">
@@ -102,7 +105,35 @@ include("../includes/header.php");
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
                 <h4 class="font-bold text-lg mb-2 text-slate-800">Unexplained Infertility</h4>
-                <p class="text-slate-600 text-sm">When all tests are normal but pregnancy fails, IVF forces fertilization and bypasses unknown barriers.</p>
+                <p class="text-slate-600 text-sm">When all exhaustive diagnostics are normal but natural pregnancy consistently fails, IVF forces fertilization and bypasses unknown, microscopic physiological barriers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEO SECTION: BEST IVF CLINIC IN LAHORE -->
+<section class="py-20 bg-indigo-900 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjwvc3ZnPg==')] opacity-20 mix-blend-overlay -z-10"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
+        <h2 class="text-3xl lg:text-5xl font-bold mb-6">Looking for the Best IVF Treatment in Lahore?</h2>
+        <p class="text-xl text-indigo-200 mb-8 leading-relaxed max-w-4xl mx-auto">
+            IVF is not a generic procedure. It requires absolute clinical precision. Dr. Adnan Jabbar is widely regarded as one of the best fertility specialists and clinical embryologists in Pakistan. By personally overseeing the highly sensitive laboratory environment and combining it with tailored ovarian stimulation protocols, we consistently achieve success rates that rival leading international clinics. Whether you are located in Lahore, Islamabad, Karachi, or visiting from abroad, our state-of-the-art facility is equipped to handle the most complex cases of infertility.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mt-12">
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-microscope text-3xl text-indigo-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Advanced Embryology</h4>
+                <p class="text-sm text-indigo-200">We utilize strict Day 5 Blastocyst culturing, maximizing the probability of implantation compared to early Day 3 transfers.</p>
+            </div>
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-dna text-3xl text-teal-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">PGT Testing Available</h4>
+                <p class="text-sm text-indigo-200">Comprehensive Preimplantation Genetic Testing ensures only chromosomally normal embryos are selected for transfer.</p>
+            </div>
+            <div class="bg-indigo-800/50 p-6 rounded-2xl border border-indigo-700/50 backdrop-blur-sm">
+                <i class="ph ph-shield-check text-3xl text-rose-300 mb-3 block"></i>
+                <h4 class="font-bold text-lg mb-2">Transparent IVF Cost</h4>
+                <p class="text-sm text-indigo-200">Our IVF packages in Pakistan are highly transparent. No hidden clinical fees, ensuring completely ethical patient care.</p>
             </div>
         </div>
     </div>
@@ -228,34 +259,61 @@ include("../includes/header.php");
     </div>
 </section>
 
-<!-- FAQ SCHEMA (JSON-LD) -->
+<!-- FAQ SCHEMA AND MEDICAL CONDITION SCHEMA (JSON-LD) -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "What is the cost of IVF in Lahore, Pakistan?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "The cost of IVF in Pakistan varies depending on the medical history of the couple, the type of stimulation protocol required, and whether advanced procedures like ICSI or PGT are included. Transparent pricing is provided after clinical evaluation."
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "name": "In Vitro Fertilization (IVF) Treatment in Lahore",
+    "description": "Comprehensive IVF treatment and ICSI services provided by Dr. Adnan Jabbar in Lahore, Pakistan. Specializing in high success rate embryology and blastocyst transfer.",
+    "url": "https://ivfexperts.pk/art-procedures/ivf.php",
+    "author": {
+      "@type": "Physician",
+      "name": "Dr. Adnan Jabbar"
+    },
+    "about": {
+      "@type": "MedicalTherapy",
+      "name": "In Vitro Fertilization (IVF)",
+      "alternateName": "Test Tube Baby",
+      "treatmentIndication": {
+        "@type": "MedicalCondition",
+        "name": "Infertility"
+      },
+      "code": {
+         "@type": "MedicalCode",
+         "codeValue": "Z31.2",
+         "codingSystem": "ICD-10"
+      }
     }
-  },{
-    "@type": "Question",
-    "name": "What are the success rates of IVF on the first try?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Success rates vary by maternal age and egg reserve. Women under 35 at our premium laboratory can experience success rates exceeding 50-60% per embryo transfer using Day 5 Blastocyst culturing."
-    }
-  },{
-    "@type": "Question",
-    "name": "Is IVF painful?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "The IVF process is generally well-tolerated. Ovarian stimulation uses small subcutaneous needles, egg retrieval is performed under painless light anesthesia, and embryo transfer is a simple, painless clinic procedure."
-    }
-  }]
-}
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": "What is the cost of IVF in Lahore, Pakistan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The cost of IVF in Pakistan varies depending on the medical history of the couple, the type of stimulation protocol required, and whether advanced procedures like ICSI or PGT are included. Transparent pricing is provided after clinical evaluation."
+      }
+    },{
+      "@type": "Question",
+      "name": "What are the success rates of IVF on the first try?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Success rates vary by maternal age and egg reserve. Women under 35 at our premium laboratory can experience success rates exceeding 50-60% per embryo transfer using Day 5 Blastocyst culturing."
+      }
+    },{
+      "@type": "Question",
+      "name": "Is IVF painful?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The IVF process is generally well-tolerated. Ovarian stimulation uses small subcutaneous needles, egg retrieval is performed under painless light anesthesia, and embryo transfer is a simple, painless clinic procedure."
+      }
+    }]
+  }
+]
 </script>
 
 <!-- CALL TO ACTION -->
