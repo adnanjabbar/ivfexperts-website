@@ -1,5 +1,7 @@
 (function () {
+
     function initApp() {
+
         /* ===============================
            ROTATING HERO TEXT
         =============================== */
@@ -9,12 +11,15 @@
             "Male & Female Infertility Expertise",
             "Teleconsultations for Overseas Pakistanis"
         ];
+
         var index = 0;
         var rotating = document.getElementById("rotating-text");
+
         if (rotating) {
             setInterval(function () {
                 rotating.style.opacity = 0;
                 rotating.style.transform = "translateY(10px)";
+
                 setTimeout(function () {
                     index = (index + 1) % texts.length;
                     rotating.innerText = texts[index];
@@ -23,10 +28,12 @@
                 }, 500);
             }, 4500);
         }
+
         /* ===============================
            STICKY HEADER SHADOW
         =============================== */
         var header = document.querySelector("header");
+
         if (header) {
             window.addEventListener("scroll", function () {
                 if (window.scrollY > 80) {
@@ -36,10 +43,12 @@
                 }
             });
         }
+
         /* ===============================
            ADVANCED SCROLL REVEAL
         =============================== */
         var fadeElements = document.querySelectorAll(".fade-in");
+
         if ("IntersectionObserver" in window && fadeElements.length > 0) {
             var observer = new IntersectionObserver(function (entries, obs) {
                 entries.forEach(function (entry) {
@@ -49,27 +58,35 @@
                     }
                 });
             }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
             fadeElements.forEach(function (el) {
                 observer.observe(el);
             });
         } else {
             fadeElements.forEach(function (el) { el.classList.add("appear"); });
         }
+
         /* ===============================
            COUNTER ANIMATION
         =============================== */
         var counters = document.querySelectorAll(".counter");
+
         counters.forEach(function (counter) {
             var target = parseInt(counter.getAttribute("data-target"));
             if (isNaN(target)) return;
+
             var started = false;
+
             var runCounter = function () {
                 if (started) return;
                 started = true;
+
                 var current = 0;
                 var increment = target / 60;
+
                 var update = function () {
                     current += increment;
+
                     if (current < target) {
                         counter.innerText = Math.ceil(current);
                         requestAnimationFrame(update);
@@ -77,8 +94,10 @@
                         counter.innerText = target + "+";
                     }
                 };
+
                 update();
             };
+
             if ("IntersectionObserver" in window) {
                 var counterObserver = new IntersectionObserver(function (entries, obs) {
                     entries.forEach(function (entry) {
@@ -88,11 +107,13 @@
                         }
                     });
                 }, { threshold: 0.5 });
+
                 counterObserver.observe(counter);
             } else {
                 runCounter();
             }
         });
+
         /* ===============================
            PREMIUM CARD HOVER GLOW
         =============================== */
@@ -102,10 +123,12 @@
                 var rect = card.getBoundingClientRect();
                 var x = e.clientX - rect.left;
                 var y = e.clientY - rect.top;
+
                 card.style.setProperty("--mouse-x", x + "px");
                 card.style.setProperty("--mouse-y", y + "px");
             });
         });
+
         /* ===============================
            MOBILE MENU
         =============================== */
@@ -114,6 +137,7 @@
         var mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
         var mobileMenuBackdrop = document.getElementById("mobile-menu-backdrop");
         var mobileMenuPanel = document.getElementById("mobile-menu-panel");
+
         function openMobileMenu() {
             if (!mobileMenuOverlay) return;
             mobileMenuOverlay.style.display = "block";
@@ -125,6 +149,7 @@
                 });
             });
         }
+
         function closeMobileMenu() {
             if (!mobileMenuOverlay) return;
             mobileMenuBackdrop.style.opacity = "0";
@@ -134,6 +159,7 @@
                 mobileMenuOverlay.style.display = "none";
             }, 300);
         }
+
         if (mobileMenuBtn) {
             mobileMenuBtn.addEventListener("click", openMobileMenu);
         }
@@ -143,6 +169,7 @@
         if (mobileMenuBackdrop) {
             mobileMenuBackdrop.addEventListener("click", closeMobileMenu);
         }
+
         // Close menu when a nav link is clicked
         if (mobileMenuOverlay) {
             var menuLinks = mobileMenuOverlay.querySelectorAll("nav a");
@@ -150,6 +177,7 @@
                 link.addEventListener("click", closeMobileMenu);
             });
         }
+
         // Accordion toggles
         var accordionToggles = document.querySelectorAll(".mobile-accordion-toggle");
         accordionToggles.forEach(function (toggle) {
@@ -158,6 +186,7 @@
                 var content = accordion.querySelector(".mobile-accordion-content");
                 var arrow = accordion.querySelector(".mobile-accordion-arrow");
                 var isOpen = content.style.display === "block";
+
                 // Close all others first
                 accordionToggles.forEach(function (otherToggle) {
                     var otherAccordion = otherToggle.closest(".mobile-accordion");
@@ -166,6 +195,7 @@
                     otherContent.style.display = "none";
                     otherArrow.style.transform = "rotate(0deg)";
                 });
+
                 // Toggle current
                 if (!isOpen) {
                     content.style.display = "block";
@@ -173,11 +203,15 @@
                 }
             });
         });
+
     }
+
     // Handle both cases: DOM already loaded, or still loading
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", initApp);
     } else {
         initApp();
     }
+
 })();
+
