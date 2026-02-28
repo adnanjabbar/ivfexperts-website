@@ -48,6 +48,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_sa'])) {
     $norm = floatval($_POST['normal_morphology'] ?? 0);
     $abnorm = floatval($_POST['abnormal_morphology'] ?? 0);
 
+    // New WHO 6th Macro/Microscopic Parameters
+    $appearance = trim($_POST['appearance'] ?? 'Normal');
+    $liquefaction = trim($_POST['liquefaction'] ?? 'Complete');
+    $viscosity = trim($_POST['viscosity'] ?? 'Normal');
+    $vitality = isset($_POST['vitality']) && $_POST['vitality'] !== '' ? floatval($_POST['vitality']) : null;
+    $round_cells = trim($_POST['round_cells'] ?? '');
+    $debris = trim($_POST['debris'] ?? '');
+
     $wbc = trim($_POST['wbc'] ?? '');
     $agglut = trim($_POST['agglutination'] ?? '');
     $auto_diag = trim($_POST['auto_diagnosis'] ?? 'Pending');
@@ -57,10 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_sa'])) {
         $error = "Patient and Hospital fields are required.";
     }
     else {
-        $stmt = $conn->prepare("INSERT INTO semen_analyses (patient_id, hospital_id, qrcode_hash, collection_time, examination_time, abstinence_days, volume, ph, concentration, pr_motility, np_motility, im_motility, normal_morphology, abnormal_morphology, wbc, agglutination, auto_diagnosis, admin_notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO semen_analyses (patient_id, hospital_id, qrcode_hash, collection_time, examination_time, abstinence_days, volume, ph, concentration, pr_motility, np_motility, im_motility, normal_morphology, abnormal_morphology, appearance, liquefaction, viscosity, vitality, round_cells, debris, wbc, agglutination, auto_diagnosis, admin_notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         if ($stmt) {
-            $stmt->bind_param("iisssiddddddddssss", $patient_id, $hospital_id, $qrcode_hash, $coll_time, $exam_time, $abstinence, $volume, $ph, $conc, $pr, $np, $im, $norm, $abnorm, $wbc, $agglut, $auto_diag, $notes);
+            $stmt->bind_param("iisssiddddddddssdsssssss", $patient_id, $hospital_id, $qrcode_hash, $coll_time, $exam_time, $abstinence, $volume, $ph, $conc, $pr, $np, $im, $norm, $abnorm, $appearance, $liquefaction, $viscosity, $vitality, $round_cells, $debris, $wbc, $agglut, $auto_diag, $notes);
             if ($stmt->execute()) {
                 header("Location: semen_analyses.php?msg=saved");
                 exit;
@@ -138,6 +146,42 @@ endforeach; ?>
                         <h4 class="font-bold text-gray-800 border-b border-gray-100 pb-2 mb-4">Core Parameters</h4>
                         
                         <div class="space-y-4">
+                            <!-- Appearance -->
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-medium text-gray-700 w-1/3">Appearance</label>
+                                <div class="w-1/3">
+                                    <select name="appearance" class="w-full px-3 py-2 border border-gray-200 rounded text-sm focus:ring-1 focus:ring-sky-500">
+                                        <option value="Normal">Normal</option>
+                                        <option value="Abnormal">Abnormal</option>
+                                    </select>
+                                </div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 font-mono">Normal</div>
+                            </div>
+                            
+                            <!-- Liquefaction -->
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-medium text-gray-700 w-1/3">Liquefaction</label>
+                                <div class="w-1/3">
+                                    <select name="liquefaction" class="w-full px-3 py-2 border border-gray-200 rounded text-sm focus:ring-1 focus:ring-sky-500">
+                                        <option value="Complete">Complete (< 60m)</option>
+                                        <option value="Incomplete">Incomplete</option>
+                                    </select>
+                                </div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 font-mono">< 60 min</div>
+                            </div>
+
+                            <!-- Viscosity -->
+                            <div class="flex items-center justify-between">
+                                <label class="text-sm font-medium text-gray-700 w-1/3">Viscosity</label>
+                                <div class="w-1/3">
+                                    <select name="viscosity" class="w-full px-3 py-2 border border-gray-200 rounded text-sm focus:ring-1 focus:ring-sky-500">
+                                        <option value="Normal">Normal</option>
+                                        <option value="Abnormal">Abnormal (High)</option>
+                                    </select>
+                                </div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 font-mono">Normal</div>
+                            </div>
+
                             <!-- Volume -->
                             <div class="flex items-center justify-between">
                                 <label class="text-sm font-medium text-gray-700 w-1/3">Semen Volume</label>
@@ -167,13 +211,23 @@ endforeach; ?>
                                 <div class="w-1/3 text-right text-xs text-gray-400 font-mono">≥ 16 M/ml</div>
                             </div>
 
-                            <div class="pt-4 border-t border-gray-100">
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Pus Cells (WBC)</label>
-                                <input type="text" name="wbc" placeholder="e.g. 1-2 / HPF" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Agglutination</label>
-                                <input type="text" name="agglutination" placeholder="e.g. None, ++" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
+                            <div class="pt-4 border-t border-gray-100 grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Pus Cells (WBC)</label>
+                                    <input type="text" name="wbc" placeholder="e.g. 1-2 / HPF" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Round Cells</label>
+                                    <input type="text" name="round_cells" placeholder="e.g. < 1M/ml" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Agglutination</label>
+                                    <input type="text" name="agglutination" placeholder="e.g. None, ++" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Debris</label>
+                                    <input type="text" name="debris" placeholder="e.g. Occasional" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
+                                </div>
                             </div>
 
                         </div>
@@ -219,6 +273,15 @@ endforeach; ?>
                                 <label class="text-sm font-bold text-sky-800 w-1/3">Total Motility (PR+NP)</label>
                                 <div class="w-1/3 text-right font-mono font-bold text-lg" :class="isRed(pr + np, 42) ? 'text-red-600' : 'text-sky-700'" x-text="(pr + np) + ' %'"></div>
                                 <div class="w-1/3 text-right text-xs text-gray-400 font-mono">≥ 42 %</div>
+                            </div>
+
+                            <div class="flex items-center justify-between mt-4">
+                                <label class="text-sm font-medium text-gray-700 w-1/3">Vitality (Live %)</label>
+                                <div class="w-1/3 relative">
+                                    <input type="number" step="1" name="vitality" x-model.number="vitality" class="w-full px-3 py-2 border border-gray-200 rounded focus:ring-1 focus:ring-sky-500 font-mono text-right" :class="isRed(vitality, 54) ? 'text-red-600 bg-red-50 border-red-300' : ''">
+                                    <span class="absolute right-3 top-2 text-xs text-gray-400">%</span>
+                                </div>
+                                <div class="w-1/3 text-right text-xs text-gray-400 font-mono">≥ 54 %</div>
                             </div>
 
                             <h4 class="font-bold text-gray-800 border-b border-gray-100 pb-2 mt-6 mb-4">Morphology</h4>
@@ -285,6 +348,7 @@ document.addEventListener('alpine:init', () => {
         pr: 0,
         np: 0,
         norm: 0,
+        vitality: 0,
         
         // Compute Immotility automatically (100 - PR - NP)
         im() {

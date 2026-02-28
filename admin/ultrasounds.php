@@ -81,7 +81,7 @@ else:
                             </span>
                         </td>
                         <td class="px-6 py-4 text-right">
-                            <a href="#" class="text-sky-600 hover:text-sky-900 bg-sky-50 hover:bg-sky-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-flex items-center gap-1 border border-sky-100" onclick="alert('Print layout engine loading in Phase 7')">
+                            <a href="ultrasounds_print.php?id=<?php echo $r['id']; ?>" target="_blank" class="text-sky-600 hover:text-sky-900 bg-sky-50 hover:bg-sky-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-flex items-center gap-1 border border-sky-100">
                                 <i class="fa-solid fa-print"></i> Print (A4)
                             </a>
                         </td>

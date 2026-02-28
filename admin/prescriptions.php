@@ -79,7 +79,7 @@ else:
                             </div>
                         </td>
                         <td class="px-6 py-4 text-right">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-flex items-center gap-1 border border-indigo-100" onclick="alert('Print layout engine loading in Phase 7')">
+                            <a href="prescriptions_print.php?id=<?php echo $rx['id']; ?>" target="_blank" class="text-indigo-600 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-flex items-center gap-1 border border-indigo-100">
                                 <i class="fa-solid fa-print"></i> Print
                             </a>
                         </td>

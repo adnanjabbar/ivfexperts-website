@@ -125,12 +125,17 @@ endif; ?>
             </tr>
             <tr>
                 <td>Appearance / Color</td>
-                <td class="font-mono font-bold">Greyish White</td>
+                <td class="font-mono font-bold"><?php echo esc($sa['appearance']); ?></td>
                 <td class="text-xs text-slate-500 italic">Reference: Normal</td>
             </tr>
             <tr>
                 <td>Liquefaction</td>
-                <td class="font-mono font-bold">< 60 mins</td>
+                <td class="font-mono font-bold"><?php echo esc($sa['liquefaction']); ?></td>
+                <td class="text-xs text-slate-500 italic">Reference: Complete</td>
+            </tr>
+            <tr>
+                <td>Viscosity</td>
+                <td class="font-mono font-bold"><?php echo esc($sa['viscosity']); ?></td>
                 <td class="text-xs text-slate-500 italic">Reference: Normal</td>
             </tr>
         </table>
@@ -163,6 +168,11 @@ endif; ?>
                 <td class="font-mono font-bold text-lg border-t-2 border-slate-300 <?php echo($total_motility > 0 && $total_motility < 42) ? 'red-flag' : 'text-blue-700'; ?>"><?php echo $total_motility; ?> %</td>
                 <td class="text-xs text-slate-500 border-t-2 border-slate-300 italic">Reference: ≥ 42 %</td>
             </tr>
+            <tr>
+                <td>Vitality (Live Sperm)</td>
+                <td class="font-mono font-bold <?php echo($sa['vitality'] > 0 && $sa['vitality'] < 54) ? 'red-flag' : ''; ?>"><?php echo $sa['vitality'] ? $sa['vitality'] . ' %' : 'N/A'; ?></td>
+                <td class="text-xs text-slate-500 italic">Reference: ≥ 54 %</td>
+            </tr>
         </table>
 
         <!-- Morphology & Others -->
@@ -178,12 +188,20 @@ endif; ?>
                 <td></td>
             </tr>
             <tr>
+                <td>Round Cells</td>
+                <td class="font-mono font-bold text-sm" colspan="2"><?php echo esc($sa['round_cells'] ?: '< 1M/ml'); ?></td>
+            </tr>
+            <tr>
                 <td>Pus Cells (WBC)</td>
                 <td class="font-mono font-bold text-sm" colspan="2"><?php echo esc($sa['wbc'] ?: 'Nil'); ?></td>
             </tr>
             <tr>
                 <td>Agglutination</td>
                 <td class="font-mono font-bold text-sm" colspan="2"><?php echo esc($sa['agglutination'] ?: 'Nil'); ?></td>
+            </tr>
+            <tr>
+                <td>Debris</td>
+                <td class="font-mono font-bold text-sm" colspan="2"><?php echo esc($sa['debris'] ?: 'Occasional'); ?></td>
             </tr>
         </table>
 

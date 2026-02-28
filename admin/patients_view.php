@@ -82,6 +82,36 @@ try {
 catch (Exception $e) {
 }
 
+// Fetch Prescriptions
+$prescriptions = [];
+try {
+    $stmt = $conn->prepare("SELECT id, created_at FROM prescriptions WHERE patient_id = ? ORDER BY created_at DESC");
+    if ($stmt) {
+        $stmt->bind_param("i", $patient_id);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        while ($row = $res->fetch_assoc())
+            $prescriptions[] = $row;
+    }
+}
+catch (Exception $e) {
+}
+
+// Fetch Ultrasounds
+$ultrasounds = [];
+try {
+    $stmt = $conn->prepare("SELECT id, created_at, report_title FROM patient_ultrasounds WHERE patient_id = ? ORDER BY created_at DESC");
+    if ($stmt) {
+        $stmt->bind_param("i", $patient_id);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        while ($row = $res->fetch_assoc())
+            $ultrasounds[] = $row;
+    }
+}
+catch (Exception $e) {
+}
+
 include __DIR__ . '/includes/header.php';
 ?>
 
@@ -95,7 +125,10 @@ include __DIR__ . '/includes/header.php';
                 <div class="w-20 h-20 mx-auto bg-white/20 rounded-full flex items-center justify-center text-3xl text-white mb-3 shadow-inner">
                     <i class="fa-solid fa-user"></i>
                 </div>
-                <h2 class="text-xl font-bold text-white"><?php echo esc($patient['first_name'] . ' ' . $patient['last_name']); ?></h2>
+                <div class="relative flex flex-col items-center">
+                    <h2 class="text-xl font-bold text-white"><?php echo esc($patient['first_name'] . ' ' . $patient['last_name']); ?></h2>
+                    <a href="patients_edit.php?id=<?php echo $patient['id']; ?>" class="absolute right-0 top-0 mt-1 mr-1 text-teal-300 hover:text-white transition-colors tooltip" title="Edit Patient"><i class="fa-solid fa-pen"></i></a>
+                </div>
                 <p class="text-teal-200 text-sm font-mono mt-1">MR: <?php echo esc($patient['mr_number']); ?></p>
             </div>
             
@@ -272,15 +305,54 @@ endif; ?>
             </div>
         </div>
 
-        <!-- Tab 3 & 4 Placeholders -->
-        <div x-show="currentTab === 'rx'" x-cloak class="text-center py-12 text-gray-400 bg-white rounded-2xl border border-gray-100 border-dashed">
-            <i class="fa-solid fa-prescription-bottle text-4xl mb-3 text-gray-200 block"></i>
-            Prescription Module in Phase 3
+        <!-- Tab 3: Prescriptions -->
+        <div x-show="currentTab === 'rx'" x-cloak>
+            <div class="space-y-4">
+                <?php if (empty($prescriptions)): ?>
+                    <div class="text-center py-8 text-gray-400 bg-white rounded-2xl border border-gray-100 border-dashed">No prescriptions written yet.</div>
+                <?php
+else:
+    foreach ($prescriptions as $rx): ?>
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex justify-between items-center hover:border-indigo-200 transition-colors">
+                        <div>
+                            <div class="font-bold text-gray-800 mb-1">Digital Prescription</div>
+                            <div class="text-xs text-gray-500">Issued: <?php echo date('d M Y, h:i A', strtotime($rx['created_at'])); ?></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <a href="prescriptions_print.php?id=<?php echo $rx['id']; ?>" target="_blank" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-3 py-2 rounded-lg text-sm transition-colors">
+                                <i class="fa-solid fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                <?php
+    endforeach;
+endif; ?>
+            </div>
         </div>
 
-        <div x-show="currentTab === 'usg'" x-cloak class="text-center py-12 text-gray-400 bg-white rounded-2xl border border-gray-100 border-dashed">
-            <i class="fa-solid fa-image text-4xl mb-3 text-gray-200 block"></i>
-            Ultrasound Templates in Phase 4
+        <!-- Tab 4: Ultrasounds -->
+        <div x-show="currentTab === 'usg'" x-cloak>
+            <div class="space-y-4">
+                <?php if (empty($ultrasounds)): ?>
+                    <div class="text-center py-8 text-gray-400 bg-white rounded-2xl border border-gray-100 border-dashed">No ultrasound reports recorded yet.</div>
+                <?php
+else:
+    foreach ($ultrasounds as $u): ?>
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 flex justify-between items-center hover:border-sky-200 transition-colors">
+                        <div>
+                            <div class="font-bold text-gray-800 mb-1"><?php echo esc($u['report_title']); ?></div>
+                            <div class="text-xs text-gray-500">Recorded: <?php echo date('d M Y, h:i A', strtotime($u['created_at'])); ?></div>
+                        </div>
+                        <div class="flex gap-2">
+                            <a href="ultrasounds_print.php?id=<?php echo $u['id']; ?>" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm transition-colors">
+                                <i class="fa-solid fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                <?php
+    endforeach;
+endif; ?>
+            </div>
         </div>
 
     </div>
