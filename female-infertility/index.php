@@ -1,274 +1,202 @@
 <?php
-$pageTitle = "Female Infertility Treatment in Lahore | PCOS, Endometriosis, Blocked Tubes & Low Ovarian Reserve";
-$metaDescription = "Expert female infertility care in Lahore by Dr. Adnan Jabbar – dual-trained Fertility Consultant & Clinical Embryologist. PCOS, endometriosis, blocked tubes, diminished ovarian reserve — structured diagnosis, ovulation induction, laparoscopic surgery, IVF/ICSI. Compassionate, evidence-based treatment for women in Pakistan and overseas.";
+$pageTitle = "Female Infertility Treatment in Lahore | PCOS, Endometriosis & IVF";
+$metaDescription = "Expert female infertility care in Lahore by Dr. Adnan Jabbar. Structured diagnosis and advanced treatment for PCOS, Endometriosis, Blocked Tubes, and Diminished Ovarian Reserve. Compassionate care with IVF/ICSI success.";
 include("../includes/header.php");
 ?>
 
-<!-- HERO -->
-<section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-100/20 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200/25 rounded-full blur-3xl pointer-events-none"></div>
+<!-- HERO SECTION -->
+<section class="relative min-h-[80vh] flex items-center overflow-hidden pt-24 pb-16 lg:pt-32 lg:pb-24">
+    <!-- Nurturing/Warm Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-rose-50/50 via-white to-emerald-50/60 -z-20"></div>
+    
+    <!-- Animated Glow Orbs -->
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-rose-200/30 rounded-full blur-[100px] -z-10 animate-pulse-slow mix-blend-multiply"></div>
+    <div class="absolute bottom-10 left-10 w-[500px] h-[500px] bg-teal-100/40 rounded-full blur-[80px] -z-10 mix-blend-multiply"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-            <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900">
-                Female Infertility Treatment<br>in Lahore
+    <div class="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-12 gap-16 items-center z-10">
+        
+        <!-- LEFT: NARRATIVE -->
+        <div class="lg:col-span-7 fade-in">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rose-50 text-rose-700 text-sm font-semibold mb-6 border border-rose-100 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+                Empathy-Driven Clinical Care
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] mb-6">
+                Restoring hope through <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-teal-600">
+                    Precision & Compassion.
+                </span>
             </h1>
-            <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-3xl">
-                Female infertility affects 1 in 4–5 couples in Pakistan, often due to PCOS (20–40% prevalence), endometriosis, tubal blockages from infections, and diminished ovarian reserve from delayed childbearing. With accurate diagnosis and personalized care — lifestyle optimization, ovulation induction, surgery, or IVF/ICSI — most women achieve pregnancy. Dr. Adnan Jabbar offers compassionate, evidence-based treatment tailored to your unique journey.
+            
+            <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed">
+                Navigating PCOS, endometriosis, or unexplained infertility requires more than just medical intervention. It requires a tailored, empathetic strategy designed to optimize your unique reproductive potential without unnecessary procedures.
             </p>
 
             <div class="flex flex-wrap gap-5">
-                <a href="/contact/" class="btn-primary px-8 py-4 text-base lg:text-lg font-medium shadow-lg hover:shadow-xl transition">
-                    Book Consultation
+                <a href="#consultation" class="btn-primary text-white hover:text-white shadow-[0_8px_25px_rgba(225,29,72,0.25)] bg-rose-600 hover:bg-rose-700 border-none">
+                    Schedule Your Assessment
                 </a>
-                <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I%20would%20like%20to%20discuss%20female%20infertility%20options" 
-                   class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-7 py-4 rounded-lg font-medium text-base lg:text-lg shadow-lg transition">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                    </svg>
-                    Chat on WhatsApp
+                <a href="https://wa.me/923111101483" class="btn-outline group flex items-center gap-2 border-slate-300 text-slate-700 hover:bg-slate-50 hover:text-slate-900 border-2">
+                    <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                    WhatsApp Consult
                 </a>
             </div>
         </div>
 
-        <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-xl p-8 rounded-2xl">
-            <h3 class="text-2xl font-bold text-teal-700 mb-6">Common Female Infertility Issues in Pakistan</h3>
-            <ul class="space-y-4 text-gray-700 text-base">
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                    </svg>
-                    PCOS (20–40% prevalence — highest in South Asia)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H4"/>
-                    </svg>
-                    Endometriosis (10–15%, often undiagnosed for 7–10 years)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                    </svg>
-                    Blocked tubes (25–35%, from PID, TB, surgery)
-                </li>
-                <li class="flex items-start gap-3">
-                    <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Diminished ovarian reserve (rising due to age >35 & delayed marriage)
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- UNDERSTANDING FEMALE INFERTILITY -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-10 text-gray-900">
-            Understanding Female Infertility in Pakistan
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-8 max-w-4xl mx-auto">
-            Infertility affects 15–20% of couples in Pakistan, with female factors contributing 40–60%. Common issues include PCOS (highest prevalence in South Asia), endometriosis (often diagnosed late), tubal blockages from infections, and diminished reserve from delayed childbearing (average first pregnancy age ~28–32). Lifestyle, pollution, and untreated infections also play roles. The good news: 80–90% of cases have treatable causes, and early specialist care dramatically improves outcomes.
-        </p>
-
-        <h3 class="text-2xl font-bold mb-6 text-gray-900">Key Contributing Factors</h3>
-        <ul class="space-y-3 text-gray-700 text-base list-disc pl-6 max-w-4xl mx-auto">
-            <li>PCOS (20–40% — insulin resistance & anovulation)</li>
-            <li>Endometriosis (10–15% — pain & adhesions)</li>
-            <li>Tubal factor (25–35% — PID, TB, surgery)</li>
-            <li>Diminished ovarian reserve (increasing with age >35)</li>
-            <li>Uterine abnormalities (fibroids, septum, adenomyosis)</li>
-            <li>Hormonal/thyroid issues</li>
-            <li>Lifestyle (obesity, stress, smoking)</li>
-            <li>Unexplained (10–20% after full workup)</li>
-        </ul>
-
-        <p class="text-lg text-gray-700 leading-relaxed mt-8 max-w-4xl mx-auto">
-            With modern fertility medicine, most women conceive — naturally or with help — when root causes are identified early.
-        </p>
-    </div>
-</section>
-
-<!-- DIAGNOSTIC APPROACH -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Our Structured Diagnostic Approach
-        </h2>
-
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            We follow a logical, efficient evaluation to pinpoint causes quickly — most women complete diagnostics in 1–2 visits, avoiding unnecessary delays.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Hormonal & Reserve Testing</h3>
-                <p class="text-gray-700">Day 2–3 FSH, LH, estradiol, AMH, thyroid, prolactin — evaluates ovulation, reserve, and hormonal balance.</p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h18v18H3V3z"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Ultrasound & Imaging</h3>
-                <p class="text-gray-700">Transvaginal scan (PCOS, endometriomas, fibroids), HSG/HyCoSy (tubal patency), saline infusion (uterine cavity).</p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100 text-center">
-                <svg class="w-12 h-12 mx-auto mb-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                </svg>
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Advanced Procedures</h3>
-                <p class="text-gray-700">Laparoscopy (endometriosis, adhesions), hysteroscopy (polyps, septum), genetic/hormonal workup when needed.</p>
+        <!-- RIGHT: GLASSMORPHIC METRICS CARD -->
+        <div class="lg:col-span-5 fade-in" style="transition-delay: 200ms;">
+            <div class="relative rounded-3xl overflow-hidden bg-white/60 backdrop-blur-xl border border-white/80 shadow-[0_20px_60px_rgba(0,0,0,0.05)] p-8 lg:p-10">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent pointer-events-none"></div>
+                
+                <div class="relative z-10">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-6">Understanding the Scope</h3>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-rose-50 flex items-center justify-center flex-shrink-0 text-rose-600">
+                                <span class="font-bold text-xl">30%</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">PCOS Prevalence</h4>
+                                <p class="text-sm text-slate-500 mt-1">Highly prevalent in South Asia and treatable with structured induction.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center flex-shrink-0 text-teal-600">
+                                <span class="font-bold text-xl">25%</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Tubal Factors</h4>
+                                <p class="text-sm text-slate-500 mt-1">Often silent blockages that require HSG diagnosis or IVF bypassing.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center flex-shrink-0 text-emerald-600">
+                                <span class="font-bold text-xl">80%</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Treatment Success</h4>
+                                <p class="text-sm text-slate-500 mt-1">Majority of cases see success through timely specialist intervention.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- TREATMENT PATHWAY -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-6xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Personalized Treatment Pathway
-        </h2>
+<!-- THE CLINICAL APPROACH -->
+<section class="section-lg bg-white relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-4xl mx-auto mb-20 fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight">
+                A structured philosophy for <br/><span class="text-rose-600">complex female factors.</span>
+            </h2>
+            <p class="text-lg text-slate-600 leading-relaxed text-left md:text-center">
+                We reject the "one-size-fits-all" approach to female infertility. Whether addressing the metabolic complexities of PCOS, the immunological environment of Endometriosis, or the delicate timing required for Diminished Ovarian Reserve, your protocol is built exclusively for your biology.
+            </p>
+        </div>
 
-        <p class="text-lg text-gray-700 leading-relaxed mb-10 max-w-4xl mx-auto text-center">
-            Treatment starts conservative — 60–80% of women conceive naturally or with minimal help. We escalate only when needed, always prioritizing your fertility goals and well-being.
-        </p>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">1</span>
+        <div class="grid md:grid-cols-3 gap-8 fade-in">
+            <!-- Step 1 -->
+            <div class="card !p-10 border-t-4 border-t-rose-400">
+                <div class="w-14 h-14 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">Lifestyle & Optimization</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• 5–10% weight loss (restores ovulation in PCOS)</li>
-                    <li>• Anti-inflammatory diet</li>
-                    <li>• Exercise & stress reduction</li>
-                    <li>• Supplements (myo-inositol, CoQ10, vit D)</li>
-                </ul>
+                <h4 class="text-xl font-bold text-slate-800 mb-3">Diagnostic Precision</h4>
+                <p class="text-slate-600 leading-relaxed text-sm">Targeted day 2/3 hormonal panels, advanced 3D transvaginal ultrasound, and tubal patency tests (HSG/HyCoSy) prevent wasted time on ineffective treatments.</p>
             </div>
 
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">2</span>
+            <!-- Step 2 -->
+            <div class="card !p-10 border-t-4 border-t-teal-400">
+                <div class="w-14 h-14 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                 </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">Medical Therapy</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• Ovulation induction (letrozole > clomiphene)</li>
-                    <li>• Metformin for insulin resistance</li>
-                    <li>• Hormonal regulation (pills, IUD)</li>
-                    <li>• IUI (15–25% per cycle for mild cases)</li>
-                </ul>
+                <h4 class="text-xl font-bold text-slate-800 mb-3">Conservative First</h4>
+                <p class="text-slate-600 leading-relaxed text-sm">We begin with metabolic optimization, targeted ovulation induction (Letrozole/Clomiphene), and meticulously timed intercourse or IUI when anatomically optimal.</p>
             </div>
 
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">3</span>
+            <!-- Step 3 -->
+            <div class="card !p-10 border-t-4 border-t-indigo-400">
+                <div class="w-14 h-14 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">Surgical Intervention</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• Laparoscopy (endometriosis excision, ovarian drilling)</li>
-                    <li>• Tubal surgery (selective mild cases)</li>
-                    <li>• Hysteroscopy (polyps, septum correction)</li>
-                    <li>• Improves natural conception 20–50%</li>
-                </ul>
-            </div>
-
-            <div class="bg-teal-50/40 rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <div class="text-center mb-6">
-                    <span class="inline-block w-14 h-14 bg-teal-100 text-teal-700 rounded-full text-2xl font-bold flex items-center justify-center">4</span>
-                </div>
-                <h3 class="text-xl font-semibold mb-4 text-center text-teal-800">IVF / Advanced ART</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li>• For resistant or multiple-factor cases</li>
-                    <li>• Success: 40–50% per cycle (<35)</li>
-                    <li>• Embryo banking, PGT-A when indicated</li>
-                    <li>• Donor eggs for very low reserve</li>
-                </ul>
+                <h4 class="text-xl font-bold text-slate-800 mb-3">Advanced ART Escalation</h4>
+                <p class="text-slate-600 leading-relaxed text-sm">For severe endometriosis, occluded tubes, or low reserve, we transition purposefully to IVF/ICSI, utilizing antagonist protocols to maximize egg yield safely.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- EMOTIONAL SUPPORT -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-10 text-gray-900">
-            Emotional Support for Female Infertility
-        </h2>
-        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Infertility can bring profound emotional challenges — grief, guilt, relationship strain, societal pressure. Many women feel isolated or blame themselves. This is a medical journey, not a personal failing. With compassionate care, accurate diagnosis, and modern treatments, most couples find hope and success. We offer counseling referrals, support resources, and a judgment-free space to help you and your partner move forward together.
-        </p>
-    </div>
-</section>
+<!-- CONDITIONS DIRECTORY -->
+<section class="section-lg bg-soft relative">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center fade-in">Specialized Female Protocols</h2>
+        <p class="text-lg text-slate-600 mb-16 text-center max-w-2xl mx-auto fade-in">Explore our evidence-based approaches for navigating specific physiological roadblocks to conception.</p>
 
-<!-- FAQ -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Frequently Asked Questions
-        </h2>
-
-        <div class="space-y-6">
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">What is the most common cause of female infertility in Pakistan?</h3>
-                <p class="text-gray-700">
-                    PCOS (20–40% prevalence), followed by tubal factor (25–35%, often from infections), endometriosis, and diminished reserve due to delayed childbearing.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">How long should we try before seeing a specialist?</h3>
-                <p class="text-gray-700">
-                    12 months if under 35, 6 months if 35–40, sooner if known issues (irregular periods, severe pain, prior surgery). Earlier care improves outcomes.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Can most women conceive without IVF?</h3>
-                <p class="text-gray-700">
-                    Yes — 60–80% conceive with lifestyle, medication, IUI, or surgery. IVF is needed for ~20–30% (severe or multiple factors).
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Is female infertility increasing?</h3>
-                <p class="text-gray-700">
-                    Yes — delayed marriage (average first pregnancy ~28–32), urban stress, pollution, and untreated infections contribute. Early specialist care reverses many cases.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="section-lg bg-gradient-to-br from-teal-700 to-teal-900 text-white text-center">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
-            Your Journey to Motherhood Starts with Clarity
-        </h2>
-        <p class="text-lg lg:text-xl mb-10 opacity-90">
-            Accurate diagnosis and personalized treatment can change everything. You're supported every step — expert care is available right here in Lahore for women and couples in Pakistan and worldwide.
-        </p>
-        <div class="flex flex-wrap justify-center gap-6">
-            <a href="/contact/" class="bg-white text-teal-900 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl hover:bg-gray-100 transition">
-                Book Your Appointment
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+            <a href="/female-infertility/pcos.php" class="card group flex flex-col items-center text-center !p-10">
+                <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-rose-600 group-hover:text-white transition-all text-slate-700">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 mb-3">PCOS</h3>
+                <p class="text-sm text-slate-500">Overcoming insulin resistance and anovulation effectively.</p>
             </a>
-            <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'd%20like%20to%20discuss%20female%20infertility%20treatment" 
-               class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 px-10 py-5 rounded-lg font-bold text-lg shadow-2xl transition">
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                </svg>
-                WhatsApp Consultation
+
+            <a href="/female-infertility/endometriosis.php" class="card group flex flex-col items-center text-center !p-10">
+                <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-rose-600 group-hover:text-white transition-all text-slate-700">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 mb-3">Endometriosis</h3>
+                <p class="text-sm text-slate-500">Preserving ovarian reserve while managing pain and adhesions.</p>
+            </a>
+
+            <a href="/female-infertility/diminished-ovarian-reserve.php" class="card group flex flex-col items-center text-center !p-10">
+                <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-rose-600 group-hover:text-white transition-all text-slate-700">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 mb-3">Diminished Reserve</h3>
+                <p class="text-sm text-slate-500">Aggressive stimulation protocols for low AMH and advanced age.</p>
+            </a>
+
+            <a href="/female-infertility/blocked-tubes.php" class="card group flex flex-col items-center text-center !p-10">
+                <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-rose-600 group-hover:text-white transition-all text-slate-700">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 mb-3">Blocked Tubes</h3>
+                <p class="text-sm text-slate-500">Navigating tubal factor infertility directly via IVF strategy.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- THE EMOTIONAL CORE -->
+<section class="py-24 bg-slate-950 relative overflow-hidden text-center">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpIi8+PC9zdmc+')] opacity-30"></div>
+    <div class="max-w-4xl mx-auto px-6 relative z-10 fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight tracking-tight">
+            This is a medical journey, <br/><span class="text-rose-400">not a personal failing.</span>
+        </h2>
+        <p class="text-xl text-slate-300 leading-relaxed font-light">
+            Female infertility in Pakistan often carries undue societal pressure and emotional exhaustion. We provide a space of profound respect and medical transparency. Our goal is to shift your burden into a structured, highly capable clinical plan.
+        </p>
+    </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section id="consultation" class="section-lg relative overflow-hidden bg-white border-t border-slate-100">
+    <div class="max-w-4xl mx-auto px-6 relative z-10 text-center fade-in">
+        <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6">Let us review your history.</h2>
+        <p class="text-lg text-slate-600 mb-10">
+            A second opinion or a fresh, structured diagnostic look can completely change your trajectory. Schedule an assessment with Dr. Adnan Jabbar.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="https://wa.me/923111101483" class="bg-rose-600 text-white px-8 py-4 rounded-xl font-bold shadow-xl hover:bg-rose-700 hover:scale-105 transition-all w-full sm:w-auto flex items-center justify-center gap-3">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                Connect on WhatsApp
             </a>
         </div>
     </div>
