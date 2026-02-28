@@ -1,6 +1,6 @@
 <?php
-$pageTitle = "Contact Dr. Adnan Jabbar | Fertility Specialist in Lahore | IVF & Infertility Consultation";
-$metaDescription = "Schedule your fertility consultation in Lahore with Dr. Adnan Jabbar – dual-trained Fertility Consultant & Clinical Embryologist. In-person & teleconsultations for IVF, ICSI, male/female infertility. WhatsApp booking available for Pakistan & overseas patients.";
+$pageTitle = "Contact Dr. Adnan Jabbar | Fertility Specialist in Lahore | IVF Consultation";
+$metaDescription = "Schedule your fertility consultation in Lahore with Dr. Adnan Jabbar. Secure and confidential in-person & teleconsultations for IVF, ICSI, and complex infertility.";
 include("../includes/header.php");
 ?>
 
@@ -8,255 +8,237 @@ include("../includes/header.php");
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <!-- HERO -->
-<section class="relative min-h-[70vh] flex items-center bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-teal-100/20 to-transparent pointer-events-none"></div>
-    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-teal-200/25 rounded-full blur-3xl pointer-events-none"></div>
+<section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-slate-950 overflow-hidden">
+    <!-- Sophisticated Dark Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 -z-20"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAzKSIvPjwvc3ZnPg==')] opacity-50 mix-blend-overlay -z-10"></div>
+    
+    <!-- Animated Glow Orbs -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-teal-500/10 rounded-full blur-[120px] -z-10 animate-pulse-slow"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-16 lg:py-24 text-center">
-        <h1 class="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight text-gray-900 mb-6">
-            Schedule Your Fertility Consultation
-        </h1>
-        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Take the first step with clarity and confidence. Consultations focus on thorough evaluation, honest discussion, and a personalized, evidence-based plan — never rushed, always respectful of your journey.
-        </p>
-
-        <div class="flex flex-wrap justify-center gap-6 mt-10">
-            <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'd%20like%20to%20book%20a%20consultation" 
-               class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-lg font-bold text-lg shadow-2xl transition">
-                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                </svg>
-                Start on WhatsApp
-            </a>
-            <a href="#inquiry-form" class="bg-white text-teal-900 border-2 border-teal-900 hover:bg-teal-50 px-10 py-5 rounded-lg font-bold text-lg shadow-xl transition">
-                Fill Inquiry Form
-            </a>
+    <div class="relative max-w-4xl mx-auto px-6 text-center z-10 fade-in">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-900/40 text-teal-300 text-sm font-semibold mb-6 border border-teal-800/50 shadow-sm backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+            Confidential & Secure
         </div>
+        
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.15] text-white mb-6 tracking-tight">
+            Take the first step toward <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-indigo-400">
+                clarity and confidence.
+            </span>
+        </h1>
+        <p class="text-lg lg:text-xl text-slate-300 leading-relaxed font-light">
+            Consultations focus on thorough evaluation, honest discussion, and a personalized, evidence-based plan—never rushed, always respectful of your unique journey. Serving families in Lahore, across Pakistan, and internationally.
+        </p>
     </div>
 </section>
 
-<!-- CONTACT OPTIONS -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+<!-- CONTACT GRID -->
+<section class="relative -mt-10 z-20 pb-20 fade-in" style="transition-delay: 200ms;">
+    <div class="max-w-7xl mx-auto px-6 grid xl:grid-cols-12 gap-8 lg:gap-12 items-start">
 
-        <!-- WhatsApp & Quick Info -->
-        <div class="space-y-8">
-            <div>
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                    Fastest Way to Connect
-                </h2>
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    WhatsApp is the preferred and quickest way for most patients — especially overseas or busy families. Share your basic history, reports, and questions securely.
+        <!-- Info Column -->
+        <div class="xl:col-span-5 space-y-8">
+            <!-- Priority WhatsApp Box -->
+            <div class="bg-white rounded-3xl p-8 lg:p-10 shadow-xl border border-slate-100 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-green-400 to-emerald-600"></div>
+                <div class="flex items-start gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-full bg-green-50 text-green-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Priority WhatsApp</h2>
+                        <p class="text-sm text-slate-500 font-medium mt-1">Fastest response for all inquiries.</p>
+                    </div>
+                </div>
+                
+                <p class="text-slate-600 mb-8 leading-relaxed">
+                    Share your basic history, reports, and questions securely. Ideal for scheduling both in-person and international teleconsultations.
                 </p>
+                
                 <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'm%20interested%20in%20a%20fertility%20consultation" 
-                   class="inline-flex items-center gap-4 bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-lg font-bold text-lg shadow-2xl transition">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                    </svg>
-                    Message on WhatsApp Now
+                   class="flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white w-full py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-green-500/30 transition-all">
+                    Message Now
                 </a>
-                <p class="text-sm text-gray-600 mt-4">
-                    Available for patients in Lahore, across Pakistan, and internationally.
-                </p>
             </div>
 
-            <div class="bg-teal-50/40 rounded-2xl p-8 border border-teal-100">
-                <h3 class="text-2xl font-bold text-teal-800 mb-6">What to Prepare</h3>
-                <ul class="space-y-4 text-gray-700">
-                    <li class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        Previous semen analysis / hormonal reports
+            <!-- Preparation Box -->
+            <div class="bg-teal-50/50 rounded-3xl p-8 lg:p-10 border border-teal-100/60 shadow-sm">
+                <div class="flex items-center gap-3 mb-6">
+                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                    <h3 class="text-xl font-bold text-teal-900">What to Prepare</h3>
+                </div>
+                <ul class="space-y-4 text-slate-700">
+                    <li class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="w-2 h-2 rounded-full bg-teal-500"></span></div>
+                        <span class="text-sm leading-relaxed">Previous semen analysis or hormonal profiles (FSH, LH, AMH).</span>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        Ultrasound / HSG reports
+                    <li class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="w-2 h-2 rounded-full bg-teal-500"></span></div>
+                        <span class="text-sm leading-relaxed">Recent ultrasound or tubal patency (HSG) reports.</span>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-teal-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        Past treatment history (if any)
+                    <li class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="w-2 h-2 rounded-full bg-teal-500"></span></div>
+                        <span class="text-sm leading-relaxed">Any past IUI/IVF treatment summaries.</span>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <!-- Inquiry Form with reCAPTCHA -->
-        <div class="card bg-white/90 backdrop-blur-md border border-teal-100 shadow-2xl p-8 lg:p-10 rounded-3xl" id="inquiry-form">
-            <h2 class="text-3xl font-bold text-teal-800 mb-8">
-                Send Your Inquiry
-            </h2>
+        <!-- Inquiry Form Column -->
+        <div class="xl:col-span-7">
+            <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl border border-slate-100 relative" id="inquiry-form">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-[100px] -z-10"></div>
+                
+                <h2 class="text-3xl font-bold text-slate-900 mb-2">Detailed Inquiry</h2>
+                <p class="text-slate-500 mb-8">Prefer email? Fill out the form below. We securely review all submissions.</p>
 
-            <?php if (isset($_GET['success'])): ?>
-                <div class="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg mb-8">
-                    Thank you! Your inquiry has been sent. We'll get back to you soon.
-                </div>
-            <?php elseif (isset($_GET['error'])): ?>
-                <div class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-lg mb-8">
-                    <?php
-                    $err = $_GET['error'];
-                    if ($err === 'captcha') echo "reCAPTCHA verification failed. Please check the box and try again.";
-                    elseif ($err === 'captcha_missing') echo "Please complete the reCAPTCHA verification.";
-                    elseif ($err === 'missing_fields') echo "Please fill all required fields.";
-                    elseif ($err === 'invalid_email') echo "Please enter a valid email address.";
-                    elseif ($err === 'send_failed') echo "Sorry, there was an error sending your message. Please try WhatsApp instead.";
-                    else echo "An error occurred. Please try again or contact us on WhatsApp.";
-                    ?>
-                </div>
-            <?php endif; ?>
+                <?php if (isset($_GET['success'])): ?>
+                    <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-4 rounded-xl mb-8 flex items-center gap-3">
+                        <svg class="w-6 h-6 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        <p class="font-medium text-sm">Thank you! Your inquiry has been securely sent. We will respond within 24 hours.</p>
+                    </div>
+                <?php
+elseif (isset($_GET['error'])): ?>
+                    <div class="bg-rose-50 border border-rose-200 text-rose-800 px-6 py-4 rounded-xl mb-8 flex items-center gap-3">
+                        <svg class="w-6 h-6 text-rose-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <p class="font-medium text-sm">
+                            <?php
+    $err = $_GET['error'];
+    if ($err === 'captcha')
+        echo "Security verification failed. Please check the reCAPTCHA box.";
+    elseif ($err === 'captcha_missing')
+        echo "Please complete the reCAPTCHA verification.";
+    elseif ($err === 'missing_fields')
+        echo "Please fill all required fields marked with an asterisk (*).";
+    elseif ($err === 'invalid_email')
+        echo "Please enter a valid email format.";
+    elseif ($err === 'send_failed')
+        echo "System error. Please contact us directly via WhatsApp.";
+    else
+        echo "An unexpected error occurred. Please try WhatsApp instead.";
+?>
+                        </p>
+                    </div>
+                <?php
+endif; ?>
 
-            <form action="/contact/process.php" method="POST" class="space-y-6">
-                <input type="hidden" name="form_source" value="contact_page">
+                <form action="/contact/process.php" method="POST" class="space-y-6">
+                    <input type="hidden" name="form_source" value="contact_page">
 
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-                    <input type="text" id="name" name="name" required 
-                           class="w-full border border-gray-300 rounded-lg px-5 py-4 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition"
-                           placeholder="Your full name">
-                </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label for="name" class="block text-sm font-semibold text-slate-700">Full Name *</label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition text-slate-900"
+                                   placeholder="Jane Doe">
+                        </div>
 
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                    <input type="email" id="email" name="email" required 
-                           class="w-full border border-gray-300 rounded-lg px-5 py-4 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition"
-                           placeholder="your.email@example.com">
-                </div>
+                        <div class="space-y-2">
+                            <label for="phone" class="block text-sm font-semibold text-slate-700">Phone / WhatsApp *</label>
+                            <input type="tel" id="phone" name="phone" required
+                                   class="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition text-slate-900"
+                                   placeholder="+92 3XX XXXXXXX">
+                        </div>
+                    </div>
 
-                <div>
-                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone / WhatsApp Number</label>
-                    <input type="tel" id="phone" name="phone" 
-                           class="w-full border border-gray-300 rounded-lg px-5 py-4 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition"
-                           placeholder="+92 3XX XXXXXXX">
-                </div>
+                    <div class="space-y-2">
+                        <label for="email" class="block text-sm font-semibold text-slate-700">Email Address *</label>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition text-slate-900"
+                               placeholder="your.email@example.com">
+                    </div>
 
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Your Fertility Concern / Message *</label>
-                    <textarea id="message" name="message" rows="5" required 
-                              class="w-full border border-gray-300 rounded-lg px-5 py-4 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition"
-                              placeholder="Briefly describe your situation, previous tests, or questions..."></textarea>
-                </div>
+                    <div class="space-y-2">
+                        <label for="message" class="block text-sm font-semibold text-slate-700">Clinical History / Question *</label>
+                        <textarea id="message" name="message" rows="5" required 
+                                  class="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition text-slate-900 resize-none"
+                                  placeholder="Briefly describe your situation, previous treatments, or specific questions..."></textarea>
+                    </div>
 
-                <!-- reCAPTCHA v2 Checkbox -->
-                <div class="g-recaptcha my-6" data-sitekey="6LdVE3ksAAAAAIsyioGnXh9yaL7AlseppNg3Fkai"></div>
+                    <!-- reCAPTCHA v2 -->
+                    <div class="pt-2">
+                        <div class="g-recaptcha" data-sitekey="6LdVE3ksAAAAAIsyioGnXh9yaL7AlseppNg3Fkai"></div>
+                    </div>
 
-                <button type="submit" class="btn-primary w-full py-5 text-lg font-bold shadow-xl hover:shadow-2xl transition">
-                    Submit Inquiry
-                </button>
-            </form>
-
-            <p class="text-sm text-gray-500 mt-6 text-center">
-                Protected by reCAPTCHA | We usually respond within 24 hours (faster via WhatsApp).
-            </p>
+                    <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white py-4 rounded-xl font-bold text-lg shadow-xl transition-all flex items-center justify-center gap-2 mt-4">
+                        Submit Secure Inquiry
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+                    <p class="text-xs text-slate-400 text-center flex items-center justify-center gap-1 mt-4">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        Your data is encrypted and strictly confidential.
+                    </p>
+                </form>
+            </div>
         </div>
+
     </div>
 </section>
 
 <!-- PRACTICE LOCATIONS -->
-<section class="section-lg bg-teal-50/30 border-t border-teal-100">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-12 text-gray-900">
-            Where We Consult in Lahore
-        </h2>
+<section class="section-lg bg-soft border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Clinical Locations</h2>
+            <p class="text-lg text-slate-600">State-of-the-art facilities across Lahore and Okara equipped to handle advanced diagnostic and ART protocols.</p>
+        </div>
 
-        <div class="grid md:grid-cols-4 gap-6">
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <svg class="w-10 h-10 mx-auto mb-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m0 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                </svg>
-                <p class="font-semibold text-lg text-gray-900">Healthnox Medical Center</p>
-                <p class="text-gray-600 mt-2">Lahore</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+            <div class="card p-8 group hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m0 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-xl mb-1 group-hover:text-indigo-600 transition-colors">Healthnox</h3>
+                <p class="text-slate-500 font-medium text-sm mb-4">Medical Center</p>
+                <div class="inline-block px-3 py-1 bg-slate-100 rounded text-xs font-semibold text-slate-600">Lahore</div>
             </div>
 
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <svg class="w-10 h-10 mx-auto mb-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m0 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                </svg>
-                <p class="font-semibold text-lg text-gray-900">Skina International Hospital</p>
-                <p class="text-gray-600 mt-2">Lahore</p>
+            <div class="card p-8 group hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m0 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-xl mb-1 group-hover:text-teal-600 transition-colors">Skina Int.</h3>
+                <p class="text-slate-500 font-medium text-sm mb-4">Hospital</p>
+                <div class="inline-block px-3 py-1 bg-slate-100 rounded text-xs font-semibold text-slate-600">Lahore</div>
             </div>
 
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <svg class="w-10 h-10 mx-auto mb-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m0 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                </svg>
-                <p class="font-semibold text-lg text-gray-900">AQ Ortho & Gynae Complex</p>
-                <p class="text-gray-600 mt-2">Okara</p>
+            <div class="card p-8 group hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m0 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-lg sm:text-xl mb-1 group-hover:text-rose-600 transition-colors truncate">AQ Ortho/Gynae</h3>
+                <p class="text-slate-500 font-medium text-sm mb-4">Complex</p>
+                <div class="inline-block px-3 py-1 bg-slate-100 rounded text-xs font-semibold text-slate-600">Okara</div>
             </div>
 
-            <div class="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition border border-teal-100">
-                <svg class="w-10 h-10 mx-auto mb-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m0 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                </svg>
-                <p class="font-semibold text-lg text-gray-900">Latif Hospital</p>
-                <p class="text-gray-600 mt-2">Lahore</p>
+            <div class="card p-8 group hover:-translate-y-2 transition-all duration-300">
+                <div class="w-12 h-12 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m0 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
+                <h3 class="font-bold text-slate-900 text-xl mb-1 group-hover:text-sky-600 transition-colors">Latif</h3>
+                <p class="text-slate-500 font-medium text-sm mb-4">Hospital</p>
+                <div class="inline-block px-3 py-1 bg-slate-100 rounded text-xs font-semibold text-slate-600">Lahore</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CONSULTATION FAQ -->
-<section class="section-lg bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12 text-gray-900">
-            Common Consultation Questions
-        </h2>
+<!-- FAQ -->
+<section class="py-24 bg-white relative">
+    <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-16 text-slate-900 fade-in">Logistics & Expectations</h2>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">What should I bring to the consultation?</h3>
-                <p class="text-gray-700">
-                    Previous reports (semen analysis, hormones, ultrasound/HSG, AMH, etc.), treatment history, and any questions you'd like discussed.
-                </p>
+        <div class="space-y-6 fade-in">
+            <div class="border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
+                <h4 class="font-bold text-slate-900 text-lg mb-2">How do teleconsultations work?</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">Highly effective for initial diagnostics. You send reports via WhatsApp, and we conduct a secure video/audio call to discuss your history and outline the immediate next steps before you ever walk into the clinic.</p>
             </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Do you offer teleconsultations?</h3>
-                <p class="text-gray-700">
-                    Yes — especially convenient for overseas Pakistanis or patients outside Lahore. WhatsApp video calls work well for initial discussions.
-                </p>
+            <div class="border border-slate-200 rounded-2xl p-6 hover:shadow-md transition">
+                <h4 class="font-bold text-slate-900 text-lg mb-2">When do I receive a treatment plan?</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">A clear diagnostic pathway is established in the first session. Some complex cases require an additional cycle of hormonal monitoring before a definitive ART protocol is finalized.</p>
             </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">How long until I get a treatment plan?</h3>
-                <p class="text-gray-700">
-                    We aim for clarity after the first detailed consultation. Some cases need additional tests before finalizing the plan.
-                </p>
-            </div>
-
-            <div class="card p-8 rounded-2xl">
-                <h3 class="text-xl font-semibold mb-4 text-teal-800">Is the consultation confidential?</h3>
-                <p class="text-gray-700">
-                    Absolutely — all discussions and records are strictly private and handled with the highest ethical standards.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="section-lg bg-gradient-to-br from-teal-700 to-teal-900 text-white text-center">
-    <div class="max-w-4xl mx-auto px-6 py-16">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
-            Ready to Move Forward?
-        </h2>
-        <p class="text-lg lg:text-xl mb-10 opacity-90">
-            One structured conversation can bring clarity and hope. We're here to guide you — in Lahore or from anywhere in the world.
-        </p>
-        <div class="flex flex-wrap justify-center gap-6">
-            <a href="https://wa.me/923111101483?text=Hello%20Dr.%20Adnan%20Jabbar,%20I'm%20ready%20to%20schedule%20a%20consultation" 
-               class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 px-12 py-6 rounded-lg font-bold text-xl shadow-2xl transition">
-                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/>
-                </svg>
-                WhatsApp Now
-            </a>
-            <a href="#inquiry-form" class="bg-white text-teal-900 px-12 py-6 rounded-lg font-bold text-xl shadow-2xl hover:bg-gray-100 transition">
-                Use Contact Form
-            </a>
         </div>
     </div>
 </section>
