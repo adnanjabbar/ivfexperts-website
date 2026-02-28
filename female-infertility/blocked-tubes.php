@@ -24,9 +24,7 @@ include("../includes/header.php");
             
             <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.10] mb-6 tracking-tight">
                 Overcoming <br/>
-                <span class="inline-block mt-2 px-4 py-2 bg-emerald-100 rounded-lg text-emerald-800 border border-emerald-200 shadow-sm">
-                    Tubal Blockages.
-                </span>
+                <span class="text-emerald-600">Tubal Blockages.</span>
             </h1>
             
             <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl leading-relaxed font-light">

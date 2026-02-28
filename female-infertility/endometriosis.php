@@ -24,9 +24,7 @@ include("../includes/header.php");
             
             <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.10] mb-6 tracking-tight">
                 Quiet the pain. <br/>
-                <span class="inline-block mt-2 px-4 py-2 bg-rose-900/80 rounded-lg text-rose-300 backdrop-blur-sm border border-rose-700/50">
-                    Protect the reserve.
-                </span>
+                <span class="text-rose-400">Protect the reserve.</span>
             </h1>
             
             <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed font-light">
