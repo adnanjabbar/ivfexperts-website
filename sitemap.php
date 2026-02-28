@@ -5,62 +5,82 @@ header("Content-Type: text/xml;charset=iso-8859-1");
 // Base URL of your website
 $baseUrl = "https://ivfexperts.pk";
 
-// Array of all public pages on the website
-$pages = [
-    // Main Pages
-    '/',
-    '/about/',
-    '/contact/',
-
-    // Male Infertility
-    '/male-infertility/',
-    '/male-infertility/low-sperm-count.php',
-    '/male-infertility/azoospermia.php',
-    '/male-infertility/varicocele.php',
-    '/male-infertility/dna-fragmentation.php',
-
-    // Female Infertility
-    '/female-infertility/',
-    '/female-infertility/pcos.php',
-    '/female-infertility/endometriosis.php',
-    '/female-infertility/diminished-ovarian-reserve.php',
-    '/female-infertility/blocked-tubes.php',
-
-    // ART Procedures
-    '/art-procedures/',
-    '/art-procedures/ivf.php',
-    '/art-procedures/icsi.php',
-    '/art-procedures/pgt.php',
-    '/art-procedures/iui.php'
+// Define which directories we want to scan for public treatment pages
+$directoriesToScan = [
+    'male-infertility',
+    'female-infertility',
+    'art-procedures'
 ];
 
-// Current date and time in the correct format for sitemaps (W3C Datetime)
-$currentDate = date('Y-m-d\TH:i:sP');
+// Start with standard root-level pages
+$pages = [
+    '/' => 'daily',
+    '/about/' => 'monthly',
+    '/contact/' => 'monthly'
+];
+
+// Scan predefined directories dynamically
+foreach ($directoriesToScan as $dir) {
+    if (is_dir(__DIR__ . '/' . $dir)) {
+        // Automatically add the index of the directory
+        $pages['/' . $dir . '/'] = 'weekly';
+
+        // Find all PHP files in the directory
+        $files = glob(__DIR__ . '/' . $dir . '/*.php');
+        if ($files !== false) {
+            foreach ($files as $file) {
+                $filename = basename($file);
+                // Skip index.php as it's already added at the folder level above
+                if ($filename !== 'index.php') {
+                    $pages['/' . $dir . '/' . $filename] = 'weekly';
+                }
+            }
+        }
+    }
+}
+
+// Global fallback date if filemtime fails
+$fallbackDate = date('Y-m-d\TH:i:sP');
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 
-foreach ($pages as $page) {
-    // Determine the priority and change frequency based on the page type
+foreach ($pages as $pageUrl => $changefreq) {
+    // Determine priority based on frequency/layer
     $priority = '0.80';
-    $changefreq = 'weekly';
-
-    if ($page === '/') {
+    if ($changefreq === 'daily') {
         $priority = '1.00';
-        $changefreq = 'daily';
     }
-    elseif (strpos($page, '/male-infertility/') !== false || strpos($page, '/female-infertility/') !== false || strpos($page, '/art-procedures/') !== false) {
-        // Condition and procedure pages are highly important for SEO
+    elseif ($changefreq === 'weekly') {
         $priority = '0.90';
     }
-    elseif ($page === '/contact/') {
+    elseif ($changefreq === 'monthly') {
         $priority = '0.70';
-        $changefreq = 'monthly';
+    }
+
+    // Attempt to get accurate last modified time by checking the actual file in the filesystem
+    $lastmod = $fallbackDate;
+
+    // Resolve URL to physical file path to read modification time
+    if ($pageUrl === '/') {
+        $filePath = __DIR__ . '/index.php';
+    }
+    elseif (substr($pageUrl, -1) === '/') {
+        // e.g. /male-infertility/ -> /male-infertility/index.php
+        $filePath = rtrim(__DIR__ . $pageUrl, '/') . '/index.php';
+    }
+    else {
+        // e.g. /male-infertility/azoospermia.php
+        $filePath = __DIR__ . str_replace('/', DIRECTORY_SEPARATOR, $pageUrl);
+    }
+
+    if (file_exists($filePath) && is_file($filePath)) {
+        $lastmod = date('Y-m-d\TH:i:sP', filemtime($filePath));
     }
 
     echo "  <url>\n";
-    echo "    <loc>" . htmlspecialchars($baseUrl . $page) . "</loc>\n";
-    echo "    <lastmod>" . $currentDate . "</lastmod>\n";
+    echo "    <loc>" . htmlspecialchars($baseUrl . $pageUrl) . "</loc>\n";
+    echo "    <lastmod>" . $lastmod . "</lastmod>\n";
     echo "    <changefreq>" . $changefreq . "</changefreq>\n";
     echo "    <priority>" . $priority . "</priority>\n";
     echo "  </url>\n";
