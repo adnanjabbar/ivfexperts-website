@@ -77,14 +77,14 @@ $mr = $usg['margin_right'] ?? '20mm';
             .print-footer {
                 position: fixed !important;
                 bottom: 25mm !important;
-                left: 100mm !important;
+                left: 10mm !important;
                 right: 45mm !important;
             }
         }
         .print-footer {
             position: absolute;
             bottom: 25mm;
-            left: 100mm;
+            left: 10mm;
             right: 45mm;
             display: flex;
             justify-content: space-between;
