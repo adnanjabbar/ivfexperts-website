@@ -1,8 +1,36 @@
+# =============================================
+# robots.txt — IVF Experts (ivfexperts.pk)
+# =============================================
+
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /includes/
-Disallow: /config/
+Crawl-delay: 2
 
-# Sitemaps
-Sitemap: https://ivfexperts.pk/sitemap.php
+# Block admin & system directories
+Disallow: /admin/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /portal/
+Disallow: /uploads/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+
+# Block migration & debug scripts
+Disallow: /update_db.php
+Disallow: /update_diagnoses_db.php
+Disallow: /update_hospitals_db.php
+Disallow: /update_inventory_db.php
+Disallow: /update_labs_db.php
+Disallow: /update_multifeature_db.php
+Disallow: /update_patients_db.php
+Disallow: /update_prescriptions_db.php
+Disallow: /update_procedures_db.php
+Disallow: /update_ref_ranges.php
+Disallow: /update_scans_db.php
+Disallow: /test_500.php
+Disallow: /test_db.php
+Disallow: /fix_images.py
+
+# Sitemap
+Sitemap: https://ivfexperts.pk/sitemap.xml

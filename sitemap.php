@@ -1,9 +1,12 @@
 <?php
 // Set the correct header so browsers and search engines treat this as XML
-header("Content-Type: text/xml;charset=iso-8859-1");
+header("Content-Type: text/xml;charset=utf-8");
 
 // Base URL of your website
 $baseUrl = "https://ivfexperts.pk";
+
+// Database connection for dynamic blog posts
+require_once __DIR__ . '/config/db.php';
 
 // Define which directories we want to scan for public treatment pages
 $directoriesToScan = [
@@ -16,29 +19,50 @@ $directoriesToScan = [
 
 // Start with standard root-level pages
 $pages = [
-    '/' => 'daily',
-    '/about/' => 'monthly',
-    '/contact/' => 'monthly'
+    '/' => ['freq' => 'daily', 'priority' => '1.00'],
+    '/about/' => ['freq' => 'monthly', 'priority' => '0.80'],
+    '/contact/' => ['freq' => 'monthly', 'priority' => '0.70'],
+    '/blog/' => ['freq' => 'weekly', 'priority' => '0.90'],
+    '/doctors/' => ['freq' => 'monthly', 'priority' => '0.70'],
+    '/portal/' => ['freq' => 'monthly', 'priority' => '0.50'],
 ];
 
 // Scan predefined directories dynamically
 foreach ($directoriesToScan as $dir) {
     if (is_dir(__DIR__ . '/' . $dir)) {
         // Automatically add the index of the directory
-        $pages['/' . $dir . '/'] = 'weekly';
+        if (!isset($pages['/' . $dir . '/'])) {
+            $pages['/' . $dir . '/'] = ['freq' => 'weekly', 'priority' => '0.90'];
+        }
 
         // Find all PHP files in the directory
         $files = glob(__DIR__ . '/' . $dir . '/*.php');
         if ($files !== false) {
             foreach ($files as $file) {
                 $filename = basename($file);
-                // Skip index.php as it's already added at the folder level above
                 if ($filename !== 'index.php') {
-                    $pages['/' . $dir . '/' . $filename] = 'weekly';
+                    $pages['/' . $dir . '/' . $filename] = ['freq' => 'weekly', 'priority' => '0.80'];
                 }
             }
         }
     }
+}
+
+// Add published blog posts dynamically from database
+try {
+    $res = $conn->query("SELECT slug, updated_at FROM blog_posts WHERE status = 'Published' ORDER BY published_at DESC");
+    if ($res) {
+        while ($row = $res->fetch_assoc()) {
+            $pages['/blog/?article=' . $row['slug']] = [
+                'freq' => 'monthly',
+                'priority' => '0.75',
+                'lastmod' => $row['updated_at']
+            ];
+        }
+    }
+}
+catch (Exception $e) {
+// Silently skip if blog_posts table doesn't exist yet
 }
 
 // Global fallback date if filemtime fails
@@ -47,37 +71,36 @@ $fallbackDate = date('Y-m-d\TH:i:sP');
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 
-foreach ($pages as $pageUrl => $changefreq) {
-    // Determine priority based on frequency/layer
-    $priority = '0.80';
-    if ($changefreq === 'daily') {
-        $priority = '1.00';
-    }
-    elseif ($changefreq === 'weekly') {
-        $priority = '0.90';
-    }
-    elseif ($changefreq === 'monthly') {
-        $priority = '0.70';
-    }
+foreach ($pages as $pageUrl => $meta) {
+    $changefreq = $meta['freq'];
+    $priority = $meta['priority'];
 
-    // Attempt to get accurate last modified time by checking the actual file in the filesystem
-    $lastmod = $fallbackDate;
+    // Attempt to get accurate last modified time
+    $lastmod = $meta['lastmod'] ?? null;
 
-    // Resolve URL to physical file path to read modification time
-    if ($pageUrl === '/') {
-        $filePath = __DIR__ . '/index.php';
-    }
-    elseif (substr($pageUrl, -1) === '/') {
-        // e.g. /male-infertility/ -> /male-infertility/index.php
-        $filePath = rtrim(__DIR__ . $pageUrl, '/') . '/index.php';
+    if (!$lastmod) {
+        if ($pageUrl === '/') {
+            $filePath = __DIR__ . '/index.php';
+        }
+        elseif (substr($pageUrl, -1) === '/') {
+            $filePath = rtrim(__DIR__ . $pageUrl, '/') . '/index.php';
+        }
+        elseif (strpos($pageUrl, '?') !== false) {
+            $filePath = null; // Dynamic URL, use fallback
+        }
+        else {
+            $filePath = __DIR__ . str_replace('/', DIRECTORY_SEPARATOR, $pageUrl);
+        }
+
+        if ($filePath && file_exists($filePath) && is_file($filePath)) {
+            $lastmod = date('Y-m-d\TH:i:sP', filemtime($filePath));
+        }
+        else {
+            $lastmod = $fallbackDate;
+        }
     }
     else {
-        // e.g. /male-infertility/azoospermia.php
-        $filePath = __DIR__ . str_replace('/', DIRECTORY_SEPARATOR, $pageUrl);
-    }
-
-    if (file_exists($filePath) && is_file($filePath)) {
-        $lastmod = date('Y-m-d\TH:i:sP', filemtime($filePath));
+        $lastmod = date('Y-m-d\TH:i:sP', strtotime($lastmod));
     }
 
     echo "  <url>\n";
