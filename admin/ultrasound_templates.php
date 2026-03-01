@@ -47,8 +47,11 @@ catch (Exception $e) {
 }
 
 // Include TinyMCE
-$extraHead = '<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js" referrerpolicy="origin"></script>';
-$extraHead .= '<script>
+include __DIR__ . '/includes/header.php';
+?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
   tinymce.init({
     selector: "#template_body",
     plugins: "lists link table code",
@@ -56,10 +59,7 @@ $extraHead .= '<script>
     menubar: false,
     height: 400
   });
-</script>';
-
-include __DIR__ . '/includes/header.php';
-?>
+</script>
 
 <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
 

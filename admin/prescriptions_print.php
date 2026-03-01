@@ -303,7 +303,6 @@ endif; ?>
     </div>
 
     <!-- Inject printer script automatically for immediate preview -->
-    <!-- Inject printer script automatically for immediate preview -->
     <script>
         function printDigital() {
             <?php if (!empty($rx['letterhead_image_path'])): ?>
@@ -312,17 +311,32 @@ endif; ?>
                 @page { margin: 0; }
                 .a4-container {
                     padding: <?php echo $mt; ?> <?php echo $mr; ?> <?php echo $mb; ?> <?php echo $ml; ?> !important;
-                    background-image: url('../<?php echo addslashes($rx['letterhead_image_path']); ?>') !important;
-                    background-size: cover !important;
-                    background-position: center !important;
-                    background-repeat: no-repeat !important;
-                    -webkit-print-color-adjust: exact !important;
-                    print-color-adjust: exact !important;
+                    background: transparent !important;
                 }
             `;
             document.head.appendChild(style);
-            window.print();
-            style.remove();
+
+            const img = document.createElement('img');
+            img.src = '../<?php echo addslashes($rx['letterhead_image_path']); ?>';
+            img.style.position = 'absolute';
+            img.style.top = '0';
+            img.style.left = '0';
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.zIndex = '-10';
+            img.style.objectFit = 'cover';
+            document.querySelector('.a4-container').appendChild(img);
+
+            img.onload = () => {
+                window.print();
+                style.remove();
+                img.remove();
+            };
+            img.onerror = () => {
+                alert("Letterhead Image failed to load. Please ensure it is a valid JPG/PNG.");
+                style.remove();
+                img.remove();
+            };
             <?php
 else: ?>
             alert("No letterhead graphic has been uploaded for this hospital yet.");
