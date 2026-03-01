@@ -112,7 +112,7 @@ endif; ?>
     </div>
 
     <!-- The Actual Document -->
-    <div class="a4-container flex flex-col relative pb-32 font-sans" id="document-container">
+    <div class="a4-container flex flex-col relative pb-20 font-sans" id="document-container">
         
         <!-- Permanent Letterhead Background for Patients -->
         <?php if (!isset($_SESSION['admin_id']) && !empty($sa['letterhead_image_path'])): ?>
@@ -124,7 +124,7 @@ endif; ?>
         <div class="flex justify-between items-center mb-3 border-b-2 border-slate-800 pb-2">
             <!-- Left Side: IVF Experts Standard Logo (we pull from web root assets if exists, or text fallback) -->
             <div class="w-1/3">
-                <img src="../assets/images/logo.png" alt="IVF Experts" class="h-14 object-contain" onerror="this.style.display='none'; document.getElementById('fb1').style.display='block';">
+                <img src="../assets/images/logo.png" alt="IVF Experts" class="h-12 object-contain" onerror="this.style.display='none'; document.getElementById('fb1').style.display='block';">
                 <div id="fb1" style="display:none;" class="font-extrabold text-xl text-blue-900 tracking-tight">IVF EXPERTS</div>
             </div>
             
@@ -135,21 +135,21 @@ endif; ?>
             
             <div class="w-1/3 flex justify-end">
                 <?php if (!empty($sa['logo_path']) && $sa['logo_path'] !== 'assets/images/logo.png'): ?>
-                    <img src="../<?php echo esc($sa['logo_path']); ?>" alt="<?php echo esc($sa['hospital_name']); ?>" class="h-14 object-contain">
+                    <img src="../<?php echo esc($sa['logo_path']); ?>" alt="<?php echo esc($sa['hospital_name']); ?>" class="h-12 object-contain">
                 <?php
 endif; ?>
             </div>
         </div>
 
         <!-- Patient Demographics Box -->
-        <div class="border border-slate-300 rounded px-3 py-2 mb-3 bg-slate-50">
-            <div class="grid grid-cols-2 gap-y-1 text-[13px]">
-                <div><span class="font-semibold w-24 inline-block text-slate-600">Patient Name:</span> <span class="font-bold text-[14px] text-slate-900"><?php echo esc($sa['first_name'] . ' ' . $sa['last_name']); ?></span></div>
+        <div class="border border-slate-300 rounded px-3 py-1.5 mb-2 bg-slate-50">
+            <div class="grid grid-cols-2 gap-y-1 text-[12px]">
+                <div><span class="font-semibold w-24 inline-block text-slate-600">Patient Name:</span> <span class="font-bold text-[13px] text-slate-900"><?php echo esc($sa['first_name'] . ' ' . $sa['last_name']); ?></span></div>
                 <div><span class="font-semibold w-28 inline-block text-slate-600">Spouse Name:</span> <span class="font-medium text-slate-800"><?php echo esc($sa['spouse_name'] ?: '-'); ?></span></div>
-                <div><span class="font-semibold w-24 inline-block text-slate-600">MR Number:</span> <span class="font-mono font-bold text-indigo-800 tracking-wider text-[14px]"><?php echo esc($sa['mr_number']); ?></span></div>
+                <div><span class="font-semibold w-24 inline-block text-slate-600">MR Number:</span> <span class="font-mono font-bold text-indigo-800 tracking-wider text-[13px]"><?php echo esc($sa['mr_number']); ?></span></div>
                 <div><span class="font-semibold w-28 inline-block text-slate-600">Referred By:</span> <span class="font-medium text-slate-800">Dr. Adnan Jabbar</span></div>
             </div>
-            <div class="flex justify-between border-t border-slate-200 mt-1 pt-1 text-[12px]">
+            <div class="flex justify-between border-t border-slate-200 mt-1 pt-1 text-[11px]">
                 <div><span class="font-semibold text-slate-600">Collection:</span> <?php echo date('d M Y, h:i A', strtotime($sa['collection_time'])); ?></div>
                 <div><span class="font-semibold text-slate-600">Examination:</span> <?php echo $sa['examination_time'] ? date('d M Y, h:i A', strtotime($sa['examination_time'])) : '-'; ?></div>
                 <div><span class="font-semibold text-slate-600">Abstinence:</span> <span class="font-bold text-slate-800"><?php echo esc($sa['abstinence_days']); ?> Days</span></div>
@@ -157,8 +157,8 @@ endif; ?>
         </div>
 
         <!-- Macroscopic -->
-        <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-1 rounded-sm shadow-sm">Macroscopic Examination</h3>
-        <table class="w-full sa-table mb-3">
+        <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-0.5 rounded-sm shadow-sm">Macroscopic Examination</h3>
+        <table class="w-full sa-table mb-2">
             <thead>
                 <tr>
                     <th class="w-1/3">Parameter</th>
@@ -194,8 +194,8 @@ endif; ?>
         </table>
 
         <!-- Microscopic -->
-        <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-1 rounded-sm shadow-sm">Microscopic Examination</h3>
-        <table class="w-full sa-table mb-3">
+        <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-0.5 rounded-sm shadow-sm">Microscopic Examination</h3>
+        <table class="w-full sa-table mb-2">
             <thead>
                 <tr>
                     <th class="w-1/3">Parameter</th>
@@ -236,8 +236,8 @@ endif; ?>
         </table>
 
         <!-- Morphological Examination -->
-        <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-1 rounded-sm shadow-sm">Morphological Examination</h3>
-        <table class="w-full sa-table mb-3">
+        <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-0.5 rounded-sm shadow-sm">Morphological Examination</h3>
+        <table class="w-full sa-table mb-2">
             <thead>
                 <tr>
                     <th class="w-1/3">Parameter</th>
@@ -297,16 +297,20 @@ foreach ($parts as $p) {
     }
 }
 ?>
-        <div class="mt-4 bg-gradient-to-br from-slate-800 to-sky-900 text-white rounded-xl p-5 border-2 border-sky-600/30 shadow-xl mx-4">
-            <h4 class="uppercase tracking-widest text-[10px] font-bold text-sky-300/80 mb-3 border-b border-sky-400/20 pb-1">Conclusion / Clinical Diagnosis</h4>
-            <div class="space-y-3">
-                <?php echo implode('', $display_diagnosis); ?>
+        <div class="mt-2 bg-gray-100 text-slate-900 rounded-[3px] p-3 border border-gray-300 mx-4">
+            <h4 class="uppercase tracking-widest text-[9px] font-bold text-slate-500 mb-2 border-b border-gray-200 pb-0.5">Conclusion / Clinical Diagnosis</h4>
+            <div class="space-y-2">
+                <?php
+foreach ($display_diagnosis as $d) {
+    echo str_replace(['text-sky-100', 'underline decoration-sky-300', 'border-white/20'], ['text-slate-600', 'underline decoration-slate-300', 'border-gray-200'], $d);
+}
+?>
             </div>
         </div>
 
         <?php if (!empty($sa['admin_notes'])): ?>
-            <div class="mt-4 p-4 bg-slate-50 text-[12px] border border-slate-200 text-slate-800 rounded-lg shadow-sm mx-4">
-                <span class="font-bold uppercase text-[10px] block mb-2 text-slate-500 border-b border-slate-100 pb-1">Clinical Embryologist Remarks</span>
+            <div class="mt-2 p-3 bg-slate-50 text-[11px] border border-slate-200 text-slate-800 rounded-[3px] shadow-sm mx-4">
+                <span class="font-bold uppercase text-[9px] block mb-1 text-slate-500 border-b border-slate-100 pb-0.5">Clinical Embryologist Remarks</span>
                 <div class="leading-relaxed whitespace-pre-wrap italic text-slate-700"><?php echo esc($sa['admin_notes']); ?></div>
             </div>
         <?php
