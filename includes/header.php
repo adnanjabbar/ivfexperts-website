@@ -308,13 +308,13 @@ document.addEventListener('DOMContentLoaded', () => {
     <a href="/contact/" class="hover:text-teal-600 transition">Contact</a>
   </nav>
   <!-- CTA Buttons (Desktop) - Patient Login + WhatsApp -->
-  <div class="hidden md:flex items-center gap-2">
+  <div class="hidden md:flex items-center gap-2.5">
     <a href="/portal/"
-       class="bg-sky-600 text-white px-3 py-1.5 rounded-md font-semibold hover:bg-sky-700 transition text-xs shadow-[0_4px_15px_rgba(14,165,233,0.3)] border-none flex items-center gap-1.5">
+       class="bg-sky-600 text-white px-3 py-2 rounded-md font-semibold hover:bg-sky-700 transition text-xs shadow-[0_4px_15px_rgba(14,165,233,0.3)] border-none flex items-center gap-2">
       <i class="fa-solid fa-laptop-medical text-xs"></i> Patient Login
     </a>
     <a href="https://wa.me/923111101483"
-       class="bg-teal-700 text-white px-3 py-1.5 rounded-md font-semibold hover:bg-teal-800 transition text-xs shadow-[0_4px_15px_rgba(15,118,110,0.3)] border-none flex items-center gap-1.5">
+       class="bg-teal-700 text-white px-3 py-2 rounded-md font-semibold hover:bg-teal-800 transition text-xs shadow-[0_4px_15px_rgba(15,118,110,0.3)] border-none flex items-center gap-2">
       <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
     </a>
   </div>
