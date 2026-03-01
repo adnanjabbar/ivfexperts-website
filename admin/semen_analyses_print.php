@@ -67,9 +67,26 @@ $total_motility = $sa['pr_motility'] + $sa['np_motility'];
 <body class="py-10 print:py-0">
 
     <div class="fixed top-4 right-4 flex gap-2 no-print">
-        <button onclick="window.print()" class="bg-sky-600 hover:bg-sky-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold">
-            <i class="fa-solid fa-print"></i> Print Report
-        </button>
+        <?php if (isset($_SESSION['admin_id'])): ?>
+            <!-- Admin Controls -->
+            <button onclick="printDigital()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold" <?php if (empty($sa['letterhead_image_path']))
+        echo 'disabled title="No Letterhead uploaded in settings" style="opacity: 0.5; cursor: not-allowed;"'; ?>>
+                <i class="fa-solid fa-file-pdf"></i> Print Digital PDF
+            </button>
+            <button onclick="window.print()" class="bg-sky-600 hover:bg-sky-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold">
+                <i class="fa-solid fa-print"></i> Print on Physical Letterhead
+            </button>
+            <button onclick="sendWhatsApp()" class="bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-2 rounded-lg shadow-lg font-bold shadow-green-500/30">
+                <i class="fa-brands fa-whatsapp text-lg mr-1"></i> Send via WhatsApp
+            </button>
+        <?php
+else: ?>
+            <!-- Patient Portal Controls -->
+            <button onclick="printDigital()" class="bg-sky-600 hover:bg-sky-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold">
+                <i class="fa-solid fa-download"></i> Download / Print
+            </button>
+        <?php
+endif; ?>
         <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg">Close</button>
     </div>
 
@@ -253,5 +270,79 @@ endif; ?>
 
     </div>
 
+    <!-- Digital PDF Print & WhatsApp Logic -->
+    <script>
+        function printDigital() {
+            <?php if (!empty($sa['letterhead_image_path'])): ?>
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @page { margin: 0; }
+                .a4-container {
+                    padding: <?php echo $mt; ?>mm <?php echo $mr; ?>mm <?php echo $mb; ?>mm <?php echo $ml; ?>mm !important;
+                    background: transparent !important;
+                }
+            `;
+            document.head.appendChild(style);
+
+            const img = document.createElement('img');
+            img.src = '../<?php echo addslashes($sa['letterhead_image_path']); ?>';
+            img.style.position = 'absolute';
+            img.style.top = '0';
+            img.style.left = '0';
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.zIndex = '-10';
+            img.style.objectFit = 'fill';
+            document.querySelector('.a4-container').appendChild(img);
+
+            img.onload = () => {
+                window.print();
+                style.remove();
+                img.remove();
+            };
+            img.onerror = () => {
+                alert("Letterhead Image failed to load. Please ensure it is a valid JPG/PNG.");
+                style.remove();
+                img.remove();
+            };
+            <?php
+else: ?>
+            alert("No letterhead graphic has been uploaded for this hospital yet.");
+            <?php
+endif; ?>
+        }
+
+        function sendWhatsApp() {
+            let phone = "<?php echo esc($sa['phone']); ?>";
+            phone = phone.replace(/\D/g, ''); // strip to numbers only
+            
+            if (!phone || phone.length < 10) {
+                let manualPhone = prompt("Patient phone number is missing or invalid. Please enter a valid number (e.g. 923111101483):", "92");
+                if (!manualPhone) return;
+                phone = manualPhone.replace(/\D/g, '');
+            } else if (phone.startsWith('03')) {
+                phone = '92' + phone.substring(1);
+            }
+            
+            const hash = "<?php echo $sa['qrcode_hash']; ?>";
+            const patientName = "<?php echo esc($sa['first_name'] . ' ' . $sa['last_name']); ?>";
+            const link = "https://ivfexperts.pk/portal/verify.php?hash=" + hash;
+            
+            const text = `Dear ${patientName}, 🌸\n\nWe hope this message finds you well. Here is your recent Semen Analysis from IVF Experts. You can view and download your secure digital record by clicking the link below:\n\n📄 View & Download Record: ${link}\n\nPlease feel free to reach out if you have any questions. Your health and family are our priority. 💙\n\nRegards,\nDr. Adnan Jabbar\nMBBS, DFM, MH, MPH, CGP\nFertility, Family & Emergency Medicine\n+92 3 111 101 483 (IVF)\nhello@ivfexperts.pk\nwww.ivfexperts.pk`;
+            
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        // Auto-trigger digital print mode for patients on portal
+        <?php if (!isset($_SESSION['admin_id'])): ?>
+        window.onload = function() {
+            setTimeout(() => {
+                printDigital();
+            }, 500);
+        };
+        <?php
+endif; ?>
+    </script>
 </body>
 </html>

@@ -130,16 +130,26 @@ $mr = $rx['margin_right'] ?? '20mm';
 
     <!-- Screen-only controls -->
     <div class="fixed top-4 right-4 flex gap-2 no-print">
-        <button onclick="printDigital()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold" <?php if (empty($rx['letterhead_image_path']))
-    echo 'disabled title="No Letterhead uploaded in settings" style="opacity: 0.5; cursor: not-allowed;"'; ?>>
-            <i class="fa-solid fa-file-pdf"></i> Print Digital PDF
-        </button>
-        <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold">
-            <i class="fa-solid fa-print"></i> Print on Physical Letterhead
-        </button>
-        <button onclick="sendWhatsApp()" class="bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-2 rounded-lg shadow-lg font-bold shadow-green-500/30">
-            <i class="fa-brands fa-whatsapp text-lg mr-1"></i> Send via WhatsApp
-        </button>
+        <?php if (isset($_SESSION['admin_id'])): ?>
+            <!-- Admin Controls -->
+            <button onclick="printDigital()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold" <?php if (empty($rx['letterhead_image_path']))
+        echo 'disabled title="No Letterhead uploaded in settings" style="opacity: 0.5; cursor: not-allowed;"'; ?>>
+                <i class="fa-solid fa-file-pdf"></i> Print Digital PDF
+            </button>
+            <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold">
+                <i class="fa-solid fa-print"></i> Print on Physical Letterhead
+            </button>
+            <button onclick="sendWhatsApp()" class="bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-2 rounded-lg shadow-lg font-bold shadow-green-500/30">
+                <i class="fa-brands fa-whatsapp text-lg mr-1"></i> Send via WhatsApp
+            </button>
+        <?php
+else: ?>
+            <!-- Patient Portal Controls -->
+            <button onclick="printDigital()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold">
+                <i class="fa-solid fa-download"></i> Download / Print
+            </button>
+        <?php
+endif; ?>
         <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg">
             Close
         </button>
@@ -402,6 +412,16 @@ endif; ?>
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
         }
+
+        // Auto-trigger digital print mode for patients on portal
+        <?php if (!isset($_SESSION['admin_id'])): ?>
+        window.onload = function() {
+            setTimeout(() => {
+                printDigital();
+            }, 500);
+        };
+        <?php
+endif; ?>
     </script>
 </body>
 </html>
