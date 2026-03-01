@@ -127,6 +127,23 @@ try {
 catch (Exception $e) {
 }
 
+// Fetch Advised Procedures
+$advised_procedures = [];
+try {
+    $stmt = $conn->prepare("SELECT ap.*, 
+        (SELECT COALESCE(SUM(r.amount),0) FROM receipts r WHERE r.advised_procedure_id = ap.id AND r.status = 'Paid') as total_paid
+        FROM advised_procedures ap WHERE ap.patient_id = ? ORDER BY ap.date_advised DESC");
+    if ($stmt) {
+        $stmt->bind_param("i", $patient_id);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        while ($row = $res->fetch_assoc())
+            $advised_procedures[] = $row;
+    }
+}
+catch (Exception $e) {
+}
+
 include __DIR__ . '/includes/header.php';
 ?>
 
@@ -215,6 +232,9 @@ endif; ?>
             </button>
             <button @click="currentTab = 'labs'" :class="{'bg-teal-50 text-teal-700 font-bold border-b-2 border-teal-600': currentTab === 'labs', 'text-gray-500 hover:bg-gray-50': currentTab !== 'labs'}" class="flex-1 py-4 text-sm font-medium transition-colors border-l border-gray-100">
                 <i class="fa-solid fa-vials mr-1"></i> Lab Reports
+            </button>
+            <button @click="currentTab = 'procedures'" :class="{'bg-teal-50 text-teal-700 font-bold border-b-2 border-teal-600': currentTab === 'procedures', 'text-gray-500 hover:bg-gray-50': currentTab !== 'procedures'}" class="flex-1 py-4 text-sm font-medium transition-colors border-l border-gray-100">
+                <i class="fa-solid fa-clipboard-check mr-1"></i> Procedures
             </button>
         </div>
 
@@ -438,6 +458,85 @@ else: ?>
                                                 <span class="text-gray-300">-</span>
                                             <?php
         endif; ?>
+                                        </td>
+                                    </tr>
+                                    <?php
+    endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php
+endif; ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 6: Advised Procedures -->
+        <div x-show="currentTab === 'procedures'" x-cloak>
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6">
+                <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
+                    <h3 class="font-bold text-gray-800"><i class="fa-solid fa-clipboard-check text-indigo-600 mr-2"></i> Advised Treatments</h3>
+                    <a href="procedures_add.php?patient_id=<?php echo $patient['id']; ?>" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        <i class="fa-solid fa-plus mr-1"></i> Advise Treatment
+                    </a>
+                </div>
+                
+                <div class="div p-0">
+                    <?php if (empty($advised_procedures)): ?>
+                        <div class="p-8 text-center text-gray-400">
+                            <i class="fa-solid fa-clipboard mb-2 text-3xl block"></i>
+                            No treatments have been advised for this patient yet.
+                        </div>
+                    <?php
+else: ?>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider">
+                                        <th class="p-4 font-medium border-b border-gray-100">Procedure</th>
+                                        <th class="p-4 font-medium border-b border-gray-100">Status</th>
+                                        <th class="p-4 font-medium border-b border-gray-100">Date</th>
+                                        <th class="p-4 font-medium border-b border-gray-100">Paid</th>
+                                        <th class="p-4 font-medium border-b border-gray-100 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-50 text-sm">
+                                    <?php foreach ($advised_procedures as $ap):
+        $stColor = match ($ap['status']) {
+                'Advised' => 'bg-amber-50 text-amber-700 border-amber-200',
+                'In Progress' => 'bg-sky-50 text-sky-700 border-sky-200',
+                'Completed' => 'bg-emerald-50 text-emerald-700 border-emerald-200',
+                'Cancelled' => 'bg-rose-50 text-rose-700 border-rose-200',
+                default => 'bg-gray-50 text-gray-700 border-gray-200',
+            };
+?>
+                                    <tr class="hover:bg-gray-50/50 transition-colors">
+                                        <td class="p-4">
+                                            <div class="font-semibold text-gray-900"><?php echo htmlspecialchars($ap['procedure_name']); ?></div>
+                                            <?php if (!empty($ap['notes'])): ?>
+                                                <div class="text-xs text-gray-500 mt-1 truncate max-w-xs"><?php echo htmlspecialchars($ap['notes']); ?></div>
+                                            <?php
+        endif; ?>
+                                        </td>
+                                        <td class="p-4">
+                                            <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold border <?php echo $stColor; ?>">
+                                                <?php echo htmlspecialchars($ap['status']); ?>
+                                            </span>
+                                        </td>
+                                        <td class="p-4 text-gray-500 text-xs"><?php echo date('d M Y', strtotime($ap['date_advised'])); ?></td>
+                                        <td class="p-4">
+                                            <?php if ($ap['total_paid'] > 0): ?>
+                                                <span class="font-bold text-emerald-600">Rs. <?php echo number_format($ap['total_paid'], 0); ?></span>
+                                            <?php
+        else: ?>
+                                                <span class="text-gray-300">-</span>
+                                            <?php
+        endif; ?>
+                                        </td>
+                                        <td class="p-4 text-right">
+                                            <a href="receipts_add.php?patient_id=<?php echo $patient['id']; ?>&procedure_id=<?php echo $ap['id']; ?>" class="text-emerald-600 hover:text-emerald-800 text-xs font-bold bg-emerald-50 px-3 py-1.5 rounded border border-emerald-100">
+                                                <i class="fa-solid fa-file-invoice-dollar mr-1"></i> Bill
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php

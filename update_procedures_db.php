@@ -1,57 +1,54 @@
 <?php
 require_once __DIR__ . '/config/db.php';
 
-echo "<h1>Updating Database for Advised Procedures & Billing (Phase 12)</h1>";
+echo "Phase 12: Setting up Advised Procedures & Advanced Billing...<br>\n";
 
-try {
+$queries = [
     // 1. Create advised_procedures table
-    $sql1 = "CREATE TABLE IF NOT EXISTS `advised_procedures` (
+    "CREATE TABLE IF NOT EXISTS `advised_procedures` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `patient_id` int(11) NOT NULL,
         `procedure_name` varchar(255) NOT NULL,
-        `status` enum('Advised','In Progress','Completed','Cancelled') NOT NULL DEFAULT 'Advised',
-        `date_advised` date NOT NULL,
-        `notes` text DEFAULT NULL,
-        `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+        `status` ENUM('Advised', 'In Progress', 'Completed', 'Cancelled') DEFAULT 'Advised',
+        `date_advised` DATE NOT NULL,
+        `notes` TEXT NULL,
+        `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (`id`),
         KEY `patient_id` (`patient_id`),
-        CONSTRAINT `fk_adv_proc_patient` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`) ON DELETE CASCADE
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
+        CONSTRAINT `fk_ap_patient` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`) ON DELETE CASCADE
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;",
 
-    if ($conn->query($sql1)) {
-        echo "<p>✅ `advised_procedures` table created or already exists.</p>";
-    }
-    else {
-        echo "<p>❌ Error creating `advised_procedures`: " . $conn->error . "</p>";
-    }
+    // 2. Add status column to receipts if missing
+    "ALTER TABLE receipts ADD COLUMN `status` ENUM('Paid','Unpaid','Pending','Past Due') DEFAULT 'Paid'",
 
-    // 2. Modify receipts table to add status and link to advising
-    $sql2 = "ALTER TABLE `receipts` 
-             ADD COLUMN IF NOT EXISTS `status` enum('Paid','Unpaid','Pending','Past Due') NOT NULL DEFAULT 'Paid' AFTER `amount`,
-             ADD COLUMN IF NOT EXISTS `advised_procedure_id` int(11) DEFAULT NULL AFTER `status`,
-             ADD CONSTRAINT `fk_receipt_adv_proc` FOREIGN KEY IF NOT EXISTS (`advised_procedure_id`) REFERENCES `advised_procedures` (`id`) ON DELETE SET NULL;";
+    // 3. Add advised_procedure_id column to receipts if missing
+    "ALTER TABLE receipts ADD COLUMN `advised_procedure_id` INT NULL",
 
-    if ($conn->query($sql2)) {
-        echo "<p>✅ `receipts` table altered successfully with `status` and `advised_procedure_id`.</p>";
-    }
-    else {
-        // FK constraint syntax differences sometimes cause alter to fail if it already exists, so we split it for safety
-        $conn->query("ALTER TABLE `receipts` ADD COLUMN IF NOT EXISTS `status` enum('Paid','Unpaid','Pending','Past Due') NOT NULL DEFAULT 'Paid' AFTER `amount`");
-        $conn->query("ALTER TABLE `receipts` ADD COLUMN IF NOT EXISTS `advised_procedure_id` int(11) DEFAULT NULL AFTER `status`");
+    // 4. Add FK constraint for advised_procedure_id
+    "ALTER TABLE receipts ADD CONSTRAINT `fk_receipt_procedure` FOREIGN KEY (`advised_procedure_id`) REFERENCES `advised_procedures`(`id`) ON DELETE SET NULL"
+];
 
-        // Check if constraint exists before adding
-        $checkFk = $conn->query("SELECT CONSTRAINT_NAME FROM information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'receipts' AND CONSTRAINT_NAME = 'fk_receipt_adv_proc'");
-        if ($checkFk && $checkFk->num_rows == 0) {
-            $conn->query("ALTER TABLE `receipts` ADD CONSTRAINT `fk_receipt_adv_proc` FOREIGN KEY (`advised_procedure_id`) REFERENCES `advised_procedures` (`id`) ON DELETE SET NULL");
+foreach ($queries as $query) {
+    try {
+        if ($conn->query($query)) {
+            echo "<span style='color:green'>Success:</span> Query executed.<br>\n";
         }
-
-        echo "<p>✅ `receipts` table structural updates applied.</p>";
+        else {
+            echo "<span style='color:red'>Failed:</span> " . $conn->error . "<br>\n";
+        }
     }
-
+    catch (Exception $e) {
+        if (strpos($e->getMessage(), 'Duplicate column name') !== false) {
+            echo "<span style='color:orange'>Skipped:</span> Column already exists.<br>\n";
+        }
+        elseif (strpos($e->getMessage(), 'already exists') !== false) {
+            echo "<span style='color:orange'>Skipped:</span> Already exists.<br>\n";
+        }
+        else {
+            echo "<span style='color:red'>Error:</span> " . $e->getMessage() . "<br>\n";
+        }
+    }
 }
-catch (Exception $e) {
-    echo "<p><strong>Critical Error:</strong> " . $e->getMessage() . "</p>";
-}
 
-echo "<p>✅ Database update completed!</p>";
+echo "<br><strong>Phase 12 database setup completed.</strong>";
 ?>
