@@ -206,8 +206,10 @@ endif; ?>
 
                 <!-- Date Block -->
                 <div class="text-right text-[11px] shrink-0 border-l border-gray-300 pl-6">
-                    <div class="font-bold text-gray-500">Date Printed</div>
-                    <div class="font-bold text-gray-800 mb-0.5"><?php echo date('d M Y'); ?></div>
+                    <div class="font-bold text-gray-500 uppercase tracking-tight text-[9px] mb-0.5">
+                        Printed By: <?php echo isset($_SESSION['admin_id']) ? 'Clinic Staff' : 'Patient Portal'; ?>
+                    </div>
+                    <div class="font-bold text-gray-800 mb-0.5" title="Date Printed"><?php echo date('d M Y, h:i A'); ?></div>
                     <div class="text-[9px] text-gray-400 uppercase tracking-widest mt-1">RX-<?php echo str_pad($id, 6, '0', STR_PAD_LEFT); ?></div>
                 </div>
             </div>
@@ -340,7 +342,7 @@ endif; ?>
 
             <!-- Revisit Date -->
             <?php if (!empty($rx['revisit_date'])): ?>
-                <div class="pt-2 shrink-0 border-t border-gray-300 border-none text-right">
+                <div class="pt-2 shrink-0 text-right">
                     <div class="inline-block border border-gray-300 rounded-full px-4 py-1.5 bg-gray-50 text-[11px] shadow-sm">
                         <span class="font-bold text-gray-500 uppercase">Next Follow-up Visit:</span> 
                         <span class="font-bold text-indigo-800 ml-2"><?php echo date('l, d M Y', strtotime($rx['revisit_date'])); ?></span>
@@ -352,9 +354,9 @@ endif; ?>
 
         <!-- Footer: Digital Signature text and image -->
         <div class="print-footer no-print-bg w-full">
-            <div class="border-t border-gray-300 pt-1 w-full flex justify-between items-end gap-4">
-                <div class="text-[9px] text-gray-700 italic pb-1">
-                    <strong>Digitally Signed :</strong> Dr. Adnan Jabbar | MBBS, DFM, MH, Fertility & Family Medicine Specialist, Clinical Embryologist
+            <div class="pt-1 w-full flex justify-between items-end gap-4 relative z-10">
+                <div class="text-[9px] text-gray-700 italic pb-1 border-t border-gray-400 pt-2 min-w-[250px] inline-block">
+                    <strong>Digitally Signed :</strong> Dr. Adnan Jabbar | MBBS, DFM, MH, <br>Fertility & Family Medicine Specialist, Clinical Embryologist
                 </div>
                 <div class="shrink-0 text-right">
                     <?php if (!empty($rx['digital_signature_path'])): ?>

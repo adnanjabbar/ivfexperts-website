@@ -184,8 +184,7 @@ endif; ?>
         </div>
 
         <!-- Footer -->
-        <div class="print-footer no-print-bg border-t border-gray-300 pt-4">
-            
+        <div class="print-footer no-print-bg">
             <div class="flex items-center gap-3">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $usg['qrcode_hash']); ?>" alt="QR Code" class="w-16 h-16 border border-gray-200" />
                 <div class="text-[10px] text-gray-500 w-48">
@@ -193,7 +192,7 @@ endif; ?>
                 </div>
             </div>
 
-            <div class="text-center">
+            <div class="text-center pt-4 border-t border-gray-300 min-w-[200px]">
                 <?php if (!empty($usg['digital_signature_path'])): ?>
                     <img src="../<?php echo esc($usg['digital_signature_path']); ?>" alt="Signature" class="h-20 mx-auto object-contain mb-1" />
                 <?php
@@ -204,7 +203,6 @@ endif; ?>
                 <div class="font-bold uppercase text-sm border-t border-gray-800 pt-1 w-48 mx-auto">Dr. Adnan Jabbar</div>
                 <div class="text-xs text-gray-600">Consultant Urologist / Andrologist</div>
             </div>
-
         </div>
 
     </div>
