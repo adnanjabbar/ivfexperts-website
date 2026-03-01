@@ -159,7 +159,7 @@ $mr = $rx['margin_right'] ?? '20mm';
             <!-- QR Code (Center) -->
             <div class="shrink-0 text-center px-4">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-12 h-12 border p-0.5 mx-auto" />
-                <div class="text-[7px] text-gray-400 mt-0.5 uppercase tracking-wider">Scan to Verify</div>
+                <div class="text-[6px] text-gray-500 mt-1 w-24 mx-auto leading-tight">Scan this verification code with phone camera to verify & download.</div>
             </div>
 
             <!-- Date Block -->
@@ -307,10 +307,18 @@ endif; ?>
 endif; ?>
         </div>
 
-        <!-- Footer: Digital Signature only (left aligned) -->
+        <!-- Footer: Digital Signature text and image -->
         <div class="print-footer no-print-bg w-full">
-            <div class="text-[9px] text-gray-700 italic border-t border-gray-300 pt-1 w-full text-left">
-                <strong>Digitally Signed :</strong> Dr. Adnan Jabbar | MBBS, DFM, MH, Fertility & Family Medicine Specialist, Clinical Embryologist
+            <div class="border-t border-gray-300 pt-1 w-full flex justify-between items-end gap-4">
+                <div class="text-[9px] text-gray-700 italic pb-1">
+                    <strong>Digitally Signed :</strong> Dr. Adnan Jabbar | MBBS, DFM, MH, Fertility & Family Medicine Specialist, Clinical Embryologist
+                </div>
+                <div class="shrink-0 text-right">
+                    <?php if (!empty($rx['digital_signature_path'])): ?>
+                        <img src="../<?php echo esc($rx['digital_signature_path']); ?>" alt="Signature" class="h-10 object-contain ml-auto" />
+                    <?php
+endif; ?>
+                </div>
             </div>
         </div>
         </div>
