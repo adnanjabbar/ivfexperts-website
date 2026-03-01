@@ -20,6 +20,9 @@
 <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription) ?>">
 <!-- Styles -->
 <link rel="stylesheet" href="/assets/css/style.css?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" as="style">
 <script src="/assets/js/app.js?v=4" defer></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <!-- Font Awesome -->
@@ -163,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Comprehensive male infertility evaluation and treatment in Lahore.
               </p>
               <a href="/male-infertility/" class="text-teal-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">
-                Learn More <i class="fa-solid fa-arrow-right text-xs"></i>
+                Male Infertility Overview <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
             <div>
@@ -206,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Structured female infertility diagnosis and ART planning.
               </p>
               <a href="/female-infertility/" class="text-teal-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">
-                Learn More <i class="fa-solid fa-arrow-right text-xs"></i>
+                Female Infertility Overview <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
             <div>
@@ -248,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Advanced assisted reproductive techniques in Lahore.
               </p>
               <a href="/art-procedures/" class="text-teal-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">
-                Learn More <i class="fa-solid fa-arrow-right text-xs"></i>
+                ART Procedures Overview <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
             <div>
@@ -305,14 +308,14 @@ document.addEventListener('DOMContentLoaded', () => {
     <a href="/contact/" class="hover:text-teal-600 transition">Contact</a>
   </nav>
   <!-- CTA Buttons (Desktop) - Patient Login + WhatsApp -->
-  <div class="hidden md:flex items-center gap-3">
+  <div class="hidden md:flex items-center gap-2">
     <a href="/portal/"
-       class="bg-sky-600 text-white px-5 py-2 rounded-md font-semibold hover:bg-sky-700 transition text-sm shadow-[0_4px_15px_rgba(14,165,233,0.3)] border-none flex items-center gap-2">
-      <i class="fa-solid fa-laptop-medical"></i> Patient Login
+       class="bg-sky-600 text-white px-3 py-2 rounded-md font-semibold hover:bg-sky-700 transition text-xs shadow-[0_4px_15px_rgba(14,165,233,0.3)] border-none flex items-center gap-2">
+      <i class="fa-solid fa-laptop-medical text-xs"></i> Patient Login
     </a>
     <a href="https://wa.me/923111101483"
-       class="bg-teal-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-800 transition shadow-[0_4px_15px_rgba(15,118,110,0.3)] border-none flex items-center gap-2">
-      <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+       class="bg-teal-700 text-white px-3 py-2 rounded-md font-semibold hover:bg-teal-800 transition text-xs shadow-[0_4px_15px_rgba(15,118,110,0.3)] border-none flex items-center gap-2">
+      <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
     </a>
   </div>
   <!-- HAMBURGER BUTTON (Mobile) -->
