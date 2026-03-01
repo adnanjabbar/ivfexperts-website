@@ -22,6 +22,7 @@ $nav_items = [
     ['url' => 'ultrasounds.php', 'icon' => 'fa-solid fa-image', 'label' => 'Ultrasounds'],
     ['url' => 'prescriptions.php', 'icon' => 'fa-solid fa-file-prescription', 'label' => 'Prescriptions'],
     ['url' => 'medications.php', 'icon' => 'fa-solid fa-pills', 'label' => 'Medications'],
+    ['url' => 'procedures.php', 'icon' => 'fa-solid fa-clipboard-check', 'label' => 'Advised Procedures'],
     ['url' => 'hospitals.php', 'icon' => 'fa-regular fa-hospital', 'label' => 'Hospitals'],
     ['url' => 'financials.php', 'icon' => 'fa-solid fa-wallet', 'label' => 'Financials'],
     ['url' => 'settings.php', 'icon' => 'fa-solid fa-gear', 'label' => 'Settings']
@@ -29,8 +30,10 @@ $nav_items = [
 
 $current_base = explode('?', $current_page)[0];
 foreach ($nav_items as $item) {
-    // Treat lab_results.php as active when under Laboratory Center
-    $is_active = ($current_base === $item['url'] || ($item['url'] === 'lab_tests.php' && $current_base === 'lab_results.php'))
+    // Treat lab_results.php as active when under Laboratory Center, and procedures_add.php under Advised Procedures
+    $is_active = ($current_base === $item['url'] ||
+        ($item['url'] === 'lab_tests.php' && $current_base === 'lab_results.php') ||
+        ($item['url'] === 'procedures.php' && $current_base === 'procedures_add.php'))
         ? 'bg-teal-800 text-white font-semibold shadow-inner'
         : 'text-teal-200 hover:text-white hover:bg-teal-800/50';
 ?>

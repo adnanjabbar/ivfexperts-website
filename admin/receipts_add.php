@@ -4,6 +4,7 @@ require_once __DIR__ . '/includes/auth.php';
 
 $error = '';
 $pre_patient_id = $_GET['patient_id'] ?? '';
+$pre_procedure_id = $_GET['procedure_id'] ?? null;
 $qrcode_hash = bin2hex(random_bytes(16));
 
 // Fetch required data
@@ -29,14 +30,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_receipt'])) {
     $date = $_POST['receipt_date'] ?? date('Y-m-d');
     $notes = trim($_POST['notes'] ?? '');
 
-    if (empty($patient_id) || empty($hospital_id) || empty($proc_name) || $amount <= 0) {
-        $error = "Patient, Hospital, Procedure Name, and a valid Amount are required.";
+    $status = $_POST['status'] ?? 'Paid';
+    $advised_procedure_id = !empty($_POST['advised_procedure_id']) ? intval($_POST['advised_procedure_id']) : null;
+
+    if (empty($patient_id) || empty($hospital_id) || empty($proc_name) || $amount < 0) {
+        $error = "Patient, Hospital, Procedure Name, and Amount are required.";
     }
     else {
-        $stmt = $conn->prepare("INSERT INTO receipts (patient_id, hospital_id, procedure_name, amount, receipt_date, qrcode_hash, notes) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO receipts (patient_id, hospital_id, procedure_name, amount, status, advised_procedure_id, receipt_date, qrcode_hash, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         if ($stmt) {
-            $stmt->bind_param("iisdsss", $patient_id, $hospital_id, $proc_name, $amount, $date, $qrcode_hash, $notes);
+            $stmt->bind_param("iisdsisss", $patient_id, $hospital_id, $proc_name, $amount, $status, $advised_procedure_id, $date, $qrcode_hash, $notes);
             if ($stmt->execute()) {
+                // If it's linked to an advised procedure, automatically set that procedure to 'In Progress' if payment is made
+                if ($advised_procedure_id > 0 && ($status === 'Paid' || $status === 'Pending')) {
+                    $conn->query("UPDATE advised_procedures SET status = 'In Progress' WHERE id = " . $advised_procedure_id . " AND status = 'Advised'");
+                }
+
                 header("Location: financials.php?msg=receipt_saved");
                 exit;
             }
@@ -44,6 +53,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_receipt'])) {
                 $error = "DB Error: " . $stmt->error;
             }
         }
+    }
+}
+
+// Fetch Procedure Name if pre_procedure_id is set
+$pre_proc_name = '';
+if ($pre_procedure_id) {
+    try {
+        $pst = $conn->prepare("SELECT procedure_name FROM advised_procedures WHERE id = ?");
+        $pst->bind_param("i", $pre_procedure_id);
+        $pst->execute();
+        $pres = $pst->get_result()->fetch_assoc();
+        if ($pres) {
+            $pre_proc_name = $pres['procedure_name'];
+        }
+    }
+    catch (Exception $e) {
     }
 }
 
@@ -98,13 +123,27 @@ endforeach; ?>
 
                     <div>
                         <label class="block text-sm font-bold text-gray-700 mb-1">Consultation / Procedure Name *</label>
-                        <input type="text" name="procedure_name" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-lg text-emerald-900 font-medium" placeholder="e.g. Initial Consultation, ICSI Cycle, Micro-TESE..." required>
+                        <input type="text" name="procedure_name" value="<?php echo esc($pre_proc_name); ?>" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-lg text-emerald-900 font-medium" placeholder="e.g. Initial Consultation, ICSI Cycle, Micro-TESE..." required>
+                        <?php if ($pre_procedure_id): ?>
+                            <input type="hidden" name="advised_procedure_id" value="<?php echo esc($pre_procedure_id); ?>">
+                            <p class="text-xs text-indigo-600 mt-1 font-medium"><i class="fa-solid fa-link"></i> Linked to Advised Treatment Plan</p>
+                        <?php
+endif; ?>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Amount Billed (Rs) *</label>
                             <input type="number" step="0.01" name="amount" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 font-mono text-xl" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Payment Status *</label>
+                            <select name="status" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" required>
+                                <option value="Paid">Paid</option>
+                                <option value="Unpaid">Unpaid</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Past Due">Past Due</option>
+                            </select>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Date *</label>
