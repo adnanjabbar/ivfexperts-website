@@ -523,7 +523,6 @@ document.addEventListener('alpine:init', () => {
                 { enableHighAccuracy: true, timeout: 5000 }
             );
         }
-        }
     }));
 });
 </script>

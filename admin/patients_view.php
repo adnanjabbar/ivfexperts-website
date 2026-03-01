@@ -85,7 +85,7 @@ catch (Exception $e) {
 // Fetch Prescriptions
 $prescriptions = [];
 try {
-    $stmt = $conn->prepare("SELECT id, created_at FROM prescriptions WHERE patient_id = ? ORDER BY created_at DESC");
+    $stmt = $conn->prepare("SELECT id, created_at, scanned_report_path FROM prescriptions WHERE patient_id = ? ORDER BY created_at DESC");
     if ($stmt) {
         $stmt->bind_param("i", $patient_id);
         $stmt->execute();
@@ -100,7 +100,7 @@ catch (Exception $e) {
 // Fetch Ultrasounds
 $ultrasounds = [];
 try {
-    $stmt = $conn->prepare("SELECT id, created_at, report_title FROM patient_ultrasounds WHERE patient_id = ? ORDER BY created_at DESC");
+    $stmt = $conn->prepare("SELECT id, created_at, report_title, scanned_report_path FROM patient_ultrasounds WHERE patient_id = ? ORDER BY created_at DESC");
     if ($stmt) {
         $stmt->bind_param("i", $patient_id);
         $stmt->execute();
@@ -337,6 +337,12 @@ else:
                             <div class="text-xs text-gray-500">Issued: <?php echo date('d M Y, h:i A', strtotime($rx['created_at'])); ?></div>
                         </div>
                         <div class="flex gap-2">
+                            <?php if (!empty($rx['scanned_report_path'])): ?>
+                                <a href="../<?php echo htmlspecialchars($rx['scanned_report_path']); ?>" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm transition-colors border border-gray-200" title="Original Scan">
+                                    <i class="fa-solid fa-paperclip"></i>
+                                </a>
+                            <?php
+        endif; ?>
                             <a href="prescriptions_print.php?id=<?php echo $rx['id']; ?>" target="_blank" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-3 py-2 rounded-lg text-sm transition-colors">
                                 <i class="fa-solid fa-print"></i>
                             </a>
@@ -362,10 +368,16 @@ else:
                             <div class="text-xs text-gray-500">Recorded: <?php echo date('d M Y, h:i A', strtotime($u['created_at'])); ?></div>
                         </div>
                         <div class="flex gap-2">
+                            <?php if (!empty($u['scanned_report_path'])): ?>
+                                <a href="../<?php echo htmlspecialchars($u['scanned_report_path']); ?>" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm transition-colors border border-gray-200" title="Original Scan">
+                                    <i class="fa-solid fa-paperclip"></i>
+                                </a>
+                            <?php
+        endif; ?>
                             <a href="ultrasounds_print.php?id=<?php echo $u['id']; ?>" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm transition-colors">
                                 <i class="fa-solid fa-print"></i>
                             </a>
-                            </div>
+                        </div>
                         </div>
                     <?php
     endforeach;

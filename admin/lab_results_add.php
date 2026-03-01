@@ -256,7 +256,7 @@ function patientSearch() {
             }
             
             try {
-                const response = await fetch(`ajax_search_patients.php?q=${encodeURIComponent(this.searchQuery)}`);
+                const response = await fetch(`api_search_patients.php?q=${encodeURIComponent(this.searchQuery)}`);
                 const data = await response.json();
                 this.results = data;
                 this.showResults = true;
