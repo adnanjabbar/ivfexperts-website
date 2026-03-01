@@ -8,12 +8,22 @@ require 'config/db.php';
 $success = true;
 
 // 1. Alter Hospitals table for Digital Letterhead Graphics
-$sql1 = "ALTER TABLE hospitals ADD COLUMN letterhead_image_path VARCHAR(255);";
-if (!$conn->query($sql1)) {
-    echo "Notice: " . $conn->error . "<br>";
+try {
+    $sql1 = "ALTER TABLE hospitals ADD COLUMN letterhead_image_path VARCHAR(255);";
+    if (!$conn->query($sql1)) {
+        echo "Notice: " . $conn->error . "<br>";
+    }
+    else {
+        echo "Hospitals table updated with Letterhead path.<br>";
+    }
 }
-else {
-    echo "Hospitals table updated with Letterhead path.<br>";
+catch (mysqli_sql_exception $e) {
+    if (strpos($e->getMessage(), "Duplicate column name") !== false) {
+        echo "Notice: 'letterhead_image_path' column already exists in hospitals table. Proceeding...<br>";
+    }
+    else {
+        echo "Error altering hospitals table: " . $e->getMessage() . "<br>";
+    }
 }
 
 // 2. Create Prescription Diagnoses table for multiple ICD/CPT codes
