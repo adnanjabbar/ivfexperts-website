@@ -137,6 +137,9 @@ $mr = $rx['margin_right'] ?? '20mm';
         <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold">
             <i class="fa-solid fa-print"></i> Print on Physical Letterhead
         </button>
+        <button onclick="sendWhatsApp()" class="bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-2 rounded-lg shadow-lg font-bold shadow-green-500/30">
+            <i class="fa-brands fa-whatsapp text-lg mr-1"></i> Send via WhatsApp
+        </button>
         <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg">
             Close
         </button>
@@ -376,6 +379,28 @@ else: ?>
             alert("No letterhead graphic has been uploaded for this hospital yet.");
             <?php
 endif; ?>
+        }
+
+        function sendWhatsApp() {
+            let phone = "<?php echo esc($rx['phone']); ?>";
+            phone = phone.replace(/\D/g, ''); // strip to numbers only
+            
+            if (!phone || phone.length < 10) {
+                let manualPhone = prompt("Patient phone number is missing or invalid. Please enter a valid number (e.g. 923111101483):", "92");
+                if (!manualPhone) return;
+                phone = manualPhone.replace(/\D/g, '');
+            } else if (phone.startsWith('03')) {
+                phone = '92' + phone.substring(1);
+            }
+            
+            const hash = "<?php echo $rx['qrcode_hash']; ?>";
+            const patientName = "<?php echo esc($rx['first_name'] . ' ' . $rx['last_name']); ?>";
+            const link = "https://ivfexperts.pk/portal/verify.php?hash=" + hash;
+            
+            const text = `Dear ${patientName}, 🌸\n\nWe hope this message finds you well. Here is your recent Prescription from IVF Experts. You can view and download your secure digital record by clicking the link below:\n\n📄 View & Download Record: ${link}\n\nPlease feel free to reach out if you have any questions. Your health and family are our priority. 💙\n\nRegards,\nDr. Adnan Jabbar\nMBBS, DFM, MH, MPH, CGP\nFertility, Family & Emergency Medicine\n+92 3 111 101 483 (IVF)\nhello@ivfexperts.pk\nwww.ivfexperts.pk`;
+            
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
         }
     </script>
 </body>
