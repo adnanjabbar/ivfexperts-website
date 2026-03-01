@@ -32,8 +32,13 @@
                     <li><a href="/female-infertility/" class="hover:text-teal-400 transition-colors duration-300">Female Infertility</a></li>
                     <li><a href="/art-procedures/" class="hover:text-teal-400 transition-colors duration-300">ART Procedures</a></li>
                     <li><a href="/about/" class="hover:text-teal-400 transition-colors duration-300">About Dr. Adnan</a></li>
+                    <li><a href="/blog/" class="hover:text-teal-400 transition-colors duration-300">Blog / Articles</a></li>
                     <li><a href="/contact/" class="hover:text-teal-400 transition-colors duration-300">Consultation</a></li>
-                    <li class="pt-2"><a href="/portal/" class="text-sky-400 hover:text-sky-300 font-bold flex items-center gap-2 transition-colors duration-300"><i class="fa-solid fa-laptop-medical"></i> Patient EMR Portal</a></li>
+                    <li class="pt-3">
+                        <a href="/portal/" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 shadow-[0_0_20px_rgba(14,165,233,0.3)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)]">
+                            <i class="fa-solid fa-laptop-medical"></i> Patient Reporting Portal
+                        </a>
+                    </li>
                 </ul>
             </div>
 

@@ -28,6 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date_of_birth = !empty($_POST['date_of_birth']) ? trim($_POST['date_of_birth']) : null;
     $blood_group = trim($_POST['blood_group'] ?? '');
     $gender = $_POST['gender'];
+    $marital_status = $_POST['marital_status'] ?? 'Single';
+    $gravida = intval($_POST['gravida'] ?? 0);
+    $para = intval($_POST['para'] ?? 0);
+    $abortions = intval($_POST['abortions'] ?? 0);
+    $years_married = !empty($_POST['years_married']) ? intval($_POST['years_married']) : null;
     $cnic = trim($_POST['cnic']);
     $phone = trim($_POST['phone']);
     $address = trim($_POST['address'] ?? '');
@@ -35,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hospital_id = !empty($_POST['hospital_id']) ? $_POST['hospital_id'] : null;
 
     // Spouse details
-    $spouse_name = trim($_POST['spouse_name']);
+    $spouse_name = trim($_POST['spouse_name'] ?? '');
     $spouse_age = !empty($_POST['spouse_age']) ? intval($_POST['spouse_age']) : null;
     $spouse_gender = !empty($_POST['spouse_gender']) ? $_POST['spouse_gender'] : null;
     $spouse_cnic = trim($_POST['spouse_cnic'] ?? '');
@@ -46,9 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else {
         try {
-            $stmt = $conn->prepare("INSERT INTO patients (mr_number, first_name, last_name, patient_age, date_of_birth, blood_group, gender, cnic, phone, address, email, spouse_name, spouse_age, spouse_gender, spouse_cnic, spouse_phone, referring_hospital_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $conn->prepare("INSERT INTO patients (mr_number, first_name, last_name, patient_age, date_of_birth, blood_group, gender, marital_status, gravida, para, abortions, years_married, cnic, phone, address, email, spouse_name, spouse_age, spouse_gender, spouse_cnic, spouse_phone, referring_hospital_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             if ($stmt) {
-                $stmt->bind_param("sssississsssissssi", $mr_number, $first_name, $last_name, $patient_age, $date_of_birth, $blood_group, $gender, $cnic, $phone, $address, $email, $spouse_name, $spouse_age, $spouse_gender, $spouse_cnic, $spouse_phone, $hospital_id);
+                $stmt->bind_param("sssississiiissssssisssi", $mr_number, $first_name, $last_name, $patient_age, $date_of_birth, $blood_group, $gender, $marital_status, $gravida, $para, $abortions, $years_married, $cnic, $phone, $address, $email, $spouse_name, $spouse_age, $spouse_gender, $spouse_cnic, $spouse_phone, $hospital_id);
                 if ($stmt->execute()) {
                     $new_id = $conn->insert_id;
                     header("Location: patients_view.php?id=" . $new_id . "&msg=created");
@@ -167,8 +172,44 @@ endforeach; ?>
                     </div>
                 </div>
 
+                <!-- Section: Marital Status & Obstetric History -->
+                <div class="bg-purple-50 border border-purple-100 rounded-xl p-5 mb-6" x-data="{ marital: '<?php echo esc($_POST['marital_status'] ?? 'Single'); ?>', gender: '<?php echo esc($_POST['gender'] ?? 'Female'); ?>' }">
+                    <h4 class="font-bold text-purple-800 text-sm mb-4"><i class="fa-solid fa-ring mr-1"></i> Marital & Obstetric History</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Marital Status</label>
+                            <select name="marital_status" x-model="marital" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 bg-white">
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Divorced">Divorced</option>
+                                <option value="Widowed">Widowed</option>
+                            </select>
+                        </div>
+                        <div x-show="marital === 'Married'">
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Years Married</label>
+                            <input type="number" name="years_married" value="<?php echo esc($_POST['years_married'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 bg-white" min="0" placeholder="Years">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mt-4" x-show="gender === 'Female'">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Gravida (G)</label>
+                            <input type="number" name="gravida" value="<?php echo esc($_POST['gravida'] ?? '0'); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 bg-white text-center font-bold" min="0">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Para (P)</label>
+                            <input type="number" name="para" value="<?php echo esc($_POST['para'] ?? '0'); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 bg-white text-center font-bold" min="0">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Abortions (A)</label>
+                            <input type="number" name="abortions" value="<?php echo esc($_POST['abortions'] ?? '0'); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 bg-white text-center font-bold" min="0">
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-purple-500 mt-3" x-show="gender === 'Female'">GPA Format: G<span x-text="$refs?.gravida?.value || 0"></span>P<span x-text="$refs?.para?.value || 0"></span>A<span x-text="$refs?.abortions?.value || 0"></span></p>
+                </div>
+
                 <!-- Section: Spouse Details -->
-                <div class="bg-pink-50 border border-pink-100 rounded-xl p-5 mb-6">
+                <div class="bg-pink-50 border border-pink-100 rounded-xl p-5 mb-6" x-data="{ showSpouse: '<?php echo esc($_POST['marital_status'] ?? 'Single'); ?>' === 'Married' }">
+                    <template x-if="'<?php echo esc($_POST['marital_status'] ?? 'Single'); ?>' === 'Married' || showSpouse">
                     <h4 class="font-bold text-pink-800 text-sm mb-4"><i class="fa-solid fa-heart mr-1"></i> Spouse / Partner Details</h4>
                     <p class="text-xs text-pink-600 mb-4">This links the spouse's tests (Semen Analysis, Lab Results) under the same patient file for 360° fertility tracking.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">

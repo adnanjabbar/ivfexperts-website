@@ -26,6 +26,7 @@ $nav_items = [
     ['url' => 'hospitals.php', 'icon' => 'fa-regular fa-hospital', 'label' => 'Hospitals'],
     ['url' => 'financials.php', 'icon' => 'fa-solid fa-wallet', 'label' => 'Financials'],
     ['url' => 'inventory.php', 'icon' => 'fa-solid fa-boxes-stacked', 'label' => 'Inventory'],
+    ['url' => 'blog.php', 'icon' => 'fa-solid fa-newspaper', 'label' => 'Blog / Articles'],
     ['url' => 'settings.php', 'icon' => 'fa-solid fa-gear', 'label' => 'Settings']
 ];
 
@@ -35,7 +36,8 @@ foreach ($nav_items as $item) {
     $is_active = ($current_base === $item['url'] ||
         ($item['url'] === 'lab_tests.php' && $current_base === 'lab_results.php') ||
         ($item['url'] === 'procedures.php' && $current_base === 'procedures_add.php') ||
-        ($item['url'] === 'inventory.php' && in_array($current_base, ['inventory_add.php', 'inventory_label.php'])))
+        ($item['url'] === 'inventory.php' && in_array($current_base, ['inventory_add.php', 'inventory_label.php'])) ||
+        ($item['url'] === 'blog.php' && $current_base === 'blog_add.php'))
         ? 'bg-teal-800 text-white font-semibold shadow-inner'
         : 'text-teal-200 hover:text-white hover:bg-teal-800/50';
 ?>

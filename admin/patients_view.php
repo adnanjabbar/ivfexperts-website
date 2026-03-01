@@ -13,23 +13,40 @@ $success = '';
 
 // Handle Add Clinical History form
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_history'])) {
-    $lh = trim($_POST['lh'] ?? '');
-    $fsh = trim($_POST['fsh'] ?? '');
-    $testo = trim($_POST['testosterone'] ?? '');
-    $prol = trim($_POST['prolactin'] ?? '');
-    $vitd = trim($_POST['vit_d'] ?? '');
-    $iron = trim($_POST['iron'] ?? '');
-    $tb = trim($_POST['tb'] ?? '');
-    $notes = trim($_POST['clinical_notes'] ?? '');
+    $notes = $_POST['clinical_notes'] ?? '';
+    $diagnosis = $_POST['diagnosis'] ?? '';
+    $medication = $_POST['medication'] ?? '';
+    $advice = $_POST['advice'] ?? '';
+    $next_visit = !empty($_POST['next_visit']) ? $_POST['next_visit'] : null;
 
-    $stmt = $conn->prepare("INSERT INTO patient_history (patient_id, lh, fsh, testosterone, prolactin, vit_d, iron, tb, clinical_notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO patient_history (patient_id, clinical_notes, diagnosis, medication, advice, next_visit) VALUES (?, ?, ?, ?, ?, ?)");
     if ($stmt) {
-        $stmt->bind_param("issssssss", $patient_id, $lh, $fsh, $testo, $prol, $vitd, $iron, $tb, $notes);
+        $stmt->bind_param("isssss", $patient_id, $notes, $diagnosis, $medication, $advice, $next_visit);
         if ($stmt->execute()) {
-            $success = "Clinical history & lab records added successfully.";
+            header("Location: patients_view.php?id=" . $patient_id . "&msg=history_added");
+            exit;
         }
         else {
             $error = "Failed to add history: " . $stmt->error;
+        }
+    }
+}
+
+// Handle Edit Clinical History
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit_history'])) {
+    $history_id = intval($_POST['history_id']);
+    $notes = $_POST['clinical_notes'] ?? '';
+    $diagnosis = $_POST['diagnosis'] ?? '';
+    $medication = $_POST['medication'] ?? '';
+    $advice = $_POST['advice'] ?? '';
+    $next_visit = !empty($_POST['next_visit']) ? $_POST['next_visit'] : null;
+
+    $stmt = $conn->prepare("UPDATE patient_history SET clinical_notes=?, diagnosis=?, medication=?, advice=?, next_visit=? WHERE id=? AND patient_id=?");
+    if ($stmt) {
+        $stmt->bind_param("sssssii", $notes, $diagnosis, $medication, $advice, $next_visit, $history_id, $patient_id);
+        if ($stmt->execute()) {
+            header("Location: patients_view.php?id=" . $patient_id . "&msg=history_updated");
+            exit;
         }
     }
 }
@@ -278,7 +295,7 @@ endif; ?>
         <!-- Tab Navigation -->
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 mb-6 flex overflow-hidden">
             <button @click="currentTab = 'history'" :class="{'bg-teal-50 text-teal-700 font-bold border-b-2 border-teal-600': currentTab === 'history', 'text-gray-500 hover:bg-gray-50': currentTab !== 'history'}" class="flex-1 py-4 text-sm font-medium transition-colors">
-                <i class="fa-solid fa-notes-medical mr-1"></i> History & Labs
+                <i class="fa-solid fa-notes-medical mr-1"></i> Clinical History
             </button>
             <button @click="currentTab = 'semen'" :class="{'bg-teal-50 text-teal-700 font-bold border-b-2 border-teal-600': currentTab === 'semen', 'text-gray-500 hover:bg-gray-50': currentTab !== 'semen'}" class="flex-1 py-4 text-sm font-medium transition-colors">
                 <i class="fa-solid fa-microscope mr-1"></i> Semen Reports
@@ -300,30 +317,54 @@ endif; ?>
         <!-- Tab 1: History -->
         <div x-show="currentTab === 'history'" x-cloak>
             
+            <!-- Quill.js CDN -->
+            <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+            <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+            
             <!-- Add History Form -->
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6" x-data="{ expanded: false }">
                 <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center cursor-pointer" @click="expanded = !expanded">
-                    <h3 class="font-bold text-gray-800"><i class="fa-solid fa-plus-circle text-teal-600 mr-2"></i> Add Clinical Record / Labs</h3>
+                    <h3 class="font-bold text-gray-800"><i class="fa-solid fa-plus-circle text-teal-600 mr-2"></i> Add Clinical Visit Record</h3>
                     <i class="fa-solid fa-chevron-down text-gray-400 transition-transform" :class="expanded ? 'rotate-180' : ''"></i>
                 </div>
                 <div x-show="expanded" x-collapse>
                     <div class="p-6">
-                        <form method="POST">
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-                                <div><label class="block text-xs text-gray-500 mb-1">LH</label><input type="text" name="lh" class="w-full px-3 py-2 border rounded-md focus:border-teal-500 outline-none text-sm"></div>
-                                <div><label class="block text-xs text-gray-500 mb-1">FSH</label><input type="text" name="fsh" class="w-full px-3 py-2 border rounded-md focus:border-teal-500 outline-none text-sm"></div>
-                                <div><label class="block text-xs text-gray-500 mb-1">Testosterone</label><input type="text" name="testosterone" class="w-full px-3 py-2 border rounded-md focus:border-teal-500 outline-none text-sm"></div>
-                                <div><label class="block text-xs text-gray-500 mb-1">Prolactin</label><input type="text" name="prolactin" class="w-full px-3 py-2 border rounded-md focus:border-teal-500 outline-none text-sm"></div>
-                                <div><label class="block text-xs text-gray-500 mb-1">Vit D</label><input type="text" name="vit_d" class="w-full px-3 py-2 border rounded-md focus:border-teal-500 outline-none text-sm"></div>
-                                <div><label class="block text-xs text-gray-500 mb-1">Iron</label><input type="text" name="iron" class="w-full px-3 py-2 border rounded-md focus:border-teal-500 outline-none text-sm"></div>
-                                <div><label class="block text-xs text-gray-500 mb-1">TB</label><input type="text" name="tb" class="w-full px-3 py-2 border rounded-md focus:border-teal-500 outline-none text-sm"></div>
+                        <form method="POST" onsubmit="document.getElementById('hidden_notes').value = quillAdd.root.innerHTML; document.getElementById('hidden_diagnosis').value = quillDiagnosis.root.innerHTML; document.getElementById('hidden_medication').value = quillMedication.root.innerHTML;">
+                            
+                            <div class="mb-5">
+                                <label class="block text-sm font-bold text-gray-700 mb-2"><i class="fa-solid fa-stethoscope text-teal-600 mr-1"></i> Clinical History & Findings</label>
+                                <div id="editor-notes" style="height:180px;"></div>
+                                <input type="hidden" name="clinical_notes" id="hidden_notes">
                             </div>
-                            <div class="mb-4">
-                                <label class="block text-xs text-gray-500 mb-1">Clinical Notes & Findings</label>
-                                <textarea name="clinical_notes" rows="3" class="w-full px-3 py-2 border rounded-md focus:border-teal-500 outline-none text-sm"></textarea>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2"><i class="fa-solid fa-clipboard-list text-indigo-600 mr-1"></i> Diagnosis</label>
+                                    <div id="editor-diagnosis" style="height:120px;"></div>
+                                    <input type="hidden" name="diagnosis" id="hidden_diagnosis">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2"><i class="fa-solid fa-pills text-pink-600 mr-1"></i> Medication Prescribed</label>
+                                    <div id="editor-medication" style="height:120px;"></div>
+                                    <input type="hidden" name="medication" id="hidden_medication">
+                                </div>
                             </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2"><i class="fa-solid fa-lightbulb text-amber-600 mr-1"></i> Advice Given</label>
+                                    <textarea name="advice" rows="3" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-teal-500 text-sm" placeholder="Lifestyle advice, dietary recommendations, follow-up instructions..."></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2"><i class="fa-solid fa-calendar-check text-emerald-600 mr-1"></i> Next Visit Date</label>
+                                    <input type="date" name="next_visit" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-teal-500 text-sm">
+                                </div>
+                            </div>
+
                             <div class="flex justify-end">
-                                <button type="submit" name="add_history" class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-2 rounded-lg text-sm font-bold transition-colors">Save Record</button>
+                                <button type="submit" name="add_history" class="bg-teal-700 hover:bg-teal-800 text-white px-8 py-3 rounded-lg text-sm font-bold transition-colors shadow-lg shadow-teal-200 flex items-center gap-2">
+                                    <i class="fa-solid fa-save"></i> Save Clinical Record
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -333,44 +374,133 @@ endif; ?>
             <!-- History Timeline -->
             <div class="space-y-4">
                 <?php if (empty($histories)): ?>
-                    <div class="text-center py-8 text-gray-400 bg-white rounded-2xl border border-gray-100 border-dashed">No history records found.</div>
+                    <div class="text-center py-8 text-gray-400 bg-white rounded-2xl border border-gray-100 border-dashed">
+                        <i class="fa-solid fa-notes-medical text-3xl mb-2 block text-gray-300"></i>
+                        No clinical history records yet. Click "Add Clinical Visit Record" above.
+                    </div>
                 <?php
 else:
-    foreach ($histories as $h): ?>
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 relative pl-6">
+    foreach ($histories as $idx => $h): ?>
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden" x-data="{ editing: false }">
                         <div class="absolute left-0 top-0 bottom-0 w-1 bg-teal-500 rounded-l-xl"></div>
-                        <div class="flex justify-between items-start mb-3">
-                            <span class="text-xs font-bold text-teal-700 bg-teal-50 px-2 py-1 rounded">
-                                <?php echo date('d M Y, h:i A', strtotime($h['recorded_at'])); ?>
-                            </span>
-                        </div>
                         
-                        <!-- Lab grid, only show if filled -->
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <?php
-        $labs = ['LH' => $h['lh'], 'FSH' => $h['fsh'], 'Testo' => $h['testosterone'], 'Prolactin' => $h['prolactin'], 'Vit D' => $h['vit_d'], 'Iron' => $h['iron'], 'TB' => $h['tb']];
-        foreach ($labs as $l => $v):
-            if (!empty($v)):
-?>
-                            <div class="bg-gray-50 border border-gray-100 rounded px-2 py-1 text-xs">
-                                <span class="text-gray-400 mr-1"><?php echo $l; ?>:</span><span class="font-semibold text-gray-700"><?php echo esc($v); ?></span>
+                        <!-- Header -->
+                        <div class="flex justify-between items-center px-5 py-3 bg-gray-50/50 border-b border-gray-100">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xs font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-full">
+                                    Visit #<?php echo count($histories) - $idx; ?>
+                                </span>
+                                <span class="text-xs text-gray-500">
+                                    <i class="fa-regular fa-clock mr-1"></i><?php echo date('d M Y, h:i A', strtotime($h['recorded_at'])); ?>
+                                </span>
+                            </div>
+                            <button @click="editing = !editing" class="text-xs text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-1 transition-colors">
+                                <i class="fa-solid fa-pen-to-square"></i> <span x-text="editing ? 'Cancel' : 'Edit'"></span>
+                            </button>
+                        </div>
+
+                        <!-- Read-Only View -->
+                        <div x-show="!editing" class="p-5 space-y-4">
+                            <?php if (!empty($h['clinical_notes'])): ?>
+                            <div>
+                                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Clinical History</div>
+                                <div class="text-sm text-gray-700 leading-relaxed prose prose-sm max-w-none"><?php echo $h['clinical_notes']; ?></div>
                             </div>
                             <?php
-            endif;
-        endforeach; ?>
-                        </div>
-                        
-                        <?php if (!empty($h['clinical_notes'])): ?>
-                            <div class="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed bg-yellow-50/50 p-3 rounded-md border border-yellow-100/50">
-                                <?php echo esc($h['clinical_notes']); ?>
-                            </div>
-                        <?php
         endif; ?>
+                            
+                            <?php if (!empty($h['diagnosis'])): ?>
+                            <div class="bg-indigo-50 border border-indigo-100 rounded-lg p-3">
+                                <div class="text-[10px] font-bold text-indigo-600 uppercase tracking-wider mb-1"><i class="fa-solid fa-clipboard-list mr-1"></i> Diagnosis</div>
+                                <div class="text-sm text-indigo-900 prose prose-sm max-w-none"><?php echo $h['diagnosis']; ?></div>
+                            </div>
+                            <?php
+        endif; ?>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <?php if (!empty($h['medication'])): ?>
+                                <div class="bg-pink-50 border border-pink-100 rounded-lg p-3">
+                                    <div class="text-[10px] font-bold text-pink-600 uppercase tracking-wider mb-1"><i class="fa-solid fa-pills mr-1"></i> Medication</div>
+                                    <div class="text-sm text-pink-900 prose prose-sm max-w-none"><?php echo $h['medication']; ?></div>
+                                </div>
+                                <?php
+        endif; ?>
+                                
+                                <?php if (!empty($h['advice'])): ?>
+                                <div class="bg-amber-50 border border-amber-100 rounded-lg p-3">
+                                    <div class="text-[10px] font-bold text-amber-600 uppercase tracking-wider mb-1"><i class="fa-solid fa-lightbulb mr-1"></i> Advice</div>
+                                    <div class="text-sm text-amber-900 whitespace-pre-wrap"><?php echo esc($h['advice']); ?></div>
+                                </div>
+                                <?php
+        endif; ?>
+                            </div>
+
+                            <?php if (!empty($h['next_visit'])): ?>
+                            <div class="flex items-center gap-2 text-xs text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-2 rounded-lg w-fit">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                <span class="font-bold">Next Visit:</span> <?php echo date('d M Y', strtotime($h['next_visit'])); ?>
+                            </div>
+                            <?php
+        endif; ?>
+                        </div>
+
+                        <!-- Edit Form -->
+                        <div x-show="editing" x-cloak class="p-5">
+                            <form method="POST">
+                                <input type="hidden" name="history_id" value="<?php echo $h['id']; ?>">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-500 mb-1">Clinical History</label>
+                                        <textarea name="clinical_notes" rows="4" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-teal-500"><?php echo esc(strip_tags($h['clinical_notes'])); ?></textarea>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-bold text-gray-500 mb-1">Diagnosis</label>
+                                            <textarea name="diagnosis" rows="3" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"><?php echo esc(strip_tags($h['diagnosis'])); ?></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-gray-500 mb-1">Medication</label>
+                                            <textarea name="medication" rows="3" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-pink-500"><?php echo esc(strip_tags($h['medication'])); ?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-bold text-gray-500 mb-1">Advice</label>
+                                            <textarea name="advice" rows="3" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-amber-500"><?php echo esc($h['advice'] ?? ''); ?></textarea>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold text-gray-500 mb-1">Next Visit</label>
+                                            <input type="date" name="next_visit" value="<?php echo $h['next_visit'] ?? ''; ?>" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-emerald-500">
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-end">
+                                        <button type="submit" name="edit_history" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg text-sm font-bold transition-colors">Update Record</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 <?php
     endforeach;
 endif; ?>
             </div>
+
+            <!-- Quill Init Script -->
+            <script>
+            var quillAdd, quillDiagnosis, quillMedication;
+            document.addEventListener('DOMContentLoaded', function() {
+                var toolbarOptions = [['bold', 'italic', 'underline'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], ['clean']];
+                if (document.getElementById('editor-notes')) {
+                    quillAdd = new Quill('#editor-notes', { theme: 'snow', modules: { toolbar: toolbarOptions }, placeholder: 'Type or dictate clinical history, presenting complaints, examination findings...' });
+                }
+                if (document.getElementById('editor-diagnosis')) {
+                    quillDiagnosis = new Quill('#editor-diagnosis', { theme: 'snow', modules: { toolbar: toolbarOptions }, placeholder: 'Primary and secondary diagnoses...' });
+                }
+                if (document.getElementById('editor-medication')) {
+                    quillMedication = new Quill('#editor-medication', { theme: 'snow', modules: { toolbar: toolbarOptions }, placeholder: 'Drug name, dosage, frequency, duration...' });
+                }
+            });
+            </script>
 
         </div>
 
