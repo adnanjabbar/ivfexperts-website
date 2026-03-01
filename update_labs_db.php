@@ -1,56 +1,50 @@
 <?php
 require_once __DIR__ . '/config/db.php';
 
-echo "<h1>Updating Database for Lab Tests Module (Phase 11)</h1>";
+echo "Updating database to support Laboratory Tests & Results...<br>\n";
 
-try {
-    // 1. Create lab_tests_directory
-    $sql1 = "CREATE TABLE IF NOT EXISTS `lab_tests_directory` (
+$queries = [
+    // 1. Lab Tests Directory
+    "CREATE TABLE IF NOT EXISTS `lab_tests_directory` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `test_name` varchar(255) NOT NULL,
-        `reference_range` varchar(255) DEFAULT NULL,
-        `unit` varchar(50) DEFAULT NULL,
-        `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+        `reference_range` varchar(255) NULL,
+        `unit` varchar(100) NULL,
         PRIMARY KEY (`id`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;",
 
-    if ($conn->query($sql1)) {
-        echo "<p>✅ `lab_tests_directory` table created or already exists.</p>";
-    }
-    else {
-        echo "<p>❌ Error creating `lab_tests_directory`: " . $conn->error . "</p>";
-    }
-
-    // 2. Create patient_lab_results
-    $sql2 = "CREATE TABLE IF NOT EXISTS `patient_lab_results` (
+    // 2. Patient Lab Results
+    "CREATE TABLE IF NOT EXISTS `patient_lab_results` (
         `id` int(11) NOT NULL AUTO_INCREMENT,
         `patient_id` int(11) NOT NULL,
-        `lab_city` varchar(100) DEFAULT NULL,
-        `lab_name` varchar(255) DEFAULT NULL,
-        `lab_mr_number` varchar(100) DEFAULT NULL,
+        `lab_city` varchar(255) NULL,
+        `lab_name` varchar(255) NULL,
+        `lab_mr_number` varchar(255) NULL,
         `test_date` date NOT NULL,
         `test_id` int(11) NOT NULL,
         `result_value` varchar(255) NOT NULL,
-        `scanned_report_path` varchar(500) DEFAULT NULL,
-        `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+        `scanned_report_path` varchar(255) NULL,
         PRIMARY KEY (`id`),
         KEY `patient_id` (`patient_id`),
         KEY `test_id` (`test_id`),
-        CONSTRAINT `fk_lab_patient` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`) ON DELETE CASCADE,
-        CONSTRAINT `fk_lab_test` FOREIGN KEY (`test_id`) REFERENCES `lab_tests_directory` (`id`) ON DELETE RESTRICT
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;";
+        CONSTRAINT `fk_plt_patient` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`) ON DELETE CASCADE,
+        CONSTRAINT `fk_plt_test` FOREIGN KEY (`test_id`) REFERENCES `lab_tests_directory` (`id`) ON DELETE RESTRICT
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;"
+];
 
-    if ($conn->query($sql2)) {
-        echo "<p>✅ `patient_lab_results` table created or already exists.</p>";
+foreach ($queries as $query) {
+    try {
+        if ($conn->query($query)) {
+            echo "<span style='color:green'>Success:</span> Executed Table Creation Query.<br>\n";
+        }
+        else {
+            echo "<span style='color:red'>Failed:</span> " . $conn->error . "<br>\n";
+        }
     }
-    else {
-        echo "<p>❌ Error creating `patient_lab_results`: " . $conn->error . "</p>";
+    catch (Exception $e) {
+        echo "<span style='color:red'>Error:</span> " . $e->getMessage() . "<br>\n";
     }
-
-}
-catch (Exception $e) {
-    echo "<p><strong>Critical Error:</strong> " . $e->getMessage() . "</p>";
 }
 
-echo "<p>✅ Database update completed!</p>";
+echo "<br><strong>Database update completed successfully.</strong>";
 ?>
