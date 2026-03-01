@@ -146,36 +146,39 @@ $mr = $rx['margin_right'] ?? '20mm';
     <div class="a4-container flex flex-col relative pb-[35mm]">
         
         <!-- Patient Demographics Block -->
-        <div class="border-b-2 border-gray-300 pb-2 mb-3 flex justify-between items-center px-2">
+        <div class="border-b-2 border-gray-300 pb-2 mb-3 flex items-center justify-between px-2 gap-4">
             <!-- Details -->
-            <div class="flex-1">
-                <table class="text-[11px] leading-tight w-full max-w-sm">
+            <div class="flex-grow">
+                <table class="text-[11px] leading-tight w-full max-w-md">
                     <tr><td class="font-bold pr-2 text-gray-500 py-0.5 w-24">Patient Name:</td><td class="font-bold text-gray-800 text-[12px] uppercase py-0.5"><?php echo esc($rx['first_name'] . ' ' . $rx['last_name']); ?></td></tr>
                     <tr><td class="font-bold pr-2 text-gray-500 py-0.5">MR Number:</td><td class="font-mono font-bold text-indigo-800 py-0.5"><?php echo esc($rx['mr_number']); ?></td></tr>
                     <tr><td class="font-bold pr-2 text-gray-500 py-0.5">Gender / Phone:</td><td class="py-0.5"><?php echo esc($rx['gender']); ?> / <?php echo esc($rx['phone'] ?: 'N/A'); ?></td></tr>
                 </table>
             </div>
             
-            <!-- QR Code (Center) -->
-            <div class="shrink-0 flex items-center px-4">
-                <div class="border border-gray-200 p-0.5 rounded shadow-sm bg-white">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=48x48&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-10 h-10" />
+            <!-- QR Code & Date Block Container -->
+            <div class="flex items-center gap-6 shrink-0">
+                <!-- QR Code (Right Side) -->
+                <div class="shrink-0 flex items-center">
+                    <div class="border border-gray-200 p-0.5 rounded shadow-sm bg-white">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=48x48&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-10 h-10" />
+                    </div>
+                    <!-- Vertical Divider -->
+                    <div class="h-8 w-px bg-gray-300 mx-3"></div>
+                    <!-- Text on Right -->
+                    <div class="text-[7px] text-gray-500 leading-tight w-28">
+                        Scan this verification<br>
+                        code with phone camera<br>
+                        to verify & download.
+                    </div>
                 </div>
-                <!-- Vertical Divider -->
-                <div class="h-8 w-px bg-gray-300 mx-3"></div>
-                <!-- Text on Right -->
-                <div class="text-[7px] text-gray-500 leading-tight w-28">
-                    Scan this verification<br>
-                    code with phone camera<br>
-                    to verify & download.
-                </div>
-            </div>
 
-            <!-- Date Block -->
-            <div class="text-right text-[11px] flex-1">
-                <div class="font-bold text-gray-500">Date Printed</div>
-                <div class="font-bold text-gray-800 mb-0.5"><?php echo date('d M Y'); ?></div>
-                <div class="text-[9px] text-gray-400 uppercase tracking-widest mt-1">RX-<?php echo str_pad($id, 6, '0', STR_PAD_LEFT); ?></div>
+                <!-- Date Block -->
+                <div class="text-right text-[11px] shrink-0 border-l border-gray-300 pl-6">
+                    <div class="font-bold text-gray-500">Date Printed</div>
+                    <div class="font-bold text-gray-800 mb-0.5"><?php echo date('d M Y'); ?></div>
+                    <div class="text-[9px] text-gray-400 uppercase tracking-widest mt-1">RX-<?php echo str_pad($id, 6, '0', STR_PAD_LEFT); ?></div>
+                </div>
             </div>
         </div>
 
