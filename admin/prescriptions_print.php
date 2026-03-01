@@ -10,7 +10,7 @@ $rx = null;
 try {
     $stmt = $conn->prepare("
         SELECT rx.*, p.first_name, p.last_name, p.mr_number, p.gender, p.phone, p.cnic, 
-               h.name as hospital_name, h.letterhead_top, h.letterhead_bottom, h.letterhead_left, h.letterhead_right, h.digital_signature_path 
+               h.name as hospital_name, h.margin_top, h.margin_bottom, h.margin_left, h.margin_right, h.digital_signature_path 
         FROM prescriptions rx 
         JOIN patients p ON rx.patient_id = p.id 
         JOIN hospitals h ON rx.hospital_id = h.id 
@@ -44,11 +44,11 @@ try {
 catch (Exception $e) {
 }
 
-// Setup Margins
-$mt = $rx['letterhead_top'] ?? 20;
-$mb = $rx['letterhead_bottom'] ?? 20;
-$ml = $rx['letterhead_left'] ?? 15;
-$mr = $rx['letterhead_right'] ?? 15;
+// Setup Margins explicitly to handle pre-printed hospital letterheads
+$mt = $rx['margin_top'] ?? '40mm';
+$mb = $rx['margin_bottom'] ?? '30mm';
+$ml = $rx['margin_left'] ?? '20mm';
+$mr = $rx['margin_right'] ?? '20mm';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,8 +62,7 @@ $mr = $rx['letterhead_right'] ?? 15;
     <style>
         @page {
             size: A4;
-            /* Margins applied from Database */
-            margin: <?php echo $mt; ?>mm <?php echo $mr; ?>mm <?php echo $mb; ?>mm <?php echo $ml; ?>mm;
+            margin: <?php echo $mt; ?> <?php echo $mr; ?> <?php echo $mb; ?> <?php echo $ml; ?>;
         }
         body {
             background-color: #f3f4f6; /* Gray background on screen */
@@ -78,8 +77,7 @@ $mr = $rx['letterhead_right'] ?? 15;
             margin: 0 auto;
             position: relative;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            /* Simulating paper margins for screen view */
-            padding: <?php echo $mt; ?>mm <?php echo $mr; ?>mm <?php echo $mb; ?>mm <?php echo $ml; ?>mm;
+            padding: <?php echo $mt; ?> <?php echo $mr; ?> <?php echo $mb; ?> <?php echo $ml; ?>;
             box-sizing: border-box;
         }
         @media print {
@@ -129,6 +127,41 @@ $mr = $rx['letterhead_right'] ?? 15;
             </div>
         </div>
 
+        <!-- Clinical Assessment -->
+        <div class="mb-6 grid grid-cols-2 gap-4 text-sm">
+            <?php if (!empty($rx['presenting_complaint'])): ?>
+                <div class="col-span-2">
+                    <span class="font-bold text-gray-500 uppercase text-xs">Presenting Complaint / History:</span>
+                    <p class="font-medium"><?php echo esc($rx['presenting_complaint']); ?></p>
+                </div>
+            <?php
+endif; ?>
+            
+            <?php if (!empty($rx['icd_disease'])): ?>
+                <div>
+                    <span class="font-bold text-gray-500 uppercase text-xs">Diagnosis (ICD-10):</span>
+                    <p class="font-medium text-emerald-800">
+                        <?php if (!empty($rx['icd_code']))
+        echo '<span class="font-bold mr-1">[' . esc($rx['icd_code']) . ']</span>'; ?>
+                        <?php echo esc($rx['icd_disease']); ?>
+                    </p>
+                </div>
+            <?php
+endif; ?>
+
+            <?php if (!empty($rx['cpt_procedure'])): ?>
+                <div>
+                    <span class="font-bold text-gray-500 uppercase text-xs">Advised Procedure:</span>
+                    <p class="font-medium text-indigo-800">
+                        <?php if (!empty($rx['cpt_code']))
+        echo '<span class="font-bold mr-1">[' . esc($rx['cpt_code']) . ']</span>'; ?>
+                        <?php echo esc($rx['cpt_procedure']); ?>
+                    </p>
+                </div>
+            <?php
+endif; ?>
+        </div>
+
         <!-- Big Rx Symbol -->
         <div class="mb-4">
             <span class="text-6xl font-serif italic font-bold">Rx</span>
@@ -148,7 +181,7 @@ else: ?>
                                 <div class="flex items-baseline justify-between border-b border-gray-200 border-dotted pb-1 mb-1">
                                     <h3 class="font-bold text-xl uppercase"><?php echo esc($item['name']); ?> <span class="text-xs font-normal text-gray-500 bg-gray-100 px-1 rounded ml-1"><?php echo esc($item['med_type']); ?></span></h3>
                                 </div>
-                                <div class="grid grid-cols-2 gap-4 mt-2 pl-2 border-l-2 border-gray-300">
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2 pl-2 border-l-2 border-gray-300">
                                     <?php if (!empty($item['dosage'])): ?>
                                         <div>
                                             <span class="block text-xs font-bold text-gray-500 uppercase tracking-wider">Dosage</span>
@@ -156,10 +189,24 @@ else: ?>
                                         </div>
                                     <?php
         endif; ?>
-                                    <?php if (!empty($item['instructions'])): ?>
+                                    <?php if (!empty($item['usage_frequency'])): ?>
                                         <div>
+                                            <span class="block text-xs font-bold text-gray-500 uppercase tracking-wider">Frequency</span>
+                                            <span class="text-md font-bold text-indigo-700"><?php echo esc($item['usage_frequency']); ?></span>
+                                        </div>
+                                    <?php
+        endif; ?>
+                                    <?php if (!empty($item['duration'])): ?>
+                                        <div>
+                                            <span class="block text-xs font-bold text-gray-500 uppercase tracking-wider">Duration</span>
+                                            <span class="text-md font-medium"><?php echo esc($item['duration']); ?></span>
+                                        </div>
+                                    <?php
+        endif; ?>
+                                    <?php if (!empty($item['instructions'])): ?>
+                                        <div class="col-span-2 md:col-span-4 mt-1 border-t border-gray-100 pt-1">
                                             <span class="block text-xs font-bold text-gray-500 uppercase tracking-wider">Instructions</span>
-                                            <span class="text-md font-medium"><?php echo esc($item['instructions']); ?></span>
+                                            <span class="text-sm font-medium italic text-gray-700"><?php echo esc($item['instructions']); ?></span>
                                         </div>
                                     <?php
         endif; ?>
@@ -173,11 +220,20 @@ else: ?>
 endif; ?>
         </div>
 
-        <!-- Clinical Notes -->
+        <!-- General Notes -->
         <?php if (!empty($rx['notes'])): ?>
-            <div class="mt-8 pt-4 border-t-2 border-gray-800">
-                <h3 class="text-sm font-bold uppercase tracking-wider text-gray-600 mb-2">Advice / Next Visit</h3>
+            <div class="mt-4 pt-4 border-t-2 border-gray-800">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-gray-600 mb-2">Advice / General Notes</h3>
                 <p class="text-md whitespace-pre-wrap leading-relaxed"><?php echo esc($rx['notes']); ?></p>
+            </div>
+        <?php
+endif; ?>
+
+        <!-- Revisit Date -->
+        <?php if (!empty($rx['revisit_date'])): ?>
+            <div class="mt-4 bg-emerald-50 border border-emerald-200 rounded p-3 text-center w-64 mx-auto shadow-sm">
+                <span class="text-xs font-bold text-emerald-800 uppercase tracking-widest block mb-1">Next Follow-up Visit</span>
+                <span class="text-lg font-bold text-emerald-900"><?php echo date('l, d M Y', strtotime($rx['revisit_date'])); ?></span>
             </div>
         <?php
 endif; ?>

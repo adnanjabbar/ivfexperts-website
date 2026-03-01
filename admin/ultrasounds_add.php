@@ -9,13 +9,7 @@ $pre_patient_id = $_GET['patient_id'] ?? '';
 // Generate QR hash
 $qrcode_hash = bin2hex(random_bytes(16));
 
-// Fetch required data
-$patients = [];
-$res = $conn->query("SELECT id, mr_number, first_name, last_name FROM patients ORDER BY id DESC");
-if ($res) {
-    while ($row = $res->fetch_assoc())
-        $patients[] = $row;
-}
+// (Patients array removed; doing AJAX search instead to boost speed on large DBs)
 
 $hospitals = [];
 $res = $conn->query("SELECT id, name FROM hospitals ORDER BY name ASC");
@@ -90,18 +84,38 @@ endif; ?>
             <form method="POST">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                    <!-- Patient -->
-                    <div class="lg:col-span-1">
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Select Patient *</label>
-                        <select name="patient_id" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500" required>
-                            <option value="">-- Choose Patient --</option>
-                            <?php foreach ($patients as $p): ?>
-                                <option value="<?php echo $p['id']; ?>" <?php echo($pre_patient_id == $p['id']) ? 'selected' : ''; ?>>
-                                    <?php echo esc($p['mr_number'] . ' | ' . $p['first_name'] . ' ' . $p['last_name']); ?>
-                                </option>
-                            <?php
-endforeach; ?>
-                        </select>
+                    <!-- AJAX Patient Search -->
+                    <div class="lg:col-span-1 relative" x-data="patientSearch()">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Search Patient (MR / Phone / Name) *</label>
+                        <input type="hidden" name="patient_id" :value="selectedPatientId" required>
+                        <div class="relative">
+                            <input type="text" x-model="query" @input.debounce.300ms="search" placeholder="Type to search..." 
+                                class="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 transition-colors" 
+                                :class="selectedPatientId ? 'bg-sky-50 border-sky-300 font-bold text-sky-800 shadow-inner' : ''" autocomplete="off">
+                            <div x-show="isLoading" class="absolute right-3 top-3.5 text-sky-500">
+                                <i class="fa-solid fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Dropdown -->
+                        <div x-show="results.length > 0 && !selectedPatientId" @click.away="results = []" class="absolute z-30 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-2xl overflow-hidden max-h-64 overflow-y-auto">
+                            <template x-for="p in results" :key="p.id">
+                                <div @click="selectPatient(p)" class="px-4 py-3 border-b border-gray-100 hover:bg-sky-50 cursor-pointer transition-colors">
+                                    <div class="font-bold text-gray-800 flex justify-between">
+                                        <span x-text="p.first_name + ' ' + (p.last_name || '')"></span>
+                                        <span class="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded border border-gray-200" x-text="p.gender"></span>
+                                    </div>
+                                    <div class="text-xs text-gray-500 flex gap-3 mt-1.5">
+                                        <span class="font-mono text-sky-700 font-bold bg-sky-100 px-1.5 py-0.5 rounded" x-text="'MR: ' + p.mr_number"></span>
+                                        <span x-text="'<i class=\'fa-solid fa-phone text-[9px]\'></i> ' + (p.phone || 'N/A')" x-html="true" class="flex items-center gap-1"></span>
+                                        <span x-text="'CNIC: ' + (p.cnic || 'N/A')"></span>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                        <div x-show="selectedPatientId" class="text-xs text-red-500 mt-2 font-medium cursor-pointer hover:underline flex items-center gap-1 w-max" @click="clearSelection()">
+                            <i class="fa-solid fa-times-circle"></i> Clear Selection
+                        </div>
                     </div>
 
                     <!-- Hospital -->
@@ -172,6 +186,44 @@ function loadTemplate(id) {
         document.getElementById('template_loader').value = "";
     }
 }
+
+document.addEventListener('alpine:init', () => {
+    Alpine.data('patientSearch', () => ({
+        query: '',
+        results: [],
+        isLoading: false,
+        selectedPatientId: '',
+        
+        async search() {
+            if (this.selectedPatientId) return; // Don't search if already selected
+            if (this.query.length < 2) {
+                this.results = [];
+                return;
+            }
+            this.isLoading = true;
+            try {
+                let res = await fetch(`api_search_patients.php?q=${encodeURIComponent(this.query)}`);
+                let data = await res.json();
+                this.results = data;
+            } catch (e) {
+                console.error(e);
+            }
+            this.isLoading = false;
+        },
+        
+        selectPatient(p) {
+            this.selectedPatientId = p.id;
+            this.query = p.first_name + ' ' + (p.last_name || '') + ' (' + p.mr_number + ')';
+            this.results = [];
+        },
+        
+        clearSelection() {
+            this.selectedPatientId = '';
+            this.query = '';
+            this.results = [];
+        }
+    }));
+});
 </script>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>

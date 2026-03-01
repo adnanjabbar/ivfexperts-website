@@ -10,7 +10,7 @@ $usg = null;
 try {
     $stmt = $conn->prepare("
         SELECT u.*, p.first_name, p.last_name, p.mr_number, p.gender, p.phone, p.cnic, 
-               h.name as hospital_name, h.letterhead_top, h.letterhead_bottom, h.letterhead_left, h.letterhead_right, h.digital_signature_path 
+               h.name as hospital_name, h.margin_top, h.margin_bottom, h.margin_left, h.margin_right, h.digital_signature_path 
         FROM patient_ultrasounds u 
         JOIN patients p ON u.patient_id = p.id 
         JOIN hospitals h ON u.hospital_id = h.id 
@@ -29,11 +29,11 @@ catch (Exception $e) {
 if (!$usg)
     die("Report not found.");
 
-// Setup Margins
-$mt = $usg['letterhead_top'] ?? 30;
-$mb = $usg['letterhead_bottom'] ?? 25;
-$ml = $usg['letterhead_left'] ?? 15;
-$mr = $usg['letterhead_right'] ?? 15;
+// Setup Margins explicitly to handle pre-printed hospital letterheads
+$mt = $usg['margin_top'] ?? '40mm';
+$mb = $usg['margin_bottom'] ?? '30mm';
+$ml = $usg['margin_left'] ?? '20mm';
+$mr = $usg['margin_right'] ?? '20mm';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +46,7 @@ $mr = $usg['letterhead_right'] ?? 15;
     <style>
         @page {
             size: A4;
-            margin: <?php echo $mt; ?>mm <?php echo $mr; ?>mm <?php echo $mb; ?>mm <?php echo $ml; ?>mm;
+            margin: <?php echo $mt; ?> <?php echo $mr; ?> <?php echo $mb; ?> <?php echo $ml; ?>;
         }
         body {
             background-color: #f3f4f6;
@@ -61,7 +61,7 @@ $mr = $usg['letterhead_right'] ?? 15;
             margin: 0 auto;
             position: relative;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            padding: <?php echo $mt; ?>mm <?php echo $mr; ?>mm <?php echo $mb; ?>mm <?php echo $ml; ?>mm;
+            padding: <?php echo $mt; ?> <?php echo $mr; ?> <?php echo $mb; ?> <?php echo $ml; ?>;
             box-sizing: border-box;
         }
         @media print {

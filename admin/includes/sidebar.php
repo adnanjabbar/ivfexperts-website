@@ -21,6 +21,7 @@ $nav_items = [
     ['url' => 'ultrasounds.php', 'icon' => 'fa-solid fa-image', 'label' => 'Ultrasounds'],
     ['url' => 'prescriptions.php', 'icon' => 'fa-solid fa-file-prescription', 'label' => 'Prescriptions'],
     ['url' => 'medications.php', 'icon' => 'fa-solid fa-pills', 'label' => 'Medications'],
+    ['url' => 'hospitals.php', 'icon' => 'fa-regular fa-hospital', 'label' => 'Hospitals'],
     ['url' => 'financials.php', 'icon' => 'fa-solid fa-wallet', 'label' => 'Financials'],
     ['url' => 'settings.php', 'icon' => 'fa-solid fa-gear', 'label' => 'Settings']
 ];

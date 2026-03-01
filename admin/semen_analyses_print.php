@@ -175,7 +175,8 @@ endif; ?>
             </tr>
         </table>
 
-        <!-- Morphology & Others -->
+        <!-- Morphological Examination -->
+        <h3 class="font-bold uppercase tracking-wider text-sm mb-2 text-slate-800 border-b border-slate-800 pb-1 mt-2">Morphological Examination</h3>
         <table class="w-full sa-table mb-6">
             <tr>
                 <td class="w-1/3">Normal Morphology</td>
@@ -206,9 +207,10 @@ endif; ?>
         </table>
 
         <!-- Diagnosis Box -->
-        <div class="mt-4 bg-slate-800 text-white rounded p-4 text-center border-4 border-double border-slate-500 shadow-inner">
-            <h4 class="uppercase tracking-widest text-[10px] text-slate-300 mb-1">Conclusion / Diagnosis</h4>
-            <div class="text-2xl font-bold tracking-wide break-words">
+        <div class="mt-4 bg-white rounded-lg p-5 text-center border border-slate-200 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
+            <h4 class="uppercase tracking-widest text-xs font-bold text-slate-500 mb-2">Conclusion / Diagnosis</h4>
+            <div class="text-xl md:text-2xl font-bold tracking-wide text-slate-800 break-words">
                 <?php echo esc($sa['auto_diagnosis']); ?>
             </div>
         </div>
@@ -222,18 +224,18 @@ endif; ?>
 endif; ?>
 
         <!-- Footer -->
-        <div class="absolute bottom-6 left-0 right-0 flex justify-between items-end pb-4">
+        <div class="absolute bottom-6 left-0 right-0 flex justify-between items-end pb-4 pl-4">
             
             <div class="flex items-center gap-3">
                 <!-- QR Code points to Patient Portal for 2FA unlock -->
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $sa['qrcode_hash']); ?>" alt="QR Code" class="w-20 h-20 border border-slate-800 p-1" />
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $sa['qrcode_hash']); ?>" alt="QR Code" class="w-20 h-20 border border-slate-200 p-1 bg-white" />
                 <div class="text-[10px] text-slate-500 w-48 leading-tight">
-                    <span class="font-bold block text-slate-800">Scan for Secure PDF version</span>
+                    <span class="font-bold block text-slate-800">Scan for Secure PDF</span>
                     Unlock code required via patient portal.
                 </div>
             </div>
 
-            <div class="text-center">
+            <div class="text-center pr-4">
                 <?php if (!empty($sa['digital_signature_path'])): ?>
                     <img src="../<?php echo esc($sa['digital_signature_path']); ?>" alt="Signature" class="h-20 mx-auto object-contain mb-1" />
                 <?php
@@ -241,7 +243,8 @@ else: ?>
                     <div class="h-20 sm:w-48 text-gray-300 italic flex items-end justify-center pb-2 border-b border-gray-400">Unsigned Document</div>
                 <?php
 endif; ?>
-                <div class="font-bold uppercase text-sm border-t border-slate-800 pt-1 w-48 mx-auto">Prof. Dr. Adnan Jabbar</div>
+                <div class="text-[11px] text-slate-600  pt-1 w-64 mx-auto italic">Electronically Verified By:</div>
+                <div class="font-bold uppercase text-sm">Dr. Adnan Jabbar</div>
                 <div class="text-[11px] text-slate-600">Male Infertility & IVF Specialist</div>
             </div>
 
