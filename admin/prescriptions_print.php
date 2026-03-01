@@ -161,10 +161,10 @@ $mr = $rx['margin_right'] ?? '20mm';
                 <!-- QR Code (Right Side) -->
                 <div class="shrink-0 flex items-center">
                     <div class="border border-gray-200 p-0.5 rounded shadow-sm bg-white">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=48x48&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-10 h-10" />
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=64x64&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-14 h-14" />
                     </div>
                     <!-- Vertical Divider -->
-                    <div class="h-8 w-px bg-gray-300 mx-3"></div>
+                    <div class="h-10 w-px bg-gray-300 mx-3"></div>
                     <!-- Text on Right -->
                     <div class="text-[7px] text-gray-500 leading-tight w-28">
                         Scan this verification<br>
