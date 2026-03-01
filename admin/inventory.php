@@ -10,9 +10,9 @@ if (isset($_GET['msg'])) {
         $success = "Asset/inventory item saved successfully.";
 }
 
-// Handle Delete
-if (isset($_GET['delete'])) {
-    $id = intval($_GET['delete']);
+// Handle Delete (POST)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $id = intval($_POST['delete_id']);
     $stmt = $conn->prepare("DELETE FROM assets WHERE id = ?");
     $stmt->bind_param("i", $id);
     if ($stmt->execute()) {
@@ -284,9 +284,12 @@ else:
                                 </div>
 
                                 <div class="py-1">
-                                    <a href="?delete=<?php echo $a['id']; ?>" onclick="return confirm('Delete this inventory item permanently?');" class="group flex items-center px-4 py-2 text-sm text-red-700 hover:bg-red-50">
-                                        <i class="fa-solid fa-trash mr-3 text-red-400"></i> Delete
-                                    </a>
+                                    <form method="POST" onsubmit="return confirm('Delete this inventory item permanently?');">
+                                        <input type="hidden" name="delete_id" value="<?php echo $a['id']; ?>">
+                                        <button type="submit" class="w-full text-left group flex items-center px-4 py-2 text-sm text-red-700 hover:bg-red-50">
+                                            <i class="fa-solid fa-trash mr-3 text-red-400"></i> Delete
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

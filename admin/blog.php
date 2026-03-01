@@ -10,13 +10,14 @@ if (isset($_GET['msg'])) {
         $success = "Article published!";
 }
 
-// Handle Delete
-if (isset($_GET['delete'])) {
-    $id = intval($_GET['delete']);
+// Handle Delete (POST)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $id = intval($_POST['delete_id']);
     $stmt = $conn->prepare("DELETE FROM blog_posts WHERE id = ?");
     $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $success = "Article deleted.";
+    if ($stmt->execute()) {
+        $success = "Article deleted.";
+    }
 }
 
 // Handle Publish Toggle
@@ -119,7 +120,11 @@ else:
                             <?php
         endif; ?>
                             <a href="/blog/<?php echo htmlspecialchars($p['slug']); ?>" target="_blank" class="text-gray-400 hover:text-gray-600 text-sm"><i class="fa-solid fa-external-link"></i></a>
-                            <a href="?delete=<?php echo $p['id']; ?>" onclick="return confirm('Delete this article?')" class="text-red-400 hover:text-red-600 text-sm"><i class="fa-solid fa-trash"></i></a>
+                            
+                            <form method="POST" onsubmit="return confirm('Delete this article?')" class="inline">
+                                <input type="hidden" name="delete_id" value="<?php echo $p['id']; ?>">
+                                <button type="submit" class="text-red-400 hover:text-red-600 text-sm"><i class="fa-solid fa-trash"></i></button>
+                            </form>
                         </div>
                     </td>
                 </tr>

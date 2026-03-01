@@ -159,111 +159,155 @@ endif; ?>
         <!-- Macroscopic -->
         <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-1 rounded-sm shadow-sm">Macroscopic Examination</h3>
         <table class="w-full sa-table mb-3">
+            <thead>
+                <tr>
+                    <th class="w-1/3">Parameter</th>
+                    <th class="w-1/3 text-center">Result</th>
+                    <th class="w-1/3 text-right">WHO 6th Standard Reference</th>
+                </tr>
+            </thead>
             <tr>
                 <td class="w-1/3">Volume</td>
-                <td class="w-1/3 font-mono font-bold <?php echo($sa['volume'] > 0 && $sa['volume'] < 1.4) ? 'red-flag' : ''; ?>"><?php echo $sa['volume']; ?> ml</td>
-                <td class="w-1/3 text-xs text-slate-500 italic">Reference: ≥ 1.4 ml</td>
+                <td class="w-1/3 text-center font-bold text-slate-900 <?php echo($sa['volume'] > 0 && $sa['volume'] < 1.4) ? 'red-flag' : ''; ?>"><?php echo $sa['volume']; ?> ml</td>
+                <td class="w-1/3 text-right text-xs text-slate-500 italic">≥ 1.4 ml</td>
             </tr>
             <tr>
                 <td>pH</td>
-                <td class="font-mono font-bold <?php echo($sa['ph'] > 0 && $sa['ph'] < 7.2) ? 'red-flag' : ''; ?>"><?php echo $sa['ph']; ?></td>
-                <td class="text-xs text-slate-500 italic">Reference: ≥ 7.2</td>
+                <td class="text-center font-bold text-slate-900 <?php echo($sa['ph'] > 0 && $sa['ph'] < 7.2) ? 'red-flag' : ''; ?>"><?php echo $sa['ph']; ?></td>
+                <td class="text-right text-xs text-slate-500 italic">≥ 7.2</td>
             </tr>
             <tr>
                 <td>Appearance / Color</td>
-                <td class="font-mono font-bold"><?php echo esc($sa['appearance']); ?></td>
-                <td class="text-xs text-slate-500 italic">Reference: Normal</td>
+                <td class="text-center font-bold text-slate-900"><?php echo esc($sa['appearance']); ?></td>
+                <td class="text-right text-xs text-slate-500 italic">Normal</td>
             </tr>
             <tr>
                 <td>Liquefaction</td>
-                <td class="font-mono font-bold"><?php echo esc($sa['liquefaction']); ?></td>
-                <td class="text-xs text-slate-500 italic">Reference: Complete</td>
+                <td class="text-center font-bold text-slate-900"><?php echo esc($sa['liquefaction']); ?></td>
+                <td class="text-right text-xs text-slate-500 italic">Complete</td>
             </tr>
             <tr>
                 <td>Viscosity</td>
-                <td class="font-mono font-bold"><?php echo esc($sa['viscosity']); ?></td>
-                <td class="text-xs text-slate-500 italic">Reference: Normal</td>
+                <td class="text-center font-bold text-slate-900"><?php echo esc($sa['viscosity']); ?></td>
+                <td class="text-right text-xs text-slate-500 italic">Normal</td>
             </tr>
         </table>
 
         <!-- Microscopic -->
         <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-1 rounded-sm shadow-sm">Microscopic Examination</h3>
         <table class="w-full sa-table mb-3">
+            <thead>
+                <tr>
+                    <th class="w-1/3">Parameter</th>
+                    <th class="w-1/3 text-center">Result</th>
+                    <th class="w-1/3 text-right">WHO 6th Standard Reference</th>
+                </tr>
+            </thead>
             <tr>
                 <td class="w-1/3 font-bold bg-slate-100">Sperm Concentration</td>
-                <td class="w-1/3 font-mono font-bold text-base <?php echo($sa['concentration'] > 0 && $sa['concentration'] < 16) ? 'red-flag' : ''; ?>"><?php echo $sa['concentration']; ?> <span class="text-xs">M/ml</span></td>
-                <td class="w-1/3 text-xs text-slate-500 italic">Reference: ≥ 16 M/ml</td>
+                <td class="w-1/3 text-center font-bold text-base text-slate-900 <?php echo($sa['concentration'] > 0 && $sa['concentration'] < 16) ? 'red-flag' : ''; ?>"><?php echo $sa['concentration']; ?> <span class="text-xs font-normal">M/ml</span></td>
+                <td class="w-1/3 text-right text-xs text-slate-500 italic">≥ 16 M/ml</td>
             </tr>
             <tr>
                 <td>Progressive Motility (PR)</td>
-                <td class="font-mono font-bold <?php echo($sa['pr_motility'] > 0 && $sa['pr_motility'] < 30) ? 'red-flag' : ''; ?>"><?php echo $sa['pr_motility']; ?> %</td>
-                <td class="text-xs text-slate-500 italic">Reference: ≥ 30 %</td>
+                <td class="text-center font-bold text-slate-900 <?php echo($sa['pr_motility'] > 0 && $sa['pr_motility'] < 30) ? 'red-flag' : ''; ?>"><?php echo $sa['pr_motility']; ?> %</td>
+                <td class="text-right text-xs text-slate-500 italic">≥ 30 %</td>
             </tr>
             <tr>
                 <td>Non-Progressive Motility (NP)</td>
-                <td class="font-mono font-bold"><?php echo $sa['np_motility']; ?> %</td>
+                <td class="text-center font-bold text-slate-900"><?php echo $sa['np_motility']; ?> %</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Immotility (IM)</td>
-                <td class="font-mono font-bold"><?php echo $sa['im_motility']; ?> %</td>
+                <td class="text-center font-bold text-slate-900"><?php echo $sa['im_motility']; ?> %</td>
                 <td></td>
             </tr>
             <tr>
                 <td class="font-bold bg-slate-100 text-blue-900 border-t-2 border-slate-300">Total Motility (PR + NP)</td>
-                <td class="font-mono font-bold text-lg border-t-2 border-slate-300 <?php echo($total_motility > 0 && $total_motility < 42) ? 'red-flag' : 'text-blue-700'; ?>"><?php echo $total_motility; ?> %</td>
-                <td class="text-xs text-slate-500 border-t-2 border-slate-300 italic">Reference: ≥ 42 %</td>
+                <td class="text-center font-bold text-lg border-t-2 border-slate-300 <?php echo($total_motility > 0 && $total_motility < 42) ? 'red-flag' : 'text-blue-700'; ?>"><?php echo $total_motility; ?> %</td>
+                <td class="text-right text-xs text-slate-500 border-t-2 border-slate-300 italic">≥ 42 %</td>
             </tr>
             <tr>
                 <td>Vitality (Live Sperm)</td>
-                <td class="font-mono font-bold <?php echo($sa['vitality'] > 0 && $sa['vitality'] < 54) ? 'red-flag' : ''; ?>"><?php echo $sa['vitality'] ? $sa['vitality'] . ' %' : 'N/A'; ?></td>
-                <td class="text-xs text-slate-500 italic">Reference: ≥ 54 %</td>
+                <td class="text-center font-bold text-slate-900 <?php echo($sa['vitality'] > 0 && $sa['vitality'] < 54) ? 'red-flag' : ''; ?>"><?php echo $sa['vitality'] ? $sa['vitality'] . ' %' : 'N/A'; ?></td>
+                <td class="text-right text-xs text-slate-500 italic">≥ 54 %</td>
             </tr>
         </table>
 
         <!-- Morphological Examination -->
         <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-1 rounded-sm shadow-sm">Morphological Examination</h3>
         <table class="w-full sa-table mb-3">
+            <thead>
+                <tr>
+                    <th class="w-1/3">Parameter</th>
+                    <th class="w-1/3 text-center">Result</th>
+                    <th class="w-1/3 text-right">WHO 6th Standard Reference</th>
+                </tr>
+            </thead>
             <tr>
                 <td class="w-1/3">Normal Morphology</td>
-                <td class="w-1/3 font-mono font-bold <?php echo($sa['normal_morphology'] > 0 && $sa['normal_morphology'] < 4) ? 'red-flag' : ''; ?>"><?php echo $sa['normal_morphology']; ?> %</td>
-                <td class="w-1/3 text-xs text-slate-500 italic">Reference: ≥ 4 %</td>
+                <td class="w-1/3 text-center font-bold text-slate-900 <?php echo($sa['normal_morphology'] > 0 && $sa['normal_morphology'] < 4) ? 'red-flag' : ''; ?>"><?php echo $sa['normal_morphology']; ?> %</td>
+                <td class="w-1/3 text-right text-xs text-slate-500 italic">≥ 4 %</td>
             </tr>
             <tr>
                 <td>Abnormal Forms</td>
-                <td class="font-mono font-bold"><?php echo $sa['abnormal_morphology']; ?> %</td>
+                <td class="text-center font-bold text-slate-900"><?php echo $sa['abnormal_morphology']; ?> %</td>
                 <td></td>
             </tr>
             <tr>
                 <td>Round Cells</td>
-                <td class="font-mono font-bold text-sm" colspan="2"><?php echo esc($sa['round_cells'] ?: '< 1M/ml'); ?></td>
+                <td class="text-center font-bold text-slate-900 text-sm" colspan="2"><?php echo esc($sa['round_cells'] ?: '< 1M/ml'); ?></td>
             </tr>
             <tr>
                 <td>Pus Cells (WBC)</td>
-                <td class="font-mono font-bold text-sm" colspan="2"><?php echo esc($sa['wbc'] ?: 'Nil'); ?></td>
+                <td class="text-center font-bold text-slate-900 text-sm" colspan="2"><?php echo esc($sa['wbc'] ?: 'Nil'); ?></td>
             </tr>
             <tr>
                 <td>Agglutination</td>
-                <td class="font-mono font-bold text-sm" colspan="2"><?php echo esc($sa['agglutination'] ?: 'Nil'); ?></td>
+                <td class="text-center font-bold text-slate-900 text-sm" colspan="2"><?php echo esc($sa['agglutination'] ?: 'Nil'); ?></td>
             </tr>
             <tr>
                 <td>Debris</td>
-                <td class="font-mono font-bold text-sm" colspan="2"><?php echo esc($sa['debris'] ?: 'Occasional'); ?></td>
+                <td class="text-center font-bold text-slate-900 text-sm" colspan="2"><?php echo esc($sa['debris'] ?: 'Occasional'); ?></td>
             </tr>
         </table>
 
         <!-- Diagnosis Box -->
-        <div class="mt-2 bg-slate-100 rounded p-2 text-center border-2 border-slate-300 relative mx-12 shadow-inner">
-            <h4 class="uppercase tracking-widest text-[10px] font-bold text-slate-600 mb-0">Conclusion / Diagnosis</h4>
-            <div class="text-xl font-bold tracking-widest text-slate-900 break-words uppercase">
-                <?php echo esc($sa['auto_diagnosis']); ?>
+        <?php
+$diagnosis = $sa['auto_diagnosis'];
+$definitions = [
+    'Oligozoospermia' => "Oligozoospermia is a male fertility condition characterized by a low sperm count in the ejaculate. While a typical healthy range is 16 million to over 200 million sperm per milliliter of semen, someone with this condition falls below that 16 million threshold.",
+    'Asthenozoospermia' => "Asthenozoospermia refers to reduced sperm motility, where the percentage of progressively moving sperm is below the WHO threshold. This condition can impact the sperm's ability to reach and fertilize the egg.",
+    'Teratozoospermia' => "Teratozoospermia is characterized by a high percentage of sperm with abnormal morphology (shape). This can affect the sperm's ability to penetrate the egg.",
+    'Azoospermia' => "Azoospermia is the medical condition where there is no measurable level of sperm in the ejaculate.",
+    'Normozoospermia' => "Normozoospermia indicates that the semen parameters (concentration, motility, and morphology) are within the normal WHO reference range.",
+    'Oligoasthenoteratozoospermia (OAT)' => "OAT syndrome is a condition that encompasses oligozoospermia (low sperm count), asthenozoospermia (poor sperm movement), and teratozoospermia (abnormal sperm shape)."
+];
+
+$parts = explode(', ', $diagnosis);
+$display_diagnosis = [];
+foreach ($parts as $p) {
+    $trimmed_p = trim($p);
+    if (isset($definitions[$trimmed_p])) {
+        $display_diagnosis[] = "<div class='mb-2 pb-2 border-b border-white/20 last:border-0 last:mb-0 last:pb-0'><span class='font-extrabold block text-lg underline decoration-sky-300 underline-offset-4 tracking-wider'>$trimmed_p</span><p class='text-[10px] mt-1 text-sky-100 font-normal normal-case leading-relaxed'>" . $definitions[$trimmed_p] . "</p></div>";
+    }
+    else {
+        $display_diagnosis[] = "<div class='mb-2 pb-2 border-b border-white/20 last:border-0 last:mb-0 last:pb-0'><span class='font-extrabold block text-lg'>$trimmed_p</span></div>";
+    }
+}
+?>
+        <div class="mt-4 bg-gradient-to-br from-slate-800 to-sky-900 text-white rounded-xl p-5 border-2 border-sky-600/30 shadow-xl mx-4">
+            <h4 class="uppercase tracking-widest text-[10px] font-bold text-sky-300/80 mb-3 border-b border-sky-400/20 pb-1">Conclusion / Clinical Diagnosis</h4>
+            <div class="space-y-3">
+                <?php echo implode('', $display_diagnosis); ?>
             </div>
         </div>
 
         <?php if (!empty($sa['admin_notes'])): ?>
-            <div class="mt-2 p-2 bg-yellow-50 text-[12px] border border-yellow-200 text-slate-800 rounded">
-                <span class="font-bold uppercase text-[10px] block mb-0 text-yellow-800">Physician Notes</span>
-                <?php echo nl2br(esc($sa['admin_notes'])); ?>
+            <div class="mt-4 p-4 bg-slate-50 text-[12px] border border-slate-200 text-slate-800 rounded-lg shadow-sm mx-4">
+                <span class="font-bold uppercase text-[10px] block mb-2 text-slate-500 border-b border-slate-100 pb-1">Clinical Embryologist Remarks</span>
+                <div class="leading-relaxed whitespace-pre-wrap italic text-slate-700"><?php echo esc($sa['admin_notes']); ?></div>
             </div>
         <?php
 endif; ?>
@@ -280,16 +324,20 @@ endif; ?>
                 </div>
             </div>
 
-            <div class="text-center">
+            <div class="text-right">
                 <?php if (!empty($sa['digital_signature_path'])): ?>
-                    <img src="../<?php echo esc($sa['digital_signature_path']); ?>" alt="Signature" class="h-14 mx-auto object-contain mb-0" />
+                    <img src="../<?php echo esc($sa['digital_signature_path']); ?>" alt="Signature" class="h-16 ml-auto object-contain mb-1" />
                 <?php
 else: ?>
-                    <div class="h-14 sm:w-48 text-gray-300 italic flex items-end justify-center pb-1 border-b border-gray-400">Unsigned Document</div>
+                    <div class="h-14 sm:w-48 text-gray-300 italic flex items-end justify-end pb-1 border-b border-gray-400 ml-auto uppercase text-[10px] font-bold tracking-widest">Unsigned Document</div>
                 <?php
 endif; ?>
-                <div class="font-bold uppercase text-[13px] mt-1 text-slate-800">Dr. Adnan Jabbar</div>
-                <div class="text-[10px] text-slate-500 border-t border-slate-300 pt-0.5 mx-auto inline-block w-48 italic">Electronically Verified By Clinical Director</div>
+                <div class="font-bold text-[14px] text-slate-900 leading-tight">Dr. Adnan Jabbar</div>
+                <div class="text-[9px] text-slate-600 leading-tight mt-1">
+                    MBBS, DFM, MH, GCP, Family, Fertility & ER Medicine<br>
+                    <span class="font-bold text-slate-800 uppercase tracking-wider">Clinical Embryologist</span><br>
+                    <span class="text-emerald-600 font-bold italic"><i class="fa-solid fa-circle-check"></i> Digitally Verified Report.</span>
+                </div>
             </div>
 
         </div>

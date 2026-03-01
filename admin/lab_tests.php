@@ -5,9 +5,9 @@ require_once dirname(__DIR__) . '/config/db.php';
 $success = '';
 $error = '';
 
-// Handle Test Deletion
-if (isset($_GET['delete'])) {
-    $id = intval($_GET['delete']);
+// Handle Test Deletion (POST)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $id = intval($_POST['delete_id']);
     try {
         $stmt = $conn->prepare("DELETE FROM lab_tests_directory WHERE id = ?");
         $stmt->bind_param("i", $id);
@@ -126,9 +126,12 @@ else:
                         <button onclick="editModal(<?php echo htmlspecialchars(json_encode($t)); ?>)" class="text-sky-500 hover:text-sky-700 bg-sky-50 p-2 rounded">
                             <i class="fa-solid fa-edit"></i>
                         </button>
-                        <a href="?delete=<?php echo $t['id']; ?>" onclick="return confirm('Are you sure you want to delete this test?');" class="text-rose-500 hover:text-rose-700 bg-rose-50 p-2 rounded">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
+                        <form method="POST" onsubmit="return confirm('Delete this test definition? This will fail if results are linked to it.');" class="inline">
+                            <input type="hidden" name="delete_id" value="<?php echo $t['id']; ?>">
+                            <button type="submit" class="text-rose-500 hover:text-rose-700 bg-rose-50 p-2 rounded cursor-pointer">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </form>
                     </div>
                 </td>
             </tr>

@@ -4,7 +4,24 @@ require_once __DIR__ . '/includes/auth.php';
 
 $error = '';
 $pre_patient_id = $_GET['patient_id'] ?? '';
+$edit_id = intval($_GET['edit'] ?? 0);
+$edit_data = null;
 $qrcode_hash = bin2hex(random_bytes(16));
+
+// If editing, fetch existing record
+if ($edit_id > 0) {
+    $stmt = $conn->prepare("SELECT * FROM semen_analyses WHERE id = ?");
+    $stmt->bind_param("i", $edit_id);
+    $stmt->execute();
+    $edit_data = $stmt->get_result()->fetch_assoc();
+    if ($edit_data) {
+        $pre_patient_id = $edit_data['patient_id'];
+        $pageTitle = "Edit Semen Analysis";
+    }
+    else {
+        $edit_id = 0;
+    }
+}
 
 // Fetch Patients
 $patients = [];
@@ -60,21 +77,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_sa'])) {
     $agglut = trim($_POST['agglutination'] ?? '');
     $auto_diag = trim($_POST['auto_diagnosis'] ?? 'Pending');
     $notes = trim($_POST['notes'] ?? '');
+    $editing = intval($_POST['edit_id'] ?? 0);
 
     if (empty($patient_id) || empty($hospital_id)) {
         $error = "Patient and Hospital fields are required.";
     }
     else {
-        $stmt = $conn->prepare("INSERT INTO semen_analyses (patient_id, hospital_id, qrcode_hash, collection_time, examination_time, abstinence_days, volume, ph, concentration, pr_motility, np_motility, im_motility, normal_morphology, abnormal_morphology, appearance, liquefaction, viscosity, vitality, round_cells, debris, wbc, agglutination, auto_diagnosis, admin_notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-        if ($stmt) {
-            $stmt->bind_param("iisssiddddddddssdsssssss", $patient_id, $hospital_id, $qrcode_hash, $coll_time, $exam_time, $abstinence, $volume, $ph, $conc, $pr, $np, $im, $norm, $abnorm, $appearance, $liquefaction, $viscosity, $vitality, $round_cells, $debris, $wbc, $agglut, $auto_diag, $notes);
-            if ($stmt->execute()) {
-                header("Location: semen_analyses.php?msg=saved");
-                exit;
+        if ($editing > 0) {
+            // UPDATE mode
+            $stmt = $conn->prepare("UPDATE semen_analyses SET patient_id=?, hospital_id=?, collection_time=?, examination_time=?, abstinence_days=?, volume=?, ph=?, concentration=?, pr_motility=?, np_motility=?, im_motility=?, normal_morphology=?, abnormal_morphology=?, appearance=?, liquefaction=?, viscosity=?, vitality=?, round_cells=?, debris=?, wbc=?, agglutination=?, auto_diagnosis=?, admin_notes=? WHERE id=?");
+            if ($stmt) {
+                $stmt->bind_param("iisssiddddddddssdssssssi", $patient_id, $hospital_id, $coll_time, $exam_time, $abstinence, $volume, $ph, $conc, $pr, $np, $im, $norm, $abnorm, $appearance, $liquefaction, $viscosity, $vitality, $round_cells, $debris, $wbc, $agglut, $auto_diag, $notes, $editing);
+                if ($stmt->execute()) {
+                    header("Location: semen_analyses.php?msg=saved");
+                    exit;
+                }
+                else {
+                    $error = "Database Error: " . $stmt->error;
+                }
             }
-            else {
-                $error = "Database Error: " . $stmt->error;
+        }
+        else {
+            // INSERT mode
+            $stmt = $conn->prepare("INSERT INTO semen_analyses (patient_id, hospital_id, qrcode_hash, collection_time, examination_time, abstinence_days, volume, ph, concentration, pr_motility, np_motility, im_motility, normal_morphology, abnormal_morphology, appearance, liquefaction, viscosity, vitality, round_cells, debris, wbc, agglutination, auto_diagnosis, admin_notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+            if ($stmt) {
+                $stmt->bind_param("iisssiddddddddssdsssssss", $patient_id, $hospital_id, $qrcode_hash, $coll_time, $exam_time, $abstinence, $volume, $ph, $conc, $pr, $np, $im, $norm, $abnorm, $appearance, $liquefaction, $viscosity, $vitality, $round_cells, $debris, $wbc, $agglut, $auto_diag, $notes);
+                if ($stmt->execute()) {
+                    header("Location: semen_analyses.php?msg=saved");
+                    exit;
+                }
+                else {
+                    $error = "Database Error: " . $stmt->error;
+                }
             }
         }
     }
@@ -99,6 +134,8 @@ include __DIR__ . '/includes/header.php';
 endif; ?>
 
             <form method="POST">
+                <?php if ($edit_id): ?><input type="hidden" name="edit_id" value="<?php echo $edit_id; ?>"><?php
+endif; ?>
                 
                 <!-- Setup Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 border-b border-gray-100 pb-8">
@@ -118,7 +155,7 @@ endforeach; ?>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Print Location (Hospital) *</label>
                         <select name="hospital_id" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 bg-gray-50" required>
                             <?php foreach ($hospitals as $h): ?>
-                                <option value="<?php echo $h['id']; ?>"><?php echo esc($h['name']); ?></option>
+                                <option value="<?php echo $h['id']; ?>" <?php echo($edit_data && $edit_data['hospital_id'] == $h['id']) ? 'selected' : ''; ?>><?php echo esc($h['name']); ?></option>
                             <?php
 endforeach; ?>
                         </select>
@@ -126,15 +163,15 @@ endforeach; ?>
                     
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Collection Time</label>
-                        <input type="datetime-local" name="collection_time" value="<?php echo date('Y-m-d\TH:i'); ?>" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500">
+                        <input type="datetime-local" name="collection_time" value="<?php echo $edit_data ? date('Y-m-d\TH:i', strtotime($edit_data['collection_time'])) : date('Y-m-d\TH:i'); ?>" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Examination Time</label>
-                        <input type="datetime-local" name="examination_time" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500">
+                        <input type="datetime-local" name="examination_time" value="<?php echo($edit_data && $edit_data['examination_time']) ? date('Y-m-d\TH:i', strtotime($edit_data['examination_time'])) : ''; ?>" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Abstinence (Days)</label>
-                        <input type="number" name="abstinence_days" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500">
+                        <input type="number" name="abstinence_days" value="<?php echo $edit_data['abstinence_days'] ?? ''; ?>" class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500">
                     </div>
                 </div>
 
@@ -151,8 +188,8 @@ endforeach; ?>
                                 <label class="text-sm font-medium text-gray-700 w-1/3">Appearance</label>
                                 <div class="w-1/3">
                                     <select name="appearance" class="w-full px-3 py-2 border border-gray-200 rounded text-sm focus:ring-1 focus:ring-sky-500">
-                                        <option value="Normal">Normal</option>
-                                        <option value="Abnormal">Abnormal</option>
+                                        <option value="Normal" <?php echo($edit_data && $edit_data['appearance'] == 'Normal') ? 'selected' : ''; ?>>Normal</option>
+                                        <option value="Abnormal" <?php echo($edit_data && $edit_data['appearance'] == 'Abnormal') ? 'selected' : ''; ?>>Abnormal</option>
                                     </select>
                                 </div>
                                 <div class="w-1/3 text-right text-xs text-gray-400 font-mono">Normal</div>
@@ -163,8 +200,8 @@ endforeach; ?>
                                 <label class="text-sm font-medium text-gray-700 w-1/3">Liquefaction</label>
                                 <div class="w-1/3">
                                     <select name="liquefaction" class="w-full px-3 py-2 border border-gray-200 rounded text-sm focus:ring-1 focus:ring-sky-500">
-                                        <option value="Complete">Complete (< 60m)</option>
-                                        <option value="Incomplete">Incomplete</option>
+                                        <option value="Complete" <?php echo($edit_data && $edit_data['liquefaction'] == 'Complete') ? 'selected' : ''; ?>>Complete (< 60m)</option>
+                                        <option value="Incomplete" <?php echo($edit_data && $edit_data['liquefaction'] == 'Incomplete') ? 'selected' : ''; ?>>Incomplete</option>
                                     </select>
                                 </div>
                                 <div class="w-1/3 text-right text-xs text-gray-400 font-mono">< 60 min</div>
@@ -175,8 +212,8 @@ endforeach; ?>
                                 <label class="text-sm font-medium text-gray-700 w-1/3">Viscosity</label>
                                 <div class="w-1/3">
                                     <select name="viscosity" class="w-full px-3 py-2 border border-gray-200 rounded text-sm focus:ring-1 focus:ring-sky-500">
-                                        <option value="Normal">Normal</option>
-                                        <option value="Abnormal">Abnormal (High)</option>
+                                        <option value="Normal" <?php echo($edit_data && $edit_data['viscosity'] == 'Normal') ? 'selected' : ''; ?>>Normal</option>
+                                        <option value="Abnormal" <?php echo($edit_data && $edit_data['viscosity'] == 'Abnormal') ? 'selected' : ''; ?>>Abnormal (High)</option>
                                     </select>
                                 </div>
                                 <div class="w-1/3 text-right text-xs text-gray-400 font-mono">Normal</div>
@@ -214,19 +251,19 @@ endforeach; ?>
                             <div class="pt-4 border-t border-gray-100 grid grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Pus Cells (WBC)</label>
-                                    <input type="text" name="wbc" placeholder="e.g. 1-2 / HPF" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
+                                    <input type="text" name="wbc" value="<?php echo esc($edit_data['wbc'] ?? ''); ?>" placeholder="e.g. 1-2 / HPF" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Round Cells</label>
-                                    <input type="text" name="round_cells" placeholder="e.g. < 1M/ml" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
+                                    <input type="text" name="round_cells" value="<?php echo esc($edit_data['round_cells'] ?? ''); ?>" placeholder="e.g. < 1M/ml" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Agglutination</label>
-                                    <input type="text" name="agglutination" placeholder="e.g. None, ++" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
+                                    <input type="text" name="agglutination" value="<?php echo esc($edit_data['agglutination'] ?? ''); ?>" placeholder="e.g. None, ++" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Debris</label>
-                                    <input type="text" name="debris" placeholder="e.g. Occasional" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
+                                    <input type="text" name="debris" value="<?php echo esc($edit_data['debris'] ?? ''); ?>" placeholder="e.g. Occasional" class="w-full px-3 py-2 border border-gray-200 rounded text-sm">
                                 </div>
                             </div>
 
@@ -323,14 +360,14 @@ endforeach; ?>
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Additional Notes</label>
-                    <textarea name="notes" rows="3" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500"></textarea>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Clinical Embryologist Remarks</label>
+                    <textarea name="notes" rows="3" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500"><?php echo esc($edit_data['admin_notes'] ?? ''); ?></textarea>
                 </div>
                 
                 <div class="flex justify-end gap-3 mt-8">
                     <a href="semen_analyses.php" class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg font-medium transition-colors">Cancel</a>
                     <button type="submit" name="save_sa" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all focus:outline-none flex items-center gap-2">
-                        <i class="fa-solid fa-file-signature"></i> Finalize Report
+                        <i class="fa-solid fa-file-signature"></i> <?php echo $edit_id ? 'Update Report' : 'Finalize Report'; ?>
                     </button>
                 </div>
 
@@ -342,13 +379,13 @@ endforeach; ?>
 <script>
 document.addEventListener('alpine:init', () => {
     Alpine.data('semenEngine', () => ({
-        volume: 0,
-        ph: 0,
-        conc: 0,
-        pr: 0,
-        np: 0,
-        norm: 0,
-        vitality: 0,
+        volume: <?php echo $edit_data['volume'] ?? 0; ?>,
+        ph: <?php echo $edit_data['ph'] ?? 0; ?>,
+        conc: <?php echo $edit_data['concentration'] ?? 0; ?>,
+        pr: <?php echo $edit_data['pr_motility'] ?? 0; ?>,
+        np: <?php echo $edit_data['np_motility'] ?? 0; ?>,
+        norm: <?php echo $edit_data['normal_morphology'] ?? 0; ?>,
+        vitality: <?php echo $edit_data['vitality'] ?? 0; ?>,
         
         // Compute Immotility automatically (100 - PR - NP)
         im() {

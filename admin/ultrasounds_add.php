@@ -5,9 +5,26 @@ require_once __DIR__ . '/includes/auth.php';
 $error = '';
 $success = '';
 $pre_patient_id = $_GET['patient_id'] ?? '';
+$edit_id = intval($_GET['edit'] ?? 0);
+$edit_data = null;
 
 // Generate QR hash
 $qrcode_hash = bin2hex(random_bytes(16));
+
+// If editing, fetch existing record
+if ($edit_id > 0) {
+    $stmt = $conn->prepare("SELECT u.*, p.first_name, p.last_name, p.mr_number FROM patient_ultrasounds u JOIN patients p ON u.patient_id = p.id WHERE u.id = ?");
+    $stmt->bind_param("i", $edit_id);
+    $stmt->execute();
+    $edit_data = $stmt->get_result()->fetch_assoc();
+    if ($edit_data) {
+        $pre_patient_id = $edit_data['patient_id'];
+        $pageTitle = "Edit Ultrasound Report";
+    }
+    else {
+        $edit_id = 0;
+    }
+}
 
 // (Patients array removed; doing AJAX search instead to boost speed on large DBs)
 
@@ -31,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_usg'])) {
     $hospital_id = intval($_POST['hospital_id'] ?? 0);
     $report_title = trim($_POST['report_title'] ?? 'Ultrasound Report');
     $content = trim($_POST['content'] ?? '');
+    $editing = intval($_POST['edit_id'] ?? 0);
 
     if (empty($patient_id) || empty($hospital_id) || empty($content)) {
         $error = "Patient, Hospital, and Report Content are required.";
@@ -64,15 +82,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_usg'])) {
         }
 
         if (empty($error)) {
-            $stmt = $conn->prepare("INSERT INTO patient_ultrasounds (patient_id, hospital_id, qrcode_hash, report_title, content, scanned_report_path, scan_timestamp, scan_location_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            if ($stmt) {
-                $stmt->bind_param("iissssss", $patient_id, $hospital_id, $qrcode_hash, $report_title, $content, $scanned_path, $scan_timestamp, $scan_location);
-                if ($stmt->execute()) {
+            if ($editing > 0) {
+                // UPDATE mode
+                if ($scanned_path) {
+                    $stmt = $conn->prepare("UPDATE patient_ultrasounds SET patient_id=?, hospital_id=?, report_title=?, content=?, scanned_report_path=?, scan_timestamp=?, scan_location_data=? WHERE id=?");
+                    $stmt->bind_param("iisssssi", $patient_id, $hospital_id, $report_title, $content, $scanned_path, $scan_timestamp, $scan_location, $editing);
+                }
+                else {
+                    $stmt = $conn->prepare("UPDATE patient_ultrasounds SET patient_id=?, hospital_id=?, report_title=?, content=? WHERE id=?");
+                    $stmt->bind_param("iissi", $patient_id, $hospital_id, $report_title, $content, $editing);
+                }
+                if ($stmt && $stmt->execute()) {
                     header("Location: ultrasounds.php?msg=saved");
                     exit;
                 }
                 else {
-                    $error = "Database Error: " . $stmt->error;
+                    $error = "Database Error: " . ($stmt ? $stmt->error : 'Statement failed');
+                }
+            }
+            else {
+                // INSERT mode
+                $stmt = $conn->prepare("INSERT INTO patient_ultrasounds (patient_id, hospital_id, qrcode_hash, report_title, content, scanned_report_path, scan_timestamp, scan_location_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                if ($stmt) {
+                    $stmt->bind_param("iissssss", $patient_id, $hospital_id, $qrcode_hash, $report_title, $content, $scanned_path, $scan_timestamp, $scan_location);
+                    if ($stmt->execute()) {
+                        header("Location: ultrasounds.php?msg=saved");
+                        exit;
+                    }
+                    else {
+                        $error = "Database Error: " . $stmt->error;
+                    }
                 }
             }
         }
@@ -100,7 +139,7 @@ include __DIR__ . '/includes/header.php';
 <div class="max-w-5xl mx-auto">
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6">
         <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
-            <h3 class="font-bold text-gray-800"><i class="fa-solid fa-image text-sky-600 mr-2"></i> Patient Ultrasound Report</h3>
+            <h3 class="font-bold text-gray-800"><i class="fa-solid fa-image text-sky-600 mr-2"></i> <?php echo $edit_id ? 'Edit' : 'New'; ?> Ultrasound Report</h3>
         </div>
         
         <div class="p-6">
@@ -112,10 +151,12 @@ include __DIR__ . '/includes/header.php';
 endif; ?>
 
             <form method="POST" enctype="multipart/form-data">
+                <?php if ($edit_id): ?><input type="hidden" name="edit_id" value="<?php echo $edit_id; ?>"><?php
+endif; ?>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                     <!-- AJAX Patient Search -->
-                    <div class="lg:col-span-1 relative" x-data="patientSearch()">
+                    <div class="lg:col-span-1 relative" x-data="patientSearch(<?php echo $edit_data ? json_encode(['id' => $edit_data['patient_id'], 'name' => $edit_data['first_name'] . ' ' . $edit_data['last_name'], 'mr' => $edit_data['mr_number']]) : ''; ?>)">
                         <label class="block text-sm font-medium text-gray-700 mb-1">Search Patient (MR / Phone / Name) *</label>
                         <input type="hidden" name="patient_id" :value="selectedPatientId" required>
                         <div class="relative">
@@ -153,7 +194,7 @@ endif; ?>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Hospital (Print Location) *</label>
                         <select name="hospital_id" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500" required>
                             <?php foreach ($hospitals as $h): ?>
-                                <option value="<?php echo $h['id']; ?>"><?php echo esc($h['name']); ?></option>
+                                <option value="<?php echo $h['id']; ?>" <?php echo($edit_data && $edit_data['hospital_id'] == $h['id']) ? 'selected' : ''; ?>><?php echo esc($h['name']); ?></option>
                             <?php
 endforeach; ?>
                         </select>
@@ -176,13 +217,13 @@ endforeach; ?>
                 <!-- Report Title -->
                 <div class="mb-6">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Report Title *</label>
-                    <input type="text" name="report_title" id="report_title" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500" placeholder="e.g. Scrotal Ultrasound / Penile Doppler" required>
+                    <input type="text" name="report_title" id="report_title" class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-sky-500" placeholder="e.g. Scrotal Ultrasound / Penile Doppler" value="<?php echo esc($edit_data['report_title'] ?? ''); ?>" required>
                 </div>
 
                 <!-- WYSIWYG Editor -->
                 <div class="mb-6">
                     <label class="block text-sm font-medium text-gray-700 mb-1">Clinical Findings & Report *</label>
-                    <textarea name="content" id="usg_content"></textarea>
+                    <textarea name="content" id="usg_content"><?php echo $edit_data['content'] ?? ''; ?></textarea>
                 </div>
                 
                 <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 mb-6">
@@ -211,7 +252,7 @@ endforeach; ?>
                 <div class="flex justify-end gap-3 mt-8">
                     <a href="ultrasounds.php" class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg font-medium transition-colors">Cancel</a>
                     <button type="submit" name="save_usg" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all focus:outline-none flex items-center gap-2">
-                        <i class="fa-solid fa-file-signature"></i> Finalize Report
+                        <i class="fa-solid fa-file-signature"></i> <?php echo $edit_id ? 'Update Report' : 'Finalize Report'; ?>
                     </button>
                 </div>
 

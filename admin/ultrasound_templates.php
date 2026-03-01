@@ -34,6 +34,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_template'])) {
     }
 }
 
+// Handle Delete (POST)
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_id'])) {
+    $id = intval($_POST['delete_id']);
+    $stmt = $conn->prepare("DELETE FROM ultrasound_templates WHERE id = ?");
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        if ($stmt->execute()) {
+            $success = "Template deleted successfully.";
+        }
+    }
+}
+
 // Fetch Templates
 $templates = [];
 try {
@@ -86,10 +98,17 @@ else: ?>
                                     <?php echo esc(strip_tags($t['body'])); ?>
                                 </div>
                             </div>
-                            <!-- Small JS trick to populate form for editing -->
-                            <button onclick="editTemplate(<?php echo $t['id']; ?>, '<?php echo addslashes(htmlspecialchars_decode($t['title'], ENT_QUOTES)); ?>', `<?php echo addslashes(htmlspecialchars_decode($t['body'], ENT_QUOTES)); ?>`)" class="bg-white border border-gray-300 hover:bg-teal-50 hover:text-teal-700 px-3 py-1.5 rounded text-xs font-medium transition-colors">
-                                Edit
-                            </button>
+                            <div class="flex flex-col gap-2">
+                                <button onclick="editTemplate(<?php echo $t['id']; ?>, '<?php echo addslashes(htmlspecialchars_decode($t['title'], ENT_QUOTES)); ?>', `<?php echo addslashes(htmlspecialchars_decode($t['body'], ENT_QUOTES)); ?>`)" class="bg-white border border-gray-300 hover:bg-teal-50 hover:text-teal-700 px-3 py-1.5 rounded text-xs font-medium transition-colors">
+                                    Edit
+                                </button>
+                                <form method="POST" onsubmit="return confirm('Delete this template permanently?');">
+                                    <input type="hidden" name="delete_id" value="<?php echo $t['id']; ?>">
+                                    <button type="submit" class="w-full bg-white border border-red-200 text-red-400 hover:bg-red-50 hover:text-red-700 px-3 py-1.5 rounded text-[10px] font-medium transition-colors cursor-pointer">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     <?php
     endforeach; ?>

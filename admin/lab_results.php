@@ -5,9 +5,9 @@ require_once dirname(__DIR__) . '/config/db.php';
 $success = '';
 $error = '';
 
-// Handle Delete Result
-if (isset($_GET['delete'])) {
-    $id = intval($_GET['delete']);
+// Handle Delete Result (POST)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $id = intval($_POST['delete_id']);
 
     // Get file path to delete if exists
     $stmt = $conn->prepare("SELECT scanned_report_path FROM patient_lab_results WHERE id = ?");
@@ -199,9 +199,17 @@ else:
                                  x-transition:leave-end="transform opacity-0 scale-95" 
                                  class="absolute right-0 z-50 mt-2 w-48 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none">
                                 <div class="py-1">
-                                    <a href="?delete=<?php echo $r['id']; ?>" onclick="return confirm('Are you sure you want to delete this lab result? This action cannot be undone.');" class="group flex items-center px-4 py-2 text-sm text-red-700 hover:bg-red-50">
-                                        <i class="fa-solid fa-trash mr-3 text-red-400 group-hover:text-red-500"></i> Delete
+                                    <a href="lab_results_add.php?edit=<?php echo $r['id']; ?>" class="group flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                                        <i class="fa-solid fa-edit mr-3 text-gray-400"></i> Edit Result
                                     </a>
+                                </div>
+                                <div class="py-1">
+                                    <form method="POST" onsubmit="return confirm('Are you sure you want to delete this lab result? This action cannot be undone.');">
+                                        <input type="hidden" name="delete_id" value="<?php echo $r['id']; ?>">
+                                        <button type="submit" class="w-full text-left group flex items-center px-4 py-2 text-sm text-red-700 hover:bg-red-50">
+                                            <i class="fa-solid fa-trash mr-3 text-red-400 group-hover:text-red-500"></i> Delete
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -4,12 +4,29 @@ require_once dirname(__DIR__) . '/config/db.php';
 
 $error = '';
 $success = '';
+$edit_id = intval($_GET['edit'] ?? 0);
+$edit_data = null;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['advise_procedure'])) {
+if ($edit_id > 0) {
+    $stmt = $conn->prepare("SELECT ap.*, p.first_name, p.last_name, p.mr_number, p.phone 
+                            FROM advised_procedures ap 
+                            JOIN patients p ON ap.patient_id = p.id 
+                            WHERE ap.id = ?");
+    $stmt->bind_param("i", $edit_id);
+    $stmt->execute();
+    $edit_data = $stmt->get_result()->fetch_assoc();
+    if (!$edit_data) {
+        header("Location: procedures.php?error=NotFound");
+        exit;
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_procedure'])) {
     $patient_id = intval($_POST['patient_id'] ?? 0);
     $procedure_name = trim($_POST['procedure_name'] ?? '');
     $date_advised = trim($_POST['date_advised'] ?? date('Y-m-d'));
     $notes = trim($_POST['notes'] ?? '');
+    $current_edit_id = intval($_POST['edit_id'] ?? 0);
 
     // Check if new procedure name was entered manually
     if ($procedure_name === 'OTHER') {
@@ -21,15 +38,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['advise_procedure'])) {
     }
     else {
         try {
-            $stmt = $conn->prepare("INSERT INTO advised_procedures (patient_id, procedure_name, date_advised, notes) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("isss", $patient_id, $procedure_name, $date_advised, $notes);
+            if ($current_edit_id > 0) {
+                $stmt = $conn->prepare("UPDATE advised_procedures SET patient_id=?, procedure_name=?, date_advised=?, notes=? WHERE id=?");
+                $stmt->bind_param("isssi", $patient_id, $procedure_name, $date_advised, $notes, $current_edit_id);
+            }
+            else {
+                $stmt = $conn->prepare("INSERT INTO advised_procedures (patient_id, procedure_name, date_advised, notes) VALUES (?, ?, ?, ?)");
+                $stmt->bind_param("isss", $patient_id, $procedure_name, $date_advised, $notes);
+            }
 
             if ($stmt->execute()) {
                 header("Location: procedures.php?success=1");
                 exit;
             }
             else {
-                $error = "Database insertion failed: " . $stmt->error;
+                $error = "Database operation failed: " . $stmt->error;
             }
         }
         catch (Exception $e) {
@@ -55,7 +78,7 @@ $common_procedures = [
     "Diagnostic Laparoscopy"
 ];
 
-$pageTitle = 'Advise New Treatment';
+$pageTitle = $edit_id ? 'Edit Advised Treatment' : 'Advise New Treatment';
 include __DIR__ . '/includes/header.php';
 ?>
 
@@ -68,7 +91,7 @@ include __DIR__ . '/includes/header.php';
 
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50">
-            <h3 class="font-bold text-gray-800">Advise Medical Procedure / Treatment</h3>
+            <h3 class="font-bold text-gray-800"><?php echo $edit_id ? 'Edit' : 'Advise'; ?> Medical Procedure / Treatment</h3>
         </div>
         
         <div class="p-6 md:p-8">
@@ -80,6 +103,10 @@ include __DIR__ . '/includes/header.php';
 endif; ?>
 
             <form method="POST">
+                <?php if ($edit_id): ?>
+                    <input type="hidden" name="edit_id" value="<?php echo $edit_id; ?>">
+                <?php
+endif; ?>
                 
                 <!-- Patient Selection (AJAX component via Alpine) -->
                 <div class="mb-8" x-data="patientSearch()">
@@ -155,43 +182,49 @@ if (isset($_GET['patient_id'])) {
                         <!-- Procedure Selection -->
                         <div>
                             <label class="block text-sm font-bold text-slate-700 mb-1">Recommended Procedure *</label>
+                            <?php
+$curr_proc = $_POST['procedure_name'] ?? ($edit_data['procedure_name'] ?? '');
+$is_other = !empty($curr_proc) && !in_array($curr_proc, $common_procedures);
+?>
                             <select name="procedure_name" x-model="procType" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-white">
                                 <option value="">-- Select Standard Protocol --</option>
                                 <?php foreach ($common_procedures as $cp): ?>
-                                    <option value="<?php echo htmlspecialchars($cp); ?>"><?php echo htmlspecialchars($cp); ?></option>
+                                    <option value="<?php echo htmlspecialchars($cp); ?>" <?php echo($curr_proc === $cp) ? 'selected' : ''; ?>>
+                                        <?php echo htmlspecialchars($cp); ?>
+                                    </option>
                                 <?php
 endforeach; ?>
-                                <option value="OTHER">Other (Specify Custom Procedure)</option>
+                                <option value="OTHER" <?php echo $is_other ? 'selected' : ''; ?>>Other (Specify Custom Procedure)</option>
                             </select>
                         </div>
                         
                         <!-- Date -->
                         <div>
                             <label class="block text-sm font-bold text-slate-700 mb-1">Date Advised *</label>
-                            <input type="date" name="date_advised" value="<?php echo date('Y-m-d'); ?>" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-white">
+                            <input type="date" name="date_advised" value="<?php echo htmlspecialchars($_POST['date_advised'] ?? ($edit_data['date_advised'] ?? date('Y-m-d'))); ?>" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-white">
                         </div>
 
                     </div>
 
                     <!-- Custom Procedure Input -->
-                    <div x-show="procType === 'OTHER'" x-cloak class="mt-4 mb-6">
+                    <div x-show="procType === 'OTHER' || (procType === '' && <?php echo $is_other ? 'true' : 'false'; ?>)" x-cloak class="mt-4 mb-6">
                         <label class="block text-sm font-bold text-slate-700 mb-1">Custom Procedure Name *</label>
-                        <input type="text" name="other_procedure_name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-gray-50" placeholder="Type custom treatment plan name here...">
+                        <input type="text" name="other_procedure_name" value="<?php echo $is_other ? htmlspecialchars($curr_proc) : ''; ?>" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-gray-50" placeholder="Type custom treatment plan name here...">
                     </div>
                 </div>
 
                 <!-- Notes -->
                 <div class="mb-6">
                     <label class="block text-sm font-bold text-slate-700 mb-1">Clinical Justification & Notes</label>
-                    <textarea name="notes" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-gray-50" placeholder="Any specific requirements, expected timeline, or pre-procedure preparations..."></textarea>
+                    <textarea name="notes" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-gray-50" placeholder="Any specific requirements, expected timeline, or pre-procedure preparations..."><?php echo htmlspecialchars($_POST['notes'] ?? ($edit_data['notes'] ?? '')); ?></textarea>
                 </div>
 
                 <div class="mt-8 pt-6 border-t border-gray-100 flex justify-end gap-3">
                     <a href="procedures.php" class="px-6 py-3 font-medium text-gray-600 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors border border-gray-200 shadow-sm">
                         Cancel
                     </a>
-                    <button type="submit" name="advise_procedure" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition-colors shadow-lg shadow-indigo-200 flex items-center gap-2">
-                        <i class="fa-solid fa-clipboard-check"></i> Advise Procedure
+                    <button type="submit" name="save_procedure" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition-colors shadow-lg shadow-indigo-200 flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-check"></i> <?php echo $edit_id ? 'Update Record' : 'Advise Procedure'; ?>
                     </button>
                 </div>
             </form>
@@ -201,12 +234,12 @@ endforeach; ?>
 
 <!-- Patient Search Script using Alpine.js -->
 <script>
-function patientSearch() {
+function patientSearch(initialPatient = null) {
     return {
         searchQuery: '',
         results: [],
         showResults: false,
-        selectedPatient: null,
+        selectedPatient: initialPatient,
         
         async searchPatients() {
             if (this.searchQuery.length < 2) {

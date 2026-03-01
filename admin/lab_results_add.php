@@ -4,6 +4,22 @@ require_once dirname(__DIR__) . '/config/db.php';
 
 $error = '';
 $success = '';
+$edit_id = intval($_GET['edit'] ?? 0);
+$edit_data = null;
+
+if ($edit_id > 0) {
+    $stmt = $conn->prepare("SELECT plt.*, pt.first_name, pt.last_name, pt.mr_number 
+                            FROM patient_lab_results plt 
+                            JOIN patients pt ON plt.patient_id = pt.id 
+                            WHERE plt.id = ?");
+    $stmt->bind_param("i", $edit_id);
+    $stmt->execute();
+    $edit_data = $stmt->get_result()->fetch_assoc();
+    if (!$edit_data) {
+        header("Location: lab_results.php?error=NotFound");
+        exit;
+    }
+}
 
 // Check if directories exist
 $upload_dir = dirname(__DIR__) . '/uploads/labs/';
@@ -29,13 +45,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_lab_result'])) {
     $lab_name = trim($_POST['lab_name'] ?? '');
     $lab_city = trim($_POST['lab_city'] ?? '');
     $lab_mr_number = trim($_POST['lab_mr_number'] ?? '');
+    $current_edit_id = intval($_POST['edit_id'] ?? 0);
 
     if ($patient_id === 0 || $test_id === 0 || empty($result_value)) {
         $error = "Patient, Test, and Result Value are required.";
     }
     else {
-
-        $file_path = null;
+        $file_path = $_POST['existing_file'] ?? null;
 
         // Handle File Upload
         if (isset($_FILES['scanned_report']) && $_FILES['scanned_report']['error'] === UPLOAD_ERR_OK) {
@@ -52,6 +68,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_lab_result'])) {
                 $dest_path = $upload_dir . $new_file_name;
 
                 if (move_uploaded_file($file_tmp, $dest_path)) {
+                    // Delete old file if updating
+                    if (!empty($file_path) && file_exists(dirname(__DIR__) . '/' . $file_path)) {
+                        unlink(dirname(__DIR__) . '/' . $file_path);
+                    }
                     $file_path = 'uploads/labs/' . $new_file_name;
                 }
                 else {
@@ -62,27 +82,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_lab_result'])) {
 
         if (empty($error)) {
             try {
-                $stmt = $conn->prepare("INSERT INTO patient_lab_results 
-                    (patient_id, lab_city, lab_name, lab_mr_number, test_date, test_id, result_value, scanned_report_path) 
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-
-                $stmt->bind_param("isssisss",
-                    $patient_id,
-                    $lab_city,
-                    $lab_name,
-                    $lab_mr_number,
-                    $test_date,
-                    $test_id,
-                    $result_value,
-                    $file_path
-                );
+                if ($current_edit_id > 0) {
+                    $stmt = $conn->prepare("UPDATE patient_lab_results SET 
+                        patient_id = ?, lab_city = ?, lab_name = ?, lab_mr_number = ?, 
+                        test_date = ?, test_id = ?, result_value = ?, scanned_report_path = ? 
+                        WHERE id = ?");
+                    $stmt->bind_param("isssisssi",
+                        $patient_id, $lab_city, $lab_name, $lab_mr_number,
+                        $test_date, $test_id, $result_value, $file_path, $current_edit_id
+                    );
+                }
+                else {
+                    $stmt = $conn->prepare("INSERT INTO patient_lab_results 
+                        (patient_id, lab_city, lab_name, lab_mr_number, test_date, test_id, result_value, scanned_report_path) 
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->bind_param("isssisss",
+                        $patient_id, $lab_city, $lab_name, $lab_mr_number,
+                        $test_date, $test_id, $result_value, $file_path
+                    );
+                }
 
                 if ($stmt->execute()) {
                     header("Location: lab_results.php?success=1");
                     exit;
                 }
                 else {
-                    $error = "Database insertion failed: " . $stmt->error;
+                    $error = "Database operation failed: " . $stmt->error;
                 }
             }
             catch (Exception $e) {
@@ -92,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_lab_result'])) {
     }
 }
 
-$pageTitle = 'Record New Lab Result';
+$pageTitle = $edit_id ? 'Edit Lab Result' : 'Record New Lab Result';
 include __DIR__ . '/includes/header.php';
 ?>
 
@@ -105,7 +130,7 @@ include __DIR__ . '/includes/header.php';
 
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50">
-            <h3 class="font-bold text-gray-800">Add New Laboratory Result</h3>
+            <h3 class="font-bold text-gray-800"><?php echo $edit_id ? 'Edit' : 'Add New'; ?> Laboratory Result</h3>
         </div>
         
         <div class="p-6 md:p-8">
@@ -117,9 +142,14 @@ include __DIR__ . '/includes/header.php';
 endif; ?>
 
             <form method="POST" enctype="multipart/form-data">
+                <?php if ($edit_id): ?>
+                    <input type="hidden" name="edit_id" value="<?php echo $edit_id; ?>">
+                    <input type="hidden" name="existing_file" value="<?php echo esc($edit_data['scanned_report_path']); ?>">
+                <?php
+endif; ?>
                 
                 <!-- Patient Selection (AJAX component via Alpine) -->
-                <div class="mb-8" x-data="patientSearch()">
+                <div class="mb-8" x-data="patientSearch(<?php echo $edit_data ? json_encode(['id' => $edit_data['patient_id'], 'mr_number' => $edit_data['mr_number'], 'first_name' => $edit_data['first_name'], 'last_name' => $edit_data['last_name']]) : 'null'; ?>)">
                     <label class="block text-sm font-bold text-slate-700 mb-2">Select Patient *</label>
                     
                     <div class="relative">
@@ -171,7 +201,9 @@ endif; ?>
                         <select name="test_id" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-white">
                             <option value="">-- Choose Test --</option>
                             <?php foreach ($tests as $t): ?>
-                                <option value="<?php echo $t['id']; ?>" <?php echo((isset($_POST['test_id']) && $_POST['test_id'] == $t['id']) ? 'selected' : ''); ?>>
+                                <option value="<?php echo $t['id']; ?>" <?php
+    $sel_id = $_POST['test_id'] ?? ($edit_data['test_id'] ?? 0);
+    echo($sel_id == $t['id']) ? 'selected' : ''; ?>>
                                     <?php echo htmlspecialchars($t['test_name']); ?> 
                                     <?php if ($t['reference_range'])
         echo " (Ref: {$t['reference_range']} {$t['unit']})"; ?>
@@ -184,13 +216,13 @@ endforeach; ?>
                     <!-- Result Value -->
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-1">Result Value *</label>
-                        <input type="text" name="result_value" value="<?php echo htmlspecialchars($_POST['result_value'] ?? ''); ?>" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-gray-50" placeholder="e.g. 2.45">
+                        <input type="text" name="result_value" value="<?php echo htmlspecialchars($_POST['result_value'] ?? ($edit_data['result_value'] ?? '')); ?>" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-gray-50" placeholder="e.g. 2.45">
                     </div>
 
                     <!-- Test Date -->
                     <div>
                         <label class="block text-sm font-bold text-slate-700 mb-1">Test Performance Date *</label>
-                        <input type="date" name="test_date" value="<?php echo htmlspecialchars($_POST['test_date'] ?? date('Y-m-d')); ?>" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-white">
+                        <input type="date" name="test_date" value="<?php echo htmlspecialchars($_POST['test_date'] ?? ($edit_data['test_date'] ?? date('Y-m-d'))); ?>" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 bg-white">
                     </div>
 
                 </div>
@@ -204,15 +236,15 @@ endforeach; ?>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Lab Name</label>
-                        <input type="text" name="lab_name" value="<?php echo htmlspecialchars($_POST['lab_name'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Chughtai Lab">
+                        <input type="text" name="lab_name" value="<?php echo htmlspecialchars($_POST['lab_name'] ?? ($edit_data['lab_name'] ?? '')); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Chughtai Lab">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Lab City</label>
-                        <input type="text" name="lab_city" value="<?php echo htmlspecialchars($_POST['lab_city'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Lahore">
+                        <input type="text" name="lab_city" value="<?php echo htmlspecialchars($_POST['lab_city'] ?? ($edit_data['lab_city'] ?? '')); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" placeholder="e.g. Lahore">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Lab Patient MR / ID</label>
-                        <input type="text" name="lab_mr_number" value="<?php echo htmlspecialchars($_POST['lab_mr_number'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" placeholder="External lab tracking ID">
+                        <input type="text" name="lab_mr_number" value="<?php echo htmlspecialchars($_POST['lab_mr_number'] ?? ($edit_data['lab_mr_number'] ?? '')); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" placeholder="External lab tracking ID">
                     </div>
                 </div>
 
@@ -220,8 +252,23 @@ endforeach; ?>
 
                 <!-- File Attachment -->
                 <div class="border-2 border-dashed border-gray-200 rounded-xl p-6 bg-gray-50 text-center hover:border-indigo-300 transition-colors">
-                    <i class="fa-solid fa-cloud-arrow-up text-4xl text-gray-400 mb-3"></i>
-                    <h4 class="font-bold text-gray-800 mb-1">Attach Scanned Report</h4>
+                    <?php if (!empty($edit_data['scanned_report_path'])): ?>
+                        <div class="mb-4 inline-block bg-white p-3 rounded-lg shadow-sm border border-indigo-100">
+                            <div class="flex items-center gap-3 text-left">
+                                <div class="w-10 h-10 bg-indigo-50 rounded flex items-center justify-center text-indigo-600">
+                                    <i class="fa-solid fa-file-invoice text-xl"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-gray-800">Current Attachment</div>
+                                    <a href="../<?php echo esc($edit_data['scanned_report_path']); ?>" target="_blank" class="text-xs text-indigo-600 hover:underline">View logic_report.<?php echo pathinfo($edit_data['scanned_report_path'], PATHINFO_EXTENSION); ?></a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+endif; ?>
+                    
+                    <i class="fa-solid fa-cloud-arrow-up text-4xl text-gray-400 mb-3 block"></i>
+                    <h4 class="font-bold text-gray-800 mb-1"><?php echo $edit_id ? 'Replace' : 'Attach'; ?> Scanned Report</h4>
                     <p class="text-xs text-gray-500 mb-4">Upload the PDF, JPG, or PNG of the physical lab report (Optional).</p>
                     <input type="file" name="scanned_report" accept=".pdf, .jpg, .jpeg, .png" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
                 </div>
@@ -231,7 +278,7 @@ endforeach; ?>
                         Cancel
                     </a>
                     <button type="submit" name="save_lab_result" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg transition-colors shadow-lg shadow-indigo-200 flex items-center gap-2">
-                        <i class="fa-solid fa-save"></i> Save Lab Result
+                        <i class="fa-solid fa-save"></i> <?php echo $edit_id ? 'Update Result' : 'Save Lab Result'; ?>
                     </button>
                 </div>
             </form>
@@ -241,12 +288,12 @@ endforeach; ?>
 
 <!-- Patient Search Script using Alpine.js -->
 <script>
-function patientSearch() {
+function patientSearch(initialPatient = null) {
     return {
         searchQuery: '',
         results: [],
         showResults: false,
-        selectedPatient: null,
+        selectedPatient: initialPatient,
         
         async searchPatients() {
             if (this.searchQuery.length < 2) {

@@ -5,9 +5,39 @@ require_once __DIR__ . '/includes/auth.php';
 $error = '';
 $success = '';
 $pre_patient_id = $_GET['patient_id'] ?? '';
+$edit_id = intval($_GET['edit'] ?? 0);
+$edit_data = null;
+$edit_items = [];
+$edit_diagnoses = ['ICD' => [], 'CPT' => []];
 
 // Generate hash for public portal verifying
 $qrcode_hash = bin2hex(random_bytes(16));
+
+// If editing, fetch existing record
+if ($edit_id > 0) {
+    $stmt = $conn->prepare("SELECT r.*, p.first_name, p.last_name, p.mr_number FROM prescriptions r JOIN patients p ON r.patient_id = p.id WHERE r.id = ?");
+    $stmt->bind_param("i", $edit_id);
+    $stmt->execute();
+    $edit_data = $stmt->get_result()->fetch_assoc();
+    if ($edit_data) {
+        $pre_patient_id = $edit_data['patient_id'];
+        $pageTitle = "Edit Prescription";
+
+        // Fetch Items
+        $res = $conn->query("SELECT * FROM prescription_items WHERE prescription_id = $edit_id");
+        while ($row = $res->fetch_assoc())
+            $edit_items[] = $row;
+
+        // Fetch Diagnoses
+        $res = $conn->query("SELECT * FROM prescription_diagnoses WHERE prescription_id = $edit_id");
+        while ($row = $res->fetch_assoc()) {
+            $edit_diagnoses[$row['type']][] = $row;
+        }
+    }
+    else {
+        $edit_id = 0;
+    }
+}
 
 // Removed patient loop memory overhead, using AJAX search API.
 
@@ -40,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_rx'])) {
     $hospital_id = intval($_POST['hospital_id'] ?? 0);
     $notes = trim($_POST['notes'] ?? '');
     $complaint = trim($_POST['presenting_complaint'] ?? '');
+    $editing = intval($_POST['edit_id'] ?? 0);
 
     // Diagnoses Arrays
     $icd_codes = $_POST['icd_codes'] ?? [];
@@ -60,6 +91,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_rx'])) {
     else {
         // Handle file upload
         $scanned_path = null;
+        if ($editing > 0)
+            $scanned_path = $edit_data['scanned_report_path'];
+
         $scan_location = $_POST['scan_location'] ?? null;
         $scan_timestamp = null;
 
@@ -88,11 +122,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_rx'])) {
         if (empty($error)) {
             $conn->begin_transaction();
             try {
-                // Insert Prescript Master
-                $stmt = $conn->prepare("INSERT INTO prescriptions (patient_id, hospital_id, qrcode_hash, presenting_complaint, revisit_date, notes, scanned_report_path, scan_timestamp, scan_location_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                $stmt->bind_param("iisssssss", $patient_id, $hospital_id, $qrcode_hash, $complaint, $revisit_date, $notes, $scanned_path, $scan_timestamp, $scan_location);
-                $stmt->execute();
-                $rx_id = $conn->insert_id;
+                if ($editing > 0) {
+                    // Update Prescript Master
+                    $stmt = $conn->prepare("UPDATE prescriptions SET patient_id=?, hospital_id=?, presenting_complaint=?, revisit_date=?, notes=?, scanned_report_path=?, scan_timestamp=?, scan_location_data=? WHERE id=?");
+                    $stmt->bind_param("iissssssi", $patient_id, $hospital_id, $complaint, $revisit_date, $notes, $scanned_path, $scan_timestamp, $scan_location, $editing);
+                    $stmt->execute();
+                    $rx_id = $editing;
+
+                    // Clear existing items and diagnoses for re-insert (Cleanest way)
+                    $conn->query("DELETE FROM prescription_items WHERE prescription_id = $rx_id");
+                    $conn->query("DELETE FROM prescription_diagnoses WHERE prescription_id = $rx_id");
+                }
+                else {
+                    // Insert Prescript Master
+                    $stmt = $conn->prepare("INSERT INTO prescriptions (patient_id, hospital_id, qrcode_hash, presenting_complaint, revisit_date, notes, scanned_report_path, scan_timestamp, scan_location_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->bind_param("iisssssss", $patient_id, $hospital_id, $qrcode_hash, $complaint, $revisit_date, $notes, $scanned_path, $scan_timestamp, $scan_location);
+                    $stmt->execute();
+                    $rx_id = $conn->insert_id;
+                }
 
                 // Insert Items
                 if (!empty($meds_array)) {
@@ -152,7 +199,7 @@ include __DIR__ . '/includes/header.php';
 <div class="max-w-5xl mx-auto">
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6">
         <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
-            <h3 class="font-bold text-gray-800"><i class="fa-solid fa-prescription text-indigo-600 mr-2"></i> New E-Prescription</h3>
+            <h3 class="font-bold text-gray-800"><i class="fa-solid fa-prescription text-indigo-600 mr-2"></i> <?php echo $edit_id ? 'Edit' : 'New'; ?> E-Prescription</h3>
         </div>
         
         <div class="p-6">
@@ -164,11 +211,13 @@ include __DIR__ . '/includes/header.php';
 endif; ?>
 
             <form method="POST" enctype="multipart/form-data" x-data="prescriptionBuilder()">
+                <?php if ($edit_id): ?><input type="hidden" name="edit_id" value="<?php echo $edit_id; ?>"><?php
+endif; ?>
                 
                 <!-- Setup Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <!-- AJAX Patient Search -->
-                    <div class="relative">
+                    <div class="relative" x-data="{ init() { if(<?php echo $edit_data ? 'true' : 'false'; ?>) { this.selectPatient(<?php echo json_encode(['id' => $edit_data['patient_id'], 'mr_number' => $edit_data['mr_number'], 'first_name' => $edit_data['first_name'], 'last_name' => $edit_data['last_name']]); ?>); } } }">
                         <label class="block text-sm font-medium text-gray-700 mb-1">Search Patient (MR / Phone / Name) *</label>
                         <input type="hidden" name="patient_id" :value="selectedPatientId" required>
                         <div class="relative">
@@ -204,7 +253,7 @@ endif; ?>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Hospital / Letterhead *</label>
                         <select name="hospital_id" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
                             <?php foreach ($hospitals as $h): ?>
-                                <option value="<?php echo $h['id']; ?>"><?php echo esc($h['name']); ?></option>
+                                <option value="<?php echo $h['id']; ?>" <?php echo($edit_data && $edit_data['hospital_id'] == $h['id']) ? 'selected' : ''; ?>><?php echo esc($h['name']); ?></option>
                             <?php
 endforeach; ?>
                         </select>
@@ -218,7 +267,7 @@ endforeach; ?>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="md:col-span-2">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Presenting Complaint / History</label>
-                            <textarea name="presenting_complaint" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:-ring-indigo-500 text-sm" placeholder="Patient presented with..."></textarea>
+                            <textarea name="presenting_complaint" rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:-ring-indigo-500 text-sm" placeholder="Patient presented with..."><?php echo esc($edit_data['presenting_complaint'] ?? ''); ?></textarea>
                         </div>
                         
                         <!-- ICD-10 Search via NIH API -->
@@ -306,7 +355,7 @@ endforeach; ?>
                                 
                                 <div class="w-full md:w-[35%]">
                                     <label class="block text-xs text-gray-500 mb-1">Medication *</label>
-                                    <select :name="'med_id['+index+']'" class="w-full px-3 py-2 border border-gray-300 rounded text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" required>
+                                    <select :name="'med_id['+index+']'" x-model="row.med_id" class="w-full px-3 py-2 border border-gray-300 rounded text-sm outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" required>
                                         <option value="">Choose...</option>
                                         <?php foreach ($medications as $m): ?>
                                             <option value="<?php echo $m['id']; ?>"><?php echo esc($m['name'] . ' (' . $m['med_type'] . ')'); ?></option>
@@ -317,12 +366,12 @@ endforeach; ?>
                                 
                                 <div class="w-full md:w-[15%]">
                                     <label class="block text-xs text-gray-500 mb-1">Dosage</label>
-                                    <input type="text" :name="'dosage['+index+']'" placeholder="500mg, 1 tab" class="w-full px-3 py-2 border border-gray-300 rounded text-sm outline-none focus:ring-1 focus:ring-indigo-500">
+                                    <input type="text" :name="'dosage['+index+']'" x-model="row.dosage" placeholder="500mg, 1 tab" class="w-full px-3 py-2 border border-gray-300 rounded text-sm outline-none focus:ring-1 focus:ring-indigo-500">
                                 </div>
 
                                 <div class="w-full md:w-[20%]">
                                     <label class="block text-xs text-gray-500 mb-1">Usage Freq</label>
-                                    <select :name="'usage_frequency['+index+']'" class="w-full px-3 py-2 border border-gray-300 rounded text-sm outline-none focus:ring-1 focus:ring-indigo-500">
+                                    <select :name="'usage_frequency['+index+']'" x-model="row.usage_frequency" class="w-full px-3 py-2 border border-gray-300 rounded text-sm outline-none focus:ring-1 focus:ring-indigo-500">
                                         <option value="">--</option>
                                         <option value="OD">OD (1x a day)</option>
                                         <option value="BD">BD (2x a day)</option>
@@ -335,12 +384,12 @@ endforeach; ?>
 
                                 <div class="w-full md:w-[15%]">
                                     <label class="block text-xs text-gray-500 mb-1">Duration</label>
-                                    <input type="text" :name="'duration['+index+']'" placeholder="5 Days" class="w-full px-3 py-2 border border-gray-300 rounded text-sm outline-none focus:ring-1 focus:ring-indigo-500">
+                                    <input type="text" :name="'duration['+index+']'" x-model="row.duration" placeholder="5 Days" class="w-full px-3 py-2 border border-gray-300 rounded text-sm outline-none focus:ring-1 focus:ring-indigo-500">
                                 </div>
                                 
                                 <div class="w-full md:w-[30%]">
                                     <label class="block text-xs text-gray-500 mb-1">Instructions</label>
-                                    <input type="text" :name="'instructions['+index+']'" placeholder="e.g. After meals" class="w-full px-3 py-2 border border-gray-300 rounded text-sm outline-none focus:ring-1 focus:ring-indigo-500">
+                                    <input type="text" :name="'instructions['+index+']'" x-model="row.instructions" placeholder="e.g. After meals" class="w-full px-3 py-2 border border-gray-300 rounded text-sm outline-none focus:ring-1 focus:ring-indigo-500">
                                 </div>
                                 
                                 <div class="w-full md:w-10 flex justify-end">
@@ -361,11 +410,11 @@ endforeach; ?>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                     <div class="md:col-span-2">
                         <label class="block text-sm font-medium text-gray-700 mb-1">General Advice / Notes</label>
-                        <textarea name="notes" rows="3" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Follow-up exactly after 14 days for beta-hCG..."></textarea>
+                        <textarea name="notes" rows="3" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Follow-up exactly after 14 days for beta-hCG..."><?php echo esc($edit_data['notes'] ?? ''); ?></textarea>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Revisit / Follow-up Date</label>
-                        <input type="date" name="revisit_date" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800">
+                        <input type="date" name="revisit_date" value="<?php echo $edit_data['revisit_date'] ?? ''; ?>" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800">
                         <p class="text-[10px] text-gray-400 mt-2">Set this to automatically print the next visit date on the bottom of the prescription.</p>
                     </div>
                 </div>
@@ -394,9 +443,9 @@ endforeach; ?>
                 </div>
                 
                 <div class="flex justify-end gap-3 mt-8">
-                    <a href="patients.php" class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg font-medium transition-colors">Cancel</a>
+                    <a href="prescriptions.php" class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg font-medium transition-colors">Cancel</a>
                     <button type="submit" name="save_rx" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 flex items-center gap-2">
-                        <i class="fa-solid fa-file-signature"></i> Save & Generate Prescription
+                        <i class="fa-solid fa-file-signature"></i> <?php echo $edit_id ? 'Update Prescription' : 'Save & Generate Prescription'; ?>
                     </button>
                 </div>
 
@@ -410,10 +459,10 @@ document.addEventListener('alpine:init', () => {
     Alpine.data('prescriptionBuilder', () => ({
         
         // --- Patient Search ---
-        patQuery: '',
+        patQuery: '<?php echo $edit_data ? esc($edit_data['first_name'] . ' ' . $edit_data['last_name'] . ' (' . $edit_data['mr_number'] . ')') : ''; ?>',
         patResults: [],
         patLoading: false,
-        selectedPatientId: '',
+        selectedPatientId: '<?php echo $edit_data['patient_id'] ?? ''; ?>',
         
         async searchPatient() {
             if (this.selectedPatientId) return;
@@ -446,7 +495,8 @@ document.addEventListener('alpine:init', () => {
         icdQuery: '',
         icdResults: [],
         icdLoading: false,
-        selectedIcds: [],
+        selectedIcds: <?php echo json_encode(array_map(function ($d) {
+    return ['code' => $d['code'], 'name' => $d['description']]; }, $edit_diagnoses['ICD'])); ?>,
 
         async searchIcd() {
             if (this.icdQuery.length < 2) {
@@ -476,7 +526,8 @@ document.addEventListener('alpine:init', () => {
         },
 
         // --- CPT / SNOMED Handling ---
-        selectedProcs: [],
+        selectedProcs: <?php echo json_encode(array_map(function ($d) {
+    return ['code' => $d['code'], 'name' => $d['description']]; }, $edit_diagnoses['CPT'])); ?>,
         procCodeInput: '',
         procNameInput: '',
 
@@ -493,8 +544,27 @@ document.addEventListener('alpine:init', () => {
         },
 
         // --- Rx Rows ---
-        rows: [{id: 1}],
-        nextId: 2,
+        rows: <?php
+if (!empty($edit_items)) {
+    $mapped = [];
+    $nid = 1;
+    foreach ($edit_items as $item) {
+        $mapped[] = [
+            'id' => $nid++,
+            'med_id' => $item['medication_id'],
+            'dosage' => $item['dosage'],
+            'usage_frequency' => $item['usage_frequency'],
+            'duration' => $item['duration'],
+            'instructions' => $item['instructions']
+        ];
+    }
+    echo json_encode($mapped);
+}
+else {
+    echo '[{id: 1}]';
+}
+?>,
+        nextId: <?php echo count($edit_items) + 1; ?>,
         addRow() {
             this.rows.push({ id: this.nextId++ });
         },
