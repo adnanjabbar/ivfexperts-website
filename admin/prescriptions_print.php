@@ -108,6 +108,21 @@ $mr = $rx['margin_right'] ?? '20mm';
                 margin: 0;
             }
             .no-print { display: none !important; }
+            .print-footer {
+                position: fixed !important;
+                bottom: 25mm !important;
+                left: 10mm !important;
+                right: 45mm !important;
+            }
+        }
+        .print-footer {
+            position: absolute;
+            bottom: 25mm;
+            left: 10mm;
+            right: 45mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
     </style>
 </head>
@@ -211,10 +226,7 @@ endif; ?>
             </div>
         </div>
 
-        <!-- Big Rx Symbol -->
-        <div class="mb-2 px-2 mt-4">
-            <span class="text-4xl font-serif italic font-bold text-slate-800 pr-2">Rx</span><span class="text-[10px] text-gray-400 uppercase tracking-widest inline-block align-top mt-1">Prescription Form</span>
-        </div>
+        <!-- Removed Big Rx Symbol per user request -->
 
         <!-- Medication List Table -->
         <div class="flex-grow mb-6 px-2">
@@ -224,6 +236,9 @@ endif; ?>
 else: ?>
                 <table class="w-full text-left border-collapse border border-gray-200 shadow-sm">
                     <thead>
+                        <tr class="bg-gray-100 border border-gray-300 text-gray-800 text-sm">
+                            <th colspan="6" class="p-2 border-b border-gray-300 font-bold uppercase tracking-widest"><i class="fa-solid fa-prescription mr-1 text-indigo-700"></i> Prescribed Medications</th>
+                        </tr>
                         <tr class="bg-gray-200 text-gray-700 text-[10px] uppercase tracking-wider">
                             <th class="p-1.5 border border-gray-300 w-8 text-center">Sr.</th>
                             <th class="p-1.5 border border-gray-300 w-1/3">Medicine Name</th>
@@ -268,15 +283,17 @@ endif; ?>
 
         <!-- Revisit Date -->
         <?php if (!empty($rx['revisit_date'])): ?>
-            <div class="mt-3 bg-emerald-50 border border-emerald-200 rounded p-1.5 text-center w-64 mx-auto shadow-sm">
-                <span class="text-[9px] font-bold text-emerald-800 uppercase tracking-widest block mb-0">Next Follow-up Visit</span>
-                <span class="text-[12px] font-bold text-emerald-900"><?php echo date('l, d M Y', strtotime($rx['revisit_date'])); ?></span>
+            <div class="mt-4 px-2">
+                <div class="inline-block border border-gray-300 rounded-full px-4 py-1.5 bg-gray-50 text-[11px] shadow-sm">
+                    <span class="font-bold text-gray-500 uppercase">Next Follow-up Visit:</span> 
+                    <span class="font-bold text-indigo-800 ml-2"><?php echo date('l, d M Y', strtotime($rx['revisit_date'])); ?></span>
+                </div>
             </div>
         <?php
 endif; ?>
 
         <!-- Footer: Signature & QR Code absolute positioned to bottom -->
-        <div class="absolute bottom-2 left-0 right-0 flex justify-between items-end border-t border-gray-300 pt-2 px-2 pb-0">
+        <div class="print-footer no-print-bg">
             
             <div class="flex items-center gap-2">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-14 h-14 border p-0.5" />
