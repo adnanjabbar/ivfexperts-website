@@ -20,6 +20,9 @@
 <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription) ?>">
 <!-- Styles -->
 <link rel="stylesheet" href="/assets/css/style.css?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" as="style">
 <script src="/assets/js/app.js?v=4" defer></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <!-- Font Awesome -->
@@ -163,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Comprehensive male infertility evaluation and treatment in Lahore.
               </p>
               <a href="/male-infertility/" class="text-teal-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">
-                Learn More <i class="fa-solid fa-arrow-right text-xs"></i>
+                Male Infertility Overview <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
             <div>
@@ -206,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Structured female infertility diagnosis and ART planning.
               </p>
               <a href="/female-infertility/" class="text-teal-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">
-                Learn More <i class="fa-solid fa-arrow-right text-xs"></i>
+                Female Infertility Overview <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
             <div>
@@ -248,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Advanced assisted reproductive techniques in Lahore.
               </p>
               <a href="/art-procedures/" class="text-teal-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">
-                Learn More <i class="fa-solid fa-arrow-right text-xs"></i>
+                ART Procedures Overview <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
             <div>
