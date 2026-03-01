@@ -19,9 +19,8 @@
 <meta name="twitter:title" content="<?= htmlspecialchars($pageTitle) ?>">
 <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription) ?>">
 <!-- Styles -->
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css?v=2">
 <script src="/assets/js/app.js?v=4" defer></script>
-<script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
