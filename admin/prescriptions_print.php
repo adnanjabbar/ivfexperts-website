@@ -146,15 +146,24 @@ $mr = $rx['margin_right'] ?? '20mm';
     <div class="a4-container flex flex-col relative pb-[35mm]">
         
         <!-- Patient Demographics Block -->
-        <div class="border-b-2 border-gray-300 pb-2 mb-3 flex justify-between items-end px-2">
-            <div>
-                <table class="text-[11px] leading-tight">
-                    <tr><td class="font-bold pr-2 text-gray-500 py-0.5">Patient Name:</td><td class="font-bold text-gray-800 text-[12px] uppercase py-0.5"><?php echo esc($rx['first_name'] . ' ' . $rx['last_name']); ?></td></tr>
+        <div class="border-b-2 border-gray-300 pb-2 mb-3 flex justify-between items-center px-2">
+            <!-- Details -->
+            <div class="flex-1">
+                <table class="text-[11px] leading-tight w-full max-w-sm">
+                    <tr><td class="font-bold pr-2 text-gray-500 py-0.5 w-24">Patient Name:</td><td class="font-bold text-gray-800 text-[12px] uppercase py-0.5"><?php echo esc($rx['first_name'] . ' ' . $rx['last_name']); ?></td></tr>
                     <tr><td class="font-bold pr-2 text-gray-500 py-0.5">MR Number:</td><td class="font-mono font-bold text-indigo-800 py-0.5"><?php echo esc($rx['mr_number']); ?></td></tr>
                     <tr><td class="font-bold pr-2 text-gray-500 py-0.5">Gender / Phone:</td><td class="py-0.5"><?php echo esc($rx['gender']); ?> / <?php echo esc($rx['phone'] ?: 'N/A'); ?></td></tr>
                 </table>
             </div>
-            <div class="text-right text-[11px]">
+            
+            <!-- QR Code (Center) -->
+            <div class="shrink-0 text-center px-4">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-12 h-12 border p-0.5 mx-auto" />
+                <div class="text-[7px] text-gray-400 mt-0.5 uppercase tracking-wider">Scan to Verify</div>
+            </div>
+
+            <!-- Date Block -->
+            <div class="text-right text-[11px] flex-1">
                 <div class="font-bold text-gray-500">Date Printed</div>
                 <div class="font-bold text-gray-800 mb-0.5"><?php echo date('d M Y'); ?></div>
                 <div class="text-[9px] text-gray-400 uppercase tracking-widest mt-1">RX-<?php echo str_pad($id, 6, '0', STR_PAD_LEFT); ?></div>
@@ -298,31 +307,13 @@ endif; ?>
 endif; ?>
         </div>
 
-        <!-- Footer: Signature & QR Code absolute positioned to bottom -->
-        <div class="print-footer no-print-bg">
-            
-            <div class="flex items-center gap-2">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-14 h-14 border p-0.5" />
-                <div class="text-[9px] text-gray-500 w-32 leading-tight">
-                    <span class="font-bold block text-gray-700">Digital Record PDF</span>
-                    Scan this verification code with phone camera to download.
-                </div>
+        <!-- Footer: Digital Signature only (left aligned) -->
+        <div class="print-footer no-print-bg w-full">
+            <div class="text-[9px] text-gray-700 italic border-t border-gray-300 pt-1 w-full text-left">
+                <strong>Digitally Signed :</strong> Dr. Adnan Jabbar | MBBS, DFM, MH, Fertility & Family Medicine Specialist, Clinical Embryologist
             </div>
-
-            <div class="text-center">
-                <?php if (!empty($rx['digital_signature_path'])): ?>
-                    <img src="../<?php echo esc($rx['digital_signature_path']); ?>" alt="Signature" class="h-12 mx-auto object-contain mb-0" />
-                <?php
-else: ?>
-                    <div class="h-12 sm:w-48 text-gray-300 italic flex items-end justify-center pb-1 border-b border-gray-200 text-[10px]">Unsigned Document</div>
-                <?php
-endif; ?>
-                <div class="font-bold uppercase text-[11px] text-slate-800 mt-0.5">Dr. Adnan Jabbar</div>
-                <div class="text-[9px] text-gray-500 border-t border-gray-300 pt-0.5 mx-auto inline-block w-40 italic">Clinical Director</div>
-            </div>
-
         </div>
-
+        </div>
     </div>
 
     <!-- Inject printer script automatically for immediate preview -->
