@@ -24,20 +24,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mr_number = trim($_POST['mr_number']);
     $first_name = trim($_POST['first_name']);
     $last_name = trim($_POST['last_name']);
-    $spouse_name = trim($_POST['spouse_name']);
+    $patient_age = !empty($_POST['patient_age']) ? intval($_POST['patient_age']) : null;
+    $date_of_birth = !empty($_POST['date_of_birth']) ? trim($_POST['date_of_birth']) : null;
+    $blood_group = trim($_POST['blood_group'] ?? '');
+    $gender = $_POST['gender'];
     $cnic = trim($_POST['cnic']);
     $phone = trim($_POST['phone']);
-    $gender = $_POST['gender'];
+    $address = trim($_POST['address'] ?? '');
+    $email = trim($_POST['email'] ?? '');
     $hospital_id = !empty($_POST['hospital_id']) ? $_POST['hospital_id'] : null;
+
+    // Spouse details
+    $spouse_name = trim($_POST['spouse_name']);
+    $spouse_age = !empty($_POST['spouse_age']) ? intval($_POST['spouse_age']) : null;
+    $spouse_gender = !empty($_POST['spouse_gender']) ? $_POST['spouse_gender'] : null;
+    $spouse_cnic = trim($_POST['spouse_cnic'] ?? '');
+    $spouse_phone = trim($_POST['spouse_phone'] ?? '');
 
     if (empty($mr_number) || empty($first_name) || empty($gender)) {
         $error = "MR Number, First Name, and Gender are required fields.";
     }
     else {
         try {
-            $stmt = $conn->prepare("INSERT INTO patients (mr_number, first_name, last_name, spouse_name, cnic, phone, gender, referring_hospital_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $conn->prepare("INSERT INTO patients (mr_number, first_name, last_name, patient_age, date_of_birth, blood_group, gender, cnic, phone, address, email, spouse_name, spouse_age, spouse_gender, spouse_cnic, spouse_phone, referring_hospital_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             if ($stmt) {
-                $stmt->bind_param("sssssssi", $mr_number, $first_name, $last_name, $spouse_name, $cnic, $phone, $gender, $hospital_id);
+                $stmt->bind_param("sssississsssissssi", $mr_number, $first_name, $last_name, $patient_age, $date_of_birth, $blood_group, $gender, $cnic, $phone, $address, $email, $spouse_name, $spouse_age, $spouse_gender, $spouse_cnic, $spouse_phone, $hospital_id);
                 if ($stmt->execute()) {
                     $new_id = $conn->insert_id;
                     header("Location: patients_view.php?id=" . $new_id . "&msg=created");
@@ -87,69 +98,121 @@ include __DIR__ . '/includes/header.php';
 endif; ?>
 
             <form method="POST">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    
-                    <!-- MR Number -->
-                    <div class="col-span-1 md:col-span-2">
-                        <label class="block text-sm font-bold text-slate-700 mb-1">MR Number *</label>
-                        <div class="flex gap-2">
-                            <input type="text" name="mr_number" id="mr_number" value="<?php echo esc($_POST['mr_number'] ?? $auto_mr); ?>" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 font-mono bg-gray-50" required>
-                            <button type="button" onclick="document.getElementById('mr_number').value = 'IVF-' + new Date().toISOString().slice(2,10).replace(/-/g,'') + '-' + Math.floor(1000 + Math.random() * 9000)" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-lg text-sm shrink-0 transition-colors" title="Generate New Auto MR">
-                                <i class="fa-solid fa-rotate-right"></i> Generate
-                            </button>
+                <!-- MR Number -->
+                <div class="mb-6">
+                    <label class="block text-sm font-bold text-slate-700 mb-1">MR Number *</label>
+                    <div class="flex gap-2">
+                        <input type="text" name="mr_number" id="mr_number" value="<?php echo esc($_POST['mr_number'] ?? $auto_mr); ?>" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 font-mono bg-gray-50" required>
+                        <button type="button" onclick="document.getElementById('mr_number').value = 'IVF-' + new Date().toISOString().slice(2,10).replace(/-/g,'') + '-' + Math.floor(1000 + Math.random() * 9000)" class="bg-gray-100 hover:bg-gray-200 text-gray-600 px-4 py-2 rounded-lg text-sm shrink-0 transition-colors" title="Generate New Auto MR">
+                            <i class="fa-solid fa-rotate-right"></i> Generate
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-1">Leave as auto-generated or replace with external referring hospital MR Number.</p>
+                </div>
+
+                <!-- Section: Primary Patient -->
+                <div class="bg-teal-50 border border-teal-100 rounded-xl p-5 mb-6">
+                    <h4 class="font-bold text-teal-800 text-sm mb-4"><i class="fa-solid fa-user mr-1"></i> Primary Patient Information</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">First Name *</label>
+                            <input type="text" name="first_name" value="<?php echo esc($_POST['first_name'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" required>
                         </div>
-                        <p class="text-xs text-gray-400 mt-1">Leave as auto-generated or replace with external referring hospital MR Number.</p>
-                    </div>
-
-                    <!-- Name -->
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">First Name *</label>
-                        <input type="text" name="first_name" value="<?php echo esc($_POST['first_name'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500" required>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Last Name</label>
-                        <input type="text" name="last_name" value="<?php echo esc($_POST['last_name'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500">
-                    </div>
-
-                    <!-- Gender & Spouse -->
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Gender *</label>
-                        <select name="gender" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" required>
-                            <option value="Female" <?php echo(isset($_POST['gender']) && $_POST['gender'] == 'Female') ? 'selected' : ''; ?>>Female</option>
-                            <option value="Male" <?php echo(isset($_POST['gender']) && $_POST['gender'] == 'Male') ? 'selected' : ''; ?>>Male</option>
-                            <option value="Other" <?php echo(isset($_POST['gender']) && $_POST['gender'] == 'Other') ? 'selected' : ''; ?>>Other</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Spouse Name</label>
-                        <input type="text" name="spouse_name" value="<?php echo esc($_POST['spouse_name'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500">
-                    </div>
-
-                    <!-- Contact Details -->
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
-                        <input type="text" name="phone" value="<?php echo esc($_POST['phone'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">CNIC / ID Number</label>
-                        <input type="text" name="cnic" value="<?php echo esc($_POST['cnic'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 font-mono text-sm">
-                    </div>
-
-                    <!-- Referring Hospital -->
-                    <div class="col-span-1 md:col-span-2 border-t border-gray-100 pt-6 mt-2">
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Referring Clinic / Place of Consult</label>
-                        <select name="hospital_id" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white">
-                            <option value="">Direct to IVF Experts (Default)</option>
-                            <?php foreach ($hospitals as $h): ?>
-                                <option value="<?php echo $h['id']; ?>" <?php echo(isset($_POST['hospital_id']) && $_POST['hospital_id'] == $h['id']) ? 'selected' : ''; ?>>
-                                    <?php echo esc($h['name']); ?>
-                                </option>
-                            <?php
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Last Name</label>
+                            <input type="text" name="last_name" value="<?php echo esc($_POST['last_name'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Gender *</label>
+                            <select name="gender" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" required>
+                                <option value="Female" <?php echo(isset($_POST['gender']) && $_POST['gender'] == 'Female') ? 'selected' : ''; ?>>Female</option>
+                                <option value="Male" <?php echo(isset($_POST['gender']) && $_POST['gender'] == 'Male') ? 'selected' : ''; ?>>Male</option>
+                                <option value="Other" <?php echo(isset($_POST['gender']) && $_POST['gender'] == 'Other') ? 'selected' : ''; ?>>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Age</label>
+                            <input type="number" name="patient_age" value="<?php echo esc($_POST['patient_age'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" min="1" max="120" placeholder="Years">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Date of Birth</label>
+                            <input type="date" name="date_of_birth" value="<?php echo esc($_POST['date_of_birth'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Blood Group</label>
+                            <select name="blood_group" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white">
+                                <option value="">-- Unknown --</option>
+                                <?php foreach (['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'] as $bg): ?>
+                                    <option value="<?php echo $bg; ?>" <?php echo(isset($_POST['blood_group']) && $_POST['blood_group'] == $bg) ? 'selected' : ''; ?>><?php echo $bg; ?></option>
+                                <?php
 endforeach; ?>
-                        </select>
-                        <p class="text-xs text-gray-400 mt-1">If the patient is registered under another hospital's MR, select the hospital to link them correctly.</p>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
+                            <input type="text" name="phone" value="<?php echo esc($_POST['phone'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" placeholder="03XX-XXXXXXX">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">CNIC / ID Number</label>
+                            <input type="text" name="cnic" value="<?php echo esc($_POST['cnic'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white font-mono text-sm" placeholder="XXXXX-XXXXXXX-X">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+                            <input type="email" name="email" value="<?php echo esc($_POST['email'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" placeholder="patient@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Address</label>
+                            <input type="text" name="address" value="<?php echo esc($_POST['address'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" placeholder="City, Area">
+                        </div>
                     </div>
+                </div>
 
+                <!-- Section: Spouse Details -->
+                <div class="bg-pink-50 border border-pink-100 rounded-xl p-5 mb-6">
+                    <h4 class="font-bold text-pink-800 text-sm mb-4"><i class="fa-solid fa-heart mr-1"></i> Spouse / Partner Details</h4>
+                    <p class="text-xs text-pink-600 mb-4">This links the spouse's tests (Semen Analysis, Lab Results) under the same patient file for 360° fertility tracking.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Spouse Full Name</label>
+                            <input type="text" name="spouse_name" value="<?php echo esc($_POST['spouse_name'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Spouse Gender</label>
+                            <select name="spouse_gender" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 bg-white">
+                                <option value="">-- Select --</option>
+                                <option value="Male" <?php echo(isset($_POST['spouse_gender']) && $_POST['spouse_gender'] == 'Male') ? 'selected' : ''; ?>>Male</option>
+                                <option value="Female" <?php echo(isset($_POST['spouse_gender']) && $_POST['spouse_gender'] == 'Female') ? 'selected' : ''; ?>>Female</option>
+                                <option value="Other" <?php echo(isset($_POST['spouse_gender']) && $_POST['spouse_gender'] == 'Other') ? 'selected' : ''; ?>>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Spouse Age</label>
+                            <input type="number" name="spouse_age" value="<?php echo esc($_POST['spouse_age'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 bg-white" min="1" max="120" placeholder="Years">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Spouse Contact Number</label>
+                            <input type="text" name="spouse_phone" value="<?php echo esc($_POST['spouse_phone'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 bg-white" placeholder="03XX-XXXXXXX">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Spouse CNIC / ID</label>
+                            <input type="text" name="spouse_cnic" value="<?php echo esc($_POST['spouse_cnic'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 bg-white font-mono text-sm" placeholder="XXXXX-XXXXXXX-X">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Referring Hospital -->
+                <div class="border-t border-gray-100 pt-6">
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Referring Clinic / Place of Consult</label>
+                    <select name="hospital_id" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white">
+                        <option value="">Direct to IVF Experts (Default)</option>
+                        <?php foreach ($hospitals as $h): ?>
+                            <option value="<?php echo $h['id']; ?>" <?php echo(isset($_POST['hospital_id']) && $_POST['hospital_id'] == $h['id']) ? 'selected' : ''; ?>>
+                                <?php echo esc($h['name']); ?>
+                            </option>
+                        <?php
+endforeach; ?>
+                    </select>
+                    <p class="text-xs text-gray-400 mt-1">If the patient is registered under another hospital's MR, select the hospital to link them correctly.</p>
                 </div>
 
                 <div class="mt-8 flex justify-end">

@@ -27,20 +27,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mr_number = trim($_POST['mr_number']);
     $first_name = trim($_POST['first_name']);
     $last_name = trim($_POST['last_name']);
-    $spouse_name = trim($_POST['spouse_name']);
+    $patient_age = !empty($_POST['patient_age']) ? intval($_POST['patient_age']) : null;
+    $date_of_birth = !empty($_POST['date_of_birth']) ? trim($_POST['date_of_birth']) : null;
+    $blood_group = trim($_POST['blood_group'] ?? '');
+    $gender = $_POST['gender'];
     $cnic = trim($_POST['cnic']);
     $phone = trim($_POST['phone']);
-    $gender = $_POST['gender'];
+    $address = trim($_POST['address'] ?? '');
+    $email = trim($_POST['email'] ?? '');
     $hospital_id = !empty($_POST['hospital_id']) ? $_POST['hospital_id'] : null;
+
+    // Spouse details
+    $spouse_name = trim($_POST['spouse_name']);
+    $spouse_age = !empty($_POST['spouse_age']) ? intval($_POST['spouse_age']) : null;
+    $spouse_gender = !empty($_POST['spouse_gender']) ? $_POST['spouse_gender'] : null;
+    $spouse_cnic = trim($_POST['spouse_cnic'] ?? '');
+    $spouse_phone = trim($_POST['spouse_phone'] ?? '');
 
     if (empty($mr_number) || empty($first_name) || empty($gender)) {
         $error = "MR Number, First Name, and Gender are required fields.";
     }
     else {
         try {
-            $stmt = $conn->prepare("UPDATE patients SET mr_number=?, first_name=?, last_name=?, spouse_name=?, cnic=?, phone=?, gender=?, referring_hospital_id=? WHERE id=?");
+            $stmt = $conn->prepare("UPDATE patients SET mr_number=?, first_name=?, last_name=?, patient_age=?, date_of_birth=?, blood_group=?, gender=?, cnic=?, phone=?, address=?, email=?, spouse_name=?, spouse_age=?, spouse_gender=?, spouse_cnic=?, spouse_phone=?, referring_hospital_id=? WHERE id=?");
             if ($stmt) {
-                $stmt->bind_param("sssssssii", $mr_number, $first_name, $last_name, $spouse_name, $cnic, $phone, $gender, $hospital_id, $patient_id);
+                $stmt->bind_param("sssississsssissssii", $mr_number, $first_name, $last_name, $patient_age, $date_of_birth, $blood_group, $gender, $cnic, $phone, $address, $email, $spouse_name, $spouse_age, $spouse_gender, $spouse_cnic, $spouse_phone, $hospital_id, $patient_id);
                 if ($stmt->execute()) {
                     header("Location: patients_view.php?id=" . $patient_id . "&msg=updated");
                     exit;
@@ -103,63 +114,118 @@ include __DIR__ . '/includes/header.php';
 endif; ?>
 
             <form method="POST">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- MR Number -->
-                    <div class="col-span-1 md:col-span-2">
-                        <label class="block text-sm font-bold text-slate-700 mb-1">MR Number *</label>
-                        <input type="text" name="mr_number" value="<?php echo esc($_POST['mr_number'] ?? $patient['mr_number']); ?>" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 font-mono bg-gray-50" required>
-                    </div>
+                <!-- MR Number -->
+                <div class="mb-6">
+                    <label class="block text-sm font-bold text-slate-700 mb-1">MR Number *</label>
+                    <input type="text" name="mr_number" value="<?php echo esc($_POST['mr_number'] ?? $patient['mr_number']); ?>" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 font-mono bg-gray-50" required>
+                </div>
 
-                    <!-- Name -->
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">First Name *</label>
-                        <input type="text" name="first_name" value="<?php echo esc($_POST['first_name'] ?? $patient['first_name']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500" required>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Last Name</label>
-                        <input type="text" name="last_name" value="<?php echo esc($_POST['last_name'] ?? $patient['last_name']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500">
-                    </div>
-
-                    <!-- Gender & Spouse -->
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Gender *</label>
-                        <select name="gender" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" required>
+                <!-- Section: Primary Patient -->
+                <div class="bg-teal-50 border border-teal-100 rounded-xl p-5 mb-6">
+                    <h4 class="font-bold text-teal-800 text-sm mb-4"><i class="fa-solid fa-user mr-1"></i> Primary Patient Information</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">First Name *</label>
+                            <input type="text" name="first_name" value="<?php echo esc($_POST['first_name'] ?? $patient['first_name']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Last Name</label>
+                            <input type="text" name="last_name" value="<?php echo esc($_POST['last_name'] ?? $patient['last_name']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Gender *</label>
                             <?php $g = $_POST['gender'] ?? $patient['gender']; ?>
-                            <option value="Female" <?php echo($g == 'Female') ? 'selected' : ''; ?>>Female</option>
-                            <option value="Male" <?php echo($g == 'Male') ? 'selected' : ''; ?>>Male</option>
-                            <option value="Other" <?php echo($g == 'Other') ? 'selected' : ''; ?>>Other</option>
-                        </select>
+                            <select name="gender" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" required>
+                                <option value="Female" <?php echo($g == 'Female') ? 'selected' : ''; ?>>Female</option>
+                                <option value="Male" <?php echo($g == 'Male') ? 'selected' : ''; ?>>Male</option>
+                                <option value="Other" <?php echo($g == 'Other') ? 'selected' : ''; ?>>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Age</label>
+                            <input type="number" name="patient_age" value="<?php echo esc($_POST['patient_age'] ?? $patient['patient_age'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" min="1" max="120" placeholder="Years">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Date of Birth</label>
+                            <input type="date" name="date_of_birth" value="<?php echo esc($_POST['date_of_birth'] ?? $patient['date_of_birth'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Blood Group</label>
+                            <?php $bg_val = $_POST['blood_group'] ?? $patient['blood_group'] ?? ''; ?>
+                            <select name="blood_group" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white">
+                                <option value="">-- Unknown --</option>
+                                <?php foreach (['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'] as $bg): ?>
+                                    <option value="<?php echo $bg; ?>" <?php echo($bg_val == $bg) ? 'selected' : ''; ?>><?php echo $bg; ?></option>
+                                <?php
+endforeach; ?>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
+                            <input type="text" name="phone" value="<?php echo esc($_POST['phone'] ?? $patient['phone']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" placeholder="03XX-XXXXXXX">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">CNIC / ID Number</label>
+                            <input type="text" name="cnic" value="<?php echo esc($_POST['cnic'] ?? $patient['cnic']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white font-mono text-sm" placeholder="XXXXX-XXXXXXX-X">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+                            <input type="email" name="email" value="<?php echo esc($_POST['email'] ?? $patient['email'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" placeholder="patient@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Address</label>
+                            <input type="text" name="address" value="<?php echo esc($_POST['address'] ?? $patient['address'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white" placeholder="City, Area">
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Spouse Name</label>
-                        <input type="text" name="spouse_name" value="<?php echo esc($_POST['spouse_name'] ?? $patient['spouse_name']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500">
-                    </div>
+                </div>
 
-                    <!-- Contact Details -->
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
-                        <input type="text" name="phone" value="<?php echo esc($_POST['phone'] ?? $patient['phone']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500">
+                <!-- Section: Spouse Details -->
+                <div class="bg-pink-50 border border-pink-100 rounded-xl p-5 mb-6">
+                    <h4 class="font-bold text-pink-800 text-sm mb-4"><i class="fa-solid fa-heart mr-1"></i> Spouse / Partner Details</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Spouse Full Name</label>
+                            <input type="text" name="spouse_name" value="<?php echo esc($_POST['spouse_name'] ?? $patient['spouse_name']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Spouse Gender</label>
+                            <?php $sg = $_POST['spouse_gender'] ?? $patient['spouse_gender'] ?? ''; ?>
+                            <select name="spouse_gender" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 bg-white">
+                                <option value="">-- Select --</option>
+                                <option value="Male" <?php echo($sg == 'Male') ? 'selected' : ''; ?>>Male</option>
+                                <option value="Female" <?php echo($sg == 'Female') ? 'selected' : ''; ?>>Female</option>
+                                <option value="Other" <?php echo($sg == 'Other') ? 'selected' : ''; ?>>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Spouse Age</label>
+                            <input type="number" name="spouse_age" value="<?php echo esc($_POST['spouse_age'] ?? $patient['spouse_age'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 bg-white" min="1" max="120" placeholder="Years">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Spouse Contact Number</label>
+                            <input type="text" name="spouse_phone" value="<?php echo esc($_POST['spouse_phone'] ?? $patient['spouse_phone'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 bg-white" placeholder="03XX-XXXXXXX">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Spouse CNIC / ID</label>
+                            <input type="text" name="spouse_cnic" value="<?php echo esc($_POST['spouse_cnic'] ?? $patient['spouse_cnic'] ?? ''); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-pink-500 focus:ring-1 focus:ring-pink-500 bg-white font-mono text-sm" placeholder="XXXXX-XXXXXXX-X">
+                        </div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">CNIC / ID Number</label>
-                        <input type="text" name="cnic" value="<?php echo esc($_POST['cnic'] ?? $patient['cnic']); ?>" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 font-mono text-sm">
-                    </div>
+                </div>
 
-                    <!-- Referring Hospital -->
-                    <div class="col-span-1 md:col-span-2 border-t border-gray-100 pt-6 mt-2">
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Referring Clinic / Place of Consult</label>
-                        <select name="hospital_id" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white">
-                            <option value="">Direct to IVF Experts (Default)</option>
-                            <?php
+                <!-- Referring Hospital -->
+                <div class="border-t border-gray-100 pt-6">
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Referring Clinic / Place of Consult</label>
+                    <select name="hospital_id" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white">
+                        <option value="">Direct to IVF Experts (Default)</option>
+                        <?php
 $h_id = $_POST['hospital_id'] ?? $patient['referring_hospital_id'];
 foreach ($hospitals as $h): ?>
-                                <option value="<?php echo $h['id']; ?>" <?php echo($h_id == $h['id']) ? 'selected' : ''; ?>>
-                                    <?php echo esc($h['name']); ?>
-                                </option>
-                            <?php
+                            <option value="<?php echo $h['id']; ?>" <?php echo($h_id == $h['id']) ? 'selected' : ''; ?>>
+                                <?php echo esc($h['name']); ?>
+                            </option>
+                        <?php
 endforeach; ?>
-                        </select>
-                    </div>
+                    </select>
                 </div>
 
                 <div class="mt-8 flex justify-end">

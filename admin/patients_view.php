@@ -165,28 +165,87 @@ include __DIR__ . '/includes/header.php';
             </div>
             
             <div class="p-6">
-                <ul class="space-y-4 text-sm">
-                    <li class="flex justify-between items-center border-b border-gray-50 pb-3">
+                <ul class="space-y-3 text-sm">
+                    <li class="flex justify-between items-center border-b border-gray-50 pb-2">
                         <span class="text-gray-500 font-medium">Gender</span>
                         <span class="text-gray-800 font-semibold"><?php echo esc($patient['gender']); ?></span>
                     </li>
-                    <li class="flex justify-between items-center border-b border-gray-50 pb-3">
+                    <?php if (!empty($patient['patient_age'])): ?>
+                    <li class="flex justify-between items-center border-b border-gray-50 pb-2">
+                        <span class="text-gray-500 font-medium">Age</span>
+                        <span class="text-gray-800 font-semibold"><?php echo $patient['patient_age']; ?> yrs</span>
+                    </li>
+                    <?php
+endif; ?>
+                    <?php if (!empty($patient['blood_group'])): ?>
+                    <li class="flex justify-between items-center border-b border-gray-50 pb-2">
+                        <span class="text-gray-500 font-medium">Blood</span>
+                        <span class="bg-red-50 text-red-700 px-2 py-0.5 rounded font-bold text-xs border border-red-100"><?php echo esc($patient['blood_group']); ?></span>
+                    </li>
+                    <?php
+endif; ?>
+                    <li class="flex justify-between items-center border-b border-gray-50 pb-2">
                         <span class="text-gray-500 font-medium">Phone</span>
                         <span class="text-gray-800 font-semibold"><?php echo esc($patient['phone'] ?: 'N/A'); ?></span>
                     </li>
-                    <li class="flex justify-between items-center border-b border-gray-50 pb-3">
+                    <li class="flex justify-between items-center border-b border-gray-50 pb-2">
                         <span class="text-gray-500 font-medium">CNIC</span>
-                        <span class="text-gray-800 font-mono"><?php echo esc($patient['cnic'] ?: 'N/A'); ?></span>
+                        <span class="text-gray-800 font-mono text-xs"><?php echo esc($patient['cnic'] ?: 'N/A'); ?></span>
                     </li>
-                    <li class="flex justify-between items-center border-b border-gray-50 pb-3">
-                        <span class="text-gray-500 font-medium">Spouse</span>
-                        <span class="text-gray-800 font-semibold"><?php echo esc($patient['spouse_name'] ?: 'N/A'); ?></span>
+                    <?php if (!empty($patient['email'])): ?>
+                    <li class="flex justify-between items-center border-b border-gray-50 pb-2">
+                        <span class="text-gray-500 font-medium">Email</span>
+                        <span class="text-gray-800 text-xs truncate max-w-[140px]"><?php echo esc($patient['email']); ?></span>
                     </li>
+                    <?php
+endif; ?>
                     <li class="flex justify-between items-center pb-1">
-                        <span class="text-gray-500 font-medium">Hospital Ref</span>
-                        <span class="text-gray-800 text-right"><?php echo esc($patient['hospital_name'] ?: 'Main Clinic'); ?></span>
+                        <span class="text-gray-500 font-medium">Hospital</span>
+                        <span class="text-gray-800 text-right text-xs"><?php echo esc($patient['hospital_name'] ?: 'Main Clinic'); ?></span>
                     </li>
                 </ul>
+
+                <!-- Spouse Card -->
+                <?php if (!empty($patient['spouse_name'])): ?>
+                <div class="mt-5 pt-4 border-t border-gray-100">
+                    <h4 class="text-xs font-bold text-pink-700 uppercase tracking-wider mb-3"><i class="fa-solid fa-heart mr-1"></i> Spouse / Partner</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex justify-between items-center">
+                            <span class="text-gray-500 font-medium">Name</span>
+                            <span class="text-gray-800 font-semibold"><?php echo esc($patient['spouse_name']); ?></span>
+                        </li>
+                        <?php if (!empty($patient['spouse_gender'])): ?>
+                        <li class="flex justify-between items-center">
+                            <span class="text-gray-500 font-medium">Gender</span>
+                            <span class="text-gray-800"><?php echo esc($patient['spouse_gender']); ?></span>
+                        </li>
+                        <?php
+    endif; ?>
+                        <?php if (!empty($patient['spouse_age'])): ?>
+                        <li class="flex justify-between items-center">
+                            <span class="text-gray-500 font-medium">Age</span>
+                            <span class="text-gray-800"><?php echo $patient['spouse_age']; ?> yrs</span>
+                        </li>
+                        <?php
+    endif; ?>
+                        <?php if (!empty($patient['spouse_phone'])): ?>
+                        <li class="flex justify-between items-center">
+                            <span class="text-gray-500 font-medium">Phone</span>
+                            <span class="text-gray-800"><?php echo esc($patient['spouse_phone']); ?></span>
+                        </li>
+                        <?php
+    endif; ?>
+                        <?php if (!empty($patient['spouse_cnic'])): ?>
+                        <li class="flex justify-between items-center">
+                            <span class="text-gray-500 font-medium">CNIC</span>
+                            <span class="text-gray-800 font-mono text-xs"><?php echo esc($patient['spouse_cnic']); ?></span>
+                        </li>
+                        <?php
+    endif; ?>
+                    </ul>
+                </div>
+                <?php
+endif; ?>
                 
                 <div class="mt-6 pt-6 border-t border-gray-100 grid grid-cols-2 gap-3">
                     <a href="semen_analyses_add.php?patient_id=<?php echo $patient['id']; ?>" class="bg-sky-50 hover:bg-sky-100 text-sky-700 font-medium py-2 rounded-lg text-center text-sm transition-colors cursor-pointer border border-sky-100">

@@ -49,10 +49,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_item'])) {
         else {
             // Insert
             $stmt = $conn->prepare("INSERT INTO assets (name, type, category, barcode_string, purchase_date, purchase_price, stock_quantity, minimum_threshold, location, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssdiiis", $name, $type, $category, $barcode, $purchase_date, $purchase_price, $stock_quantity, $min_threshold, $location, $notes);
+            $stmt->bind_param("sssssdiiss", $name, $type, $category, $barcode, $purchase_date, $purchase_price, $stock_quantity, $min_threshold, $location, $notes);
         }
 
         if ($stmt->execute()) {
+            // Auto-log as expense in financials for new assets with purchase price
+            if ($id === 0 && $purchase_price > 0) {
+                try {
+                    $exp_title = "Asset Purchase: " . $name;
+                    $exp_cat = "Asset / Inventory";
+                    $exp_date = $purchase_date ?: date('Y-m-d');
+                    $exp_notes = "Auto-logged from Inventory. Barcode: " . $barcode;
+                    $est = $conn->prepare("INSERT INTO expenses (title, amount, expense_date, category, notes) VALUES (?, ?, ?, ?, ?)");
+                    $est->bind_param("sdsss", $exp_title, $purchase_price, $exp_date, $exp_cat, $exp_notes);
+                    $est->execute();
+                }
+                catch (Exception $e) {
+                // Non-critical, suppress
+                }
+            }
+
             header("Location: inventory.php?msg=saved");
             exit;
         }
