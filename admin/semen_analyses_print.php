@@ -30,8 +30,8 @@ if (!$sa)
     die("Report not found.");
 
 // Since this is a custom plain A4 layout (not using hospital letterhead margins, we supply logos ourselves)
-$mt = 15;
-$mb = 15;
+$mt = 10;
+$mb = 12;
 $ml = 15;
 $mr = 15;
 
@@ -120,8 +120,8 @@ endif; ?>
         <?php
 endif; ?>
 
-        <!-- Header: 2 Logos -->
-        <div class="flex justify-between items-center mb-3 border-b-2 border-slate-800 pb-2">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-2 border-b-2 border-slate-800 pb-1.5">
             <!-- Left Side: IVF Experts Standard Logo (we pull from web root assets if exists, or text fallback) -->
             <div class="w-1/3">
                 <img src="../assets/images/logo.png" alt="IVF Experts" class="h-12 object-contain" onerror="this.style.display='none'; document.getElementById('fb1').style.display='block';">
@@ -130,7 +130,7 @@ endif; ?>
             
             <div class="w-1/3 text-center">
                 <h1 class="font-bold text-lg uppercase tracking-widest text-slate-800 m-0">Semen Analysis</h1>
-                <p class="text-[9px] text-slate-500 uppercase tracking-widest mt-0">WHO 6th Edition Standard</p>
+                <p class="text-[8px] text-slate-500 uppercase tracking-widest mt-0">WHO 6th Edition Standard</p>
             </div>
             
             <div class="w-1/3 flex justify-end">
@@ -317,32 +317,31 @@ foreach ($display_diagnosis as $d) {
 endif; ?>
 
         <!-- Footer -->
-        <div class="absolute bottom-2 left-0 right-0 flex justify-between items-end pb-2 px-6">
+        <div class="absolute bottom-2 left-0 right-0 flex justify-between items-end pb-3 px-6 border-t border-slate-100 mt-4 mx-4">
             
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-3 pt-4">
                 <!-- QR Code points to Patient Portal for 2FA unlock -->
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $sa['qrcode_hash']); ?>" alt="QR Code" class="w-16 h-16 border border-slate-300 p-0.5 bg-white" />
-                <div class="text-[9px] text-slate-500 w-44 leading-tight">
-                    <span class="font-bold block text-slate-800 text-[10px]">Secure Digital PDF Record</span>
-                    Scan this verification code with your mobile camera to authenticate.
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $sa['qrcode_hash']); ?>" alt="QR Code" class="w-14 h-14 border border-slate-200 p-0.5 bg-white shadow-sm" />
+                <div class="text-[8px] text-slate-500 w-48 leading-tight">
+                    <span class="font-bold block text-slate-700 text-[9px] mb-0.5">Secure Digitally Verified Record</span>
+                    Scan code with mobile camera to verify clinical authenticity online at ivfexperts.pk.
                 </div>
             </div>
 
-            <div class="text-right">
+            <div class="text-right pt-4">
                 <?php if (!empty($sa['digital_signature_path'])): ?>
-                    <img src="../<?php echo esc($sa['digital_signature_path']); ?>" alt="Signature" class="h-16 ml-auto object-contain mb-1" />
-                <?php
-else: ?>
-                    <div class="h-14 sm:w-48 text-gray-300 italic flex items-end justify-end pb-1 border-b border-gray-400 ml-auto uppercase text-[10px] font-bold tracking-widest">Unsigned Document</div>
+                    <img src="../<?php echo esc($sa['digital_signature_path']); ?>" alt="Signature" class="h-14 ml-auto object-contain mb-1" />
                 <?php
 endif; ?>
-                <div class="font-bold text-[14px] text-slate-900 leading-tight">Dr. Adnan Jabbar</div>
-                <div class="text-[9px] text-slate-600 leading-tight mt-1">
+                <div class="font-bold text-[13px] text-slate-900 leading-tight">Dr. Adnan Jabbar</div>
+                <div class="text-[9px] text-slate-600 leading-tight mt-0.5">
                     MBBS, DFM, MH, GCP, Family, Fertility & ER Medicine<br>
-                    <span class="font-bold text-slate-800 uppercase tracking-wider">Clinical Embryologist</span><br>
-                    <span class="text-emerald-600 font-bold italic"><i class="fa-solid fa-circle-check"></i> Digitally Verified Report.</span>
+                    <span class="font-bold text-slate-700 uppercase tracking-widest text-[8px]">Clinical Embryologist</span><br>
+                    <span class="text-emerald-700 font-bold italic text-[8.5px]"><i class="fa-solid fa-circle-check"></i> Digitally Verified Report.</span>
                 </div>
             </div>
+
+        </div>
 
         </div>
 
