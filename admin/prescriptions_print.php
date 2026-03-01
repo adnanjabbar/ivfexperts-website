@@ -109,156 +109,143 @@ $mr = $rx['margin_right'] ?? '20mm';
     <div class="a4-container flex flex-col relative pb-32">
         
         <!-- Patient Demographics Block -->
-        <div class="border-b-2 border-gray-800 pb-3 mb-6">
-            <div class="flex justify-between items-end">
-                <div>
-                    <h2 class="text-xl font-bold uppercase tracking-wider mb-1">Patient Info</h2>
-                    <table class="text-sm">
-                        <tr><td class="font-bold pr-3 text-gray-600">Name:</td><td class="font-bold text-lg"><?php echo esc($rx['first_name'] . ' ' . $rx['last_name']); ?></td></tr>
-                        <tr><td class="font-bold pr-3 text-gray-600">MR #:</td><td class="font-mono"><?php echo esc($rx['mr_number']); ?></td></tr>
-                        <tr><td class="font-bold pr-3 text-gray-600">Gender/Phone:</td><td><?php echo esc($rx['gender']); ?> / <?php echo esc($rx['phone'] ?: 'N/A'); ?></td></tr>
-                    </table>
-                </div>
-                <div class="text-right">
-                    <div class="text-sm font-bold text-gray-500 mb-1">Date</div>
-                    <div class="text-lg font-medium"><?php echo date('d M Y', strtotime($rx['created_at'])); ?></div>
-                    <div class="text-xs text-gray-400 mt-1 uppercase tracking-widest">RX-<?php echo str_pad($id, 6, '0', STR_PAD_LEFT); ?></div>
-                </div>
+        <div class="border-b-2 border-gray-300 pb-2 mb-3 flex justify-between items-end px-2">
+            <div>
+                <table class="text-[11px] leading-tight">
+                    <tr><td class="font-bold pr-2 text-gray-500 py-0.5">Patient Name:</td><td class="font-bold text-gray-800 text-[12px] uppercase py-0.5"><?php echo esc($rx['first_name'] . ' ' . $rx['last_name']); ?></td></tr>
+                    <tr><td class="font-bold pr-2 text-gray-500 py-0.5">MR Number:</td><td class="font-mono font-bold text-indigo-800 py-0.5"><?php echo esc($rx['mr_number']); ?></td></tr>
+                    <tr><td class="font-bold pr-2 text-gray-500 py-0.5">Gender / Phone:</td><td class="py-0.5"><?php echo esc($rx['gender']); ?> / <?php echo esc($rx['phone'] ?: 'N/A'); ?></td></tr>
+                </table>
+            </div>
+            <div class="text-right text-[11px]">
+                <div class="font-bold text-gray-500">Date Printed</div>
+                <div class="font-bold text-gray-800 mb-0.5"><?php echo date('d M Y'); ?></div>
+                <div class="text-[9px] text-gray-400 uppercase tracking-widest mt-1">RX-<?php echo str_pad($id, 6, '0', STR_PAD_LEFT); ?></div>
             </div>
         </div>
 
         <!-- Clinical Assessment -->
-        <div class="mb-6 grid grid-cols-2 gap-4 text-sm">
-            <?php if (!empty($rx['presenting_complaint'])): ?>
-                <div class="col-span-2">
-                    <span class="font-bold text-gray-500 uppercase text-xs">Presenting Complaint / History:</span>
-                    <p class="font-medium"><?php echo esc($rx['presenting_complaint']); ?></p>
-                </div>
-            <?php
+        <div class="mb-4 text-[11px] px-2 bg-gray-50 border border-gray-100 p-2 rounded">
+            <div class="grid grid-cols-2 gap-x-4 gap-y-1">
+                <?php if (!empty($rx['presenting_complaint'])): ?>
+                    <div class="col-span-2 flex">
+                        <span class="font-bold text-gray-500 uppercase text-[10px] w-32 shrink-0">History/Complaint:</span>
+                        <span class="font-medium text-gray-800 flex-grow"><?php echo esc($rx['presenting_complaint']); ?></span>
+                    </div>
+                <?php
 endif; ?>
-            
-            <?php if (!empty($rx['icd_disease'])): ?>
-                <div>
-                    <span class="font-bold text-gray-500 uppercase text-xs">Diagnosis (ICD-10):</span>
-                    <p class="font-medium text-emerald-800">
-                        <?php if (!empty($rx['icd_code']))
-        echo '<span class="font-bold mr-1">[' . esc($rx['icd_code']) . ']</span>'; ?>
-                        <?php echo esc($rx['icd_disease']); ?>
-                    </p>
-                </div>
-            <?php
+                
+                <?php if (!empty($rx['icd_disease'])): ?>
+                    <div class="flex">
+                        <span class="font-bold text-gray-500 uppercase text-[10px] w-24 shrink-0">Diagnosis:</span>
+                        <span class="font-medium text-emerald-800 flex-grow">
+                            <?php if (!empty($rx['icd_code']))
+        echo '<strong class="mr-1">[' . esc($rx['icd_code']) . ']</strong>'; ?>
+                            <?php echo esc($rx['icd_disease']); ?>
+                        </span>
+                    </div>
+                <?php
 endif; ?>
 
-            <?php if (!empty($rx['cpt_procedure'])): ?>
-                <div>
-                    <span class="font-bold text-gray-500 uppercase text-xs">Advised Procedure:</span>
-                    <p class="font-medium text-indigo-800">
-                        <?php if (!empty($rx['cpt_code']))
-        echo '<span class="font-bold mr-1">[' . esc($rx['cpt_code']) . ']</span>'; ?>
-                        <?php echo esc($rx['cpt_procedure']); ?>
-                    </p>
-                </div>
-            <?php
+                <?php if (!empty($rx['cpt_procedure'])): ?>
+                    <div class="flex">
+                        <span class="font-bold text-gray-500 uppercase text-[10px] w-24 shrink-0">Procedure:</span>
+                        <span class="font-medium text-indigo-800 flex-grow">
+                            <?php if (!empty($rx['cpt_code']))
+        echo '<strong class="mr-1">[' . esc($rx['cpt_code']) . ']</strong>'; ?>
+                            <?php echo esc($rx['cpt_procedure']); ?>
+                        </span>
+                    </div>
+                <?php
 endif; ?>
+            </div>
         </div>
 
         <!-- Big Rx Symbol -->
-        <div class="mb-4">
-            <span class="text-6xl font-serif italic font-bold">Rx</span>
+        <div class="mb-2 px-2 mt-4">
+            <span class="text-4xl font-serif italic font-bold text-slate-800 pr-2">Rx</span><span class="text-[10px] text-gray-400 uppercase tracking-widest inline-block align-top mt-1">Prescription Form</span>
         </div>
 
-        <!-- Medication List -->
-        <div class="flex-grow mb-8 px-4">
+        <!-- Medication List Table -->
+        <div class="flex-grow mb-6 px-2">
             <?php if (empty($items)): ?>
-                <p class="text-gray-500 italic">No medications prescribed.</p>
+                <p class="text-[11px] text-gray-500 mx-2 italic">No medications prescribed.</p>
             <?php
 else: ?>
-                <ul class="space-y-6">
-                    <?php foreach ($items as $idx => $item): ?>
-                        <li class="flex items-start gap-4">
-                            <span class="font-bold text-lg mt-0.5"><?php echo $idx + 1; ?>.</span>
-                            <div class="w-full">
-                                <div class="flex items-baseline justify-between border-b border-gray-200 border-dotted pb-1 mb-1">
-                                    <h3 class="font-bold text-xl uppercase"><?php echo esc($item['name']); ?> <span class="text-xs font-normal text-gray-500 bg-gray-100 px-1 rounded ml-1"><?php echo esc($item['med_type']); ?></span></h3>
-                                </div>
-                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2 pl-2 border-l-2 border-gray-300">
-                                    <?php if (!empty($item['dosage'])): ?>
-                                        <div>
-                                            <span class="block text-xs font-bold text-gray-500 uppercase tracking-wider">Dosage</span>
-                                            <span class="text-md font-medium"><?php echo esc($item['dosage']); ?></span>
-                                        </div>
+                <table class="w-full text-left border-collapse border border-gray-200 shadow-sm">
+                    <thead>
+                        <tr class="bg-gray-200 text-gray-700 text-[10px] uppercase tracking-wider">
+                            <th class="p-1.5 border border-gray-300 w-8 text-center">Sr.</th>
+                            <th class="p-1.5 border border-gray-300 w-1/3">Medicine Name</th>
+                            <th class="p-1.5 border border-gray-300">Dosage</th>
+                            <th class="p-1.5 border border-gray-300">Frequency</th>
+                            <th class="p-1.5 border border-gray-300">Duration</th>
+                            <th class="p-1.5 border border-gray-300 w-1/4">Instructions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-[11px]">
+                        <?php foreach ($items as $idx => $item): ?>
+                            <tr class="<?php echo $idx % 2 == 0 ? 'bg-white' : 'bg-gray-50'; ?>">
+                                <td class="p-1.5 border border-gray-200 text-center font-bold text-gray-500"><?php echo $idx + 1; ?>.</td>
+                                <td class="p-1.5 border border-gray-200 font-bold text-gray-900 text-[12px] uppercase">
+                                    <?php echo esc($item['name']); ?>
+                                    <?php if (!empty($item['med_type'])): ?>
+                                        <span class="text-[9px] font-normal text-gray-500 ml-1 italic capitalize">(<?php echo esc($item['med_type']); ?>)</span>
                                     <?php
         endif; ?>
-                                    <?php if (!empty($item['usage_frequency'])): ?>
-                                        <div>
-                                            <span class="block text-xs font-bold text-gray-500 uppercase tracking-wider">Frequency</span>
-                                            <span class="text-md font-bold text-indigo-700"><?php echo esc($item['usage_frequency']); ?></span>
-                                        </div>
-                                    <?php
-        endif; ?>
-                                    <?php if (!empty($item['duration'])): ?>
-                                        <div>
-                                            <span class="block text-xs font-bold text-gray-500 uppercase tracking-wider">Duration</span>
-                                            <span class="text-md font-medium"><?php echo esc($item['duration']); ?></span>
-                                        </div>
-                                    <?php
-        endif; ?>
-                                    <?php if (!empty($item['instructions'])): ?>
-                                        <div class="col-span-2 md:col-span-4 mt-1 border-t border-gray-100 pt-1">
-                                            <span class="block text-xs font-bold text-gray-500 uppercase tracking-wider">Instructions</span>
-                                            <span class="text-sm font-medium italic text-gray-700"><?php echo esc($item['instructions']); ?></span>
-                                        </div>
-                                    <?php
-        endif; ?>
-                                </div>
-                            </div>
-                        </li>
-                    <?php
+                                </td>
+                                <td class="p-1.5 border border-gray-200 font-medium text-gray-800"><?php echo esc($item['dosage'] ?: '-'); ?></td>
+                                <td class="p-1.5 border border-gray-200 font-bold text-indigo-700"><?php echo esc($item['usage_frequency'] ?: '-'); ?></td>
+                                <td class="p-1.5 border border-gray-200 font-medium whitespace-nowrap text-gray-800"><?php echo esc($item['duration'] ?: '-'); ?></td>
+                                <td class="p-1.5 border border-gray-200 text-[10px] text-gray-700 font-medium italic"><?php echo esc($item['instructions'] ?: '-'); ?></td>
+                            </tr>
+                        <?php
     endforeach; ?>
-                </ul>
+                    </tbody>
+                </table>
             <?php
 endif; ?>
         </div>
 
         <!-- General Notes -->
         <?php if (!empty($rx['notes'])): ?>
-            <div class="mt-4 pt-4 border-t-2 border-gray-800">
-                <h3 class="text-sm font-bold uppercase tracking-wider text-gray-600 mb-2">Advice / General Notes</h3>
-                <p class="text-md whitespace-pre-wrap leading-relaxed"><?php echo esc($rx['notes']); ?></p>
+            <div class="mt-2 pt-2 border-t border-gray-300 px-2">
+                <h3 class="text-[10px] font-bold uppercase tracking-wider text-gray-600 mb-1">Advice / General Notes</h3>
+                <p class="text-[11px] whitespace-pre-wrap leading-snug"><?php echo esc($rx['notes']); ?></p>
             </div>
         <?php
 endif; ?>
 
         <!-- Revisit Date -->
         <?php if (!empty($rx['revisit_date'])): ?>
-            <div class="mt-4 bg-emerald-50 border border-emerald-200 rounded p-3 text-center w-64 mx-auto shadow-sm">
-                <span class="text-xs font-bold text-emerald-800 uppercase tracking-widest block mb-1">Next Follow-up Visit</span>
-                <span class="text-lg font-bold text-emerald-900"><?php echo date('l, d M Y', strtotime($rx['revisit_date'])); ?></span>
+            <div class="mt-3 bg-emerald-50 border border-emerald-200 rounded p-1.5 text-center w-64 mx-auto shadow-sm">
+                <span class="text-[9px] font-bold text-emerald-800 uppercase tracking-widest block mb-0">Next Follow-up Visit</span>
+                <span class="text-[12px] font-bold text-emerald-900"><?php echo date('l, d M Y', strtotime($rx['revisit_date'])); ?></span>
             </div>
         <?php
 endif; ?>
 
         <!-- Footer: Signature & QR Code absolute positioned to bottom -->
-        <div class="absolute bottom-4 left-0 right-0 flex justify-between items-end border-t border-gray-300 pt-4">
+        <div class="absolute bottom-2 left-0 right-0 flex justify-between items-end border-t border-gray-300 pt-2 px-2 pb-0">
             
-            <div class="flex items-center gap-3">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-20 h-20 border p-1" />
-                <div class="text-xs text-gray-500 w-48 leading-snug">
-                    <span class="font-bold block text-gray-700">Scan to Verify & Download</span>
-                    Point your camera at this code to view the EMR portal and download the original PDF.
+            <div class="flex items-center gap-2">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $rx['qrcode_hash']); ?>" alt="QR Code" class="w-14 h-14 border p-0.5" />
+                <div class="text-[9px] text-gray-500 w-32 leading-tight">
+                    <span class="font-bold block text-gray-700">Digital Record PDF</span>
+                    Scan this verification code with phone camera to download.
                 </div>
             </div>
 
             <div class="text-center">
                 <?php if (!empty($rx['digital_signature_path'])): ?>
-                    <img src="../<?php echo esc($rx['digital_signature_path']); ?>" alt="Signature" class="h-20 mx-auto object-contain mb-1" />
+                    <img src="../<?php echo esc($rx['digital_signature_path']); ?>" alt="Signature" class="h-12 mx-auto object-contain mb-0" />
                 <?php
 else: ?>
-                    <div class="h-20 sm:w-48 text-gray-300 italic flex items-end justify-center pb-2 border-b border-gray-300">Unsigned</div>
+                    <div class="h-12 sm:w-48 text-gray-300 italic flex items-end justify-center pb-1 border-b border-gray-200 text-[10px]">Unsigned Document</div>
                 <?php
 endif; ?>
-                <div class="font-bold uppercase text-sm border-t border-gray-800 pt-1 w-48 mx-auto">Dr. Adnan Jabbar</div>
-                <div class="text-xs text-gray-600">Clinical Director</div>
+                <div class="font-bold uppercase text-[11px] text-slate-800 mt-0.5">Dr. Adnan Jabbar</div>
+                <div class="text-[9px] text-gray-500 border-t border-gray-300 pt-0.5 mx-auto inline-block w-40 italic">Clinical Director</div>
             </div>
 
         </div>
