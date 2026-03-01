@@ -129,7 +129,7 @@ $mr = $rx['margin_right'] ?? '20mm';
 <body class="py-10 print:py-0">
 
     <!-- Screen-only controls -->
-    <div class="fixed top-4 right-4 flex gap-2 no-print">
+    <div class="flex flex-wrap justify-center gap-4 py-4 mb-6 bg-slate-50 border-b border-slate-200 no-print w-full shadow-sm">
         <?php if (isset($_SESSION['admin_id'])): ?>
             <!-- Admin Controls -->
             <button onclick="printDigital()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold" <?php if (empty($rx['letterhead_image_path']))
@@ -407,7 +407,7 @@ endif; ?>
             const patientName = "<?php echo esc($rx['first_name'] . ' ' . $rx['last_name']); ?>";
             const link = "https://ivfexperts.pk/portal/verify.php?hash=" + hash;
             
-            const text = `Dear ${patientName}, 🌸\n\nWe hope this message finds you well. Here is your recent Prescription from IVF Experts. You can view and download your secure digital record by clicking the link below:\n\n📄 View & Download Record: ${link}\n\nPlease feel free to reach out if you have any questions. Your health and family are our priority. 💙\n\nRegards,\nDr. Adnan Jabbar\nMBBS, DFM, MH, MPH, CGP\nFertility, Family & Emergency Medicine\n+92 3 111 101 483 (IVF)\nhello@ivfexperts.pk\nwww.ivfexperts.pk`;
+            const text = `Dear ${patientName},\n\nWe hope this message finds you well. Here is your recent Prescription from IVF Experts. You can view and download your secure digital record by clicking the link below:\n\nView & Download Record: ${link}\n\nPlease feel free to reach out if you have any questions. Your health and family are our priority.\n\nRegards,\nDr. Adnan Jabbar\nMBBS, DFM, MH, MPH, CGP\nFertility, Family & Emergency Medicine\n+92 3 111 101 483 (IVF)\nhello@ivfexperts.pk\nwww.ivfexperts.pk`;
             
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
