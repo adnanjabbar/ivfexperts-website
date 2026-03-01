@@ -47,7 +47,7 @@ catch (Exception $e) {
 }
 
 // Include TinyMCE
-$extraHead = '<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>';
+$extraHead = '<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js" referrerpolicy="origin"></script>';
 $extraHead .= '<script>
   tinymce.init({
     selector: "#template_body",

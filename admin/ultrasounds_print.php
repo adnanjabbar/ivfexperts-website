@@ -10,7 +10,7 @@ $usg = null;
 try {
     $stmt = $conn->prepare("
         SELECT u.*, p.first_name, p.last_name, p.mr_number, p.gender, p.phone, p.cnic, 
-               h.name as hospital_name, h.margin_top, h.margin_bottom, h.margin_left, h.margin_right, h.digital_signature_path 
+               h.name as hospital_name, h.margin_top, h.margin_bottom, h.margin_left, h.margin_right, h.digital_signature_path, h.letterhead_image_path 
         FROM patient_ultrasounds u 
         JOIN patients p ON u.patient_id = p.id 
         JOIN hospitals h ON u.hospital_id = h.id 
@@ -87,8 +87,12 @@ $mr = $usg['margin_right'] ?? '20mm';
 <body class="py-10 print:py-0">
 
     <div class="fixed top-4 right-4 flex gap-2 no-print">
+        <button onclick="printDigital()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold" <?php if (empty($usg['letterhead_image_path']))
+    echo 'disabled title="No Letterhead uploaded in settings" style="opacity: 0.5; cursor: not-allowed;"'; ?>>
+            <i class="fa-solid fa-file-pdf"></i> Print Digital PDF
+        </button>
         <button onclick="window.print()" class="bg-sky-600 hover:bg-sky-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold">
-            <i class="fa-solid fa-print"></i> Print on Letterhead
+            <i class="fa-solid fa-print"></i> Print on Physical Letterhead
         </button>
         <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg">
             Close
@@ -150,5 +154,32 @@ endif; ?>
 
     </div>
 
+    <!-- Digital PDF Print Logic -->
+    <script>
+        function printDigital() {
+            <?php if (!empty($usg['letterhead_image_path'])): ?>
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @page { margin: 0; }
+                .a4-container {
+                    padding: <?php echo $mt; ?> <?php echo $mr; ?> <?php echo $mb; ?> <?php echo $ml; ?> !important;
+                    background-image: url('../<?php echo addslashes($usg['letterhead_image_path']); ?>') !important;
+                    background-size: cover !important;
+                    background-position: center !important;
+                    background-repeat: no-repeat !important;
+                    -webkit-print-color-adjust: exact !important;
+                    print-color-adjust: exact !important;
+                }
+            `;
+            document.head.appendChild(style);
+            window.print();
+            style.remove();
+            <?php
+else: ?>
+            alert("No letterhead graphic has been uploaded for this hospital yet.");
+            <?php
+endif; ?>
+        }
+    </script>
 </body>
 </html>

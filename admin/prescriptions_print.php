@@ -10,7 +10,7 @@ $rx = null;
 try {
     $stmt = $conn->prepare("
         SELECT rx.*, p.first_name, p.last_name, p.mr_number, p.gender, p.phone, p.cnic, 
-               h.name as hospital_name, h.margin_top, h.margin_bottom, h.margin_left, h.margin_right, h.digital_signature_path 
+               h.name as hospital_name, h.margin_top, h.margin_bottom, h.margin_left, h.margin_right, h.digital_signature_path, h.letterhead_image_path 
         FROM prescriptions rx 
         JOIN patients p ON rx.patient_id = p.id 
         JOIN hospitals h ON rx.hospital_id = h.id 
@@ -43,6 +43,24 @@ try {
 }
 catch (Exception $e) {
 }
+
+// Fetch Diagnoses
+$diagnoses = [];
+try {
+    $stmt = $conn->prepare("SELECT * FROM prescription_diagnoses WHERE prescription_id = ? ORDER BY type ASC");
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        while ($row = $res->fetch_assoc())
+            $diagnoses[] = $row;
+    }
+}
+catch (Exception $e) {
+}
+
+$icds = array_filter($diagnoses, fn($d) => $d['type'] == 'ICD');
+$cpts = array_filter($diagnoses, fn($d) => $d['type'] == 'CPT' || $d['type'] == 'SNOMED');
 
 // Setup Margins explicitly to handle pre-printed hospital letterheads
 $mt = $rx['margin_top'] ?? '40mm';
@@ -97,8 +115,12 @@ $mr = $rx['margin_right'] ?? '20mm';
 
     <!-- Screen-only controls -->
     <div class="fixed top-4 right-4 flex gap-2 no-print">
+        <button onclick="printDigital()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold" <?php if (empty($rx['letterhead_image_path']))
+    echo 'disabled title="No Letterhead uploaded in settings" style="opacity: 0.5; cursor: not-allowed;"'; ?>>
+            <i class="fa-solid fa-file-pdf"></i> Print Digital PDF
+        </button>
         <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold">
-            <i class="fa-solid fa-print"></i> Print on Letterhead
+            <i class="fa-solid fa-print"></i> Print on Physical Letterhead
         </button>
         <button onclick="window.close()" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg">
             Close
@@ -126,34 +148,62 @@ $mr = $rx['margin_right'] ?? '20mm';
 
         <!-- Clinical Assessment -->
         <div class="mb-4 text-[11px] px-2 bg-gray-50 border border-gray-100 p-2 rounded">
-            <div class="grid grid-cols-2 gap-x-4 gap-y-1">
+            <div class="grid grid-cols-1 gap-1">
                 <?php if (!empty($rx['presenting_complaint'])): ?>
-                    <div class="col-span-2 flex">
-                        <span class="font-bold text-gray-500 uppercase text-[10px] w-32 shrink-0">History/Complaint:</span>
+                    <div class="flex border-b border-gray-200 pb-1 mb-1">
+                        <span class="font-bold text-gray-500 uppercase text-[10px] w-28 shrink-0">History/Complaint:</span>
                         <span class="font-medium text-gray-800 flex-grow"><?php echo esc($rx['presenting_complaint']); ?></span>
                     </div>
                 <?php
 endif; ?>
                 
-                <?php if (!empty($rx['icd_disease'])): ?>
-                    <div class="flex">
-                        <span class="font-bold text-gray-500 uppercase text-[10px] w-24 shrink-0">Diagnosis:</span>
+                <?php if (!empty($icds) || !empty($rx['icd_disease'])): ?>
+                    <div class="flex border-b border-gray-200 pb-1 mb-1">
+                        <span class="font-bold text-gray-500 uppercase text-[10px] w-28 shrink-0">Diagnosis:</span>
                         <span class="font-medium text-emerald-800 flex-grow">
-                            <?php if (!empty($rx['icd_code']))
-        echo '<strong class="mr-1">[' . esc($rx['icd_code']) . ']</strong>'; ?>
-                            <?php echo esc($rx['icd_disease']); ?>
+                            <?php
+    // Backward compatibility
+    if (!empty($rx['icd_disease'])) {
+        echo(!empty($rx['icd_code']) ? '<strong class="mr-1">[' . esc($rx['icd_code']) . ']</strong>' : '') . esc($rx['icd_disease']);
+    }
+    else {
+        $icd_strings = [];
+        foreach ($icds as $icd) {
+            $str = '';
+            if (!empty($icd['code']))
+                $str .= '<strong class="mr-1">[' . esc($icd['code']) . ']</strong>';
+            $str .= esc($icd['description']);
+            $icd_strings[] = $str;
+        }
+        echo implode(' <span class="text-gray-300 mx-1">|</span> ', $icd_strings);
+    }
+?>
                         </span>
                     </div>
                 <?php
 endif; ?>
 
-                <?php if (!empty($rx['cpt_procedure'])): ?>
+                <?php if (!empty($cpts) || !empty($rx['cpt_procedure'])): ?>
                     <div class="flex">
-                        <span class="font-bold text-gray-500 uppercase text-[10px] w-24 shrink-0">Procedure:</span>
+                        <span class="font-bold text-gray-500 uppercase text-[10px] w-28 shrink-0">Advised Procedure:</span>
                         <span class="font-medium text-indigo-800 flex-grow">
-                            <?php if (!empty($rx['cpt_code']))
-        echo '<strong class="mr-1">[' . esc($rx['cpt_code']) . ']</strong>'; ?>
-                            <?php echo esc($rx['cpt_procedure']); ?>
+                            <?php
+    // Backward compatibility
+    if (!empty($rx['cpt_procedure'])) {
+        echo(!empty($rx['cpt_code']) ? '<strong class="mr-1">[' . esc($rx['cpt_code']) . ']</strong>' : '') . esc($rx['cpt_procedure']);
+    }
+    else {
+        $cpt_strings = [];
+        foreach ($cpts as $cpt) {
+            $str = '';
+            if (!empty($cpt['code']))
+                $str .= '<strong class="mr-1">[' . esc($cpt['code']) . ']</strong>';
+            $str .= esc($cpt['description']);
+            $cpt_strings[] = $str;
+        }
+        echo implode(' <span class="text-gray-300 mx-1">|</span> ', $cpt_strings);
+    }
+?>
                         </span>
                     </div>
                 <?php
@@ -253,8 +303,32 @@ endif; ?>
     </div>
 
     <!-- Inject printer script automatically for immediate preview -->
+    <!-- Inject printer script automatically for immediate preview -->
     <script>
-        // window.onload = () => { setTimeout(() => { window.print(); }, 500); };
+        function printDigital() {
+            <?php if (!empty($rx['letterhead_image_path'])): ?>
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @page { margin: 0; }
+                .a4-container {
+                    padding: <?php echo $mt; ?> <?php echo $mr; ?> <?php echo $mb; ?> <?php echo $ml; ?> !important;
+                    background-image: url('../<?php echo addslashes($rx['letterhead_image_path']); ?>') !important;
+                    background-size: cover !important;
+                    background-position: center !important;
+                    background-repeat: no-repeat !important;
+                    -webkit-print-color-adjust: exact !important;
+                    print-color-adjust: exact !important;
+                }
+            `;
+            document.head.appendChild(style);
+            window.print();
+            style.remove();
+            <?php
+else: ?>
+            alert("No letterhead graphic has been uploaded for this hospital yet.");
+            <?php
+endif; ?>
+        }
     </script>
 </body>
 </html>

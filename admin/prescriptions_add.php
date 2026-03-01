@@ -41,11 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_rx'])) {
     $notes = trim($_POST['notes'] ?? '');
     $complaint = trim($_POST['presenting_complaint'] ?? '');
 
-    // ICD / CPT / Revisit
-    $icd_disease = trim($_POST['icd_disease'] ?? '');
-    $icd_code = trim($_POST['icd_code'] ?? '');
-    $cpt_procedure = trim($_POST['cpt_procedure'] ?? '');
-    $cpt_code = trim($_POST['cpt_code'] ?? '');
+    // Diagnoses Arrays
+    $icd_codes = $_POST['icd_codes'] ?? [];
+    $icd_names = $_POST['icd_names'] ?? [];
+    $cpt_codes = $_POST['cpt_codes'] ?? [];
+    $cpt_names = $_POST['cpt_names'] ?? [];
     $revisit_date = !empty($_POST['revisit_date']) ? $_POST['revisit_date'] : null;
 
     $meds_array = $_POST['med_id'] ?? [];
@@ -60,9 +60,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_rx'])) {
     else {
         $conn->begin_transaction();
         try {
-            // Insert Prescript Master
-            $stmt = $conn->prepare("INSERT INTO prescriptions (patient_id, hospital_id, qrcode_hash, presenting_complaint, icd_code, icd_disease, cpt_code, cpt_procedure, revisit_date, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("iissssssss", $patient_id, $hospital_id, $qrcode_hash, $complaint, $icd_code, $icd_disease, $cpt_code, $cpt_procedure, $revisit_date, $notes);
+            // Insert Prescript Master (Backward compatibility for first item if needed, but leaving empty is fine. We will just leave them empty for now since we rely on new table)
+            $stmt = $conn->prepare("INSERT INTO prescriptions (patient_id, hospital_id, qrcode_hash, presenting_complaint, revisit_date, notes) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("iissss", $patient_id, $hospital_id, $qrcode_hash, $complaint, $revisit_date, $notes);
             $stmt->execute();
             $rx_id = $conn->insert_id;
 
@@ -80,6 +80,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_rx'])) {
                     }
                 }
             }
+
+            // Insert Diagnoses (Multiple)
+            $stmt_diag = $conn->prepare("INSERT INTO prescription_diagnoses (prescription_id, type, code, description) VALUES (?, ?, ?, ?)");
+
+            // Loop ICD
+            $type_icd = 'ICD';
+            for ($i = 0; $i < count($icd_codes); $i++) {
+                $c = trim($icd_codes[$i] ?? '');
+                $n = trim($icd_names[$i] ?? '');
+                if (!empty($n)) {
+                    $stmt_diag->bind_param("isss", $rx_id, $type_icd, $c, $n);
+                    $stmt_diag->execute();
+                }
+            }
+
+            // Loop CPT
+            $type_cpt = 'CPT';
+            for ($i = 0; $i < count($cpt_codes); $i++) {
+                $c = trim($cpt_codes[$i] ?? '');
+                $n = trim($cpt_names[$i] ?? '');
+                if (!empty($n)) {
+                    $stmt_diag->bind_param("isss", $rx_id, $type_cpt, $c, $n);
+                    $stmt_diag->execute();
+                }
+            }
+
             $conn->commit();
             header("Location: prescriptions.php?msg=rx_saved");
             exit;
@@ -172,36 +198,63 @@ endforeach; ?>
                                 <span>Diagnosis (ICD-10)</span>
                                 <span class="text-[10px] text-gray-400 font-bold bg-white px-1 border rounded">LIVE NIH DB</span>
                             </label>
-                            <input type="hidden" name="icd_code" :value="icdCode">
+
+                            <!-- Selected ICDs List -->
+                            <div class="mb-2 space-y-2">
+                                <template x-for="(icd, idx) in selectedIcds" :key="idx">
+                                    <div class="flex items-center bg-emerald-50 border border-emerald-200 px-3 py-2 rounded shadow-sm gap-3 text-sm">
+                                        <input type="hidden" name="icd_codes[]" :value="icd.code">
+                                        <input type="hidden" name="icd_names[]" :value="icd.name">
+                                        <span class="font-mono text-emerald-700 font-bold w-12 shrink-0" x-text="icd.code"></span>
+                                        <span class="text-gray-800 flex-grow" x-text="icd.name"></span>
+                                        <button type="button" @click="removeIcd(idx)" class="text-red-400 hover:text-red-700"><i class="fa-solid fa-times-circle"></i></button>
+                                    </div>
+                                </template>
+                            </div>
+
                             <div class="relative">
-                                <input type="text" name="icd_disease" x-model="icdQuery" @input.debounce.400ms="searchIcd" placeholder="Search diagnosis..." 
-                                    class="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-colors text-sm" 
-                                    :class="icdCode ? 'bg-emerald-50 border-emerald-300 font-semibold text-emerald-800' : ''" autocomplete="off">
-                                <div x-show="icdLoading" class="absolute right-3 top-2.5 text-indigo-500">
+                                <input type="text" x-model="icdQuery" @input.debounce.400ms="searchIcd" placeholder="Search and add diagnosis..." 
+                                    class="w-full px-3 py-2 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-emerald-500 transition-colors text-sm" autocomplete="off">
+                                <div x-show="icdLoading" class="absolute right-3 top-2.5 text-emerald-500">
                                     <i class="fa-solid fa-spinner fa-spin text-sm"></i>
                                 </div>
                             </div>
                             
                             <!-- Dropdown -->
-                            <div x-show="icdResults.length > 0 && !icdCode" @click.away="icdResults = []" class="absolute z-40 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden max-h-48 overflow-y-auto text-sm">
+                            <div x-show="icdResults.length > 0" @click.away="icdResults = []" class="absolute z-40 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-xl overflow-hidden max-h-48 overflow-y-auto text-sm">
                                 <template x-for="icd in icdResults" :key="icd[0]">
-                                    <div @click="selectIcd(icd)" class="px-3 py-2 border-b border-gray-100 hover:bg-emerald-50 cursor-pointer flex gap-3">
+                                    <div @click="addIcd(icd)" class="px-3 py-2 border-b border-gray-100 hover:bg-emerald-50 cursor-pointer flex gap-3">
                                         <span class="font-mono text-emerald-700 font-bold w-12 shrink-0" x-text="icd[0]"></span>
                                         <span class="text-gray-800" x-text="icd[1]"></span>
                                     </div>
                                 </template>
                             </div>
-                            <div x-show="icdCode" class="text-[10px] text-red-500 mt-1 cursor-pointer hover:underline" @click="clearIcd()">
-                                Clear ICD Assignment
-                            </div>
                         </div>
 
                         <!-- CPT / Procedure -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Advised Procedure / SNOMED / CPT</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1 flex justify-between">
+                                <span>Advised Procedures (CPT/SNOMED)</span>
+                                <span class="text-[10px] text-gray-400 font-bold bg-white px-1 border rounded">MANUAL ENTRY</span>
+                            </label>
+
+                            <!-- Selected Procs List -->
+                            <div class="mb-2 space-y-2">
+                                <template x-for="(proc, idx) in selectedProcs" :key="idx">
+                                    <div class="flex items-center bg-indigo-50 border border-indigo-200 px-3 py-2 rounded shadow-sm gap-3 text-sm">
+                                        <input type="hidden" name="cpt_codes[]" :value="proc.code">
+                                        <input type="hidden" name="cpt_names[]" :value="proc.name">
+                                        <span class="font-mono text-indigo-700 font-bold w-16 shrink-0" x-text="proc.code || 'N/A'"></span>
+                                        <span class="text-gray-800 flex-grow" x-text="proc.name"></span>
+                                        <button type="button" @click="removeProc(idx)" class="text-red-400 hover:text-red-700"><i class="fa-solid fa-times-circle"></i></button>
+                                    </div>
+                                </template>
+                            </div>
+
                             <div class="flex gap-2">
-                                <input type="text" name="cpt_code" placeholder="Code (opt)" class="w-1/4 px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-indigo-500 text-sm font-mono" autocomplete="off">
-                                <input type="text" name="cpt_procedure" placeholder="e.g. Scrotal Ultrasound" class="w-3/4 px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-indigo-500 text-sm" autocomplete="off">
+                                <input type="text" x-model="procCodeInput" placeholder="Code (opt)" class="w-1/4 px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-indigo-500 text-sm font-mono" autocomplete="off" @keydown.enter.prevent="addProc">
+                                <input type="text" x-model="procNameInput" placeholder="e.g. Scrotal Ultrasound" class="w-3/4 px-3 py-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-indigo-500 text-sm" autocomplete="off" @keydown.enter.prevent="addProc">
+                                <button type="button" @click="addProc" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 shadow-sm transition-colors text-sm"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
                     </div>
@@ -337,14 +390,13 @@ document.addEventListener('alpine:init', () => {
             this.patResults = [];
         },
 
-        // --- ICD-10 Search (NIH API) ---
+        // --- ICD-10 Handling ---
         icdQuery: '',
         icdResults: [],
         icdLoading: false,
-        icdCode: '',
+        selectedIcds: [],
 
         async searchIcd() {
-            if (this.icdCode) return;
             if (this.icdQuery.length < 2) {
                 this.icdResults = []; return;
             }
@@ -354,7 +406,6 @@ document.addEventListener('alpine:init', () => {
                 let url = `https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search?sf=code,name&terms=${encodeURIComponent(this.icdQuery)}&maxList=10`;
                 let res = await fetch(url);
                 let data = await res.json();
-                // API format: [count, [codes], null, [[code, name], ...]]
                 this.icdResults = data[3] || [];
             } catch (e) {
                 console.error('ICD API Error:', e);
@@ -362,16 +413,31 @@ document.addEventListener('alpine:init', () => {
             this.icdLoading = false;
         },
 
-        selectIcd(icdArr) {
-            this.icdCode = icdArr[0]; // e.g. N46
-            this.icdQuery = icdArr[1]; // e.g. Male infertility
+        addIcd(icdArr) {
+            this.selectedIcds.push({ code: icdArr[0], name: icdArr[1] });
+            this.icdQuery = '';
             this.icdResults = [];
         },
 
-        clearIcd() {
-            this.icdCode = '';
-            this.icdQuery = '';
-            this.icdResults = [];
+        removeIcd(idx) {
+            this.selectedIcds.splice(idx, 1);
+        },
+
+        // --- CPT / SNOMED Handling ---
+        selectedProcs: [],
+        procCodeInput: '',
+        procNameInput: '',
+
+        addProc() {
+            const name = this.procNameInput.trim();
+            if (!name) return;
+            this.selectedProcs.push({ code: this.procCodeInput.trim(), name: name });
+            this.procCodeInput = '';
+            this.procNameInput = '';
+        },
+
+        removeProc(idx) {
+            this.selectedProcs.splice(idx, 1);
         },
 
         // --- Rx Rows ---

@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_usg'])) {
 // Map templates to JS
 $templates_json = json_encode(array_column($templates, 'body', 'id'));
 
-$extraHead = '<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>';
+$extraHead = '<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js" referrerpolicy="origin"></script>';
 $extraHead .= '<script>
   tinymce.init({
     selector: "#usg_content",

@@ -11,8 +11,10 @@ $hospital = [
     'margin_bottom' => '20mm',
     'margin_left' => '20mm',
     'margin_right' => '20mm',
+    'margin_right' => '20mm',
     'logo_path' => '',
-    'digital_signature_path' => ''
+    'digital_signature_path' => '',
+    'letterhead_image_path' => ''
 ];
 
 if ($id > 0) {
@@ -41,6 +43,8 @@ if (!is_dir($upload_dir . 'logos/'))
     mkdir($upload_dir . 'logos/', 0755, true);
 if (!is_dir($upload_dir . 'signatures/'))
     mkdir($upload_dir . 'signatures/', 0755, true);
+if (!is_dir($upload_dir . 'letterheads/'))
+    mkdir($upload_dir . 'letterheads/', 0755, true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_hospital'])) {
     $name = trim($_POST['name'] ?? '');
@@ -52,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_hospital'])) {
     // Keep old paths if no new file is uploaded
     $logo_path = $hospital['logo_path'];
     $sig_path = $hospital['digital_signature_path'];
+    $letterhead_path = $hospital['letterhead_image_path'];
 
     // Handle Logo Upload
     if (isset($_FILES['logo']) && $_FILES['logo']['error'] == 0) {
@@ -71,13 +76,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_hospital'])) {
         }
     }
 
+    // Handle Letterhead Upload
+    if (isset($_FILES['letterhead']) && $_FILES['letterhead']['error'] == 0) {
+        $ext = pathinfo($_FILES['letterhead']['name'], PATHINFO_EXTENSION);
+        $filename = 'lh_' . time() . '.' . $ext;
+        if (move_uploaded_file($_FILES['letterhead']['tmp_name'], $upload_dir . 'letterheads/' . $filename)) {
+            $letterhead_path = 'assets/uploads/letterheads/' . $filename;
+        }
+    }
+
     if (empty($name)) {
         $error = "Hospital name is required.";
     }
     else {
         if ($id > 0) {
-            $stmt = $conn->prepare("UPDATE hospitals SET name=?, margin_top=?, margin_bottom=?, margin_left=?, margin_right=?, logo_path=?, digital_signature_path=? WHERE id=?");
-            $stmt->bind_param("sssssssi", $name, $mt, $mb, $ml, $mr, $logo_path, $sig_path, $id);
+            $stmt = $conn->prepare("UPDATE hospitals SET name=?, margin_top=?, margin_bottom=?, margin_left=?, margin_right=?, logo_path=?, digital_signature_path=?, letterhead_image_path=? WHERE id=?");
+            $stmt->bind_param("ssssssssi", $name, $mt, $mb, $ml, $mr, $logo_path, $sig_path, $letterhead_path, $id);
             if ($stmt->execute()) {
                 header("Location: hospitals.php?msg=saved");
                 exit;
@@ -87,8 +101,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_hospital'])) {
             }
         }
         else {
-            $stmt = $conn->prepare("INSERT INTO hospitals (name, margin_top, margin_bottom, margin_left, margin_right, logo_path, digital_signature_path) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssss", $name, $mt, $mb, $ml, $mr, $logo_path, $sig_path);
+            $stmt = $conn->prepare("INSERT INTO hospitals (name, margin_top, margin_bottom, margin_left, margin_right, logo_path, digital_signature_path, letterhead_image_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssssss", $name, $mt, $mb, $ml, $mr, $logo_path, $sig_path, $letterhead_path);
             if ($stmt->execute()) {
                 header("Location: hospitals.php?msg=saved");
                 exit;
@@ -171,7 +185,6 @@ endif; ?>
                         </div>
                     <?php
 endif; ?>
-                    
                     <input type="file" name="logo" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 transition-colors">
                 </div>
 
@@ -186,8 +199,22 @@ endif; ?>
                         </div>
                     <?php
 endif; ?>
-                    
                     <input type="file" name="signature" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 transition-colors">
+                </div>
+                
+                <!-- Digital Letterhead -->
+                <div class="border border-indigo-200 bg-indigo-50/30 rounded-lg p-5 md:col-span-2">
+                    <h4 class="font-bold text-indigo-900 text-sm mb-1 uppercase tracking-wider"><i class="fa-regular fa-image border border-indigo-300 p-1 rounded bg-white text-indigo-600 mr-1"></i> Full Digital Letterhead Graphic</h4>
+                    <p class="text-[12px] text-gray-600 mb-4">Used EXCLUSIVELY for generating Digital PDFs for patients online. <strong>Upload a high-quality A4 graphic with nothing but the empty letterhead frame (no patient data).</strong></p>
+                    
+                    <?php if (!empty($hospital['letterhead_image_path'])): ?>
+                        <div class="mb-4 bg-gray-100 border border-gray-300 p-2 rounded inline-block">
+                            <a href="../<?php echo esc($hospital['letterhead_image_path']); ?>" target="_blank" class="text-xs text-indigo-700 font-bold hover:underline mb-2 block"><i class="fa-solid fa-eye"></i> View Current Letterhead Letterhead</a>
+                            <img src="../<?php echo esc($hospital['letterhead_image_path']); ?>" alt="Letterhead Preview" class="h-24 w-auto object-contain bg-white border border-gray-200 shadow-sm">
+                        </div>
+                    <?php
+endif; ?>
+                    <input type="file" name="letterhead" accept="image/*,application/pdf" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-indigo-100 file:text-indigo-800 hover:file:bg-indigo-200 transition-colors">
                 </div>
             </div>
 
