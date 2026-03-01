@@ -167,7 +167,7 @@ else:
                         <div class="p-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
                             <div>
                                 <div class="font-bold text-gray-800">Advanced Semen Analysis</div>
-                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">Patient: <?php echo esc($sa['first_name'] . ' ' . $sa['last_name']); ?></div>
+                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">Patient: <?php echo htmlspecialchars($sa['first_name'] . ' ' . $sa['last_name']); ?></div>
                                 <div class="text-xs text-gray-500">Recorded: <?php echo date('d M Y', strtotime($sa['created_at'])); ?></div>
                                 <div class="text-[10px] uppercase font-bold text-teal-600 mt-1"><?php echo htmlspecialchars($sa['auto_diagnosis']); ?></div>
                             </div>
@@ -279,7 +279,7 @@ else:
                         <div class="p-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
                             <div>
                                 <div class="font-bold text-gray-800">E-Prescription #<?php echo $rx['id']; ?></div>
-                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">Patient: <?php echo esc($rx['first_name'] . ' ' . $rx['last_name']); ?></div>
+                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">Patient: <?php echo htmlspecialchars($rx['first_name'] . ' ' . $rx['last_name']); ?></div>
                                 <div class="text-xs text-gray-500">Issued On: <?php echo date('d M Y', strtotime($rx['created_at'])); ?></div>
                             </div>
                             <a href="view.php?type=rx&hash=<?php echo $rx['qrcode_hash']; ?>" target="_blank" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-indigo-100 whitespace-nowrap">
@@ -304,7 +304,7 @@ else:
                         <div class="p-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
                             <div>
                                 <div class="font-bold text-gray-800"><?php echo htmlspecialchars($r['procedure_name']); ?></div>
-                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">For: <?php echo esc($r['first_name'] . ' ' . $r['last_name']); ?></div>
+                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">For: <?php echo htmlspecialchars($r['first_name'] . ' ' . $r['last_name']); ?></div>
                                 <div class="text-xs text-gray-500">Date: <?php echo date('d M Y', strtotime($r['created_at'])); ?></div>
                                 <div class="text-sm font-mono font-bold text-emerald-700 mt-1">Rs. <?php echo number_format($r['amount'], 2); ?></div>
                             </div>
