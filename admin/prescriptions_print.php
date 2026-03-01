@@ -101,13 +101,13 @@ $mr = $rx['margin_right'] ?? '20mm';
         @media print {
             body { background: #fff; }
             .a4-container {
-                width: auto;
-                min-height: auto;
+                width: 100%;
+                min-height: 297mm;
                 box-shadow: none;
-                padding: 0; /* Let @page handle margins */
                 margin: 0;
             }
             .no-print { display: none !important; }
+            .no-print-bg { background: transparent !important; }
             .print-footer {
                 position: fixed !important;
                 bottom: 25mm !important;
@@ -115,18 +115,29 @@ $mr = $rx['margin_right'] ?? '20mm';
                 right: 45mm !important;
             }
         }
-        .print-footer {
+        
+        /* Digital Backdrop Classes */
+        .digital-mode .a4-container {
+            padding: <?php echo $mt; ?> <?php echo $mr; ?> <?php echo $mb; ?> <?php echo $ml; ?> !important;
+            background: transparent !important;
+        }
+        .digital-mode @page {
+            margin: 0;
+        }
+        
+        .letterhead-bg {
             position: absolute;
-            bottom: 25mm;
-            left: 10mm;
-            right: 45mm;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 297mm;
+            z-index: -10;
+            object-fit: fill;
         }
     </style>
 </head>
-<body class="py-10 print:py-0">
+<body class="py-10 print:py-0 <?php echo(!isset($_SESSION['admin_id']) && !empty($rx['letterhead_image_path'])) ? 'digital-mode' : ''; ?>">
 
     <!-- Screen-only controls -->
     <div class="flex flex-wrap justify-center gap-4 py-4 mb-6 bg-slate-50 border-b border-slate-200 no-print w-full shadow-sm">
@@ -139,7 +150,8 @@ $mr = $rx['margin_right'] ?? '20mm';
             <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg shadow-lg font-bold">
                 <i class="fa-solid fa-print"></i> Print on Physical Letterhead
             </button>
-            <button onclick="sendWhatsApp()" class="bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-2 rounded-lg shadow-lg font-bold shadow-green-500/30">
+            <button onclick="sendWhatsApp()" class="bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-2 rounded-lg shadow-lg font-bold shadow-green-500/30" <?php if (empty($rx['letterhead_image_path']))
+        echo 'disabled title="No Letterhead uploaded in settings" style="opacity: 0.5; cursor: not-allowed;"'; ?>>
                 <i class="fa-brands fa-whatsapp text-lg mr-1"></i> Send via WhatsApp
             </button>
         <?php
@@ -156,8 +168,14 @@ endif; ?>
     </div>
 
     <!-- The Actual Document -->
-    <div class="a4-container flex flex-col relative pb-[35mm]">
+    <div class="a4-container flex flex-col relative pb-[35mm]" id="document-container">
         
+        <!-- Permanent Letterhead Background for Patients -->
+        <?php if (!isset($_SESSION['admin_id']) && !empty($rx['letterhead_image_path'])): ?>
+            <img src="../<?php echo htmlspecialchars($rx['letterhead_image_path']); ?>" alt="Letterhead" class="letterhead-bg" />
+        <?php
+endif; ?>
+
         <!-- Patient Demographics Block -->
         <div class="border-b-2 border-gray-300 pb-2 mb-3 flex items-center justify-between px-2 gap-4">
             <!-- Details -->
@@ -353,40 +371,38 @@ endif; ?>
     <script>
         function printDigital() {
             <?php if (!empty($rx['letterhead_image_path'])): ?>
-            const style = document.createElement('style');
-            style.innerHTML = `
-                @page { margin: 0; }
-                .a4-container {
-                    padding: <?php echo $mt; ?> <?php echo $mr; ?> <?php echo $mb; ?> <?php echo $ml; ?> !important;
-                    background: transparent !important;
-                }
-            `;
-            document.head.appendChild(style);
+            
+            <?php if (isset($_SESSION['admin_id'])): ?>
+                // Admin temporary digital print toggle
+                document.body.classList.add('digital-mode');
+                
+                const img = document.createElement('img');
+                img.src = '../<?php echo addslashes($rx['letterhead_image_path']); ?>';
+                img.setAttribute('class', 'letterhead-bg');
+                img.id = 'temp-letterhead';
+                document.getElementById('document-container').appendChild(img);
 
-            const img = document.createElement('img');
-            img.src = '../<?php echo addslashes($rx['letterhead_image_path']); ?>';
-            img.style.position = 'absolute';
-            img.style.top = '0';
-            img.style.left = '0';
-            img.style.width = '100%';
-            img.style.height = '100%';
-            img.style.zIndex = '-10';
-            img.style.objectFit = 'fill';
-            document.querySelector('.a4-container').appendChild(img);
-
-            img.onload = () => {
+                img.onload = () => {
+                    window.print();
+                    document.body.classList.remove('digital-mode');
+                    img.remove();
+                };
+                img.onerror = () => {
+                    alert("Letterhead Image failed to load. Please ensure it is a valid JPG/PNG.");
+                    document.body.classList.remove('digital-mode');
+                    img.remove();
+                };
+            <?php
+    else: ?>
+                // Patient is already in digital mode permanently
                 window.print();
-                style.remove();
-                img.remove();
-            };
-            img.onerror = () => {
-                alert("Letterhead Image failed to load. Please ensure it is a valid JPG/PNG.");
-                style.remove();
-                img.remove();
-            };
+            <?php
+    endif; ?>
+
             <?php
 else: ?>
-            alert("No letterhead graphic has been uploaded for this hospital yet.");
+            // No letterhead fallback
+            window.print();
             <?php
 endif; ?>
         }

@@ -56,15 +56,36 @@ $total_motility = $sa['pr_motility'] + $sa['np_motility'];
         }
         @media print {
             body { background: #fff; }
-            .a4-container { width: auto; min-height: auto; box-shadow: none; padding: 0; margin: 0; }
+            .a4-container { width: 100%; min-height: 297mm; box-shadow: none; margin: 0; }
             .no-print { display: none !important; }
         }
+        
+        /* Digital Backdrop Classes */
+        .digital-mode .a4-container {
+            padding: <?php echo $mt; ?>mm <?php echo $mr; ?>mm <?php echo $mb; ?>mm <?php echo $ml; ?>mm !important;
+            background: transparent !important;
+        }
+        .digital-mode @page {
+            margin: 0;
+        }
+        
+        .letterhead-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 297mm;
+            z-index: -10;
+            object-fit: fill;
+        }
+
         .sa-table th { padding: 4px 8px; text-align: left; background: #f9fafb; font-size: 11px; text-transform: uppercase; border: 1px solid #e5e7eb; }
         .sa-table td { padding: 4px 8px; font-size: 13px; border: 1px solid #e5e7eb; }
         .red-flag { color: #dc2626; font-weight: bold; }
     </style>
 </head>
-<body class="py-10 print:py-0">
+<body class="py-10 print:py-0 <?php echo(!isset($_SESSION['admin_id']) && !empty($sa['letterhead_image_path'])) ? 'digital-mode' : ''; ?>">
 
     <div class="flex flex-wrap justify-center gap-4 py-4 mb-6 bg-slate-50 border-b border-slate-200 no-print w-full shadow-sm">
         <?php if (isset($_SESSION['admin_id'])): ?>
@@ -91,9 +112,14 @@ endif; ?>
     </div>
 
     <!-- The Actual Document -->
-    <div class="a4-container flex flex-col relative pb-32 font-sans">
+    <div class="a4-container flex flex-col relative pb-32 font-sans" id="document-container">
         
-        <!-- Header: 2 Logos -->
+        <!-- Permanent Letterhead Background for Patients -->
+        <?php if (!isset($_SESSION['admin_id']) && !empty($sa['letterhead_image_path'])): ?>
+            <img src="../<?php echo htmlspecialchars($sa['letterhead_image_path']); ?>" alt="Letterhead" class="letterhead-bg" />
+        <?php
+endif; ?>
+
         <!-- Header: 2 Logos -->
         <div class="flex justify-between items-center mb-3 border-b-2 border-slate-800 pb-2">
             <!-- Left Side: IVF Experts Standard Logo (we pull from web root assets if exists, or text fallback) -->
@@ -274,40 +300,38 @@ endif; ?>
     <script>
         function printDigital() {
             <?php if (!empty($sa['letterhead_image_path'])): ?>
-            const style = document.createElement('style');
-            style.innerHTML = `
-                @page { margin: 0; }
-                .a4-container {
-                    padding: <?php echo $mt; ?>mm <?php echo $mr; ?>mm <?php echo $mb; ?>mm <?php echo $ml; ?>mm !important;
-                    background: transparent !important;
-                }
-            `;
-            document.head.appendChild(style);
+            
+            <?php if (isset($_SESSION['admin_id'])): ?>
+                // Admin temporary digital print toggle
+                document.body.classList.add('digital-mode');
+                
+                const img = document.createElement('img');
+                img.src = '../<?php echo addslashes($sa['letterhead_image_path']); ?>';
+                img.setAttribute('class', 'letterhead-bg');
+                img.id = 'temp-letterhead';
+                document.getElementById('document-container').appendChild(img);
 
-            const img = document.createElement('img');
-            img.src = '../<?php echo addslashes($sa['letterhead_image_path']); ?>';
-            img.style.position = 'absolute';
-            img.style.top = '0';
-            img.style.left = '0';
-            img.style.width = '100%';
-            img.style.height = '100%';
-            img.style.zIndex = '-10';
-            img.style.objectFit = 'fill';
-            document.querySelector('.a4-container').appendChild(img);
-
-            img.onload = () => {
+                img.onload = () => {
+                    window.print();
+                    document.body.classList.remove('digital-mode');
+                    img.remove();
+                };
+                img.onerror = () => {
+                    alert("Letterhead Image failed to load. Please ensure it is a valid JPG/PNG.");
+                    document.body.classList.remove('digital-mode');
+                    img.remove();
+                };
+            <?php
+    else: ?>
+                // Patient is already in digital mode permanently
                 window.print();
-                style.remove();
-                img.remove();
-            };
-            img.onerror = () => {
-                alert("Letterhead Image failed to load. Please ensure it is a valid JPG/PNG.");
-                style.remove();
-                img.remove();
-            };
+            <?php
+    endif; ?>
+
             <?php
 else: ?>
-            alert("No letterhead graphic has been uploaded for this hospital yet.");
+            // No letterhead fallback
+            window.print();
             <?php
 endif; ?>
         }
