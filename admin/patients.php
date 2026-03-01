@@ -2,8 +2,23 @@
 $pageTitle = "Patient Registry";
 require_once __DIR__ . '/includes/auth.php';
 
+// Handle Delete
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $id = (int)$_POST['delete_id'];
+    $conn->query("DELETE FROM patient_history WHERE patient_id = $id");
+    $conn->query("DELETE FROM prescriptions WHERE patient_id = $id");
+    $conn->query("DELETE FROM ultrasound_scans WHERE patient_id = $id");
+    $conn->query("DELETE FROM semen_analyses WHERE patient_id = $id");
+    $conn->query("DELETE FROM lab_results WHERE patient_id = $id");
+    $conn->query("DELETE FROM receipts WHERE patient_id = $id");
+    $conn->query("DELETE FROM patients WHERE id = $id");
+    header("Location: patients.php?msg=deleted");
+    exit;
+}
+
 // Handle Search
 $search = trim($_GET['q'] ?? '');
+$msg = $_GET['msg'] ?? '';
 $patients = [];
 
 try {
@@ -31,6 +46,14 @@ catch (Exception $e) {
 
 include __DIR__ . '/includes/header.php';
 ?>
+
+<?php if ($msg === 'deleted'): ?>
+    <div class="bg-red-50 text-red-700 p-4 rounded-xl mb-6 border border-red-100 flex items-center gap-3 shadow-sm">
+        <i class="fa-solid fa-trash text-xl"></i>
+        <span class="font-bold">Patient record deleted successfully.</span>
+    </div>
+<?php
+endif; ?>
 
 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
     <div class="w-full sm:w-96 relative">
@@ -89,9 +112,15 @@ else:
                             <?php echo esc($p['hospital_name'] ?: 'Direct / Walk-in'); ?>
                         </td>
                         <td class="px-6 py-4 text-right whitespace-nowrap">
-                            <a href="patients_view.php?id=<?php echo $p['id']; ?>" class="text-teal-600 hover:text-teal-900 bg-teal-50 hover:bg-teal-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-block mr-2">
-                                <i class="fa-regular fa-folder-open"></i> Open File
+                            <a href="patients_view.php?id=<?php echo $p['id']; ?>" class="text-teal-600 hover:text-teal-900 bg-teal-50 hover:bg-teal-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-block mr-1" title="Open File">
+                                <i class="fa-regular fa-folder-open"></i>
                             </a>
+                            <a href="patients_edit.php?id=<?php echo $p['id']; ?>" class="text-blue-600 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-block mr-1" title="Edit">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <button onclick="confirmDelete(<?php echo $p['id']; ?>, '<?php echo esc($p['first_name'] . ' ' . $p['last_name']); ?>')" class="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-block cursor-pointer" title="Delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
                         </td>
                     </tr>
                 <?php
@@ -102,4 +131,33 @@ endif; ?>
     </div>
 </div>
 
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.5);" onclick="if(event.target===this)closeDeleteModal()">
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:16px;padding:32px;max-width:400px;width:90%;box-shadow:0 25px 50px rgba(0,0,0,0.15);">
+        <div style="text-align:center;">
+            <div style="width:56px;height:56px;background:#fef2f2;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+                <i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;font-size:24px;"></i>
+            </div>
+            <h3 style="font-size:18px;font-weight:700;color:#1e293b;margin-bottom:8px;">Delete Patient?</h3>
+            <p style="color:#64748b;font-size:14px;margin-bottom:24px;">Are you sure you want to delete <strong id="deletePatientName"></strong>? This will also delete all related records (history, prescriptions, ultrasounds, lab results). This cannot be undone.</p>
+            <form id="deleteForm" method="POST" style="display:inline;">
+                <input type="hidden" name="delete_id" id="deleteId">
+                <button type="button" onclick="closeDeleteModal()" style="padding:10px 24px;border-radius:8px;border:1px solid #e2e8f0;background:#fff;color:#64748b;font-weight:600;font-size:14px;cursor:pointer;margin-right:8px;">Cancel</button>
+                <button type="submit" style="padding:10px 24px;border-radius:8px;border:none;background:#ef4444;color:#fff;font-weight:600;font-size:14px;cursor:pointer;">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+function confirmDelete(id, name) {
+    document.getElementById('deleteId').value = id;
+    document.getElementById('deletePatientName').textContent = name;
+    document.getElementById('deleteModal').style.display = 'block';
+}
+function closeDeleteModal() {
+    document.getElementById('deleteModal').style.display = 'none';
+}
+</script>
+
 <?php include __DIR__ . '/includes/footer.php'; ?>
+

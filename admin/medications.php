@@ -5,6 +5,31 @@ require_once __DIR__ . '/includes/auth.php';
 $error = '';
 $success = '';
 
+// Handle Delete
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $id = (int)$_POST['delete_id'];
+    $conn->query("DELETE FROM medications WHERE id = $id");
+    header("Location: medications.php?msg=deleted");
+    exit;
+}
+
+// Handle Edit
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_med'])) {
+    $id = (int)$_POST['edit_id'];
+    $name = trim($_POST['name'] ?? '');
+    $type = trim($_POST['med_type'] ?? 'Other');
+    $vendor = trim($_POST['vendor'] ?? '');
+    $price = !empty($_POST['price']) ? floatval($_POST['price']) : null;
+    if (!empty($name)) {
+        $stmt = $conn->prepare("UPDATE medications SET name=?, med_type=?, vendor=?, price=? WHERE id=?");
+        if ($stmt) {
+            $stmt->bind_param("sssdi", $name, $type, $vendor, $price, $id);
+            $stmt->execute();
+            $success = "Medication updated successfully!";
+        }
+    }
+}
+
 // Handle Add Medication
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_med'])) {
     $name = trim($_POST['name'] ?? '');
@@ -28,6 +53,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_med'])) {
         }
     }
 }
+
+$msg = $_GET['msg'] ?? '';
+if ($msg === 'deleted')
+    $success = 'Medication deleted successfully!';
 
 // Fetch Medications
 $meds = [];
@@ -120,12 +149,13 @@ endif; ?>
                             <th class="px-6 py-4">Name</th>
                             <th class="px-6 py-4">Type</th>
                             <th class="px-6 py-4">Vendor</th>
-                            <th class="px-6 py-4 text-right">Price</th>
+                            <th class="px-6 py-4">Price</th>
+                            <th class="px-6 py-4 text-right">Actions</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-50">
                         <?php if (empty($meds)): ?>
-                            <tr><td colspan="4" class="px-6 py-8 text-center text-gray-400">Your arsenal is currently empty. Add medications to build presets.</td></tr>
+                            <tr><td colspan="5" class="px-6 py-8 text-center text-gray-400">Your arsenal is currently empty. Add medications to build presets.</td></tr>
                         <?php
 else:
     foreach ($meds as $m): ?>
@@ -139,8 +169,16 @@ else:
                                 <td class="px-6 py-3 text-gray-500 text-xs">
                                     <?php echo esc($m['vendor'] ?: 'N/A'); ?>
                                 </td>
-                                <td class="px-6 py-3 text-right font-mono text-teal-700">
+                                <td class="px-6 py-3 font-mono text-teal-700">
                                     <?php echo $m['price'] ? 'Rs. ' . number_format($m['price'], 2) : '-'; ?>
+                                </td>
+                                <td class="px-6 py-3 text-right whitespace-nowrap">
+                                    <button onclick='openEditModal(<?php echo json_encode($m); ?>)' class="text-blue-600 hover:text-blue-900 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-block mr-1 cursor-pointer" title="Edit">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                    <button onclick="confirmDelete(<?php echo $m['id']; ?>, '<?php echo esc($m['name']); ?>')" class="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-block cursor-pointer" title="Delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
                                 </td>
                             </tr>
                         <?php
@@ -153,5 +191,74 @@ endif; ?>
     </div>
 
 </div>
+
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.5);" onclick="if(event.target===this)closeDeleteModal()">
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:16px;padding:32px;max-width:400px;width:90%;box-shadow:0 25px 50px rgba(0,0,0,0.15);">
+        <div style="text-align:center;">
+            <div style="width:56px;height:56px;background:#fef2f2;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+                <i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;font-size:24px;"></i>
+            </div>
+            <h3 style="font-size:18px;font-weight:700;color:#1e293b;margin-bottom:8px;">Delete Medication?</h3>
+            <p style="color:#64748b;font-size:14px;margin-bottom:24px;">Are you sure you want to delete <strong id="deleteItemName"></strong>? This cannot be undone.</p>
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="delete_id" id="deleteId">
+                <button type="button" onclick="closeDeleteModal()" style="padding:10px 24px;border-radius:8px;border:1px solid #e2e8f0;background:#fff;color:#64748b;font-weight:600;font-size:14px;cursor:pointer;margin-right:8px;">Cancel</button>
+                <button type="submit" style="padding:10px 24px;border-radius:8px;border:none;background:#ef4444;color:#fff;font-weight:600;font-size:14px;cursor:pointer;">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal -->
+<div id="editModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.5);" onclick="if(event.target===this)closeEditModal()">
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:16px;padding:32px;max-width:450px;width:90%;box-shadow:0 25px 50px rgba(0,0,0,0.15);">
+        <h3 style="font-size:18px;font-weight:700;color:#1e293b;margin-bottom:16px;"><i class="fa-solid fa-pen-to-square" style="color:#3b82f6;"></i> Edit Medication</h3>
+        <form method="POST">
+            <input type="hidden" name="edit_med" value="1">
+            <input type="hidden" name="edit_id" id="editId">
+            <div style="margin-bottom:12px;">
+                <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:4px;">Name</label>
+                <input type="text" name="name" id="editName" required style="width:100%;padding:8px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;">
+            </div>
+            <div style="margin-bottom:12px;">
+                <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:4px;">Type</label>
+                <select name="med_type" id="editType" style="width:100%;padding:8px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;">
+                    <option value="Injection">Injection</option><option value="Tablet">Tablet</option><option value="Capsule">Capsule</option><option value="Sachet">Sachet</option><option value="Syrup">Syrup</option><option value="Other">Other</option>
+                </select>
+            </div>
+            <div style="margin-bottom:12px;">
+                <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:4px;">Vendor</label>
+                <input type="text" name="vendor" id="editVendor" style="width:100%;padding:8px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;">
+            </div>
+            <div style="margin-bottom:16px;">
+                <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:4px;">Price (Rs)</label>
+                <input type="number" step="0.01" name="price" id="editPrice" style="width:100%;padding:8px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;">
+            </div>
+            <div style="display:flex;justify-content:flex-end;gap:8px;">
+                <button type="button" onclick="closeEditModal()" style="padding:10px 24px;border-radius:8px;border:1px solid #e2e8f0;background:#fff;color:#64748b;font-weight:600;font-size:14px;cursor:pointer;">Cancel</button>
+                <button type="submit" style="padding:10px 24px;border-radius:8px;border:none;background:#3b82f6;color:#fff;font-weight:600;font-size:14px;cursor:pointer;">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function confirmDelete(id, name) {
+    document.getElementById('deleteId').value = id;
+    document.getElementById('deleteItemName').textContent = name;
+    document.getElementById('deleteModal').style.display = 'block';
+}
+function closeDeleteModal() { document.getElementById('deleteModal').style.display = 'none'; }
+function openEditModal(m) {
+    document.getElementById('editId').value = m.id;
+    document.getElementById('editName').value = m.name;
+    document.getElementById('editType').value = m.med_type;
+    document.getElementById('editVendor').value = m.vendor || '';
+    document.getElementById('editPrice').value = m.price || '';
+    document.getElementById('editModal').style.display = 'block';
+}
+function closeEditModal() { document.getElementById('editModal').style.display = 'none'; }
+</script>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>

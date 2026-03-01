@@ -2,8 +2,13 @@
 $pageTitle = "Manage Hospitals & Clinics";
 require_once __DIR__ . '/includes/auth.php';
 
-// Handle Delete (optional, but probably shouldn't allow deleting hospitals if linked to patients. Let's just list them)
-
+// Handle Delete
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
+    $id = (int)$_POST['delete_id'];
+    $conn->query("DELETE FROM hospitals WHERE id = $id");
+    header("Location: hospitals.php?msg=deleted");
+    exit;
+}
 // Fetch Hospitals
 $hospitals = [];
 try {
@@ -33,6 +38,11 @@ include __DIR__ . '/includes/header.php';
 <?php if (isset($_GET['msg']) && $_GET['msg'] === 'saved'): ?>
     <div class="bg-emerald-50 text-emerald-700 p-4 rounded-xl mb-6 flex gap-2 items-center border border-emerald-100 shadow-sm">
         <i class="fa-solid fa-circle-check text-lg mt-0.5"></i> <span class="font-bold">Hospital details saved successfully!</span>
+    </div>
+<?php
+elseif (isset($_GET['msg']) && $_GET['msg'] === 'deleted'): ?>
+    <div class="bg-red-50 text-red-700 p-4 rounded-xl mb-6 flex gap-2 items-center border border-red-100 shadow-sm">
+        <i class="fa-solid fa-trash text-lg mt-0.5"></i> <span class="font-bold">Hospital deleted successfully!</span>
     </div>
 <?php
 endif; ?>
@@ -85,10 +95,13 @@ else:
                             <span class="inline-block bg-gray-100 px-2 py-1 rounded border border-gray-200"><?php echo esc($h['margin_left'] ?? '20mm'); ?></span> / 
                             <span class="inline-block bg-gray-100 px-2 py-1 rounded border border-gray-200"><?php echo esc($h['margin_right'] ?? '20mm'); ?></span>
                         </td>
-                        <td class="px-6 py-4 text-right">
-                            <a href="hospitals_edit.php?id=<?php echo $h['id']; ?>" class="text-indigo-600 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-block border border-indigo-100">
-                                Configure <i class="fa-solid fa-arrow-right ml-1"></i>
+                        <td class="px-6 py-4 text-right whitespace-nowrap">
+                            <a href="hospitals_edit.php?id=<?php echo $h['id']; ?>" class="text-indigo-600 hover:text-indigo-900 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-block mr-1" title="Configure">
+                                <i class="fa-solid fa-gear"></i>
                             </a>
+                            <button onclick="confirmDelete(<?php echo $h['id']; ?>, '<?php echo esc($h['name']); ?>')" class="text-red-600 hover:text-red-900 bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-md font-medium transition-colors inline-block cursor-pointer" title="Delete">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
                         </td>
                     </tr>
                 <?php
@@ -98,5 +111,31 @@ endif; ?>
         </table>
     </div>
 </div>
+
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.5);" onclick="if(event.target===this)closeDeleteModal()">
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border-radius:16px;padding:32px;max-width:400px;width:90%;box-shadow:0 25px 50px rgba(0,0,0,0.15);">
+        <div style="text-align:center;">
+            <div style="width:56px;height:56px;background:#fef2f2;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+                <i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;font-size:24px;"></i>
+            </div>
+            <h3 style="font-size:18px;font-weight:700;color:#1e293b;margin-bottom:8px;">Delete Hospital?</h3>
+            <p style="color:#64748b;font-size:14px;margin-bottom:24px;">Are you sure you want to delete <strong id="deleteItemName"></strong>? Patients linked to this hospital will show as "Direct / Walk-in".</p>
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="delete_id" id="deleteId">
+                <button type="button" onclick="closeDeleteModal()" style="padding:10px 24px;border-radius:8px;border:1px solid #e2e8f0;background:#fff;color:#64748b;font-weight:600;font-size:14px;cursor:pointer;margin-right:8px;">Cancel</button>
+                <button type="submit" style="padding:10px 24px;border-radius:8px;border:none;background:#ef4444;color:#fff;font-weight:600;font-size:14px;cursor:pointer;">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+function confirmDelete(id, name) {
+    document.getElementById('deleteId').value = id;
+    document.getElementById('deleteItemName').textContent = name;
+    document.getElementById('deleteModal').style.display = 'block';
+}
+function closeDeleteModal() { document.getElementById('deleteModal').style.display = 'none'; }
+</script>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
