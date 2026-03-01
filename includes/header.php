@@ -157,36 +157,36 @@ document.addEventListener('DOMContentLoaded', () => {
       </a>
       <div class="mega-dropdown absolute top-full left-0 w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
         <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
-          <div class="grid grid-cols-3 gap-10 p-10">
+          <div class="grid grid-cols-3 gap-8 p-8">
             <div>
-              <h4 class="font-bold mb-4">Overview</h4>
-              <p class="text-gray-600 text-sm mb-4">
-                Comprehensive male infertility evaluation in Lahore.
+              <h4 class="font-bold mb-4 text-gray-800 flex items-center gap-2"><i class="fa-solid fa-book-medical text-teal-600"></i> Overview</h4>
+              <p class="text-gray-500 text-sm mb-4 leading-relaxed">
+                Comprehensive male infertility evaluation and treatment in Lahore.
               </p>
-              <a href="/male-infertility/" class="text-teal-600 text-sm font-semibold hover:underline">
-                Learn More &rarr;
+              <a href="/male-infertility/" class="text-teal-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">
+                Learn More <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Common Conditions</h4>
-              <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/male-infertility/low-sperm-count.php" class="hover:text-teal-600">Low Sperm Count</a></li>
-                <li><a href="/male-infertility/azoospermia.php" class="hover:text-teal-600">Azoospermia (Zero Sperm)</a></li>
-                <li><a href="/male-infertility/varicocele.php" class="hover:text-teal-600">Varicocele</a></li>
-                <li><a href="/male-infertility/erectile-ejaculatory-dysfunction.php" class="hover:text-teal-600">Erectile &amp; Ejaculatory Dysfunction</a></li>
-                <li><a href="/male-infertility/penile-doppler-ultrasound.php" class="hover:text-teal-600">Penile Doppler Ultrasound</a></li>
+              <h4 class="font-bold mb-4 text-gray-800 flex items-center gap-2"><i class="fa-solid fa-stethoscope text-blue-600"></i> Common Conditions</h4>
+              <ul class="space-y-2.5 text-gray-600 text-sm">
+                <li><a href="/male-infertility/low-sperm-count.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-arrow-down-short-wide text-rose-400 w-4 text-center text-xs"></i> Low Sperm Count</a></li>
+                <li><a href="/male-infertility/azoospermia.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-ban text-red-400 w-4 text-center text-xs"></i> Azoospermia (Zero Sperm)</a></li>
+                <li><a href="/male-infertility/varicocele.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-circle-nodes text-purple-400 w-4 text-center text-xs"></i> Varicocele</a></li>
+                <li><a href="/male-infertility/erectile-ejaculatory-dysfunction.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-triangle-exclamation text-amber-400 w-4 text-center text-xs"></i> Erectile &amp; Ejaculatory Dysfunction</a></li>
+                <li><a href="/male-infertility/penile-doppler-ultrasound.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-wave-square text-cyan-400 w-4 text-center text-xs"></i> Penile Doppler Ultrasound</a></li>
               </ul>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Advanced Diagnosis &amp; Stem Cell</h4>
-              <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/male-infertility/dna-fragmentation.php" class="hover:text-teal-600">DNA Fragmentation</a></li>
-                <li><a href="/male-infertility/unexplained-male-infertility.php" class="hover:text-teal-600">Unexplained Male Infertility</a></li>
-                <li><a href="/male-infertility/klinefelters-syndrome.php" class="hover:text-teal-600">Klinefelter's Syndrome</a></li>
-                <li><a href="/male-infertility/hypogonadotropic-hypogonadism.php" class="hover:text-teal-600">Hypogonadotropic Hypogonadism</a></li>
-                <li><a href="/male-infertility/low-testicular-volume.php" class="hover:text-teal-600">Low Testicular Volume</a></li>
-                <li><a href="/male-infertility/primary-testicular-failure.php" class="hover:text-teal-600">Primary Testicular Failure</a></li>
-                <li><a href="/male-infertility/testicular-recovery-stemcell.php" class="hover:text-teal-600">Testicular Recovery via Stem Cell</a></li>
+              <h4 class="font-bold mb-4 text-gray-800 flex items-center gap-2"><i class="fa-solid fa-dna text-emerald-600"></i> Advanced &amp; Stem Cell</h4>
+              <ul class="space-y-2.5 text-gray-600 text-sm">
+                <li><a href="/male-infertility/dna-fragmentation.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-link-slash text-orange-400 w-4 text-center text-xs"></i> DNA Fragmentation</a></li>
+                <li><a href="/male-infertility/unexplained-male-infertility.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-question text-gray-400 w-4 text-center text-xs"></i> Unexplained Male Infertility</a></li>
+                <li><a href="/male-infertility/klinefelters-syndrome.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-chromosome text-indigo-400 w-4 text-center text-xs"></i> Klinefelter's Syndrome</a></li>
+                <li><a href="/male-infertility/hypogonadotropic-hypogonadism.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-arrow-trend-down text-pink-400 w-4 text-center text-xs"></i> Hypogonadotropic Hypogonadism</a></li>
+                <li><a href="/male-infertility/low-testicular-volume.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-minimize text-slate-400 w-4 text-center text-xs"></i> Low Testicular Volume</a></li>
+                <li><a href="/male-infertility/primary-testicular-failure.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-circle-xmark text-red-400 w-4 text-center text-xs"></i> Primary Testicular Failure</a></li>
+                <li><a href="/male-infertility/testicular-recovery-stemcell.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-seedling text-emerald-500 w-4 text-center text-xs"></i> Testicular Recovery via Stem Cell</a></li>
               </ul>
             </div>
           </div>
@@ -200,35 +200,35 @@ document.addEventListener('DOMContentLoaded', () => {
       </a>
       <div class="mega-dropdown absolute top-full left-0 w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
         <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
-          <div class="grid grid-cols-3 gap-10 p-10">
+          <div class="grid grid-cols-3 gap-8 p-8">
             <div>
-              <h4 class="font-bold mb-4">Overview</h4>
-              <p class="text-gray-600 text-sm mb-4">
+              <h4 class="font-bold mb-4 text-gray-800 flex items-center gap-2"><i class="fa-solid fa-book-medical text-pink-600"></i> Overview</h4>
+              <p class="text-gray-500 text-sm mb-4 leading-relaxed">
                 Structured female infertility diagnosis and ART planning.
               </p>
-              <a href="/female-infertility/" class="text-teal-600 text-sm font-semibold hover:underline">
-                Learn More &rarr;
+              <a href="/female-infertility/" class="text-teal-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">
+                Learn More <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Structural &amp; Hormonal</h4>
-              <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/female-infertility/pcos.php" class="hover:text-teal-600">PCOS</a></li>
-                <li><a href="/female-infertility/endometriosis.php" class="hover:text-teal-600">Endometriosis</a></li>
-                <li><a href="/female-infertility/blocked-tubes.php" class="hover:text-teal-600">Blocked Tubes</a></li>
-                <li><a href="/female-infertility/uterine-fibroids-polyps.php" class="hover:text-teal-600">Uterine Fibroids &amp; Polyps</a></li>
-                <li><a href="/female-infertility/adenomyosis.php" class="hover:text-teal-600">Adenomyosis</a></li>
+              <h4 class="font-bold mb-4 text-gray-800 flex items-center gap-2"><i class="fa-solid fa-heart-pulse text-rose-600"></i> Structural &amp; Hormonal</h4>
+              <ul class="space-y-2.5 text-gray-600 text-sm">
+                <li><a href="/female-infertility/pcos.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-circle-dot text-violet-400 w-4 text-center text-xs"></i> PCOS</a></li>
+                <li><a href="/female-infertility/endometriosis.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-virus text-rose-400 w-4 text-center text-xs"></i> Endometriosis</a></li>
+                <li><a href="/female-infertility/blocked-tubes.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-block-brick text-amber-400 w-4 text-center text-xs"></i> Blocked Tubes</a></li>
+                <li><a href="/female-infertility/uterine-fibroids-polyps.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-shapes text-orange-400 w-4 text-center text-xs"></i> Uterine Fibroids &amp; Polyps</a></li>
+                <li><a href="/female-infertility/adenomyosis.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-disease text-pink-400 w-4 text-center text-xs"></i> Adenomyosis</a></li>
               </ul>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Complex &amp; Regenerative</h4>
-              <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/female-infertility/diminished-ovarian-reserve.php" class="hover:text-teal-600">Low Ovarian Reserve (AMH)</a></li>
-                <li><a href="/female-infertility/recurrent-pregnancy-loss.php" class="hover:text-teal-600">Recurrent Miscarriages</a></li>
-                <li><a href="/female-infertility/unexplained-infertility.php" class="hover:text-teal-600">Unexplained Infertility</a></li>
-                <li><a href="/female-infertility/primary-ovarian-failure.php" class="hover:text-teal-600">Primary Ovarian Failure</a></li>
-                <li><a href="/female-infertility/ovarian-tissue-preservation.php" class="hover:text-teal-600">Oncofertility / Tissue Preservation</a></li>
-                <li><a href="/female-infertility/stemcell-ovarian-rejuvenation.php" class="hover:text-teal-600">Stem Cell Ovarian Rejuvenation</a></li>
+              <h4 class="font-bold mb-4 text-gray-800 flex items-center gap-2"><i class="fa-solid fa-flask-vial text-emerald-600"></i> Complex &amp; Regenerative</h4>
+              <ul class="space-y-2.5 text-gray-600 text-sm">
+                <li><a href="/female-infertility/diminished-ovarian-reserve.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-battery-quarter text-amber-400 w-4 text-center text-xs"></i> Low Ovarian Reserve (AMH)</a></li>
+                <li><a href="/female-infertility/recurrent-pregnancy-loss.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-rotate-left text-red-400 w-4 text-center text-xs"></i> Recurrent Miscarriages</a></li>
+                <li><a href="/female-infertility/unexplained-infertility.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-question text-gray-400 w-4 text-center text-xs"></i> Unexplained Infertility</a></li>
+                <li><a href="/female-infertility/primary-ovarian-failure.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-circle-xmark text-red-400 w-4 text-center text-xs"></i> Primary Ovarian Failure</a></li>
+                <li><a href="/female-infertility/ovarian-tissue-preservation.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-snowflake text-cyan-400 w-4 text-center text-xs"></i> Oncofertility / Tissue Preservation</a></li>
+                <li><a href="/female-infertility/stemcell-ovarian-rejuvenation.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-seedling text-emerald-500 w-4 text-center text-xs"></i> Stem Cell Ovarian Rejuvenation</a></li>
               </ul>
             </div>
           </div>
@@ -242,32 +242,32 @@ document.addEventListener('DOMContentLoaded', () => {
       </a>
       <div class="mega-dropdown absolute top-full left-0 w-[900px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
         <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
-          <div class="grid grid-cols-3 gap-10 p-10">
+          <div class="grid grid-cols-3 gap-8 p-8">
             <div>
-              <h4 class="font-bold mb-4">Overview</h4>
-              <p class="text-gray-600 text-sm mb-4">
+              <h4 class="font-bold mb-4 text-gray-800 flex items-center gap-2"><i class="fa-solid fa-microscope text-indigo-600"></i> Overview</h4>
+              <p class="text-gray-500 text-sm mb-4 leading-relaxed">
                 Advanced assisted reproductive techniques in Lahore.
               </p>
-              <a href="/art-procedures/" class="text-teal-600 text-sm font-semibold hover:underline">
-                Learn More &rarr;
+              <a href="/art-procedures/" class="text-teal-600 text-sm font-semibold hover:underline inline-flex items-center gap-1">
+                Learn More <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Core Procedures</h4>
-              <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/art-procedures/ivf.php" class="hover:text-teal-600">IVF Treatment</a></li>
-                <li><a href="/art-procedures/icsi.php" class="hover:text-teal-600">ICSI Treatment</a></li>
-                <li><a href="/art-procedures/iui.php" class="hover:text-teal-600">IUI Insemination</a></li>
-                <li><a href="/art-procedures/pgt.php" class="hover:text-teal-600">PGT / Gender Selection</a></li>
+              <h4 class="font-bold mb-4 text-gray-800 flex items-center gap-2"><i class="fa-solid fa-syringe text-blue-600"></i> Core Procedures</h4>
+              <ul class="space-y-2.5 text-gray-600 text-sm">
+                <li><a href="/art-procedures/ivf.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-baby text-pink-400 w-4 text-center text-xs"></i> IVF Treatment</a></li>
+                <li><a href="/art-procedures/icsi.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-bullseye text-red-400 w-4 text-center text-xs"></i> ICSI Treatment</a></li>
+                <li><a href="/art-procedures/iui.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-hand-holding-medical text-teal-400 w-4 text-center text-xs"></i> IUI Insemination</a></li>
+                <li><a href="/art-procedures/pgt.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-dna text-purple-400 w-4 text-center text-xs"></i> PGT / Gender Selection</a></li>
               </ul>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Advanced Laboratory</h4>
-              <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/art-procedures/fertility-preservation.php" class="hover:text-teal-600">Egg &amp; Sperm Freezing</a></li>
-                <li><a href="/art-procedures/ovarian-endometrial-prp.php" class="hover:text-teal-600">Ovarian &amp; Endometrial PRP</a></li>
-                <li><a href="/art-procedures/surgical-sperm-retrieval.php" class="hover:text-teal-600">Surgical Sperm Retrieval</a></li>
-                <li><a href="/art-procedures/laser-assisted-hatching.php" class="hover:text-teal-600">Laser-Assisted Hatching</a></li>
+              <h4 class="font-bold mb-4 text-gray-800 flex items-center gap-2"><i class="fa-solid fa-flask text-emerald-600"></i> Advanced Laboratory</h4>
+              <ul class="space-y-2.5 text-gray-600 text-sm">
+                <li><a href="/art-procedures/fertility-preservation.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-snowflake text-cyan-400 w-4 text-center text-xs"></i> Egg &amp; Sperm Freezing</a></li>
+                <li><a href="/art-procedures/ovarian-endometrial-prp.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-droplet text-rose-400 w-4 text-center text-xs"></i> Ovarian &amp; Endometrial PRP</a></li>
+                <li><a href="/art-procedures/surgical-sperm-retrieval.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-scalpel text-gray-400 w-4 text-center text-xs"></i> Surgical Sperm Retrieval</a></li>
+                <li><a href="/art-procedures/laser-assisted-hatching.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-bolt text-yellow-400 w-4 text-center text-xs"></i> Laser-Assisted Hatching</a></li>
               </ul>
             </div>
           </div>
@@ -281,22 +281,22 @@ document.addEventListener('DOMContentLoaded', () => {
       </a>
       <div class="mega-dropdown absolute top-full left-0 w-[700px] max-w-[calc(100vw-2rem)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
         <div class="bg-white shadow-2xl border border-gray-200 rounded-2xl mt-4">
-          <div class="grid grid-cols-2 gap-10 p-10">
+          <div class="grid grid-cols-2 gap-8 p-8">
             <div>
-              <h4 class="font-bold mb-4">Stem Cell Types</h4>
-              <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/stemcell/adscs.php" class="hover:text-teal-600">ADSCs (Adipose-Derived)</a></li>
-                <li><a href="/stemcell/mesenchymal-umbilical.php" class="hover:text-teal-600">MSCs / MHUCs (Mesenchymal)</a></li>
-                <li><a href="/stemcell/pluripotent-stem-cells.php" class="hover:text-teal-600">Pluripotent Stem Cells</a></li>
-                <li><a href="/stemcell/multipotent-stem-cells.php" class="hover:text-teal-600">Multipotent Stem Cells</a></li>
+              <h4 class="font-bold mb-4 text-gray-800 flex items-center gap-2"><i class="fa-solid fa-atom text-violet-600"></i> Stem Cell Types</h4>
+              <ul class="space-y-2.5 text-gray-600 text-sm">
+                <li><a href="/stemcell/adscs.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-droplet text-amber-400 w-4 text-center text-xs"></i> ADSCs (Adipose-Derived)</a></li>
+                <li><a href="/stemcell/mesenchymal-umbilical.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-circle-nodes text-blue-400 w-4 text-center text-xs"></i> MSCs / MHUCs (Mesenchymal)</a></li>
+                <li><a href="/stemcell/pluripotent-stem-cells.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-star text-yellow-400 w-4 text-center text-xs"></i> Pluripotent Stem Cells</a></li>
+                <li><a href="/stemcell/multipotent-stem-cells.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-shapes text-indigo-400 w-4 text-center text-xs"></i> Multipotent Stem Cells</a></li>
               </ul>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Clinical Applications</h4>
-              <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/stemcell/role-in-infertility.php" class="hover:text-teal-600">Stem Cells &amp; Infertility</a></li>
-                <li><a href="/male-infertility/testicular-recovery-stemcell.php" class="hover:text-teal-600">Testicular Recovery</a></li>
-                <li><a href="/female-infertility/stemcell-ovarian-rejuvenation.php" class="hover:text-teal-600">Ovarian Rejuvenation</a></li>
+              <h4 class="font-bold mb-4 text-gray-800 flex items-center gap-2"><i class="fa-solid fa-heart-circle-bolt text-rose-600"></i> Clinical Applications</h4>
+              <ul class="space-y-2.5 text-gray-600 text-sm">
+                <li><a href="/stemcell/role-in-infertility.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-seedling text-emerald-500 w-4 text-center text-xs"></i> Stem Cells &amp; Infertility</a></li>
+                <li><a href="/male-infertility/testicular-recovery-stemcell.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-arrows-rotate text-teal-400 w-4 text-center text-xs"></i> Testicular Recovery</a></li>
+                <li><a href="/female-infertility/stemcell-ovarian-rejuvenation.php" class="hover:text-teal-600 flex items-center gap-2 transition-colors"><i class="fa-solid fa-spa text-pink-400 w-4 text-center text-xs"></i> Ovarian Rejuvenation</a></li>
               </ul>
             </div>
           </div>
@@ -312,8 +312,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <i class="fa-solid fa-laptop-medical"></i> Patient Login
     </a>
     <a href="https://wa.me/923111101483"
-       class="bg-teal-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-800 transition shadow-[0_4px_15px_rgba(15,118,110,0.3)] border-none">
-      WhatsApp
+       class="bg-teal-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-800 transition shadow-[0_4px_15px_rgba(15,118,110,0.3)] border-none flex items-center gap-2">
+      <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
     </a>
   </div>
   <!-- HAMBURGER BUTTON (Mobile) -->
@@ -347,96 +347,100 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
     <!-- Navigation Links -->
     <nav style="padding:16px 0;">
-      <a href="/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">Home</a>
+      <a href="/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">
+        <i class="fa-solid fa-house" style="width:20px;text-align:center;margin-right:8px;color:#0d9488;"></i> Home
+      </a>
       <!-- About Accordion -->
       <div class="mobile-accordion" style="border-bottom:1px solid #f1f5f9;">
         <button class="mobile-accordion-toggle" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;background:transparent;border:none;cursor:pointer;text-align:left;">
-          About
+          <span><i class="fa-solid fa-user-doctor" style="width:20px;text-align:center;margin-right:8px;color:#0d9488;"></i> About</span>
           <svg class="mobile-accordion-arrow" style="width:18px;height:18px;transition:transform 0.3s;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
         <div class="mobile-accordion-content" style="display:none;padding:0 24px 12px 24px;background:#f8fafc;">
-          <a href="/about/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;">About Dr. Adnan &rarr;</a>
-          <a href="/doctors/" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Our Team</a>
-          <a href="/blog/" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Blog / Articles</a>
+          <a href="/about/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;"><i class="fa-solid fa-user-doctor" style="width:16px;text-align:center;margin-right:6px;"></i> About Dr. Adnan &rarr;</a>
+          <a href="/doctors/" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-people-group" style="width:16px;text-align:center;margin-right:6px;color:#0284c7;"></i> Our Team</a>
+          <a href="/blog/" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-newspaper" style="width:16px;text-align:center;margin-right:6px;color:#ea580c;"></i> Blog / Articles</a>
         </div>
       </div>
       <!-- Male Infertility Accordion -->
       <div class="mobile-accordion" style="border-bottom:1px solid #f1f5f9;">
         <button class="mobile-accordion-toggle" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;background:transparent;border:none;cursor:pointer;text-align:left;">
-          Male Infertility
+          <span><i class="fa-solid fa-mars" style="width:20px;text-align:center;margin-right:8px;color:#3b82f6;"></i> Male Infertility</span>
           <svg class="mobile-accordion-arrow" style="width:18px;height:18px;transition:transform 0.3s;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
         <div class="mobile-accordion-content" style="display:none;padding:0 24px 12px 24px;background:#f8fafc;">
-          <a href="/male-infertility/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;">Overview &rarr;</a>
-          <a href="/male-infertility/low-sperm-count.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Low Sperm Count</a>
-          <a href="/male-infertility/azoospermia.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Azoospermia (Zero Sperm)</a>
-          <a href="/male-infertility/varicocele.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Varicocele</a>
-          <a href="/male-infertility/erectile-ejaculatory-dysfunction.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Erectile &amp; Ejaculatory Dysfunction</a>
-          <a href="/male-infertility/dna-fragmentation.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">DNA Fragmentation</a>
-          <a href="/male-infertility/unexplained-male-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Unexplained Male Infertility</a>
-          <a href="/male-infertility/klinefelters-syndrome.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Klinefelter's Syndrome</a>
-          <a href="/male-infertility/hypogonadotropic-hypogonadism.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Hypogonadotropic Hypogonadism</a>
-          <a href="/male-infertility/low-testicular-volume.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Low Testicular Volume</a>
-          <a href="/male-infertility/primary-testicular-failure.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Primary Testicular Failure</a>
-          <a href="/male-infertility/testicular-recovery-stemcell.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Testicular Recovery via Stem Cell</a>
-          <a href="/male-infertility/penile-doppler-ultrasound.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Penile Doppler Ultrasound</a>
+          <a href="/male-infertility/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;"><i class="fa-solid fa-book-medical" style="width:16px;text-align:center;margin-right:6px;"></i> Overview &rarr;</a>
+          <a href="/male-infertility/low-sperm-count.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-arrow-down-short-wide" style="width:16px;text-align:center;margin-right:6px;color:#f43f5e;"></i> Low Sperm Count</a>
+          <a href="/male-infertility/azoospermia.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-ban" style="width:16px;text-align:center;margin-right:6px;color:#ef4444;"></i> Azoospermia (Zero Sperm)</a>
+          <a href="/male-infertility/varicocele.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-circle-nodes" style="width:16px;text-align:center;margin-right:6px;color:#a855f7;"></i> Varicocele</a>
+          <a href="/male-infertility/erectile-ejaculatory-dysfunction.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-triangle-exclamation" style="width:16px;text-align:center;margin-right:6px;color:#f59e0b;"></i> Erectile &amp; Ejaculatory Dysfunction</a>
+          <a href="/male-infertility/dna-fragmentation.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-link-slash" style="width:16px;text-align:center;margin-right:6px;color:#f97316;"></i> DNA Fragmentation</a>
+          <a href="/male-infertility/unexplained-male-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-question" style="width:16px;text-align:center;margin-right:6px;color:#94a3b8;"></i> Unexplained Male Infertility</a>
+          <a href="/male-infertility/klinefelters-syndrome.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-dna" style="width:16px;text-align:center;margin-right:6px;color:#6366f1;"></i> Klinefelter's Syndrome</a>
+          <a href="/male-infertility/hypogonadotropic-hypogonadism.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-arrow-trend-down" style="width:16px;text-align:center;margin-right:6px;color:#ec4899;"></i> Hypogonadotropic Hypogonadism</a>
+          <a href="/male-infertility/low-testicular-volume.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-minimize" style="width:16px;text-align:center;margin-right:6px;color:#64748b;"></i> Low Testicular Volume</a>
+          <a href="/male-infertility/primary-testicular-failure.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-circle-xmark" style="width:16px;text-align:center;margin-right:6px;color:#ef4444;"></i> Primary Testicular Failure</a>
+          <a href="/male-infertility/testicular-recovery-stemcell.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-seedling" style="width:16px;text-align:center;margin-right:6px;color:#10b981;"></i> Testicular Recovery via Stem Cell</a>
+          <a href="/male-infertility/penile-doppler-ultrasound.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-wave-square" style="width:16px;text-align:center;margin-right:6px;color:#06b6d4;"></i> Penile Doppler Ultrasound</a>
         </div>
       </div>
       <!-- Female Infertility Accordion -->
       <div class="mobile-accordion" style="border-bottom:1px solid #f1f5f9;">
         <button class="mobile-accordion-toggle" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;background:transparent;border:none;cursor:pointer;text-align:left;">
-          Female Infertility
+          <span><i class="fa-solid fa-venus" style="width:20px;text-align:center;margin-right:8px;color:#ec4899;"></i> Female Infertility</span>
           <svg class="mobile-accordion-arrow" style="width:18px;height:18px;transition:transform 0.3s;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
         <div class="mobile-accordion-content" style="display:none;padding:0 24px 12px 24px;background:#f8fafc;">
-          <a href="/female-infertility/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;">Overview &rarr;</a>
-          <a href="/female-infertility/pcos.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">PCOS</a>
-          <a href="/female-infertility/endometriosis.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Endometriosis</a>
-          <a href="/female-infertility/blocked-tubes.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Blocked Tubes</a>
-          <a href="/female-infertility/uterine-fibroids-polyps.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Uterine Fibroids &amp; Polyps</a>
-          <a href="/female-infertility/adenomyosis.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Adenomyosis</a>
-          <a href="/female-infertility/diminished-ovarian-reserve.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Low Ovarian Reserve (AMH)</a>
-          <a href="/female-infertility/recurrent-pregnancy-loss.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Recurrent Miscarriages</a>
-          <a href="/female-infertility/unexplained-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Unexplained Infertility</a>
-          <a href="/female-infertility/primary-ovarian-failure.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Primary Ovarian Failure</a>
-          <a href="/female-infertility/ovarian-tissue-preservation.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Oncofertility / Tissue Preservation</a>
-          <a href="/female-infertility/stemcell-ovarian-rejuvenation.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Stem Cell Ovarian Rejuvenation</a>
+          <a href="/female-infertility/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;"><i class="fa-solid fa-book-medical" style="width:16px;text-align:center;margin-right:6px;"></i> Overview &rarr;</a>
+          <a href="/female-infertility/pcos.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-circle-dot" style="width:16px;text-align:center;margin-right:6px;color:#8b5cf6;"></i> PCOS</a>
+          <a href="/female-infertility/endometriosis.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-virus" style="width:16px;text-align:center;margin-right:6px;color:#f43f5e;"></i> Endometriosis</a>
+          <a href="/female-infertility/blocked-tubes.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-road-barrier" style="width:16px;text-align:center;margin-right:6px;color:#f59e0b;"></i> Blocked Tubes</a>
+          <a href="/female-infertility/uterine-fibroids-polyps.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-shapes" style="width:16px;text-align:center;margin-right:6px;color:#f97316;"></i> Uterine Fibroids &amp; Polyps</a>
+          <a href="/female-infertility/adenomyosis.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-disease" style="width:16px;text-align:center;margin-right:6px;color:#ec4899;"></i> Adenomyosis</a>
+          <a href="/female-infertility/diminished-ovarian-reserve.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-battery-quarter" style="width:16px;text-align:center;margin-right:6px;color:#f59e0b;"></i> Low Ovarian Reserve (AMH)</a>
+          <a href="/female-infertility/recurrent-pregnancy-loss.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-rotate-left" style="width:16px;text-align:center;margin-right:6px;color:#ef4444;"></i> Recurrent Miscarriages</a>
+          <a href="/female-infertility/unexplained-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-question" style="width:16px;text-align:center;margin-right:6px;color:#94a3b8;"></i> Unexplained Infertility</a>
+          <a href="/female-infertility/primary-ovarian-failure.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-circle-xmark" style="width:16px;text-align:center;margin-right:6px;color:#ef4444;"></i> Primary Ovarian Failure</a>
+          <a href="/female-infertility/ovarian-tissue-preservation.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-snowflake" style="width:16px;text-align:center;margin-right:6px;color:#06b6d4;"></i> Oncofertility / Tissue Preservation</a>
+          <a href="/female-infertility/stemcell-ovarian-rejuvenation.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-seedling" style="width:16px;text-align:center;margin-right:6px;color:#10b981;"></i> Stem Cell Ovarian Rejuvenation</a>
         </div>
       </div>
       <!-- ART Procedures Accordion -->
       <div class="mobile-accordion" style="border-bottom:1px solid #f1f5f9;">
         <button class="mobile-accordion-toggle" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;background:transparent;border:none;cursor:pointer;text-align:left;">
-          ART Procedures
+          <span><i class="fa-solid fa-microscope" style="width:20px;text-align:center;margin-right:8px;color:#6366f1;"></i> ART Procedures</span>
           <svg class="mobile-accordion-arrow" style="width:18px;height:18px;transition:transform 0.3s;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
         <div class="mobile-accordion-content" style="display:none;padding:0 24px 12px 24px;background:#f8fafc;">
-          <a href="/art-procedures/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;">Overview &rarr;</a>
-          <a href="/art-procedures/ivf.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">IVF Treatment</a>
-          <a href="/art-procedures/icsi.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">ICSI Treatment</a>
-          <a href="/art-procedures/iui.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">IUI Insemination</a>
-          <a href="/art-procedures/pgt.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">PGT / Gender Selection</a>
-          <a href="/art-procedures/fertility-preservation.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Egg &amp; Sperm Freezing</a>
-          <a href="/art-procedures/ovarian-endometrial-prp.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Ovarian &amp; Endometrial PRP</a>
-          <a href="/art-procedures/surgical-sperm-retrieval.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Surgical Sperm Retrieval</a>
-          <a href="/art-procedures/laser-assisted-hatching.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Laser-Assisted Hatching</a>
+          <a href="/art-procedures/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;"><i class="fa-solid fa-microscope" style="width:16px;text-align:center;margin-right:6px;"></i> Overview &rarr;</a>
+          <a href="/art-procedures/ivf.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-baby" style="width:16px;text-align:center;margin-right:6px;color:#ec4899;"></i> IVF Treatment</a>
+          <a href="/art-procedures/icsi.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-bullseye" style="width:16px;text-align:center;margin-right:6px;color:#ef4444;"></i> ICSI Treatment</a>
+          <a href="/art-procedures/iui.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-hand-holding-medical" style="width:16px;text-align:center;margin-right:6px;color:#14b8a6;"></i> IUI Insemination</a>
+          <a href="/art-procedures/pgt.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-dna" style="width:16px;text-align:center;margin-right:6px;color:#a855f7;"></i> PGT / Gender Selection</a>
+          <a href="/art-procedures/fertility-preservation.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-snowflake" style="width:16px;text-align:center;margin-right:6px;color:#06b6d4;"></i> Egg &amp; Sperm Freezing</a>
+          <a href="/art-procedures/ovarian-endometrial-prp.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-droplet" style="width:16px;text-align:center;margin-right:6px;color:#f43f5e;"></i> Ovarian &amp; Endometrial PRP</a>
+          <a href="/art-procedures/surgical-sperm-retrieval.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-scissors" style="width:16px;text-align:center;margin-right:6px;color:#64748b;"></i> Surgical Sperm Retrieval</a>
+          <a href="/art-procedures/laser-assisted-hatching.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-bolt" style="width:16px;text-align:center;margin-right:6px;color:#eab308;"></i> Laser-Assisted Hatching</a>
         </div>
       </div>
       <!-- Stem Cell Accordion -->
       <div class="mobile-accordion" style="border-bottom:1px solid #f1f5f9;">
         <button class="mobile-accordion-toggle" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;background:transparent;border:none;cursor:pointer;text-align:left;">
-          Stem Cell
+          <span><i class="fa-solid fa-atom" style="width:20px;text-align:center;margin-right:8px;color:#8b5cf6;"></i> Stem Cell</span>
           <svg class="mobile-accordion-arrow" style="width:18px;height:18px;transition:transform 0.3s;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </button>
         <div class="mobile-accordion-content" style="display:none;padding:0 24px 12px 24px;background:#f8fafc;">
-          <a href="/stemcell/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;">Overview &rarr;</a>
-          <a href="/stemcell/adscs.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">ADSCs (Adipose-Derived)</a>
-          <a href="/stemcell/mesenchymal-umbilical.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">MSCs / MHUCs (Mesenchymal)</a>
-          <a href="/stemcell/pluripotent-stem-cells.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Pluripotent Stem Cells</a>
-          <a href="/stemcell/multipotent-stem-cells.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Multipotent Stem Cells</a>
-          <a href="/stemcell/role-in-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Stem Cells &amp; Infertility</a>
+          <a href="/stemcell/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;"><i class="fa-solid fa-atom" style="width:16px;text-align:center;margin-right:6px;"></i> Overview &rarr;</a>
+          <a href="/stemcell/adscs.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-droplet" style="width:16px;text-align:center;margin-right:6px;color:#f59e0b;"></i> ADSCs (Adipose-Derived)</a>
+          <a href="/stemcell/mesenchymal-umbilical.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-circle-nodes" style="width:16px;text-align:center;margin-right:6px;color:#3b82f6;"></i> MSCs / MHUCs (Mesenchymal)</a>
+          <a href="/stemcell/pluripotent-stem-cells.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-star" style="width:16px;text-align:center;margin-right:6px;color:#eab308;"></i> Pluripotent Stem Cells</a>
+          <a href="/stemcell/multipotent-stem-cells.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-shapes" style="width:16px;text-align:center;margin-right:6px;color:#6366f1;"></i> Multipotent Stem Cells</a>
+          <a href="/stemcell/role-in-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;"><i class="fa-solid fa-seedling" style="width:16px;text-align:center;margin-right:6px;color:#10b981;"></i> Stem Cells &amp; Infertility</a>
         </div>
       </div>
-      <a href="/contact/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">Contact</a>
+      <a href="/contact/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">
+        <i class="fa-solid fa-envelope" style="width:20px;text-align:center;margin-right:8px;color:#0d9488;"></i> Contact
+      </a>
     </nav>
     <!-- Mobile CTAs -->
     <div style="padding:16px 24px 32px;display:flex;flex-direction:column;gap:10px;">
@@ -445,7 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Patient Login
       </a>
       <a href="https://wa.me/923111101483" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#0f766e;color:#fff;padding:14px 24px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 4px 15px rgba(15,118,110,0.3);">
-        <svg style="width:22px;height:22px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
+        <i class="fa-brands fa-whatsapp" style="font-size:20px;"></i>
         WhatsApp Consultation
       </a>
     </div>
