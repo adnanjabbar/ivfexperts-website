@@ -191,7 +191,7 @@ endif; ?>
             img.style.width = '100%';
             img.style.height = '100%';
             img.style.zIndex = '-10';
-            img.style.objectFit = 'cover';
+            img.style.objectFit = 'fill';
             document.querySelector('.a4-container').appendChild(img);
 
             img.onload = () => {
