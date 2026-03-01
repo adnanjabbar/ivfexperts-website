@@ -36,15 +36,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_usg'])) {
         $error = "Patient, Hospital, and Report Content are required.";
     }
     else {
-        $stmt = $conn->prepare("INSERT INTO patient_ultrasounds (patient_id, hospital_id, qrcode_hash, report_title, content) VALUES (?, ?, ?, ?, ?)");
-        if ($stmt) {
-            $stmt->bind_param("iisss", $patient_id, $hospital_id, $qrcode_hash, $report_title, $content);
-            if ($stmt->execute()) {
-                header("Location: ultrasounds.php?msg=saved");
-                exit;
+        // Handle file upload
+        $scanned_path = null;
+        $scan_location = $_POST['scan_location'] ?? null;
+        $scan_timestamp = null;
+
+        if (isset($_FILES['scanned_report']) && $_FILES['scanned_report']['error'] == UPLOAD_ERR_OK) {
+            $allowed_types = ['image/jpeg', 'image/png', 'application/pdf'];
+            if (in_array($_FILES['scanned_report']['type'], $allowed_types)) {
+                $upload_dir = __DIR__ . '/../uploads/scans/usg/';
+                if (!is_dir($upload_dir)) {
+                    mkdir($upload_dir, 0777, true);
+                }
+
+                $ext = pathinfo($_FILES['scanned_report']['name'], PATHINFO_EXTENSION);
+                $filename = 'usg_' . date('Ymd_His') . '_' . uniqid() . '.' . $ext;
+                $dest = $upload_dir . $filename;
+
+                if (move_uploaded_file($_FILES['scanned_report']['tmp_name'], $dest)) {
+                    $scanned_path = 'uploads/scans/usg/' . $filename;
+                    $scan_timestamp = date('Y-m-d H:i:s');
+                }
             }
             else {
-                $error = "Database Error: " . $stmt->error;
+                $error = "Only JPG, PNG, and PDF files are allowed for scanned reports.";
+            }
+        }
+
+        if (empty($error)) {
+            $stmt = $conn->prepare("INSERT INTO patient_ultrasounds (patient_id, hospital_id, qrcode_hash, report_title, content, scanned_report_path, scan_timestamp, scan_location_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            if ($stmt) {
+                $stmt->bind_param("iissssss", $patient_id, $hospital_id, $qrcode_hash, $report_title, $content, $scanned_path, $scan_timestamp, $scan_location);
+                if ($stmt->execute()) {
+                    header("Location: ultrasounds.php?msg=saved");
+                    exit;
+                }
+                else {
+                    $error = "Database Error: " . $stmt->error;
+                }
             }
         }
     }
@@ -82,7 +111,7 @@ include __DIR__ . '/includes/header.php';
             <?php
 endif; ?>
 
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
                     <!-- AJAX Patient Search -->
@@ -156,6 +185,29 @@ endforeach; ?>
                     <textarea name="content" id="usg_content"></textarea>
                 </div>
                 
+                <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 mb-6">
+                    <h4 class="font-bold text-indigo-900 border-b border-indigo-200 pb-2 mb-4">
+                        <i class="fa-solid fa-camera mr-2"></i> Attach Manual / Outside Document (Optional)
+                    </h4>
+                    <p class="text-xs text-indigo-700 mb-4">If the patient brought a handwritten slip or you wish to bypass the digital entry, capture a picture or upload the PDF here. The patient will be able to download the raw document securely.</p>
+                    
+                    <div class="w-full">
+                        <input type="file" name="scanned_report" accept="image/jpeg,image/png,application/pdf" class="block w-full text-sm text-gray-500
+                            file:mr-4 file:py-2 file:px-4
+                            file:rounded-full file:border-0
+                            file:text-sm file:font-semibold
+                            file:bg-indigo-600 file:text-white
+                            hover:file:bg-indigo-700 cursor-pointer
+                        "/>
+                    </div>
+                    
+                    <input type="hidden" name="scan_location" x-model="scanLocationData">
+                    <button type="button" @click="captureLocation" class="mt-4 text-xs font-semibold px-3 py-1.5 rounded-lg border border-indigo-300 bg-white text-indigo-700 hover:bg-indigo-100 transition-colors shadow-sm">
+                        <i class="fa-solid fa-location-crosshairs"></i> Tag GPS Location
+                    </button>
+                    <span x-show="locStatus" class="ml-2 text-[10px] text-gray-600 font-mono" x-text="locStatus"></span>
+                </div>
+                
                 <div class="flex justify-end gap-3 mt-8">
                     <a href="ultrasounds.php" class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-6 py-3 rounded-lg font-medium transition-colors">Cancel</a>
                     <button type="submit" name="save_usg" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all focus:outline-none flex items-center gap-2">
@@ -222,6 +274,28 @@ document.addEventListener('alpine:init', () => {
             this.selectedPatientId = '';
             this.query = '';
             this.results = [];
+        },
+
+        // --- Geolocation ---
+        scanLocationData: '',
+        locStatus: '',
+        captureLocation() {
+            if (!navigator.geolocation) {
+                this.locStatus = "Geolocation not supported.";
+                return;
+            }
+            this.locStatus = "Requesting location...";
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const coords = { lat: pos.coords.latitude, lng: pos.coords.longitude, acc: pos.coords.accuracy };
+                    this.scanLocationData = JSON.stringify(coords);
+                    this.locStatus = `Captured: ${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)}`;
+                },
+                (err) => {
+                    this.locStatus = "Denied / Unavailable.";
+                },
+                { enableHighAccuracy: true, timeout: 5000 }
+            );
         }
     }));
 });

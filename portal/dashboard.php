@@ -50,14 +50,14 @@ $ids_csv = implode(',', $patient_ids);
 
 // Fetch all 4 document streams for all linked IDs
 $prescriptions = [];
-$res = $conn->query("SELECT p.id, p.created_at, p.notes, p.qrcode_hash, pt.first_name, pt.last_name FROM prescriptions p JOIN patients pt ON p.patient_id = pt.id WHERE p.patient_id IN ($ids_csv) ORDER BY p.created_at DESC");
+$res = $conn->query("SELECT p.id, p.created_at, p.notes, p.qrcode_hash, p.scanned_report_path, pt.first_name, pt.last_name FROM prescriptions p JOIN patients pt ON p.patient_id = pt.id WHERE p.patient_id IN ($ids_csv) ORDER BY p.created_at DESC");
 if ($res) {
     while ($row = $res->fetch_assoc())
         $prescriptions[] = $row;
 }
 
 $ultrasounds = [];
-$res = $conn->query("SELECT u.id, u.created_at, u.report_title, u.qrcode_hash, pt.first_name, pt.last_name FROM patient_ultrasounds u JOIN patients pt ON u.patient_id = pt.id WHERE u.patient_id IN ($ids_csv) ORDER BY u.created_at DESC");
+$res = $conn->query("SELECT u.id, u.created_at, u.report_title, u.qrcode_hash, u.scanned_report_path, pt.first_name, pt.last_name FROM patient_ultrasounds u JOIN patients pt ON u.patient_id = pt.id WHERE u.patient_id IN ($ids_csv) ORDER BY u.created_at DESC");
 if ($res) {
     while ($row = $res->fetch_assoc())
         $ultrasounds[] = $row;
@@ -196,9 +196,17 @@ else:
                                 <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">Patient: <?php echo htmlspecialchars($u['first_name'] . ' ' . $u['last_name']); ?></div>
                                 <div class="text-xs text-gray-500">Report Date: <?php echo date('d M Y', strtotime($u['created_at'])); ?></div>
                             </div>
-                            <a href="view.php?type=usg&hash=<?php echo $u['qrcode_hash']; ?>" target="_blank" class="bg-sky-50 hover:bg-sky-100 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-sky-100 whitespace-nowrap">
-                                <i class="fa-solid fa-eye mr-1"></i> View PDF
-                            </a>
+                            <div class="flex gap-2">
+                                <?php if (!empty($u['scanned_report_path'])): ?>
+                                    <a href="../<?php echo htmlspecialchars($u['scanned_report_path']); ?>" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-gray-200 whitespace-nowrap">
+                                        <i class="fa-solid fa-download mr-1"></i> Original Scan
+                                    </a>
+                                <?php
+        endif; ?>
+                                <a href="view.php?type=usg&hash=<?php echo $u['qrcode_hash']; ?>" target="_blank" class="bg-sky-50 hover:bg-sky-100 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-sky-100 whitespace-nowrap">
+                                    <i class="fa-solid fa-eye mr-1"></i> View System PDF
+                                </a>
+                            </div>
                         </div>
                     <?php
     endforeach;
@@ -282,9 +290,17 @@ else:
                                 <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">Patient: <?php echo htmlspecialchars($rx['first_name'] . ' ' . $rx['last_name']); ?></div>
                                 <div class="text-xs text-gray-500">Issued On: <?php echo date('d M Y', strtotime($rx['created_at'])); ?></div>
                             </div>
-                            <a href="view.php?type=rx&hash=<?php echo $rx['qrcode_hash']; ?>" target="_blank" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-indigo-100 whitespace-nowrap">
-                                <i class="fa-solid fa-eye mr-1"></i> View PDF
-                            </a>
+                            <div class="flex gap-2">
+                                <?php if (!empty($rx['scanned_report_path'])): ?>
+                                    <a href="../<?php echo htmlspecialchars($rx['scanned_report_path']); ?>" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-gray-200 whitespace-nowrap">
+                                        <i class="fa-solid fa-download mr-1"></i> Original Scan
+                                    </a>
+                                <?php
+        endif; ?>
+                                <a href="view.php?type=rx&hash=<?php echo $rx['qrcode_hash']; ?>" target="_blank" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-indigo-100 whitespace-nowrap">
+                                    <i class="fa-solid fa-eye mr-1"></i> View System PDF
+                                </a>
+                            </div>
                         </div>
                     <?php
     endforeach;

@@ -58,64 +58,93 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_rx'])) {
         $error = "Patient and Hospital fields are required.";
     }
     else {
-        $conn->begin_transaction();
-        try {
-            // Insert Prescript Master (Backward compatibility for first item if needed, but leaving empty is fine. We will just leave them empty for now since we rely on new table)
-            $stmt = $conn->prepare("INSERT INTO prescriptions (patient_id, hospital_id, qrcode_hash, presenting_complaint, revisit_date, notes) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("iissss", $patient_id, $hospital_id, $qrcode_hash, $complaint, $revisit_date, $notes);
-            $stmt->execute();
-            $rx_id = $conn->insert_id;
+        // Handle file upload
+        $scanned_path = null;
+        $scan_location = $_POST['scan_location'] ?? null;
+        $scan_timestamp = null;
 
-            // Insert Items
-            if (!empty($meds_array)) {
-                $stmt_items = $conn->prepare("INSERT INTO prescription_items (prescription_id, medication_id, dosage, usage_frequency, duration, instructions) VALUES (?, ?, ?, ?, ?, ?)");
-                foreach ($meds_array as $k => $m_id) {
-                    if (!empty($m_id)) {
-                        $dos = trim($dosages[$k] ?? '');
-                        $ufreq = trim($usage_freqs[$k] ?? '');
-                        $dur = trim($durations[$k] ?? '');
-                        $ins = trim($instructions[$k] ?? '');
-                        $stmt_items->bind_param("iissss", $rx_id, $m_id, $dos, $ufreq, $dur, $ins);
-                        $stmt_items->execute();
+        if (isset($_FILES['scanned_report']) && $_FILES['scanned_report']['error'] == UPLOAD_ERR_OK) {
+            $allowed_types = ['image/jpeg', 'image/png', 'application/pdf'];
+            if (in_array($_FILES['scanned_report']['type'], $allowed_types)) {
+                $upload_dir = __DIR__ . '/../uploads/scans/rx/';
+                if (!is_dir($upload_dir)) {
+                    mkdir($upload_dir, 0777, true);
+                }
+
+                $ext = pathinfo($_FILES['scanned_report']['name'], PATHINFO_EXTENSION);
+                $filename = 'rx_' . date('Ymd_His') . '_' . uniqid() . '.' . $ext;
+                $dest = $upload_dir . $filename;
+
+                if (move_uploaded_file($_FILES['scanned_report']['tmp_name'], $dest)) {
+                    $scanned_path = 'uploads/scans/rx/' . $filename;
+                    $scan_timestamp = date('Y-m-d H:i:s');
+                }
+            }
+            else {
+                $error = "Only JPG, PNG, and PDF files are allowed for scanned reports.";
+            }
+        }
+
+        if (empty($error)) {
+            $conn->begin_transaction();
+            try {
+                // Insert Prescript Master
+                $stmt = $conn->prepare("INSERT INTO prescriptions (patient_id, hospital_id, qrcode_hash, presenting_complaint, revisit_date, notes, scanned_report_path, scan_timestamp, scan_location_data) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("iisssssss", $patient_id, $hospital_id, $qrcode_hash, $complaint, $revisit_date, $notes, $scanned_path, $scan_timestamp, $scan_location);
+                $stmt->execute();
+                $rx_id = $conn->insert_id;
+
+                // Insert Items
+                if (!empty($meds_array)) {
+                    $stmt_items = $conn->prepare("INSERT INTO prescription_items (prescription_id, medication_id, dosage, usage_frequency, duration, instructions) VALUES (?, ?, ?, ?, ?, ?)");
+                    foreach ($meds_array as $k => $m_id) {
+                        if (!empty($m_id)) {
+                            $dos = trim($dosages[$k] ?? '');
+                            $ufreq = trim($usage_freqs[$k] ?? '');
+                            $dur = trim($durations[$k] ?? '');
+                            $ins = trim($instructions[$k] ?? '');
+                            $stmt_items->bind_param("iissss", $rx_id, $m_id, $dos, $ufreq, $dur, $ins);
+                            $stmt_items->execute();
+                        }
                     }
                 }
-            }
 
-            // Insert Diagnoses (Multiple)
-            $stmt_diag = $conn->prepare("INSERT INTO prescription_diagnoses (prescription_id, type, code, description) VALUES (?, ?, ?, ?)");
+                // Insert Diagnoses (Multiple)
+                $stmt_diag = $conn->prepare("INSERT INTO prescription_diagnoses (prescription_id, type, code, description) VALUES (?, ?, ?, ?)");
 
-            // Loop ICD
-            $type_icd = 'ICD';
-            for ($i = 0; $i < count($icd_codes); $i++) {
-                $c = trim($icd_codes[$i] ?? '');
-                $n = trim($icd_names[$i] ?? '');
-                if (!empty($n)) {
-                    $stmt_diag->bind_param("isss", $rx_id, $type_icd, $c, $n);
-                    $stmt_diag->execute();
+                // Loop ICD
+                $type_icd = 'ICD';
+                for ($i = 0; $i < count($icd_codes); $i++) {
+                    $c = trim($icd_codes[$i] ?? '');
+                    $n = trim($icd_names[$i] ?? '');
+                    if (!empty($n)) {
+                        $stmt_diag->bind_param("isss", $rx_id, $type_icd, $c, $n);
+                        $stmt_diag->execute();
+                    }
                 }
-            }
 
-            // Loop CPT
-            $type_cpt = 'CPT';
-            for ($i = 0; $i < count($cpt_codes); $i++) {
-                $c = trim($cpt_codes[$i] ?? '');
-                $n = trim($cpt_names[$i] ?? '');
-                if (!empty($n)) {
-                    $stmt_diag->bind_param("isss", $rx_id, $type_cpt, $c, $n);
-                    $stmt_diag->execute();
+                // Loop CPT
+                $type_cpt = 'CPT';
+                for ($i = 0; $i < count($cpt_codes); $i++) {
+                    $c = trim($cpt_codes[$i] ?? '');
+                    $n = trim($cpt_names[$i] ?? '');
+                    if (!empty($n)) {
+                        $stmt_diag->bind_param("isss", $rx_id, $type_cpt, $c, $n);
+                        $stmt_diag->execute();
+                    }
                 }
-            }
 
-            $conn->commit();
-            header("Location: prescriptions.php?msg=rx_saved");
-            exit;
-        }
-        catch (Exception $e) {
-            $conn->rollback();
-            $error = "Failed to save prescription: " . $e->getMessage();
-        }
-    }
-}
+                $conn->commit();
+                header("Location: prescriptions.php?msg=rx_saved");
+                exit;
+            }
+            catch (Exception $e) {
+                $conn->rollback();
+                $error = "Failed to save prescription: " . $e->getMessage();
+            }
+        } // Close if (empty($error))
+    } // Close else
+} // Close if POST
 
 include __DIR__ . '/includes/header.php';
 ?>
@@ -134,7 +163,7 @@ include __DIR__ . '/includes/header.php';
             <?php
 endif; ?>
 
-            <form method="POST" x-data="prescriptionBuilder()">
+            <form method="POST" enctype="multipart/form-data" x-data="prescriptionBuilder()">
                 
                 <!-- Setup Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -328,7 +357,7 @@ endforeach; ?>
                     </div>
                 </div>
 
-                <!-- Follow-up & Notes -->
+                <!-- Follow-up, Notes & Manual Upload -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                     <div class="md:col-span-2">
                         <label class="block text-sm font-medium text-gray-700 mb-1">General Advice / Notes</label>
@@ -339,6 +368,29 @@ endforeach; ?>
                         <input type="date" name="revisit_date" class="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-800">
                         <p class="text-[10px] text-gray-400 mt-2">Set this to automatically print the next visit date on the bottom of the prescription.</p>
                     </div>
+                </div>
+
+                <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-6 mb-6">
+                    <h4 class="font-bold text-indigo-900 border-b border-indigo-200 pb-2 mb-4">
+                        <i class="fa-solid fa-camera mr-2"></i> Attach Manual / Outside Document (Optional)
+                    </h4>
+                    <p class="text-xs text-indigo-700 mb-4">If the patient brought a handwritten slip or you wish to bypass the digital entry, capture a picture or upload the PDF here. The patient will be able to download the raw document securely.</p>
+                    
+                    <div class="w-full">
+                        <input type="file" name="scanned_report" accept="image/jpeg,image/png,application/pdf" class="block w-full text-sm text-gray-500
+                            file:mr-4 file:py-2 file:px-4
+                            file:rounded-full file:border-0
+                            file:text-sm file:font-semibold
+                            file:bg-indigo-600 file:text-white
+                            hover:file:bg-indigo-700 cursor-pointer
+                        "/>
+                    </div>
+                    
+                    <input type="hidden" name="scan_location" x-model="scanLocationData">
+                    <button type="button" @click="captureLocation" class="mt-4 text-xs font-semibold px-3 py-1.5 rounded-lg border border-indigo-300 bg-white text-indigo-700 hover:bg-indigo-100 transition-colors shadow-sm">
+                        <i class="fa-solid fa-location-crosshairs"></i> Tag GPS Location
+                    </button>
+                    <span x-show="locStatus" class="ml-2 text-[10px] text-gray-600 font-mono" x-text="locStatus"></span>
                 </div>
                 
                 <div class="flex justify-end gap-3 mt-8">
@@ -448,9 +500,32 @@ document.addEventListener('alpine:init', () => {
         },
         removeRow(index) {
             this.rows.splice(index, 1);
+        },
+
+        // --- Geolocation ---
+        scanLocationData: '',
+        locStatus: '',
+        captureLocation() {
+            if (!navigator.geolocation) {
+                this.locStatus = "Geolocation not supported.";
+                return;
+            }
+            this.locStatus = "Requesting location...";
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const coords = { lat: pos.coords.latitude, lng: pos.coords.longitude, acc: pos.coords.accuracy };
+                    this.scanLocationData = JSON.stringify(coords);
+                    this.locStatus = `Captured: ${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)}`;
+                },
+                (err) => {
+                    this.locStatus = "Denied / Unavailable.";
+                },
+                { enableHighAccuracy: true, timeout: 5000 }
+            );
         }
-    }))
-})
+        }
+    }));
+});
 </script>
 
 <?php include __DIR__ . '/includes/footer.php'; ?>
