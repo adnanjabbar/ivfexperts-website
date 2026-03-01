@@ -23,6 +23,8 @@
 <script src="/assets/js/app.js?v=4" defer></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <!-- Physician + Organization Schema -->
 <script type="application/ld+json">
 {
@@ -105,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const dropdownWidth = dropdown.offsetWidth;
       const viewportWidth = window.innerWidth;
       let idealLeft = triggerRect.left + (triggerRect.width / 2) - (dropdownWidth / 2);
-      // Clamp to viewport with margins
       const margin = 16;
       if (idealLeft < margin) {
         idealLeft = margin;
@@ -113,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (idealLeft + dropdownWidth > viewportWidth - margin) {
         idealLeft = viewportWidth - dropdownWidth - margin;
       }
-      // Set left relative to the relative parent
       dropdown.style.left = `${idealLeft - triggerRect.left}px`;
     });
   });
@@ -130,7 +130,26 @@ document.addEventListener('DOMContentLoaded', () => {
   <!-- NAV -->
   <nav class="hidden md:flex items-center gap-x-10 text-sm font-semibold text-gray-700">
     <a href="/" class="hover:text-teal-600 transition">Home</a>
-    <a href="/about/" class="hover:text-teal-600 transition">About</a>
+    <!-- ================= ABOUT DROPDOWN ================= -->
+    <div class="relative group inline-block">
+      <a href="/about/" class="hover:text-teal-600 transition">About</a>
+      <div class="mega-dropdown absolute top-full left-0 w-[320px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
+        <div class="bg-white shadow-2xl border border-gray-200 rounded-xl mt-4 py-3">
+          <a href="/about/" class="flex items-center gap-3 px-5 py-3 hover:bg-teal-50 transition-colors text-gray-700">
+            <div class="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center"><i class="fa-solid fa-user-doctor text-teal-600 text-sm"></i></div>
+            <div><div class="font-semibold text-sm">About Dr. Adnan</div><div class="text-[11px] text-gray-400">Background &amp; qualifications</div></div>
+          </a>
+          <a href="/doctors/" class="flex items-center gap-3 px-5 py-3 hover:bg-teal-50 transition-colors text-gray-700">
+            <div class="w-8 h-8 bg-sky-100 rounded-lg flex items-center justify-center"><i class="fa-solid fa-people-group text-sky-600 text-sm"></i></div>
+            <div><div class="font-semibold text-sm">Our Team</div><div class="text-[11px] text-gray-400">Meet the medical team</div></div>
+          </a>
+          <a href="/blog/" class="flex items-center gap-3 px-5 py-3 hover:bg-teal-50 transition-colors text-gray-700">
+            <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center"><i class="fa-solid fa-newspaper text-orange-600 text-sm"></i></div>
+            <div><div class="font-semibold text-sm">Blog / Articles</div><div class="text-[11px] text-gray-400">Research &amp; medical insights</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
     <!-- ================= MALE INFERTILITY ================= -->
     <div class="relative group inline-block">
       <a href="/male-infertility/" class="hover:text-teal-600 transition">
@@ -159,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </ul>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Advanced Diagnosis & Stem Cell</h4>
+              <h4 class="font-bold mb-4">Advanced Diagnosis &amp; Stem Cell</h4>
               <ul class="space-y-2 text-gray-700 text-sm">
                 <li><a href="/male-infertility/dna-fragmentation.php" class="hover:text-teal-600">DNA Fragmentation</a></li>
                 <li><a href="/male-infertility/unexplained-male-infertility.php" class="hover:text-teal-600">Unexplained Male Infertility</a></li>
@@ -202,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </ul>
             </div>
             <div>
-              <h4 class="font-bold mb-4">Complex & Regenerative</h4>
+              <h4 class="font-bold mb-4">Complex &amp; Regenerative</h4>
               <ul class="space-y-2 text-gray-700 text-sm">
                 <li><a href="/female-infertility/diminished-ovarian-reserve.php" class="hover:text-teal-600">Low Ovarian Reserve (AMH)</a></li>
                 <li><a href="/female-infertility/recurrent-pregnancy-loss.php" class="hover:text-teal-600">Recurrent Miscarriages</a></li>
@@ -275,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div>
               <h4 class="font-bold mb-4">Clinical Applications</h4>
               <ul class="space-y-2 text-gray-700 text-sm">
-                <li><a href="/stemcell/role-in-infertility.php" class="hover:text-teal-600">Stem Cells & Infertility</a></li>
+                <li><a href="/stemcell/role-in-infertility.php" class="hover:text-teal-600">Stem Cells &amp; Infertility</a></li>
                 <li><a href="/male-infertility/testicular-recovery-stemcell.php" class="hover:text-teal-600">Testicular Recovery</a></li>
                 <li><a href="/female-infertility/stemcell-ovarian-rejuvenation.php" class="hover:text-teal-600">Ovarian Rejuvenation</a></li>
               </ul>
@@ -284,14 +303,19 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     </div>
-    <a href="/doctors/" class="hover:text-teal-600 transition">Our Team</a>
     <a href="/contact/" class="hover:text-teal-600 transition">Contact</a>
   </nav>
-  <!-- CTA (Desktop) -->
-  <a href="https://wa.me/923111101483"
-     class="hidden md:inline-block bg-teal-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-800 transition shadow-[0_4px_15px_rgba(15,118,110,0.3)] border-none">
-    WhatsApp
-  </a>
+  <!-- CTA Buttons (Desktop) - Patient Login + WhatsApp -->
+  <div class="hidden md:flex items-center gap-3">
+    <a href="/portal/"
+       class="bg-sky-600 text-white px-5 py-2 rounded-md font-semibold hover:bg-sky-700 transition text-sm shadow-[0_4px_15px_rgba(14,165,233,0.3)] border-none flex items-center gap-2">
+      <i class="fa-solid fa-laptop-medical"></i> Patient Login
+    </a>
+    <a href="https://wa.me/923111101483"
+       class="bg-teal-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-teal-800 transition shadow-[0_4px_15px_rgba(15,118,110,0.3)] border-none">
+      WhatsApp
+    </a>
+  </div>
   <!-- HAMBURGER BUTTON (Mobile) -->
   <button id="mobile-menu-btn" aria-label="Open navigation menu" style="display:none;flex-direction:column;justify-content:center;align-items:center;width:40px;height:40px;border-radius:8px;background:transparent;border:none;cursor:pointer;">
     <span style="display:block;width:24px;height:2px;background:#374151;"></span>
@@ -299,7 +323,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <span style="display:block;width:24px;height:2px;background:#374151;margin-top:6px;"></span>
   </button>
   <script>
-    // Show hamburger on mobile
     (function(){
       var btn = document.getElementById('mobile-menu-btn');
       if(btn){
@@ -315,10 +338,8 @@ document.addEventListener('DOMContentLoaded', () => {
 <div id="mobile-menu-overlay" style="display:none;position:fixed;inset:0;z-index:9999;">
   <!-- Backdrop -->
   <div id="mobile-menu-backdrop" style="position:absolute;inset:0;background:rgba(0,0,0,0.5);transition:opacity 0.3s;opacity:0;"></div>
-  
   <!-- Slide-in Panel -->
   <div id="mobile-menu-panel" style="position:absolute;top:0;right:0;bottom:0;width:85%;max-width:400px;background:#fff;transform:translateX(100%);transition:transform 0.3s ease;overflow-y:auto;box-shadow:-4px 0 25px rgba(0,0,0,0.15);">
-    
     <!-- Header -->
     <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #e5e7eb;">
       <a href="/" style="font-size:1.35rem;font-weight:800;color:#0f766e;text-decoration:none;">IVF Experts</a>
@@ -327,7 +348,18 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Navigation Links -->
     <nav style="padding:16px 0;">
       <a href="/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">Home</a>
-      <a href="/about/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">About</a>
+      <!-- About Accordion -->
+      <div class="mobile-accordion" style="border-bottom:1px solid #f1f5f9;">
+        <button class="mobile-accordion-toggle" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;background:transparent;border:none;cursor:pointer;text-align:left;">
+          About
+          <svg class="mobile-accordion-arrow" style="width:18px;height:18px;transition:transform 0.3s;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="mobile-accordion-content" style="display:none;padding:0 24px 12px 24px;background:#f8fafc;">
+          <a href="/about/" style="display:block;padding:10px 16px;font-size:14px;color:#0f766e;font-weight:600;text-decoration:none;border-radius:8px;">About Dr. Adnan &rarr;</a>
+          <a href="/doctors/" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Our Team</a>
+          <a href="/blog/" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Blog / Articles</a>
+        </div>
+      </div>
       <!-- Male Infertility Accordion -->
       <div class="mobile-accordion" style="border-bottom:1px solid #f1f5f9;">
         <button class="mobile-accordion-toggle" style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;background:transparent;border:none;cursor:pointer;text-align:left;">
@@ -401,14 +433,17 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="/stemcell/mesenchymal-umbilical.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">MSCs / MHUCs (Mesenchymal)</a>
           <a href="/stemcell/pluripotent-stem-cells.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Pluripotent Stem Cells</a>
           <a href="/stemcell/multipotent-stem-cells.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Multipotent Stem Cells</a>
-          <a href="/stemcell/role-in-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Stem Cells & Infertility</a>
+          <a href="/stemcell/role-in-infertility.php" style="display:block;padding:8px 16px;font-size:13px;color:#475569;text-decoration:none;">Stem Cells &amp; Infertility</a>
         </div>
       </div>
-      <a href="/doctors/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">Our Team</a>
       <a href="/contact/" style="display:block;padding:14px 24px;font-size:15px;font-weight:600;color:#1e293b;text-decoration:none;border-bottom:1px solid #f1f5f9;">Contact</a>
     </nav>
-    <!-- WhatsApp CTA -->
-    <div style="padding:16px 24px 32px;">
+    <!-- Mobile CTAs -->
+    <div style="padding:16px 24px 32px;display:flex;flex-direction:column;gap:10px;">
+      <a href="/portal/" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#0284c7;color:#fff;padding:14px 24px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 4px 15px rgba(14,165,233,0.3);">
+        <i class="fa-solid fa-laptop-medical"></i>
+        Patient Login
+      </a>
       <a href="https://wa.me/923111101483" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#0f766e;color:#fff;padding:14px 24px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 4px 15px rgba(15,118,110,0.3);">
         <svg style="width:22px;height:22px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.767 5.766 0 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.767-5.766-.001-3.187-2.575-5.77-5.764-5.771z"/></svg>
         WhatsApp Consultation
