@@ -355,8 +355,8 @@ endif; ?>
         <!-- Footer: Digital Signature text and image -->
         <div class="print-footer no-print-bg w-full">
             <div class="pt-1 w-full flex justify-between items-end gap-4 relative z-10">
-                <div class="text-[9px] text-gray-700 italic pb-1 border-t border-gray-400 pt-2 min-w-[250px] inline-block">
-                    <strong>Digitally Signed :</strong> Dr. Adnan Jabbar | MBBS, DFM, MH, <br>Fertility & Family Medicine Specialist, Clinical Embryologist
+                <div class="text-[9px] text-gray-700 italic pb-1 border-t border-gray-400 pt-3 min-w-[250px] inline-block mt-[-5px]">
+                    <strong>Digitally Signed :</strong> Dr. Adnan Jabbar | MBBS, DFM, MH, Fertility & Family Medicine Specialist, Clinical Embryologist
                 </div>
                 <div class="shrink-0 text-right">
                     <?php if (!empty($rx['digital_signature_path'])): ?>
