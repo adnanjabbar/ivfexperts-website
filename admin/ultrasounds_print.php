@@ -74,6 +74,21 @@ $mr = $usg['margin_right'] ?? '20mm';
                 margin: 0;
             }
             .no-print { display: none !important; }
+            .print-footer {
+                position: fixed !important;
+                bottom: 25mm !important;
+                left: 100mm !important;
+                right: 45mm !important;
+            }
+        }
+        .print-footer {
+            position: absolute;
+            bottom: 25mm;
+            left: 100mm;
+            right: 45mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
         /* WYSIWYG Content Styles reset */
         .usg-content table { width: 100%; border-collapse: collapse; margin-bottom: 1em; }
@@ -100,7 +115,7 @@ $mr = $usg['margin_right'] ?? '20mm';
     </div>
 
     <!-- The Actual Document -->
-    <div class="a4-container flex flex-col relative pb-32">
+    <div class="a4-container flex flex-col relative pb-[35mm]">
         
         <!-- Document Title -->
         <div class="text-center uppercase tracking-widest font-bold text-2xl mb-8 border-b-2 border-gray-800 pb-2">
@@ -129,7 +144,7 @@ $mr = $usg['margin_right'] ?? '20mm';
         </div>
 
         <!-- Footer -->
-        <div class="absolute bottom-4 left-0 right-0 flex justify-between items-end border-t border-gray-300 pt-4">
+        <div class="print-footer border-t border-gray-300 pt-4">
             
             <div class="flex items-center gap-3">
                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $usg['qrcode_hash']); ?>" alt="QR Code" class="w-16 h-16 border border-gray-200" />

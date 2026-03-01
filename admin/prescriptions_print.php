@@ -111,14 +111,14 @@ $mr = $rx['margin_right'] ?? '20mm';
             .print-footer {
                 position: fixed !important;
                 bottom: 25mm !important;
-                left: 10mm !important;
+                left: 100mm !important;
                 right: 45mm !important;
             }
         }
         .print-footer {
             position: absolute;
             bottom: 25mm;
-            left: 10mm;
+            left: 100mm;
             right: 45mm;
             display: flex;
             justify-content: space-between;
@@ -143,7 +143,7 @@ $mr = $rx['margin_right'] ?? '20mm';
     </div>
 
     <!-- The Actual Document -->
-    <div class="a4-container flex flex-col relative pb-32">
+    <div class="a4-container flex flex-col relative pb-[35mm]">
         
         <!-- Patient Demographics Block -->
         <div class="border-b-2 border-gray-300 pb-2 mb-3 flex justify-between items-end px-2">
@@ -272,25 +272,31 @@ else: ?>
 endif; ?>
         </div>
 
-        <!-- General Notes -->
-        <?php if (!empty($rx['notes'])): ?>
-            <div class="mt-2 pt-2 border-t border-gray-300 px-2">
-                <h3 class="text-[10px] font-bold uppercase tracking-wider text-gray-600 mb-1">Advice / General Notes</h3>
-                <p class="text-[11px] whitespace-pre-wrap leading-snug"><?php echo esc($rx['notes']); ?></p>
-            </div>
-        <?php
+        <!-- Footer Notes & Follow-up -->
+        <div class="mt-2 flex justify-between items-start gap-4 px-2">
+            <!-- General Notes -->
+            <?php if (!empty($rx['notes'])): ?>
+                <div class="flex-grow pt-2 border-t border-gray-300">
+                    <h3 class="text-[10px] font-bold uppercase tracking-wider text-gray-600 mb-1">Advice / General Notes</h3>
+                    <p class="text-[11px] whitespace-pre-wrap leading-snug"><?php echo esc($rx['notes']); ?></p>
+                </div>
+            <?php
+else: ?>
+                <div class="flex-grow pt-2 border-t border-gray-300 border-none"></div>
+            <?php
 endif; ?>
 
-        <!-- Revisit Date -->
-        <?php if (!empty($rx['revisit_date'])): ?>
-            <div class="mt-4 px-2">
-                <div class="inline-block border border-gray-300 rounded-full px-4 py-1.5 bg-gray-50 text-[11px] shadow-sm">
-                    <span class="font-bold text-gray-500 uppercase">Next Follow-up Visit:</span> 
-                    <span class="font-bold text-indigo-800 ml-2"><?php echo date('l, d M Y', strtotime($rx['revisit_date'])); ?></span>
+            <!-- Revisit Date -->
+            <?php if (!empty($rx['revisit_date'])): ?>
+                <div class="pt-2 shrink-0 border-t border-gray-300 border-none text-right">
+                    <div class="inline-block border border-gray-300 rounded-full px-4 py-1.5 bg-gray-50 text-[11px] shadow-sm">
+                        <span class="font-bold text-gray-500 uppercase">Next Follow-up Visit:</span> 
+                        <span class="font-bold text-indigo-800 ml-2"><?php echo date('l, d M Y', strtotime($rx['revisit_date'])); ?></span>
+                    </div>
                 </div>
-            </div>
-        <?php
+            <?php
 endif; ?>
+        </div>
 
         <!-- Footer: Signature & QR Code absolute positioned to bottom -->
         <div class="print-footer no-print-bg">
