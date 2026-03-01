@@ -107,7 +107,7 @@ endif; ?>
                                     </div>
                                     <div class="text-xs text-gray-500 flex gap-3 mt-1.5">
                                         <span class="font-mono text-sky-700 font-bold bg-sky-100 px-1.5 py-0.5 rounded" x-text="'MR: ' + p.mr_number"></span>
-                                        <span x-text="'<i class=\'fa-solid fa-phone text-[9px]\'></i> ' + (p.phone || 'N/A')" x-html="true" class="flex items-center gap-1"></span>
+                                        <span x-html="'<i class=\'fa-solid fa-phone text-[9px]\'></i> ' + (p.phone || 'N/A')" class="flex items-center gap-1"></span>
                                         <span x-text="'CNIC: ' + (p.cnic || 'N/A')"></span>
                                     </div>
                                 </div>
