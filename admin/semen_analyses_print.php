@@ -59,8 +59,8 @@ $total_motility = $sa['pr_motility'] + $sa['np_motility'];
             .a4-container { width: auto; min-height: auto; box-shadow: none; padding: 0; margin: 0; }
             .no-print { display: none !important; }
         }
-        .sa-table th { padding: 6px; text-align: left; background: #f9fafb; font-size: 13px; text-transform: uppercase; border: 1px solid #e5e7eb; }
-        .sa-table td { padding: 6px 10px; font-size: 14px; border: 1px solid #e5e7eb; }
+        .sa-table th { padding: 4px 8px; text-align: left; background: #f9fafb; font-size: 11px; text-transform: uppercase; border: 1px solid #e5e7eb; }
+        .sa-table td { padding: 4px 8px; font-size: 13px; border: 1px solid #e5e7eb; }
         .red-flag { color: #dc2626; font-weight: bold; }
     </style>
 </head>
@@ -77,42 +77,45 @@ $total_motility = $sa['pr_motility'] + $sa['np_motility'];
     <div class="a4-container flex flex-col relative pb-32 font-sans">
         
         <!-- Header: 2 Logos -->
-        <div class="flex justify-between items-center mb-6 border-b-2 border-slate-800 pb-4">
+        <!-- Header: 2 Logos -->
+        <div class="flex justify-between items-center mb-3 border-b-2 border-slate-800 pb-2">
             <!-- Left Side: IVF Experts Standard Logo (we pull from web root assets if exists, or text fallback) -->
             <div class="w-1/3">
-                <img src="../assets/images/logo.png" alt="IVF Experts" class="h-16 object-contain" onerror="this.style.display='none'; document.getElementById('fb1').style.display='block';">
-                <div id="fb1" style="display:none;" class="font-extrabold text-2xl text-blue-900 tracking-tight">IVF EXPERTS</div>
+                <img src="../assets/images/logo.png" alt="IVF Experts" class="h-14 object-contain" onerror="this.style.display='none'; document.getElementById('fb1').style.display='block';">
+                <div id="fb1" style="display:none;" class="font-extrabold text-xl text-blue-900 tracking-tight">IVF EXPERTS</div>
             </div>
             
             <div class="w-1/3 text-center">
-                <h1 class="font-bold text-xl uppercase tracking-widest text-slate-800">Semen Analysis</h1>
-                <p class="text-[10px] text-slate-500 uppercase tracking-widest">WHO 6th Edition Standard</p>
+                <h1 class="font-bold text-lg uppercase tracking-widest text-slate-800 m-0">Semen Analysis</h1>
+                <p class="text-[9px] text-slate-500 uppercase tracking-widest mt-0">WHO 6th Edition Standard</p>
             </div>
             
             <div class="w-1/3 flex justify-end">
                 <?php if (!empty($sa['logo_path']) && $sa['logo_path'] !== 'assets/images/logo.png'): ?>
-                    <img src="../<?php echo esc($sa['logo_path']); ?>" alt="<?php echo esc($sa['hospital_name']); ?>" class="h-16 object-contain">
+                    <img src="../<?php echo esc($sa['logo_path']); ?>" alt="<?php echo esc($sa['hospital_name']); ?>" class="h-14 object-contain">
                 <?php
 endif; ?>
             </div>
         </div>
 
         <!-- Patient Demographics Box -->
-        <div class="border border-slate-300 rounded p-3 mb-6 grid grid-cols-2 gap-y-2 text-sm bg-slate-50">
-            <div><span class="font-semibold w-24 inline-block text-slate-600">Patient Name:</span> <span class="font-bold text-lg"><?php echo esc($sa['first_name'] . ' ' . $sa['last_name']); ?></span></div>
-            <div><span class="font-semibold w-32 inline-block text-slate-600">Spouse Name:</span> <span class="font-medium"><?php echo esc($sa['spouse_name'] ?: '-'); ?></span></div>
-            <div><span class="font-semibold w-24 inline-block text-slate-600">MR Number:</span> <span class="font-mono text-[15px] font-bold"><?php echo esc($sa['mr_number']); ?></span></div>
-            <div><span class="font-semibold w-32 inline-block text-slate-600">Referred By:</span> <span class="font-medium">Dr. Adnan Jabbar</span></div>
-            <div class="col-span-2 border-t border-slate-200 mt-2 pt-2 grid grid-cols-3">
+        <div class="border border-slate-300 rounded px-3 py-2 mb-3 bg-slate-50">
+            <div class="grid grid-cols-2 gap-y-1 text-[13px]">
+                <div><span class="font-semibold w-24 inline-block text-slate-600">Patient Name:</span> <span class="font-bold text-[14px] text-slate-900"><?php echo esc($sa['first_name'] . ' ' . $sa['last_name']); ?></span></div>
+                <div><span class="font-semibold w-28 inline-block text-slate-600">Spouse Name:</span> <span class="font-medium text-slate-800"><?php echo esc($sa['spouse_name'] ?: '-'); ?></span></div>
+                <div><span class="font-semibold w-24 inline-block text-slate-600">MR Number:</span> <span class="font-mono font-bold text-indigo-800 tracking-wider text-[14px]"><?php echo esc($sa['mr_number']); ?></span></div>
+                <div><span class="font-semibold w-28 inline-block text-slate-600">Referred By:</span> <span class="font-medium text-slate-800">Dr. Adnan Jabbar</span></div>
+            </div>
+            <div class="flex justify-between border-t border-slate-200 mt-1 pt-1 text-[12px]">
                 <div><span class="font-semibold text-slate-600">Collection:</span> <?php echo date('d M Y, h:i A', strtotime($sa['collection_time'])); ?></div>
                 <div><span class="font-semibold text-slate-600">Examination:</span> <?php echo $sa['examination_time'] ? date('d M Y, h:i A', strtotime($sa['examination_time'])) : '-'; ?></div>
-                <div><span class="font-semibold text-slate-600">Abstinence:</span> <?php echo esc($sa['abstinence_days']); ?> Days</div>
+                <div><span class="font-semibold text-slate-600">Abstinence:</span> <span class="font-bold text-slate-800"><?php echo esc($sa['abstinence_days']); ?> Days</span></div>
             </div>
         </div>
 
         <!-- Macroscopic -->
-        <h3 class="font-bold uppercase tracking-wider text-sm mb-2 text-slate-800 border-b border-slate-800 pb-1">Macroscopic Examination</h3>
-        <table class="w-full sa-table mb-6">
+        <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-1 rounded-sm shadow-sm">Macroscopic Examination</h3>
+        <table class="w-full sa-table mb-3">
             <tr>
                 <td class="w-1/3">Volume</td>
                 <td class="w-1/3 font-mono font-bold <?php echo($sa['volume'] > 0 && $sa['volume'] < 1.4) ? 'red-flag' : ''; ?>"><?php echo $sa['volume']; ?> ml</td>
@@ -141,8 +144,8 @@ endif; ?>
         </table>
 
         <!-- Microscopic -->
-        <h3 class="font-bold uppercase tracking-wider text-sm mb-2 text-slate-800 border-b border-slate-800 pb-1">Microscopic Examination</h3>
-        <table class="w-full sa-table mb-6">
+        <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-1 rounded-sm shadow-sm">Microscopic Examination</h3>
+        <table class="w-full sa-table mb-3">
             <tr>
                 <td class="w-1/3 font-bold bg-slate-100">Sperm Concentration</td>
                 <td class="w-1/3 font-mono font-bold text-base <?php echo($sa['concentration'] > 0 && $sa['concentration'] < 16) ? 'red-flag' : ''; ?>"><?php echo $sa['concentration']; ?> <span class="text-xs">M/ml</span></td>
@@ -176,8 +179,8 @@ endif; ?>
         </table>
 
         <!-- Morphological Examination -->
-        <h3 class="font-bold uppercase tracking-wider text-sm mb-2 text-slate-800 border-b border-slate-800 pb-1 mt-2">Morphological Examination</h3>
-        <table class="w-full sa-table mb-6">
+        <h3 class="font-bold uppercase tracking-widest text-[11px] mb-1 bg-slate-800 text-white px-3 py-1 rounded-sm shadow-sm">Morphological Examination</h3>
+        <table class="w-full sa-table mb-3">
             <tr>
                 <td class="w-1/3">Normal Morphology</td>
                 <td class="w-1/3 font-mono font-bold <?php echo($sa['normal_morphology'] > 0 && $sa['normal_morphology'] < 4) ? 'red-flag' : ''; ?>"><?php echo $sa['normal_morphology']; ?> %</td>
@@ -207,45 +210,43 @@ endif; ?>
         </table>
 
         <!-- Diagnosis Box -->
-        <div class="mt-4 bg-white rounded-lg p-5 text-center border border-slate-200 shadow-sm relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
-            <h4 class="uppercase tracking-widest text-xs font-bold text-slate-500 mb-2">Conclusion / Diagnosis</h4>
-            <div class="text-xl md:text-2xl font-bold tracking-wide text-slate-800 break-words">
+        <div class="mt-2 bg-slate-100 rounded p-2 text-center border-2 border-slate-300 relative mx-12 shadow-inner">
+            <h4 class="uppercase tracking-widest text-[10px] font-bold text-slate-600 mb-0">Conclusion / Diagnosis</h4>
+            <div class="text-xl font-bold tracking-widest text-slate-900 break-words uppercase">
                 <?php echo esc($sa['auto_diagnosis']); ?>
             </div>
         </div>
 
         <?php if (!empty($sa['admin_notes'])): ?>
-            <div class="mt-4 p-3 bg-yellow-50 text-sm border border-yellow-200 text-slate-800 rounded">
-                <span class="font-bold uppercase text-[10px] block mb-1">Physician Notes</span>
+            <div class="mt-2 p-2 bg-yellow-50 text-[12px] border border-yellow-200 text-slate-800 rounded">
+                <span class="font-bold uppercase text-[10px] block mb-0 text-yellow-800">Physician Notes</span>
                 <?php echo nl2br(esc($sa['admin_notes'])); ?>
             </div>
         <?php
 endif; ?>
 
         <!-- Footer -->
-        <div class="absolute bottom-6 left-0 right-0 flex justify-between items-end pb-4 pl-4">
+        <div class="absolute bottom-2 left-0 right-0 flex justify-between items-end pb-2 px-6">
             
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2">
                 <!-- QR Code points to Patient Portal for 2FA unlock -->
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $sa['qrcode_hash']); ?>" alt="QR Code" class="w-20 h-20 border border-slate-200 p-1 bg-white" />
-                <div class="text-[10px] text-slate-500 w-48 leading-tight">
-                    <span class="font-bold block text-slate-800">Scan for Secure PDF</span>
-                    Unlock code required via patient portal.
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=<?php echo urlencode('https://ivfexperts.pk/portal/verify.php?hash=' . $sa['qrcode_hash']); ?>" alt="QR Code" class="w-16 h-16 border border-slate-300 p-0.5 bg-white" />
+                <div class="text-[9px] text-slate-500 w-44 leading-tight">
+                    <span class="font-bold block text-slate-800 text-[10px]">Secure Digital PDF Record</span>
+                    Scan this verification code with your mobile camera to authenticate.
                 </div>
             </div>
 
-            <div class="text-center pr-4">
+            <div class="text-center">
                 <?php if (!empty($sa['digital_signature_path'])): ?>
-                    <img src="../<?php echo esc($sa['digital_signature_path']); ?>" alt="Signature" class="h-20 mx-auto object-contain mb-1" />
+                    <img src="../<?php echo esc($sa['digital_signature_path']); ?>" alt="Signature" class="h-14 mx-auto object-contain mb-0" />
                 <?php
 else: ?>
-                    <div class="h-20 sm:w-48 text-gray-300 italic flex items-end justify-center pb-2 border-b border-gray-400">Unsigned Document</div>
+                    <div class="h-14 sm:w-48 text-gray-300 italic flex items-end justify-center pb-1 border-b border-gray-400">Unsigned Document</div>
                 <?php
 endif; ?>
-                <div class="text-[11px] text-slate-600  pt-1 w-64 mx-auto italic">Electronically Verified By:</div>
-                <div class="font-bold uppercase text-sm">Dr. Adnan Jabbar</div>
-                <div class="text-[11px] text-slate-600">Male Infertility & IVF Specialist</div>
+                <div class="font-bold uppercase text-[13px] mt-1 text-slate-800">Dr. Adnan Jabbar</div>
+                <div class="text-[10px] text-slate-500 border-t border-slate-300 pt-0.5 mx-auto inline-block w-48 italic">Electronically Verified By Clinical Director</div>
             </div>
 
         </div>
