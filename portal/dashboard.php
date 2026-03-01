@@ -77,6 +77,13 @@ if ($res) {
         $receipts[] = $row;
 }
 
+$lab_results = [];
+$res = $conn->query("SELECT plt.id, plt.test_date as created_at, plt.result_value, plt.scanned_report_path, ltd.test_name, ltd.reference_range, ltd.unit, pt.first_name, pt.last_name FROM patient_lab_results plt JOIN lab_tests_directory ltd ON plt.test_id = ltd.id JOIN patients pt ON plt.patient_id = pt.id WHERE plt.patient_id IN ($ids_csv) ORDER BY plt.test_date DESC, plt.id DESC");
+if ($res) {
+    while ($row = $res->fetch_assoc())
+        $lab_results[] = $row;
+}
+
 // Logout handler
 if (isset($_GET['logout'])) {
     session_destroy();
@@ -168,7 +175,7 @@ else:
                         <div class="p-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
                             <div>
                                 <div class="font-bold text-gray-800"><?php echo htmlspecialchars($u['report_title']); ?></div>
-                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">Patient: <?php echo esc($u['first_name'] . ' ' . $u['last_name']); ?></div>
+                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">Patient: <?php echo htmlspecialchars($u['first_name'] . ' ' . $u['last_name']); ?></div>
                                 <div class="text-xs text-gray-500">Report Date: <?php echo date('d M Y', strtotime($u['created_at'])); ?></div>
                             </div>
                             <a href="view.php?type=usg&hash=<?php echo $u['qrcode_hash']; ?>" target="_blank" class="bg-sky-50 hover:bg-sky-100 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-sky-100 whitespace-nowrap">
@@ -177,6 +184,67 @@ else:
                         </div>
                     <?php
     endforeach;
+endif; ?>
+                </div>
+            </div>
+
+            <!-- Lab Results -->
+            <div class="lg:col-span-2">
+                <h2 class="font-bold text-gray-800 mb-4 flex items-center"><i class="fa-solid fa-vials text-indigo-600 mr-2"></i> Laboratory Results</h2>
+                <div class="bg-white shadow-sm border border-gray-100 rounded-2xl overflow-hidden divide-y divide-gray-50">
+                    <?php if (empty($lab_results)): ?>
+                        <div class="p-6 text-center text-gray-400 text-sm">No laboratory results found.</div>
+                    <?php
+else: ?>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead>
+                                    <tr class="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider">
+                                        <th class="p-4 font-medium">Patient</th>
+                                        <th class="p-4 font-medium">Test Name</th>
+                                        <th class="p-4 font-medium">Result Value</th>
+                                        <th class="p-4 font-medium">Reference Range</th>
+                                        <th class="p-4 font-medium text-right">Date / Report</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-50 text-sm">
+                                    <?php foreach ($lab_results as $lr): ?>
+                                    <tr class="hover:bg-gray-50 transition-colors">
+                                        <td class="p-4">
+                                            <div class="font-bold text-gray-900"><?php echo htmlspecialchars($lr['first_name'] . ' ' . $lr['last_name']); ?></div>
+                                            <?php if ($lr['first_name'] === $patient['first_name']): ?>
+                                                <span class="text-[10px] bg-indigo-50 text-indigo-600 px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">You</span>
+                                            <?php
+        else: ?>
+                                                <span class="text-[10px] bg-pink-50 text-pink-600 px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">Spouse</span>
+                                            <?php
+        endif; ?>
+                                        </td>
+                                        <td class="p-4 font-semibold text-gray-900"><?php echo htmlspecialchars($lr['test_name']); ?></td>
+                                        <td class="p-4">
+                                            <span class="font-bold text-lg text-gray-900"><?php echo htmlspecialchars($lr['result_value']); ?></span>
+                                            <span class="text-xs text-gray-500 font-mono ml-1"><?php echo htmlspecialchars($lr['unit']); ?></span>
+                                        </td>
+                                        <td class="p-4 text-gray-600 text-xs"><?php echo htmlspecialchars($lr['reference_range'] ?: 'N/A'); ?></td>
+                                        <td class="p-4 text-right">
+                                            <div class="font-medium text-gray-800 mb-2"><?php echo date('d M Y', strtotime($lr['created_at'])); ?></div>
+                                            <?php if (!empty($lr['scanned_report_path'])): ?>
+                                                <a href="../<?php echo htmlspecialchars($lr['scanned_report_path']); ?>" target="_blank" class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 px-3 py-1.5 rounded-md text-xs font-bold transition-colors inline-block border border-indigo-100">
+                                                    <i class="fa-solid fa-file-pdf mr-1"></i> Original PDF
+                                                </a>
+                                            <?php
+        else: ?>
+                                                <span class="text-xs text-gray-400">Recorded internally</span>
+                                            <?php
+        endif; ?>
+                                        </td>
+                                    </tr>
+                                    <?php
+    endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php
 endif; ?>
                 </div>
             </div>

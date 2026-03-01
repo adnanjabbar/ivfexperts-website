@@ -18,6 +18,7 @@ $nav_items = [
     ['url' => 'index.php', 'icon' => 'fa-solid fa-chart-pie', 'label' => 'Dashboard'],
     ['url' => 'patients.php', 'icon' => 'fa-solid fa-users', 'label' => 'Patient Registry'],
     ['url' => 'semen_analyses.php', 'icon' => 'fa-solid fa-microscope', 'label' => 'Semen Analysis'],
+    ['url' => 'lab_tests.php', 'icon' => 'fa-solid fa-vials', 'label' => 'Laboratory Center'],
     ['url' => 'ultrasounds.php', 'icon' => 'fa-solid fa-image', 'label' => 'Ultrasounds'],
     ['url' => 'prescriptions.php', 'icon' => 'fa-solid fa-file-prescription', 'label' => 'Prescriptions'],
     ['url' => 'medications.php', 'icon' => 'fa-solid fa-pills', 'label' => 'Medications'],
@@ -26,8 +27,12 @@ $nav_items = [
     ['url' => 'settings.php', 'icon' => 'fa-solid fa-gear', 'label' => 'Settings']
 ];
 
+$current_base = explode('?', $current_page)[0];
 foreach ($nav_items as $item) {
-    $is_active = ($current_page == $item['url']) ? 'active bg-teal-800 text-white font-semibold' : 'text-teal-200 hover:text-white';
+    // Treat lab_results.php as active when under Laboratory Center
+    $is_active = ($current_base === $item['url'] || ($item['url'] === 'lab_tests.php' && $current_base === 'lab_results.php'))
+        ? 'bg-teal-800 text-white font-semibold shadow-inner'
+        : 'text-teal-200 hover:text-white hover:bg-teal-800/50';
 ?>
             <a href="<?php echo htmlspecialchars($item['url']); ?>" class="sidebar-link flex items-center gap-3 px-3 py-3 rounded-lg <?php echo $is_active; ?>" title="<?php echo htmlspecialchars($item['label']); ?>">
                 <i class="<?php echo $item['icon']; ?> w-6 text-center text-lg"></i>

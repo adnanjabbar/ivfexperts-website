@@ -112,6 +112,21 @@ try {
 catch (Exception $e) {
 }
 
+// Fetch Lab Results
+$lab_results = [];
+try {
+    $stmt = $conn->prepare("SELECT plt.*, ltd.test_name, ltd.reference_range, ltd.unit FROM patient_lab_results plt JOIN lab_tests_directory ltd ON plt.test_id = ltd.id WHERE plt.patient_id = ? ORDER BY plt.test_date DESC, plt.id DESC");
+    if ($stmt) {
+        $stmt->bind_param("i", $patient_id);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        while ($row = $res->fetch_assoc())
+            $lab_results[] = $row;
+    }
+}
+catch (Exception $e) {
+}
+
 include __DIR__ . '/includes/header.php';
 ?>
 
@@ -198,9 +213,12 @@ endif; ?>
             <button @click="currentTab = 'usg'" :class="{'bg-teal-50 text-teal-700 font-bold border-b-2 border-teal-600': currentTab === 'usg', 'text-gray-500 hover:bg-gray-50': currentTab !== 'usg'}" class="flex-1 py-4 text-sm font-medium transition-colors">
                 <i class="fa-solid fa-image mr-1"></i> Ultrasounds
             </button>
+            <button @click="currentTab = 'labs'" :class="{'bg-teal-50 text-teal-700 font-bold border-b-2 border-teal-600': currentTab === 'labs', 'text-gray-500 hover:bg-gray-50': currentTab !== 'labs'}" class="flex-1 py-4 text-sm font-medium transition-colors border-l border-gray-100">
+                <i class="fa-solid fa-vials mr-1"></i> Lab Reports
+            </button>
         </div>
 
-        <!-- Tab 1: History & Labs -->
+        <!-- Tab 1: History -->
         <div x-show="currentTab === 'history'" x-cloak>
             
             <!-- Add History Form -->
@@ -347,11 +365,77 @@ else:
                             <a href="ultrasounds_print.php?id=<?php echo $u['id']; ?>" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-sm transition-colors">
                                 <i class="fa-solid fa-print"></i>
                             </a>
+                            </div>
                         </div>
-                    </div>
-                <?php
+                    <?php
     endforeach;
 endif; ?>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab 5: Lab Reports -->
+        <div x-show="currentTab === 'labs'" x-cloak>
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6">
+                <div class="px-6 py-4 border-b border-gray-100 bg-gray-50/50 flex justify-between items-center">
+                    <h3 class="font-bold text-gray-800"><i class="fa-solid fa-vials text-teal-600 mr-2"></i> External / Internal Lab Results</h3>
+                    <a href="lab_results_add.php?patient_id=<?php echo $patient['id']; ?>" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        <i class="fa-solid fa-plus mr-1"></i> Add Lab Result
+                    </a>
+                </div>
+                
+                <div class="div p-0">
+                    <?php if (empty($lab_results)): ?>
+                        <div class="p-8 text-center text-gray-400">
+                            <i class="fa-solid fa-flask mb-2 text-3xl block"></i>
+                            No lab test results have been recorded for this patient yet.
+                        </div>
+                    <?php
+else: ?>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider">
+                                        <th class="p-4 font-medium border-b border-gray-100">Test name</th>
+                                        <th class="p-4 font-medium border-b border-gray-100">Result value</th>
+                                        <th class="p-4 font-medium border-b border-gray-100">Reference / Normal</th>
+                                        <th class="p-4 font-medium border-b border-gray-100">Date & Source</th>
+                                        <th class="p-4 font-medium border-b border-gray-100 text-right"><i class="fa-solid fa-paperclip"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-50 text-sm">
+                                    <?php foreach ($lab_results as $lr): ?>
+                                    <tr class="hover:bg-gray-50/50 transition-colors">
+                                        <td class="p-4 font-semibold text-gray-900"><?php echo htmlspecialchars($lr['test_name']); ?></td>
+                                        <td class="p-4">
+                                            <span class="font-bold text-lg text-gray-900"><?php echo htmlspecialchars($lr['result_value']); ?></span>
+                                            <span class="text-xs text-gray-500 font-mono ml-1"><?php echo htmlspecialchars($lr['unit']); ?></span>
+                                        </td>
+                                        <td class="p-4 text-gray-600 text-xs"><?php echo htmlspecialchars($lr['reference_range'] ?: '-'); ?></td>
+                                        <td class="p-4">
+                                            <div class="font-medium text-gray-800"><?php echo date('d M Y', strtotime($lr['test_date'])); ?></div>
+                                            <div class="text-[10px] text-gray-500 uppercase"><?php echo htmlspecialchars($lr['lab_name'] ?: 'In-House'); ?> <?php echo $lr['lab_city'] ? '- ' . htmlspecialchars($lr['lab_city']) : ''; ?></div>
+                                        </td>
+                                        <td class="p-4 text-right">
+                                            <?php if (!empty($lr['scanned_report_path'])): ?>
+                                                <a href="../<?php echo htmlspecialchars($lr['scanned_report_path']); ?>" target="_blank" class="bg-indigo-50 text-indigo-700 hover:bg-indigo-100 px-3 py-1.5 rounded-md text-xs font-bold transition-colors border border-indigo-100">
+                                                    View PDF
+                                                </a>
+                                            <?php
+        else: ?>
+                                                <span class="text-gray-300">-</span>
+                                            <?php
+        endif; ?>
+                                        </td>
+                                    </tr>
+                                    <?php
+    endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php
+endif; ?>
+                </div>
             </div>
         </div>
 
