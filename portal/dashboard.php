@@ -78,10 +78,28 @@ if ($res) {
 }
 
 $lab_results = [];
-$res = $conn->query("SELECT plt.id, plt.test_date as created_at, plt.result_value, plt.scanned_report_path, ltd.test_name, ltd.reference_range, ltd.unit, pt.first_name, pt.last_name FROM patient_lab_results plt JOIN lab_tests_directory ltd ON plt.test_id = ltd.id JOIN patients pt ON plt.patient_id = pt.id WHERE plt.patient_id IN ($ids_csv) ORDER BY plt.test_date DESC, plt.id DESC");
-if ($res) {
-    while ($row = $res->fetch_assoc())
-        $lab_results[] = $row;
+try {
+    $res = $conn->query("SELECT plt.id, plt.test_date as created_at, plt.result_value, plt.scanned_report_path, ltd.test_name, ltd.reference_range, ltd.unit, pt.first_name, pt.last_name FROM patient_lab_results plt JOIN lab_tests_directory ltd ON plt.test_id = ltd.id JOIN patients pt ON plt.patient_id = pt.id WHERE plt.patient_id IN ($ids_csv) ORDER BY plt.test_date DESC, plt.id DESC");
+    if ($res) {
+        while ($row = $res->fetch_assoc())
+            $lab_results[] = $row;
+    }
+}
+catch (Exception $e) {
+}
+
+$advised_procedures = [];
+try {
+    $res = $conn->query("SELECT ap.*, pt.first_name, pt.last_name, 
+            (SELECT GROUP_CONCAT(status SEPARATOR ',') FROM receipts WHERE advised_procedure_id = ap.id) as payment_statuses,
+            (SELECT SUM(amount) FROM receipts WHERE advised_procedure_id = ap.id) as total_billed
+            FROM advised_procedures ap JOIN patients pt ON ap.patient_id = pt.id WHERE ap.patient_id IN ($ids_csv) ORDER BY ap.date_advised DESC, ap.id DESC");
+    if ($res) {
+        while ($row = $res->fetch_assoc())
+            $advised_procedures[] = $row;
+    }
+}
+catch (Exception $e) {
 }
 
 // Logout handler
