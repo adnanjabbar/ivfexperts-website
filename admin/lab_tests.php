@@ -115,7 +115,9 @@ else:
     foreach ($tests as $t): ?>
             <tr class="hover:bg-gray-50/50 transition-colors group">
                 <td class="p-4 font-medium text-gray-900"><?php echo htmlspecialchars($t['test_name']); ?></td>
-                <td class="p-4 text-gray-600"><?php echo htmlspecialchars($t['reference_range'] ?: '-'); ?></td>
+                <td class="p-4 text-gray-600 text-xs leading-relaxed">
+                    <?php echo $t['reference_range'] ? nl2br(htmlspecialchars($t['reference_range'])) : '-'; ?>
+                </td>
                 <td class="p-4 text-gray-500 font-mono text-xs bg-gray-50 rounded text-center m-3 box-border w-10">
                     <?php echo htmlspecialchars($t['unit'] ?: '-'); ?>
                 </td>
@@ -155,8 +157,8 @@ endif; ?>
             </div>
             
             <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-1">Reference Range (Normal Values)</label>
-                <input type="text" name="reference_range" id="reference_range" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g. 1.5 - 4.0">
+                <label class="block text-sm font-medium text-gray-700 mb-1">Reference Range (Supports Multi-line / NABL Format)</label>
+                <textarea name="reference_range" id="reference_range" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm" placeholder="e.g.&#10;Male: < 5&#10;Female Follicular: 3.03 - 8.08&#10;Female Luteal: 1.38 - 5.47"></textarea>
             </div>
             
             <div class="mb-6">

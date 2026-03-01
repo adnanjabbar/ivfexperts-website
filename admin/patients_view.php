@@ -423,7 +423,7 @@ else: ?>
                                             <span class="font-bold text-lg text-gray-900"><?php echo htmlspecialchars($lr['result_value']); ?></span>
                                             <span class="text-xs text-gray-500 font-mono ml-1"><?php echo htmlspecialchars($lr['unit']); ?></span>
                                         </td>
-                                        <td class="p-4 text-gray-600 text-xs"><?php echo htmlspecialchars($lr['reference_range'] ?: '-'); ?></td>
+                                        <td class="p-4 text-gray-600 text-xs leading-relaxed"><?php echo $lr['reference_range'] ? nl2br(htmlspecialchars($lr['reference_range'])) : '-'; ?></td>
                                         <td class="p-4">
                                             <div class="font-medium text-gray-800"><?php echo date('d M Y', strtotime($lr['test_date'])); ?></div>
                                             <div class="text-[10px] text-gray-500 uppercase"><?php echo htmlspecialchars($lr['lab_name'] ?: 'In-House'); ?> <?php echo $lr['lab_city'] ? '- ' . htmlspecialchars($lr['lab_city']) : ''; ?></div>
