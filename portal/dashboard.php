@@ -19,30 +19,59 @@ if (!$patient) {
     die("Account anomaly detected.");
 }
 
-// Fetch all 4 document streams
+// 1. Gather all linked patient IDs (Spouse linking)
+$patient_ids = [$patient_id];
+$cnic_clean = preg_replace('/[^0-9]/', '', $patient['cnic'] ?? '');
+$phone = $patient['phone'] ?? '';
+$mr = $patient['mr_number'] ?? '';
+
+// Find if anyone matches this patient's spouse_name and shares contact info
+if (!empty($patient['spouse_name'])) {
+    $stmt_spouse = $conn->prepare("SELECT id FROM patients WHERE first_name = ? AND (phone = ? OR mr_number = ? OR REPLACE(cnic, '-', '') = ?)");
+    $stmt_spouse->bind_param("ssss", $patient['spouse_name'], $phone, $mr, $cnic_clean);
+    $stmt_spouse->execute();
+    $res_spouse = $stmt_spouse->get_result();
+    while ($row = $res_spouse->fetch_assoc()) {
+        $patient_ids[] = $row['id'];
+    }
+}
+
+// Find if anyone listed THIS patient as their spouse
+$stmt_rev = $conn->prepare("SELECT id FROM patients WHERE spouse_name = ? AND (phone = ? OR mr_number = ? OR REPLACE(cnic, '-', '') = ?)");
+$stmt_rev->bind_param("ssss", $patient['first_name'], $phone, $mr, $cnic_clean);
+$stmt_rev->execute();
+$res_rev = $stmt_rev->get_result();
+while ($row = $res_rev->fetch_assoc()) {
+    $patient_ids[] = $row['id'];
+}
+
+$patient_ids = array_unique($patient_ids);
+$ids_csv = implode(',', $patient_ids);
+
+// Fetch all 4 document streams for all linked IDs
 $prescriptions = [];
-$res = $conn->query("SELECT id, created_at, notes, qrcode_hash FROM prescriptions WHERE patient_id = $patient_id ORDER BY created_at DESC");
+$res = $conn->query("SELECT p.id, p.created_at, p.notes, p.qrcode_hash, pt.first_name, pt.last_name FROM prescriptions p JOIN patients pt ON p.patient_id = pt.id WHERE p.patient_id IN ($ids_csv) ORDER BY p.created_at DESC");
 if ($res) {
     while ($row = $res->fetch_assoc())
         $prescriptions[] = $row;
 }
 
 $ultrasounds = [];
-$res = $conn->query("SELECT id, created_at, report_title, qrcode_hash FROM patient_ultrasounds WHERE patient_id = $patient_id ORDER BY created_at DESC");
+$res = $conn->query("SELECT u.id, u.created_at, u.report_title, u.qrcode_hash, pt.first_name, pt.last_name FROM patient_ultrasounds u JOIN patients pt ON u.patient_id = pt.id WHERE u.patient_id IN ($ids_csv) ORDER BY u.created_at DESC");
 if ($res) {
     while ($row = $res->fetch_assoc())
         $ultrasounds[] = $row;
 }
 
 $semen = [];
-$res = $conn->query("SELECT id, collection_time as created_at, auto_diagnosis, qrcode_hash FROM semen_analyses WHERE patient_id = $patient_id ORDER BY collection_time DESC");
+$res = $conn->query("SELECT s.id, s.collection_time as created_at, s.auto_diagnosis, s.qrcode_hash, pt.first_name, pt.last_name FROM semen_analyses s JOIN patients pt ON s.patient_id = pt.id WHERE s.patient_id IN ($ids_csv) ORDER BY s.collection_time DESC");
 if ($res) {
     while ($row = $res->fetch_assoc())
         $semen[] = $row;
 }
 
 $receipts = [];
-$res = $conn->query("SELECT id, receipt_date as created_at, procedure_name, amount, qrcode_hash FROM receipts WHERE patient_id = $patient_id ORDER BY receipt_date DESC");
+$res = $conn->query("SELECT r.id, r.receipt_date as created_at, r.procedure_name, r.amount, r.qrcode_hash, pt.first_name, pt.last_name FROM receipts r JOIN patients pt ON r.patient_id = pt.id WHERE r.patient_id IN ($ids_csv) ORDER BY r.receipt_date DESC");
 if ($res) {
     while ($row = $res->fetch_assoc())
         $receipts[] = $row;
@@ -113,6 +142,7 @@ else:
                         <div class="p-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
                             <div>
                                 <div class="font-bold text-gray-800">Advanced Semen Analysis</div>
+                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">Patient: <?php echo esc($sa['first_name'] . ' ' . $sa['last_name']); ?></div>
                                 <div class="text-xs text-gray-500">Recorded: <?php echo date('d M Y', strtotime($sa['created_at'])); ?></div>
                                 <div class="text-[10px] uppercase font-bold text-teal-600 mt-1"><?php echo htmlspecialchars($sa['auto_diagnosis']); ?></div>
                             </div>
@@ -138,6 +168,7 @@ else:
                         <div class="p-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
                             <div>
                                 <div class="font-bold text-gray-800"><?php echo htmlspecialchars($u['report_title']); ?></div>
+                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">Patient: <?php echo esc($u['first_name'] . ' ' . $u['last_name']); ?></div>
                                 <div class="text-xs text-gray-500">Report Date: <?php echo date('d M Y', strtotime($u['created_at'])); ?></div>
                             </div>
                             <a href="view.php?type=usg&hash=<?php echo $u['qrcode_hash']; ?>" target="_blank" class="bg-sky-50 hover:bg-sky-100 text-sky-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-sky-100 whitespace-nowrap">
@@ -162,6 +193,7 @@ else:
                         <div class="p-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
                             <div>
                                 <div class="font-bold text-gray-800">E-Prescription #<?php echo $rx['id']; ?></div>
+                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">Patient: <?php echo esc($rx['first_name'] . ' ' . $rx['last_name']); ?></div>
                                 <div class="text-xs text-gray-500">Issued On: <?php echo date('d M Y', strtotime($rx['created_at'])); ?></div>
                             </div>
                             <a href="view.php?type=rx&hash=<?php echo $rx['qrcode_hash']; ?>" target="_blank" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors border border-indigo-100 whitespace-nowrap">
@@ -186,6 +218,7 @@ else:
                         <div class="p-4 flex justify-between items-center hover:bg-gray-50 transition-colors">
                             <div>
                                 <div class="font-bold text-gray-800"><?php echo htmlspecialchars($r['procedure_name']); ?></div>
+                                <div class="text-[10px] text-indigo-600 font-bold uppercase mb-1">For: <?php echo esc($r['first_name'] . ' ' . $r['last_name']); ?></div>
                                 <div class="text-xs text-gray-500">Date: <?php echo date('d M Y', strtotime($r['created_at'])); ?></div>
                                 <div class="text-sm font-mono font-bold text-emerald-700 mt-1">Rs. <?php echo number_format($r['amount'], 2); ?></div>
                             </div>

@@ -76,23 +76,24 @@ $patient = $stmt->get_result()->fetch_assoc();
 $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['verify'])) {
-    $input = trim($_POST['auth_key'] ?? '');
+    $phone_mr = trim($_POST['phone_mr'] ?? '');
+    $cnic_raw = trim($_POST['cnic'] ?? '');
+    $cnic_clean = preg_replace('/[^0-9]/', '', $cnic_raw);
 
-    // Check if input matches Phone OR CNIC
-    $match = false;
-    if (!empty($patient['phone']) && $input === $patient['phone'])
-        $match = true;
-    if (!empty($patient['cnic']) && $input === $patient['cnic'])
-        $match = true;
+    $patient_cnic_clean = preg_replace('/[^0-9]/', '', $patient['cnic'] ?? '');
 
-    if ($match) {
+    $phone_match = (!empty($patient['phone']) && $phone_mr === $patient['phone']);
+    $mr_match = (!empty($patient['mr_number']) && $phone_mr === $patient['mr_number']);
+    $cnic_match = (!empty($patient_cnic_clean) && $cnic_clean === $patient_cnic_clean);
+
+    if (($phone_match || $mr_match) && $cnic_match) {
         $_SESSION['portal_patient_id'] = $patient_id;
         $_SESSION['portal_patient_name'] = $patient['first_name'];
         header("Location: dashboard.php");
         exit;
     }
     else {
-        $error = "The provided CNIC or Phone number does not match our records for this document.";
+        $error = "The provided details do not match our secure records for this document.";
     }
 }
 
@@ -125,10 +126,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['verify'])) {
 endif; ?>
 
         <form method="POST">
+            <div class="mb-4">
+                <label class="block text-sm font-bold text-gray-700 mb-2">Mobile Number OR MR Number</label>
+                <input type="text" name="phone_mr" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="e.g. 03001234567 or IVF-2310..." required autofocus value="<?php echo htmlspecialchars($_POST['phone_mr'] ?? ''); ?>">
+            </div>
+            
             <div class="mb-6">
-                <label class="block text-sm font-bold text-gray-700 mb-2">Registered Phone Number OR CNIC</label>
-                <input type="text" name="auth_key" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 text-center font-mono text-lg" placeholder="03XXXXXXXXX / XXXXX-XXXXXXX-X" required autofocus>
-                <p class="text-xs text-center text-gray-400 mt-2">Enter the exact details provided during registration at the clinic counter.</p>
+                <label class="block text-sm font-bold text-gray-700 mb-2">CNIC Number</label>
+                <input type="text" name="cnic" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 font-mono" placeholder="13 digits (dashes will be ignored)" required value="<?php echo htmlspecialchars($_POST['cnic'] ?? ''); ?>">
             </div>
             
             <button type="submit" name="verify" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-lg transition-colors shadow-md">

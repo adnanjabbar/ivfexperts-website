@@ -33,6 +33,7 @@
                     <li><a href="/art-procedures/" class="hover:text-teal-400 transition-colors duration-300">ART Procedures</a></li>
                     <li><a href="/about/" class="hover:text-teal-400 transition-colors duration-300">About Dr. Adnan</a></li>
                     <li><a href="/contact/" class="hover:text-teal-400 transition-colors duration-300">Consultation</a></li>
+                    <li class="pt-2"><a href="/portal/" class="text-sky-400 hover:text-sky-300 font-bold flex items-center gap-2 transition-colors duration-300"><i class="fa-solid fa-laptop-medical"></i> Patient EMR Portal</a></li>
                 </ul>
             </div>
 
